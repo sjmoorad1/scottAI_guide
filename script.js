@@ -166,7 +166,10 @@
     if (!checkAuth()) {
         document.addEventListener('DOMContentLoaded', showPasswordGate);
     } else {
-        document.addEventListener('DOMContentLoaded', initializeApp);
+        document.addEventListener('DOMContentLoaded', function() {
+            logAccess(localStorage.getItem(EMAIL_KEY), 'return');
+            initializeApp();
+        });
     }
 
     // ==========================================
