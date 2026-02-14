@@ -7,6 +7,146 @@
     'use strict';
 
     // ==========================================
+    // Password Gate
+    // ==========================================
+
+    const AUTH_KEY = 'agentic-ai-guide-auth';
+    const CORRECT_PASSWORD = 'Time2ElevateMyAIGame#1';
+
+    function checkAuth() {
+        return localStorage.getItem(AUTH_KEY) === 'authenticated';
+    }
+
+    function showPasswordGate() {
+        // Hide main content
+        document.body.style.visibility = 'hidden';
+
+        // Create password modal
+        const modal = document.createElement('div');
+        modal.id = 'password-gate';
+        modal.innerHTML = `
+            <div class="password-modal">
+                <div class="password-logo">
+                    <img src="images/AscendNxt Logo Blue.png" alt="AscendNxt" style="max-width: 200px;">
+                </div>
+                <h2>Welcome to the Agentic AI Setup Guide</h2>
+                <p>This resource is for AscendNxt clients. Please enter the access code provided to you.</p>
+                <form id="password-form">
+                    <input type="password" id="password-input" placeholder="Enter access code" autocomplete="off" autofocus>
+                    <button type="submit">Access Guide</button>
+                    <p id="password-error" style="color: #e53e3e; margin-top: 12px; display: none;">Incorrect access code. Please try again.</p>
+                </form>
+                <p class="password-help">Need access? Contact <a href="mailto:scott@ascendnxt.com">scott@ascendnxt.com</a></p>
+            </div>
+        `;
+        document.body.appendChild(modal);
+
+        // Style the modal
+        const style = document.createElement('style');
+        style.textContent = `
+            #password-gate {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: linear-gradient(135deg, #515471 0%, #3d4058 100%);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                z-index: 99999;
+            }
+            .password-modal {
+                background: white;
+                padding: 48px;
+                border-radius: 16px;
+                text-align: center;
+                max-width: 420px;
+                width: 90%;
+                box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            }
+            .password-logo {
+                margin-bottom: 24px;
+            }
+            .password-modal h2 {
+                color: #515471;
+                margin-bottom: 12px;
+                font-size: 1.5rem;
+            }
+            .password-modal p {
+                color: #666;
+                margin-bottom: 24px;
+                line-height: 1.5;
+            }
+            #password-form {
+                display: flex;
+                flex-direction: column;
+                gap: 12px;
+            }
+            #password-input {
+                padding: 14px 16px;
+                font-size: 16px;
+                border: 2px solid #ddd;
+                border-radius: 8px;
+                transition: border-color 0.2s;
+            }
+            #password-input:focus {
+                outline: none;
+                border-color: #FF9933;
+            }
+            #password-form button {
+                padding: 14px 24px;
+                font-size: 16px;
+                font-weight: 600;
+                background: #FF9933;
+                color: white;
+                border: none;
+                border-radius: 8px;
+                cursor: pointer;
+                transition: background 0.2s;
+            }
+            #password-form button:hover {
+                background: #e6851f;
+            }
+            .password-help {
+                margin-top: 24px;
+                font-size: 14px;
+                color: #888;
+            }
+            .password-help a {
+                color: #515471;
+            }
+        `;
+        document.head.appendChild(style);
+
+        // Handle form submission
+        document.getElementById('password-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const input = document.getElementById('password-input');
+            const error = document.getElementById('password-error');
+
+            if (input.value === CORRECT_PASSWORD) {
+                localStorage.setItem(AUTH_KEY, 'authenticated');
+                modal.remove();
+                style.remove();
+                document.body.style.visibility = 'visible';
+                initializeApp();
+            } else {
+                error.style.display = 'block';
+                input.value = '';
+                input.focus();
+            }
+        });
+    }
+
+    // Check authentication on page load
+    if (!checkAuth()) {
+        document.addEventListener('DOMContentLoaded', showPasswordGate);
+    } else {
+        document.addEventListener('DOMContentLoaded', initializeApp);
+    }
+
+    // ==========================================
     // Configuration & State
     // ==========================================
 
@@ -28,7 +168,7 @@
     // Initialization
     // ==========================================
 
-    document.addEventListener('DOMContentLoaded', function() {
+    function initializeApp() {
         loadSavedState();
         initOSToggle();
         initThemeToggle();
@@ -41,7 +181,7 @@
         updateProgressBar();
         applyOSSelection(state.os);
         applyTheme(state.theme);
-    });
+    }
 
     // ==========================================
     // Load Saved State from localStorage
