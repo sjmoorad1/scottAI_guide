@@ -201,9 +201,15 @@ a:hover {
     margin: 0 auto;
 }
 
+.logo {
+    display: flex;
+    align-items: center;
+}
+
 .logo img {
     height: 40px;
     width: auto;
+    display: block;
 }
 
 .logo-dark {
@@ -247,6 +253,11 @@ a:hover {
     display: block;
 }
 
+.sun-icon,
+.moon-icon {
+    display: block;
+}
+
 .moon-icon {
     display: none;
 }
@@ -257,10 +268,6 @@ a:hover {
 
 [data-theme="dark"] .moon-icon {
     display: block;
-}
-
-[data-theme="dark"] .moon-icon {
-    display: inline;
 }
 
 .print-btn,
