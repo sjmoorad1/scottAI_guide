@@ -371,7 +371,9 @@ a:hover {
 }
 
 .os-icon {
-    font-size: 1.5rem;
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
 }
 
 /* Progress Bar */
