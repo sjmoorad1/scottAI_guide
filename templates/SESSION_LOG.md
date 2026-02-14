@@ -1,21 +1,8 @@
 # Session Log
 
-A running record of work done on this project. Add new entries at the top.
+Prevents amnesia between sessions. **Keep entries to 2-4 bullets max.** Just enough to resume context, not documentation.
 
----
-
-## YYYY-MM-DD: [Session Title]
-- **What was done:**
-- **Key decisions:**
-- **Next steps:**
-
----
-
-<!-- Template for new entries:
-
-## YYYY-MM-DD: [Session Title]
-- **What was done:**
-- **Key decisions:**
-- **Next steps:**
-
--->
+## YYYY-MM-DD: [Title]
+- What was done (1 line)
+- Key decision or gotcha (if any)
+- Next step (if any)
