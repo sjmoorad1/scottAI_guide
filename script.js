@@ -11,14 +11,28 @@
     // ==========================================
 
     const AUTH_KEY = 'agentic-ai-guide-auth';
+    const EMAIL_KEY = 'agentic-ai-guide-email';
     const CORRECT_PASSWORD = 'Time2ElevateMyAIGame#1';
+    const LOG_URL = 'https://script.google.com/macros/s/AKfycbyb0PPh_0F9eypxzKdwciGmWlxB_bASTn-94y5Qh4WZSYMDUgOHR5q7JsTK-8qZd6O1/exec';
 
     function checkAuth() {
         return localStorage.getItem(AUTH_KEY) === 'authenticated';
     }
 
+    function isValidEmail(email) {
+        return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+    }
+
+    function logAccess(email, status) {
+        fetch(LOG_URL, {
+            method: 'POST',
+            mode: 'no-cors',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ email: email, status: status })
+        }).catch(() => {}); // Silent fail - don't block user
+    }
+
     function showPasswordGate() {
-        // Create password modal
         const modal = document.createElement('div');
         modal.id = 'password-gate';
         modal.innerHTML = `
@@ -27,18 +41,18 @@
                     <img src="images/AscendNxt Logo Blue.png" alt="AscendNxt" style="max-width: 200px;">
                 </div>
                 <h2>Welcome to the Agentic AI Setup Guide</h2>
-                <p>This resource is for AscendNxt clients. Please enter the access code provided to you.</p>
+                <p>This resource is for AscendNxt clients. Enter your email and access code.</p>
                 <form id="password-form">
-                    <input type="password" id="password-input" placeholder="Enter access code" autocomplete="off" autofocus>
+                    <input type="email" id="email-input" placeholder="Your email address" autocomplete="email" autofocus required>
+                    <input type="password" id="password-input" placeholder="Access code" autocomplete="off" required>
                     <button type="submit">Access Guide</button>
-                    <p id="password-error" style="color: #e53e3e; margin-top: 12px; display: none;">Incorrect access code. Please try again.</p>
+                    <p id="form-error" style="color: #e53e3e; margin-top: 12px; display: none;"></p>
                 </form>
                 <p class="password-help">Need access? Contact <a href="mailto:scott@ascendnxt.com">scott@ascendnxt.com</a></p>
             </div>
         `;
         document.body.appendChild(modal);
 
-        // Style the modal
         const style = document.createElement('style');
         style.textContent = `
             #password-gate {
@@ -80,14 +94,14 @@
                 flex-direction: column;
                 gap: 12px;
             }
-            #password-input {
+            #password-form input {
                 padding: 14px 16px;
                 font-size: 16px;
                 border: 2px solid #ddd;
                 border-radius: 8px;
                 transition: border-color 0.2s;
             }
-            #password-input:focus {
+            #password-form input:focus {
                 outline: none;
                 border-color: #FF9933;
             }
@@ -116,21 +130,34 @@
         `;
         document.head.appendChild(style);
 
-        // Handle form submission
         document.getElementById('password-form').addEventListener('submit', function(e) {
             e.preventDefault();
-            const input = document.getElementById('password-input');
-            const error = document.getElementById('password-error');
+            const emailInput = document.getElementById('email-input');
+            const passwordInput = document.getElementById('password-input');
+            const error = document.getElementById('form-error');
+            const email = emailInput.value.trim();
+            const password = passwordInput.value;
 
-            if (input.value === CORRECT_PASSWORD) {
+            if (!isValidEmail(email)) {
+                error.textContent = 'Please enter a valid email address.';
+                error.style.display = 'block';
+                emailInput.focus();
+                return;
+            }
+
+            if (password === CORRECT_PASSWORD) {
                 localStorage.setItem(AUTH_KEY, 'authenticated');
+                localStorage.setItem(EMAIL_KEY, email);
+                logAccess(email, 'success');
                 modal.remove();
                 style.remove();
                 initializeApp();
             } else {
+                logAccess(email, 'failed');
+                error.textContent = 'Incorrect access code. Please try again.';
                 error.style.display = 'block';
-                input.value = '';
-                input.focus();
+                passwordInput.value = '';
+                passwordInput.focus();
             }
         });
     }
