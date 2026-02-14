@@ -537,10 +537,14 @@ a:hover {
     align-items: center;
     gap: var(--space-xs);
     padding: var(--space-md);
-    background: var(--bg-primary);
+    background: rgba(81, 84, 113, 0.05);
     border: 1px solid var(--border-color);
     border-radius: var(--radius-md);
     min-width: 120px;
+}
+
+[data-theme="dark"] .workflow-step {
+    background: var(--bg-primary);
 }
 
 .workflow-step .step-number {
