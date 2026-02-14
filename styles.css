@@ -936,7 +936,7 @@ a:hover {
     display: inline-block;
     padding: var(--space-xs) var(--space-sm);
     background: var(--brand-orange);
-    color: white;
+    color: white !important;
     text-decoration: none;
     border-radius: var(--radius-sm);
     font-size: 0.8rem;
@@ -946,6 +946,7 @@ a:hover {
 
 .download-link:hover {
     background: var(--brand-orange-dark);
+    color: white !important;
 }
 
 /* ==========================================================================

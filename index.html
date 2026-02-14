@@ -68,7 +68,7 @@
                 <li><a href="#phase2" class="nav-link">Phase 2<span class="nav-subtitle">Claude CLI</span></a></li>
                 <li><a href="#phase3" class="nav-link">Phase 3<span class="nav-subtitle">Python</span></a></li>
                 <li><a href="#phase4" class="nav-link">Phase 4<span class="nav-subtitle">GitHub</span></a></li>
-                <li><a href="#workflow" class="nav-link">Workflow</a></li>
+                <li><a href="#workflow" class="nav-link">You're Ready</a></li>
                 <li><a href="#tips" class="nav-link">Tips</a></li>
                 <li><a href="#reference" class="nav-link">Reference</a></li>
             </ul>
@@ -1141,7 +1141,7 @@
                                     <tr>
                                         <th>File</th>
                                         <th>Purpose</th>
-                                        <th>Download</th>
+                                        <th></th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -1177,7 +1177,7 @@
                         <div class="success-box">
                             <span class="success-icon">✓</span>
                             <div class="success-content">
-                                <strong>Success:</strong> You see three new files in the .claude folder in your sidebar.
+                                <strong>Success:</strong> You see the new files in your project sidebar (.claude folder with 3 files, plus README.md and .gitignore).
                             </div>
                         </div>
                     </div>
@@ -1424,51 +1424,27 @@
                 </div>
             </section>
 
-            <!-- WORKFLOW SECTION -->
+            <!-- YOU'RE READY SECTION -->
             <section id="workflow" class="section">
                 <div class="section-header">
                     <span class="section-number">05</span>
-                    <h2>Daily Workflow</h2>
+                    <h2>You're Ready</h2>
                 </div>
+
+                <p class="section-intro">Setup complete. Time to put Claude to work on something real.</p>
 
                 <div class="content-block">
                     <h3>Starting a Session</h3>
                     <ol class="workflow-list">
+                        <li><strong>Create or locate your project folder</strong> <span class="os-text" data-mac="(in Finder)" data-windows="(in File Explorer)">(in Finder)</span><br>
+                            <span class="step-detail">Example: <code class="os-text" data-mac="Documents/projects/my-project" data-windows="Documents\projects\my-project">Documents/projects/my-project</code></span></li>
                         <li><strong>Open VS Code</strong></li>
-                        <li><strong>Open project folder:</strong> File → Open Folder</li>
+                        <li><strong>Open your project folder:</strong> File → Open Folder → select it</li>
                         <li><strong>Open Terminal:</strong> <kbd>Ctrl</kbd>+<kbd>`</kbd></li>
                         <li><strong>Activate venv:</strong> <code class="os-text" data-mac="source venv/bin/activate" data-windows="venv\Scripts\activate">source venv/bin/activate</code></li>
                         <li><strong>Start Claude:</strong> <code>claude</code></li>
-                        <li><strong>Describe your task</strong></li>
+                        <li><strong>Describe your task</strong> — be specific about what you need and what "done" looks like</li>
                     </ol>
-                </div>
-
-                <div class="content-block">
-                    <h3>Example Tasks</h3>
-                    <div class="example-tabs">
-                        <div class="tab-buttons">
-                            <button class="tab-btn active" data-tab="analysis">📊 Analysis</button>
-                            <button class="tab-btn" data-tab="automation">⚙️ Automation</button>
-                            <button class="tab-btn" data-tab="development">💻 Development</button>
-                            <button class="tab-btn" data-tab="debugging">🔧 Debugging</button>
-                        </div>
-                        <div class="tab-content active" id="tab-analysis">
-                            <div class="example-prompt">"Read the sales.xlsx file and tell me which products had declining sales quarter over quarter. Show me a summary table."</div>
-                            <p class="example-outcome">→ Claude reads the file, analyzes trends, and displays results.</p>
-                        </div>
-                        <div class="tab-content" id="tab-automation">
-                            <div class="example-prompt">"Rename all PDF files in the invoices folder using the date found in each filename. Format: YYYY-MM-DD_invoice.pdf"</div>
-                            <p class="example-outcome">→ Claude examines files, writes a script, and renames them.</p>
-                        </div>
-                        <div class="tab-content" id="tab-development">
-                            <div class="example-prompt">"Create a script that pulls data from this API endpoint and saves it to a CSV file daily."</div>
-                            <p class="example-outcome">→ Claude builds the script and explains how to schedule it.</p>
-                        </div>
-                        <div class="tab-content" id="tab-debugging">
-                            <div class="example-prompt">"This script is throwing an error: [paste error]. What's wrong and how do I fix it?"</div>
-                            <p class="example-outcome">→ Claude diagnoses the issue and provides a fix.</p>
-                        </div>
-                    </div>
                 </div>
 
                 <div class="content-block">
@@ -1489,18 +1465,8 @@
                         <pre><code>git add . && git commit -m "Description of changes" && git push</code></pre>
                     </div>
                 </div>
-            </section>
 
-            <!-- TIPS & BEST PRACTICES SECTION -->
-            <section id="tips" class="section">
-                <div class="section-header">
-                    <span class="section-number">06</span>
-                    <h2>Tips & Best Practices</h2>
-                </div>
-
-                <p class="section-intro">Get the most out of Claude and avoid common pitfalls.</p>
-
-                <!-- Getting More from Claude -->
+                <!-- From Theory to Reality - moved from Tips -->
                 <div class="content-block">
                     <h3>From Theory to Reality: What Actually Works</h3>
                     <p>Anyone can get Claude to produce <em>something</em>. The difference between "okay" results and genuinely useful output comes down to how you set up and guide the work. Here's what separates success from frustration:</p>
@@ -1557,8 +1523,17 @@
                         </div>
                     </div>
                 </div>
+            </section>
 
-                <!-- More Tips -->
+            <!-- TIPS & BEST PRACTICES SECTION -->
+            <section id="tips" class="section">
+                <div class="section-header">
+                    <span class="section-number">06</span>
+                    <h2>Tips & Best Practices</h2>
+                </div>
+
+                <p class="section-intro">Additional guidance for getting the most out of Claude.</p>
+
                 <div class="content-block">
                     <h3>Additional Tips</h3>
                     <div class="tip-cards">
