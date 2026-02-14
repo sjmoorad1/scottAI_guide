@@ -16,7 +16,7 @@
     const LOG_URL = 'https://script.google.com/macros/s/AKfycbyb0PPh_0F9eypxzKdwciGmWlxB_bASTn-94y5Qh4WZSYMDUgOHR5q7JsTK-8qZd6O1/exec';
 
     function checkAuth() {
-        return localStorage.getItem(AUTH_KEY) === 'authenticated';
+        return localStorage.getItem(AUTH_KEY) === 'authenticated' && localStorage.getItem(EMAIL_KEY);
     }
 
     function isValidEmail(email) {
