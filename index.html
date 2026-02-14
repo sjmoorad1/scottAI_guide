@@ -20,18 +20,10 @@
             <div class="header-right">
                 <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
                     <svg class="sun-icon" viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
-                        <circle cx="12" cy="12" r="4"></circle>
-                        <line x1="12" y1="2" x2="12" y2="5" stroke="currentColor" stroke-width="2" stroke-linecap="round"></line>
-                        <line x1="12" y1="19" x2="12" y2="22" stroke="currentColor" stroke-width="2" stroke-linecap="round"></line>
-                        <line x1="4.93" y1="4.93" x2="6.76" y2="6.76" stroke="currentColor" stroke-width="2" stroke-linecap="round"></line>
-                        <line x1="17.24" y1="17.24" x2="19.07" y2="19.07" stroke="currentColor" stroke-width="2" stroke-linecap="round"></line>
-                        <line x1="2" y1="12" x2="5" y2="12" stroke="currentColor" stroke-width="2" stroke-linecap="round"></line>
-                        <line x1="19" y1="12" x2="22" y2="12" stroke="currentColor" stroke-width="2" stroke-linecap="round"></line>
-                        <line x1="4.93" y1="19.07" x2="6.76" y2="17.24" stroke="currentColor" stroke-width="2" stroke-linecap="round"></line>
-                        <line x1="17.24" y1="6.76" x2="19.07" y2="4.93" stroke="currentColor" stroke-width="2" stroke-linecap="round"></line>
+                        <path d="M6.76 4.84l-1.8-1.79-1.41 1.41 1.79 1.79 1.42-1.41zM4 10.5H1v2h3v-2zm9-9.95h-2V3.5h2V.55zm7.45 3.91l-1.41-1.41-1.79 1.79 1.41 1.41 1.79-1.79zm-3.21 13.7l1.79 1.8 1.41-1.41-1.8-1.79-1.4 1.4zM20 10.5v2h3v-2h-3zm-8-5c-3.31 0-6 2.69-6 6s2.69 6 6 6 6-2.69 6-6-2.69-6-6-6zm-1 16.95h2V19.5h-2v2.95zm-7.45-3.91l1.41 1.41 1.79-1.8-1.41-1.41-1.79 1.8z"/>
                     </svg>
                     <svg class="moon-icon" viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
-                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                        <path d="M9 2c-1.05 0-2.05.16-3 .46 4.06 1.27 7 5.06 7 9.54 0 4.48-2.94 8.27-7 9.54.95.3 1.95.46 3 .46 5.52 0 10-4.48 10-10S14.52 2 9 2z"/>
                     </svg>
                 </button>
                 <button class="print-btn" onclick="window.print()">Print Guide</button>
@@ -112,7 +104,7 @@
                     <p>You describe what you want in plain English. Claude figures out the steps, writes any necessary code, runs it, and delivers results. You guide the process with feedback, but Claude handles the technical details.</p>
 
                     <div class="callout callout-tip">
-                        <svg class="callout-icon" viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M9 21c0 .5.4 1 1 1h4c.6 0 1-.5 1-1v-1H9v1zm3-19C8.1 2 5 5.1 5 9c0 2.4 1.2 4.5 3 5.7V17c0 .5.4 1 1 1h6c.6 0 1-.5 1-1v-2.3c1.8-1.3 3-3.4 3-5.7 0-3.9-3.1-7-7-7z"/></svg>
+                        <svg class="callout-icon" viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M9 21c0 .55.45 1 1 1h4c.55 0 1-.45 1-1v-1H9v1zm3-19C8.14 2 5 5.14 5 9c0 2.38 1.19 4.47 3 5.74V17c0 .55.45 1 1 1h6c.55 0 1-.45 1-1v-2.26c1.81-1.27 3-3.36 3-5.74 0-3.86-3.14-7-7-7z"/></svg>
                         <div class="callout-content">
                             <strong>No coding experience required.</strong> You'll learn to describe tasks clearly and review results—Claude handles the programming.
                         </div>
@@ -277,7 +269,7 @@
                     <span class="section-number">01</span>
                     <h2>Phase 1: Foundation Setup</h2>
                     <div class="section-meta">
-                        <span class="time-estimate"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg> 30-45 minutes</span>
+                        <span class="time-estimate"><svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10S17.5 2 12 2zm4.2 14.2L11 13V7h1.5v5.2l4.5 2.7-.8 1.3z"/></svg> 30-45 minutes</span>
                         <span class="phase-status" id="phase1-status">Not started</span>
                     </div>
                 </div>
@@ -310,7 +302,7 @@
                         </div>
 
                         <div class="success-box">
-                            <span class="success-icon"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
+                            <span class="success-icon"><svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg></span>
                             <div class="success-content">
                                 <strong>Success looks like:</strong> A window opens with "Welcome" tab. You'll see an interface with icons on the left side.
                             </div>
@@ -354,7 +346,7 @@
                         </div>
 
                         <div class="try-it-box">
-                            <h4><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: -2px; margin-right: 6px;"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="6"></circle><circle cx="12" cy="12" r="2"></circle></svg>Try it now:</h4>
+                            <h4><svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" style="vertical-align: -2px; margin-right: 6px;"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8z"/><circle cx="12" cy="12" r="5"/></svg>Try it now:</h4>
                             <ol>
                                 <li>Press <kbd>Ctrl</kbd>+<kbd>`</kbd> (backtick key, left of 1). Terminal appears at bottom.</li>
                                 <li>Press <kbd>Ctrl</kbd>+<kbd>`</kbd> again. Terminal hides.</li>
@@ -421,14 +413,14 @@
                         </div>
 
                         <div class="success-box">
-                            <span class="success-icon"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
+                            <span class="success-icon"><svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg></span>
                             <div class="success-content">
                                 <strong>Success:</strong> You see "Homebrew 4.x.x"
                             </div>
                         </div>
 
                         <details class="troubleshoot-accordion">
-                            <summary><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: -2px; margin-right: 4px;"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path></svg>Troubleshooting</summary>
+                            <summary><svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor" style="vertical-align: -2px; margin-right: 4px;"><path d="M22.7 19l-9.1-9.1c.9-2.3.4-5-1.5-6.9-2-2-5-2.4-7.4-1.3L9 6 6 9 1.6 4.7C.4 7.1.9 10.1 2.9 12.1c1.9 1.9 4.6 2.4 6.9 1.5l9.1 9.1c.4.4 1 .4 1.4 0l2.3-2.3c.5-.4.5-1.1.1-1.4z"/></svg>Troubleshooting</summary>
                             <div class="accordion-content">
                                 <p><strong>"command not found"</strong> - You missed the "Next steps." Close Terminal, reopen, and run the commands shown at the end of Homebrew installation.</p>
                             </div>
@@ -489,14 +481,14 @@
                         </div>
 
                         <div class="success-box">
-                            <span class="success-icon"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
+                            <span class="success-icon"><svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg></span>
                             <div class="success-content">
                                 <strong>Success:</strong> You see "Python 3.12.x" or "Python 3.13.x"
                             </div>
                         </div>
 
                         <div class="callout callout-tip os-specific mac">
-                            <svg class="callout-icon" viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M9 21c0 .5.4 1 1 1h4c.6 0 1-.5 1-1v-1H9v1zm3-19C8.1 2 5 5.1 5 9c0 2.4 1.2 4.5 3 5.7V17c0 .5.4 1 1 1h6c.6 0 1-.5 1-1v-2.3c1.8-1.3 3-3.4 3-5.7 0-3.9-3.1-7-7-7z"/></svg>
+                            <svg class="callout-icon" viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M9 21c0 .55.45 1 1 1h4c.55 0 1-.45 1-1v-1H9v1zm3-19C8.14 2 5 5.14 5 9c0 2.38 1.19 4.47 3 5.74V17c0 .55.45 1 1 1h6c.55 0 1-.45 1-1v-2.26c1.81-1.27 3-3.36 3-5.74 0-3.86-3.14-7-7-7z"/></svg>
                             <div class="callout-content">
                                 On Mac, always use <code>python3</code> (not just <code>python</code>).
                             </div>
@@ -615,7 +607,7 @@
                         </div>
 
                         <div class="success-box">
-                            <span class="success-icon"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
+                            <span class="success-icon"><svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg></span>
                             <div class="success-content">
                                 <strong>Success:</strong> A new VS Code window opens with "PROJECTS" in the sidebar (it will be empty).
                             </div>
@@ -625,7 +617,7 @@
 
                 <!-- Phase 1 Checkpoint -->
                 <div class="checkpoint">
-                    <h3><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: -3px; margin-right: 6px;"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>Phase 1 Checkpoint</h3>
+                    <h3><svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" style="vertical-align: -3px; margin-right: 6px;"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>Phase 1 Checkpoint</h3>
                     <p>Before moving on, verify each item:</p>
                     <ul class="checkpoint-list">
                         <li>
@@ -645,7 +637,7 @@
                         </li>
                     </ul>
                     <div class="checkpoint-complete" id="phase1-complete">
-                        <span class="celebration"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="7"></circle><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline></svg></span>
+                        <span class="celebration"><svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor"><path d="M19 5h-2V3H7v2H5c-1.1 0-2 .9-2 2v1c0 2.55 1.92 4.63 4.39 4.94.63 1.5 1.98 2.63 3.61 2.96V19H7v2h10v-2h-4v-3.1c1.63-.33 2.98-1.46 3.61-2.96C19.08 12.63 21 10.55 21 8V7c0-1.1-.9-2-2-2zM5 8V7h2v3.82C5.84 10.4 5 9.3 5 8zm14 0c0 1.3-.84 2.4-2 2.82V7h2v1z"/></svg></span>
                         <strong>Phase 1 Complete!</strong> Great stopping point. Take a break if needed—Phase 2 is where Claude enters!
                     </div>
                 </div>
@@ -657,7 +649,7 @@
                     <span class="section-number">02</span>
                     <h2>Phase 2: Claude CLI Setup</h2>
                     <div class="section-meta">
-                        <span class="time-estimate"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg> 15-20 minutes</span>
+                        <span class="time-estimate"><svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10S17.5 2 12 2zm4.2 14.2L11 13V7h1.5v5.2l4.5 2.7-.8 1.3z"/></svg> 15-20 minutes</span>
                         <span class="phase-status" id="phase2-status">Not started</span>
                     </div>
                 </div>
@@ -711,7 +703,7 @@
                         </div>
 
                         <div class="success-box">
-                            <span class="success-icon"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
+                            <span class="success-icon"><svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg></span>
                             <div class="success-content">
                                 <strong>Success:</strong> You see "v20.x.x" or "v22.x.x"
                             </div>
@@ -787,7 +779,7 @@
                         </div>
 
                         <div class="success-box">
-                            <span class="success-icon"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
+                            <span class="success-icon"><svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg></span>
                             <div class="success-content">
                                 <strong>Success:</strong> You see a version number like "1.x.x"
                             </div>
@@ -834,7 +826,7 @@
                         </div>
 
                         <div class="callout callout-tip">
-                            <svg class="callout-icon" viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M9 21c0 .5.4 1 1 1h4c.6 0 1-.5 1-1v-1H9v1zm3-19C8.1 2 5 5.1 5 9c0 2.4 1.2 4.5 3 5.7V17c0 .5.4 1 1 1h6c.6 0 1-.5 1-1v-2.3c1.8-1.3 3-3.4 3-5.7 0-3.9-3.1-7-7-7z"/></svg>
+                            <svg class="callout-icon" viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M9 21c0 .55.45 1 1 1h4c.55 0 1-.45 1-1v-1H9v1zm3-19C8.14 2 5 5.14 5 9c0 2.38 1.19 4.47 3 5.74V17c0 .55.45 1 1 1h6c.55 0 1-.45 1-1v-2.26c1.81-1.27 3-3.36 3-5.74 0-3.86-3.14-7-7-7z"/></svg>
                             <div class="callout-content">
                                 <strong>Our recommendation:</strong> Start with Pro. You can always upgrade to Max later if you find yourself running out of usage regularly.
                             </div>
@@ -873,7 +865,7 @@
                         </ol>
 
                         <div class="success-box">
-                            <span class="success-icon"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
+                            <span class="success-icon"><svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg></span>
                             <div class="success-content">
                                 <strong>Success:</strong> You see a prompt waiting for your input, or a welcome message from Claude.
                             </div>
@@ -963,7 +955,7 @@
                         </div>
 
                         <div class="success-box highlight">
-                            <span class="success-icon"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="7"></circle><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline></svg></span>
+                            <span class="success-icon"><svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M19 5h-2V3H7v2H5c-1.1 0-2 .9-2 2v1c0 2.55 1.92 4.63 4.39 4.94.63 1.5 1.98 2.63 3.61 2.96V19H7v2h10v-2h-4v-3.1c1.63-.33 2.98-1.46 3.61-2.96C19.08 12.63 21 10.55 21 8V7c0-1.1-.9-2-2-2zM5 8V7h2v3.82C5.84 10.4 5 9.3 5 8zm14 0c0 1.3-.84 2.4-2 2.82V7h2v1z"/></svg></span>
                             <div class="success-content">
                                 <strong>Congratulations!</strong> You described what you wanted in English, and Claude built it!
                             </div>
@@ -973,7 +965,7 @@
 
                 <!-- Phase 2 Checkpoint -->
                 <div class="checkpoint">
-                    <h3><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: -3px; margin-right: 6px;"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>Phase 2 Checkpoint</h3>
+                    <h3><svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" style="vertical-align: -3px; margin-right: 6px;"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>Phase 2 Checkpoint</h3>
                     <ul class="checkpoint-list">
                         <li><label><input type="checkbox" data-checkpoint="2-a"> <code>claude</code> starts the Claude interface</label></li>
                         <li><label><input type="checkbox" data-checkpoint="2-b"> Claude created hello.py when asked</label></li>
@@ -981,7 +973,7 @@
                         <li><label><input type="checkbox" data-checkpoint="2-d"> You know how to exit Claude (<code>/exit</code>)</label></li>
                     </ul>
                     <div class="checkpoint-complete" id="phase2-complete">
-                        <span class="celebration"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="7"></circle><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline></svg></span>
+                        <span class="celebration"><svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor"><path d="M19 5h-2V3H7v2H5c-1.1 0-2 .9-2 2v1c0 2.55 1.92 4.63 4.39 4.94.63 1.5 1.98 2.63 3.61 2.96V19H7v2h10v-2h-4v-3.1c1.63-.33 2.98-1.46 3.61-2.96C19.08 12.63 21 10.55 21 8V7c0-1.1-.9-2-2-2zM5 8V7h2v3.82C5.84 10.4 5 9.3 5 8zm14 0c0 1.3-.84 2.4-2 2.82V7h2v1z"/></svg></span>
                         <strong>Phase 2 Complete!</strong> You're now working with AI assistance!
                     </div>
                 </div>
@@ -993,7 +985,7 @@
                     <span class="section-number">03</span>
                     <h2>Phase 3: Project Structure</h2>
                     <div class="section-meta">
-                        <span class="time-estimate"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg> 20-30 minutes</span>
+                        <span class="time-estimate"><svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10S17.5 2 12 2zm4.2 14.2L11 13V7h1.5v5.2l4.5 2.7-.8 1.3z"/></svg> 20-30 minutes</span>
                         <span class="phase-status" id="phase3-status">Not started</span>
                     </div>
                 </div>
@@ -1047,7 +1039,7 @@
                         </div>
 
                         <div class="success-box">
-                            <span class="success-icon"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
+                            <span class="success-icon"><svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg></span>
                             <div class="success-content">
                                 <strong>Success:</strong> You see "(venv)" at the start of your Terminal prompt.
                             </div>
@@ -1061,7 +1053,7 @@
                         </div>
 
                         <details class="troubleshoot-accordion os-specific windows">
-                            <summary><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: -2px; margin-right: 4px;"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path></svg>PowerShell execution policy error?</summary>
+                            <summary><svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor" style="vertical-align: -2px; margin-right: 4px;"><path d="M22.7 19l-9.1-9.1c.9-2.3.4-5-1.5-6.9-2-2-5-2.4-7.4-1.3L9 6 6 9 1.6 4.7C.4 7.1.9 10.1 2.9 12.1c1.9 1.9 4.6 2.4 6.9 1.5l9.1 9.1c.4.4 1 .4 1.4 0l2.3-2.3c.5-.4.5-1.1.1-1.4z"/></svg>PowerShell execution policy error?</summary>
                             <div class="accordion-content">
                                 <p>Run this once:</p>
                                 <div class="code-block">
@@ -1146,7 +1138,7 @@
                         </div>
 
                         <div class="success-box">
-                            <span class="success-icon"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
+                            <span class="success-icon"><svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg></span>
                             <div class="success-content">
                                 <strong>Success:</strong> You see the new files in your project sidebar (.claude folder with 3 files, plus README.md and .gitignore).
                             </div>
@@ -1156,7 +1148,7 @@
 
                 <!-- Phase 3 Checkpoint -->
                 <div class="checkpoint">
-                    <h3><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: -3px; margin-right: 6px;"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>Phase 3 Checkpoint</h3>
+                    <h3><svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" style="vertical-align: -3px; margin-right: 6px;"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>Phase 3 Checkpoint</h3>
                     <p>Your project structure should look like:</p>
                     <div class="folder-structure">
                         <pre>my-first-project/
@@ -1172,7 +1164,7 @@
                         <li><label><input type="checkbox" data-checkpoint="3-b"> .claude folder exists with 3 files</label></li>
                     </ul>
                     <div class="checkpoint-complete" id="phase3-complete">
-                        <span class="celebration"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="7"></circle><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline></svg></span>
+                        <span class="celebration"><svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor"><path d="M19 5h-2V3H7v2H5c-1.1 0-2 .9-2 2v1c0 2.55 1.92 4.63 4.39 4.94.63 1.5 1.98 2.63 3.61 2.96V19H7v2h10v-2h-4v-3.1c1.63-.33 2.98-1.46 3.61-2.96C19.08 12.63 21 10.55 21 8V7c0-1.1-.9-2-2-2zM5 8V7h2v3.82C5.84 10.4 5 9.3 5 8zm14 0c0 1.3-.84 2.4-2 2.82V7h2v1z"/></svg></span>
                         <strong>Phase 3 Complete!</strong> Your project is professionally organized.
                     </div>
                 </div>
@@ -1184,7 +1176,7 @@
                     <span class="section-number">04</span>
                     <h2>Phase 4: GitHub Integration</h2>
                     <div class="section-meta">
-                        <span class="time-estimate"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg> 20-30 minutes</span>
+                        <span class="time-estimate"><svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10S17.5 2 12 2zm4.2 14.2L11 13V7h1.5v5.2l4.5 2.7-.8 1.3z"/></svg> 20-30 minutes</span>
                         <span class="phase-status" id="phase4-status">Not started</span>
                     </div>
                 </div>
@@ -1222,7 +1214,7 @@
                     </div>
 
                     <div class="callout callout-tip">
-                        <svg class="callout-icon" viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M9 21c0 .5.4 1 1 1h4c.6 0 1-.5 1-1v-1H9v1zm3-19C8.1 2 5 5.1 5 9c0 2.4 1.2 4.5 3 5.7V17c0 .5.4 1 1 1h6c.6 0 1-.5 1-1v-2.3c1.8-1.3 3-3.4 3-5.7 0-3.9-3.1-7-7-7z"/></svg>
+                        <svg class="callout-icon" viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M9 21c0 .55.45 1 1 1h4c.55 0 1-.45 1-1v-1H9v1zm3-19C8.14 2 5 5.14 5 9c0 2.38 1.19 4.47 3 5.74V17c0 .55.45 1 1 1h6c.55 0 1-.45 1-1v-2.26c1.81-1.27 3-3.36 3-5.74 0-3.86-3.14-7-7-7z"/></svg>
                         <div class="callout-content">
                             <strong>Why bother?</strong> Claude makes lots of changes fast. GitHub lets you track what changed, when, and why. If Claude breaks something, you can see exactly what happened and undo it.
                         </div>
@@ -1296,7 +1288,7 @@
                         <p>Follow prompts: GitHub.com → HTTPS → Login with web browser → Copy code → Authorize</p>
 
                         <div class="success-box">
-                            <span class="success-icon"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
+                            <span class="success-icon"><svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg></span>
                             <div class="success-content">
                                 <strong>Success:</strong> You see "Logged in as your-username"
                             </div>
@@ -1374,7 +1366,7 @@
                         </div>
 
                         <div class="callout callout-tip">
-                            <svg class="callout-icon" viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M9 21c0 .5.4 1 1 1h4c.6 0 1-.5 1-1v-1H9v1zm3-19C8.1 2 5 5.1 5 9c0 2.4 1.2 4.5 3 5.7V17c0 .5.4 1 1 1h6c.6 0 1-.5 1-1v-2.3c1.8-1.3 3-3.4 3-5.7 0-3.9-3.1-7-7-7z"/></svg>
+                            <svg class="callout-icon" viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M9 21c0 .55.45 1 1 1h4c.55 0 1-.45 1-1v-1H9v1zm3-19C8.14 2 5 5.14 5 9c0 2.38 1.19 4.47 3 5.74V17c0 .55.45 1 1 1h6c.55 0 1-.45 1-1v-2.26c1.81-1.27 3-3.36 3-5.74 0-3.86-3.14-7-7-7z"/></svg>
                             <div class="callout-content">
                                 <code>--private</code> means only you can see it. Change to <code>--public</code> to share.
                             </div>
@@ -1384,7 +1376,7 @@
 
                 <!-- Phase 4 Checkpoint -->
                 <div class="checkpoint">
-                    <h3><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: -3px; margin-right: 6px;"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>Phase 4 Checkpoint</h3>
+                    <h3><svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" style="vertical-align: -3px; margin-right: 6px;"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>Phase 4 Checkpoint</h3>
 
                     <div class="screenshot">
                         <img src="images/github.png" alt="GitHub repository showing files" class="screenshot-img">
@@ -1396,7 +1388,7 @@
                         <li><label><input type="checkbox" data-checkpoint="4-c"> Click it—you see your files including .claude folder</label></li>
                     </ul>
                     <div class="checkpoint-complete" id="phase4-complete">
-                        <span class="celebration"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg></span>
+                        <span class="celebration"><svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg></span>
                         <strong>Setup Complete!</strong> You're ready to work with AI assistance!
                     </div>
                 </div>
@@ -1451,7 +1443,7 @@
 
                     <div class="key-principle">
                         <div class="principle-header">
-                            <span class="principle-icon"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="6"></circle><circle cx="12" cy="12" r="2"></circle></svg></span>
+                            <span class="principle-icon"><svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8z"/><circle cx="12" cy="12" r="5"/></svg></span>
                             <h4>Start Strong: Spell Out Everything Up Front</h4>
                         </div>
                         <p>Before Claude writes a single line, clearly describe:</p>
@@ -1466,7 +1458,7 @@
 
                     <div class="key-principle">
                         <div class="principle-header">
-                            <span class="principle-icon"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L8 6H4v4l-2 2 2 2v4h4l4 4 4-4h4v-4l2-2-2-2V6h-4L12 2z"></path><circle cx="12" cy="12" r="3"></circle></svg></span>
+                            <span class="principle-icon"><svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg></span>
                             <h4>Review Like a Manager</h4>
                         </div>
                         <p>After Claude completes work, don't just accept it. Ask Claude to review its own work <em>as if it were a manager</em>:</p>
@@ -1476,7 +1468,7 @@
 
                     <div class="key-principle">
                         <div class="principle-header">
-                            <span class="principle-icon"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg></span>
+                            <span class="principle-icon"><svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg></span>
                             <h4>Partner, Not Yes-Man</h4>
                         </div>
                         <p>Tell Claude explicitly: <strong>"Be my partner, not a yes-man."</strong> You want Claude to push back when something doesn't make sense, suggest better approaches, and challenge assumptions. A good partner tells you when you're heading in the wrong direction—before you've wasted hours.</p>
@@ -1571,28 +1563,28 @@ HUBSPOT_API_KEY=your_key_here</code></pre>
 
                     <div class="safety-list">
                         <div class="safety-item">
-                            <span class="safety-icon"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 2l-2 2m-7.61 7.61a5.5 5.5 0 1 1-7.778 7.778 5.5 5.5 0 0 1 7.777-7.777zm0 0L15.5 7.5m0 0l3 3L22 7l-3-3m-3.5 3.5L19 4"></path></svg></span>
+                            <span class="safety-icon"><svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M12.65 10C11.83 7.67 9.61 6 7 6c-3.31 0-6 2.69-6 6s2.69 6 6 6c2.61 0 4.83-1.67 5.65-4H17v4h4v-4h2v-4H12.65zM7 14c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2z"/></svg></span>
                             <div class="safety-content">
                                 <strong>Protect API Keys</strong>
                                 <p>Keep them in <code>.env</code> files, never in code. Your <code>.gitignore</code> prevents them from being uploaded.</p>
                             </div>
                         </div>
                         <div class="safety-item">
-                            <span class="safety-icon"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg></span>
+                            <span class="safety-icon"><svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg></span>
                             <div class="safety-content">
                                 <strong>Review Before Approving</strong>
                                 <p>Claude asks permission before running commands or making changes. Take a moment to understand what it's about to do.</p>
                             </div>
                         </div>
                         <div class="safety-item">
-                            <span class="safety-icon"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"></path><polyline points="17 21 17 13 7 13 7 21"></polyline><polyline points="7 3 7 8 15 8"></polyline></svg></span>
+                            <span class="safety-icon"><svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M17 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V7l-4-4zm2 16H5V5h11.17L19 7.83V19zm-7-7c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3zM6 6h9v4H6V6z"/></svg></span>
                             <div class="safety-content">
                                 <strong>Commit Often</strong>
                                 <p>Regular Git commits mean you can always undo changes. If something goes wrong, you have a safe point to return to.</p>
                             </div>
                         </div>
                         <div class="safety-item">
-                            <span class="safety-icon"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path></svg></span>
+                            <span class="safety-icon"><svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M10 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2h-8l-2-2z"/></svg></span>
                             <div class="safety-content">
                                 <strong>Keep Projects Separate</strong>
                                 <p>One folder per project, one venv per project. This prevents Claude from accidentally affecting other work.</p>
@@ -1832,17 +1824,17 @@ HUBSPOT_API_KEY=your_key_here</code></pre>
                     <div class="tab-content" id="tab-resources">
                         <div class="resource-grid">
                             <a href="https://code.visualstudio.com/" target="_blank" class="resource-card">
-                                <span class="resource-icon"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg></span>
+                                <span class="resource-icon"><svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M14 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V8l-6-6zm4 18H6V4h7v5h5v11z"/></svg></span>
                                 <span class="resource-name">VS Code</span>
                                 <span class="resource-url">code.visualstudio.com</span>
                             </a>
                             <a href="https://platform.claude.com/" target="_blank" class="resource-card">
-                                <span class="resource-icon"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="10" rx="2"></rect><circle cx="12" cy="5" r="3"></circle><line x1="12" y1="8" x2="12" y2="11"></line><line x1="8" y1="16" x2="8" y2="16"></line><line x1="16" y1="16" x2="16" y2="16"></line></svg></span>
+                                <span class="resource-icon"><svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M20 9V7c0-1.1-.9-2-2-2h-3c0-1.66-1.34-3-3-3S9 3.34 9 5H6c-1.1 0-2 .9-2 2v2c-1.66 0-3 1.34-3 3s1.34 3 3 3v4c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2v-4c1.66 0 3-1.34 3-3s-1.34-3-3-3zm-2 10H6V7h12v12zm-9-6c-.83 0-1.5-.67-1.5-1.5S8.17 10 9 10s1.5.67 1.5 1.5S9.83 13 9 13zm7.5-1.5c0 .83-.67 1.5-1.5 1.5s-1.5-.67-1.5-1.5.67-1.5 1.5-1.5 1.5.67 1.5 1.5zM12 18c-2.33 0-4.32-1.45-5.12-3.5h1.67c.69 1.19 1.97 2 3.45 2s2.75-.81 3.45-2h1.67c-.8 2.05-2.79 3.5-5.12 3.5z"/></svg></span>
                                 <span class="resource-name">Claude Console</span>
                                 <span class="resource-url">platform.claude.com</span>
                             </a>
                             <a href="https://code.claude.com/docs" target="_blank" class="resource-card">
-                                <span class="resource-icon"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg></span>
+                                <span class="resource-icon"><svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M18 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zM6 4h5v8l-2.5-1.5L6 12V4z"/></svg></span>
                                 <span class="resource-name">Claude Code Docs</span>
                                 <span class="resource-url">code.claude.com/docs</span>
                             </a>
@@ -1852,7 +1844,7 @@ HUBSPOT_API_KEY=your_key_here</code></pre>
                                 <span class="resource-url">github.com</span>
                             </a>
                             <a href="https://anthropic.skilljar.com/claude-code-in-action" target="_blank" class="resource-card">
-                                <span class="resource-icon"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"></path><path d="M6 12v5c0 2 2 3 6 3s6-1 6-3v-5"></path></svg></span>
+                                <span class="resource-icon"><svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82zM12 3L1 9l11 6 9-4.91V17h2V9L12 3z"/></svg></span>
                                 <span class="resource-name">Claude Code Course</span>
                                 <span class="resource-url">anthropic.skilljar.com</span>
                             </a>
