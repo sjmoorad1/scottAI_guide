@@ -602,6 +602,11 @@ a:hover {
     object-fit: contain;
 }
 
+/* Invert dark icons (Claude, GitHub) in dark mode */
+[data-theme="dark"] .component-logo.invert-dark {
+    filter: invert(1) brightness(2);
+}
+
 .component-info h4 {
     color: var(--brand-blue);
     margin-bottom: var(--space-xs);
