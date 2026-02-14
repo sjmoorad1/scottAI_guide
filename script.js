@@ -534,7 +534,7 @@
                     }
 
                     // Scroll to target
-                    const headerOffset = 80;
+                    const headerOffset = 140;
                     const elementPosition = targetElement.getBoundingClientRect().top;
                     const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
 
