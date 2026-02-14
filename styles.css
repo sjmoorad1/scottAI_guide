@@ -258,16 +258,18 @@ a:hover {
     display: block;
 }
 
-.moon-icon {
+/* Light mode: show moon (click to go dark) */
+.sun-icon {
     display: none;
 }
 
+/* Dark mode: show sun (click to go light) */
 [data-theme="dark"] .sun-icon {
-    display: none;
+    display: block;
 }
 
 [data-theme="dark"] .moon-icon {
-    display: block;
+    display: none;
 }
 
 .print-btn,
