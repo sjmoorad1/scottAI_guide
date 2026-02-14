@@ -18,9 +18,6 @@
     }
 
     function showPasswordGate() {
-        // Hide main content
-        document.body.style.visibility = 'hidden';
-
         // Create password modal
         const modal = document.createElement('div');
         modal.id = 'password-gate';
@@ -129,7 +126,6 @@
                 localStorage.setItem(AUTH_KEY, 'authenticated');
                 modal.remove();
                 style.remove();
-                document.body.style.visibility = 'visible';
                 initializeApp();
             } else {
                 error.style.display = 'block';
