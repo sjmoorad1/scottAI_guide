@@ -185,7 +185,7 @@
 
     const state = {
         os: 'mac',
-        theme: 'light',
+        theme: 'dark',
         completedSteps: new Set(),
         completedPhases: new Set()
     };
