@@ -1848,6 +1848,43 @@ kbd {
 }
 
 /* ==========================================================================
+   PRD Template
+   ========================================================================== */
+
+.prd-content p {
+    margin-bottom: var(--space-md);
+}
+
+.prd-content h4 {
+    margin: var(--space-lg) 0 var(--space-md);
+    color: var(--text-primary);
+}
+
+.prd-template {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+    margin-bottom: var(--space-lg);
+}
+
+.prd-section {
+    padding: var(--space-md);
+    background: var(--bg-tertiary);
+    border-radius: var(--radius-md);
+    border-left: 3px solid var(--brand-orange);
+}
+
+.prd-section strong {
+    color: var(--text-primary);
+}
+
+.prd-section p {
+    margin: var(--space-xs) 0 0;
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+}
+
+/* ==========================================================================
    Resource Grid
    ========================================================================== */
 

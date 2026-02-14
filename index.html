@@ -1454,6 +1454,7 @@
                             <li><strong>The usage</strong> — Who will use this? How? How often?</li>
                         </ul>
                         <p>This upfront investment pays off massively. Claude makes better decisions when it understands the full picture.</p>
+                        <p>For larger projects, consider writing a <strong>PRD (Product Requirements Document)</strong> — a structured brief that captures all requirements in one place. Claude can help you write one. <a href="#tab-prd" class="inline-link" onclick="document.querySelector('[data-tab=prd]').click(); return false;">See PRD template →</a></p>
                     </div>
 
                     <div class="key-principle">
@@ -1604,6 +1605,7 @@ HUBSPOT_API_KEY=your_key_here</code></pre>
                 <div class="reference-tabs">
                     <div class="tab-buttons">
                         <button class="tab-btn active" data-tab="commands">Commands</button>
+                        <button class="tab-btn" data-tab="prd">PRD Template</button>
                         <button class="tab-btn" data-tab="glossary">Glossary</button>
                         <button class="tab-btn" data-tab="troubleshoot">Troubleshooting</button>
                         <button class="tab-btn" data-tab="resources">Resources</button>
@@ -1727,6 +1729,47 @@ HUBSPOT_API_KEY=your_key_here</code></pre>
                         </div>
                     </div>
 
+                    <div class="tab-content" id="tab-prd">
+                        <div class="prd-content">
+                            <p><strong>A PRD (Product Requirements Document)</strong> is a structured brief that captures everything Claude needs to build something right the first time. For complex projects, spending 10 minutes on a PRD saves hours of rework.</p>
+
+                            <h4>Key Sections</h4>
+                            <div class="prd-template">
+                                <div class="prd-section">
+                                    <strong>1. Problem Statement</strong>
+                                    <p>What problem are you solving? Why does it matter? Who feels this pain?</p>
+                                </div>
+                                <div class="prd-section">
+                                    <strong>2. Goals & Success Metrics</strong>
+                                    <p>What does success look like? How will you measure it?</p>
+                                </div>
+                                <div class="prd-section">
+                                    <strong>3. User Stories</strong>
+                                    <p>As a [type of user], I want to [action] so that [benefit].</p>
+                                </div>
+                                <div class="prd-section">
+                                    <strong>4. Functional Requirements</strong>
+                                    <p>What must it do? List specific features and behaviors.</p>
+                                </div>
+                                <div class="prd-section">
+                                    <strong>5. Non-Functional Requirements</strong>
+                                    <p>Performance, security, compatibility, constraints.</p>
+                                </div>
+                                <div class="prd-section">
+                                    <strong>6. Out of Scope</strong>
+                                    <p>What are you explicitly NOT building? Prevents scope creep.</p>
+                                </div>
+                            </div>
+
+                            <div class="callout callout-tip">
+                                <svg class="callout-icon" viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M9 21c0 .55.45 1 1 1h4c.55 0 1-.45 1-1v-1H9v1zm3-19C8.14 2 5 5.14 5 9c0 2.38 1.19 4.47 3 5.74V17c0 .55.45 1 1 1h6c.55 0 1-.45 1-1v-2.26c1.81-1.27 3-3.36 3-5.74 0-3.86-3.14-7-7-7z"/></svg>
+                                <div class="callout-content">
+                                    <strong>Let Claude help write it.</strong> Start with: "Help me write a PRD for [your project idea]. Ask me questions to clarify requirements."
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
                     <div class="tab-content" id="tab-glossary">
                         <div class="glossary-list">
                             <details class="glossary-item">
@@ -1752,6 +1795,10 @@ HUBSPOT_API_KEY=your_key_here</code></pre>
                             <details class="glossary-item os-specific mac">
                                 <summary><strong>Homebrew</strong></summary>
                                 <p>Mac package manager for installing developer tools easily.</p>
+                            </details>
+                            <details class="glossary-item">
+                                <summary><strong>PRD (Product Requirements Document)</strong></summary>
+                                <p>A structured document that captures what you're building, why, and how it should work. Essential for complex projects.</p>
                             </details>
                             <details class="glossary-item">
                                 <summary><strong>Repository (Repo)</strong></summary>
