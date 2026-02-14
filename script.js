@@ -332,14 +332,7 @@
     function applyTheme(theme) {
         state.theme = theme;
         document.documentElement.setAttribute('data-theme', theme);
-
-        // Update theme toggle icon
-        const themeToggle = document.querySelector('.theme-toggle');
-        if (themeToggle) {
-            themeToggle.innerHTML = theme === 'light'
-                ? '<svg viewBox="0 0 24 24" width="20" height="20"><path fill="currentColor" d="M12 3a9 9 0 1 0 9 9c0-.46-.04-.92-.1-1.36a5.389 5.389 0 0 1-4.4 2.26 5.403 5.403 0 0 1-3.14-9.8c-.44-.06-.9-.1-1.36-.1z"/></svg>'
-                : '<svg viewBox="0 0 24 24" width="20" height="20"><circle cx="12" cy="12" r="5" fill="currentColor"/><path fill="currentColor" d="M12 1v2m0 18v2M4.22 4.22l1.42 1.42m12.72 12.72l1.42 1.42M1 12h2m18 0h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>';
-        }
+        // Icons are handled by CSS based on data-theme attribute
     }
 
     function saveThemePreference(theme) {
