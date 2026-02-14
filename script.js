@@ -559,7 +559,7 @@
 
         // Active nav highlighting on scroll
         const sections = document.querySelectorAll('section[id]');
-        const navItems = document.querySelectorAll('.nav-links a');
+        const navItems = document.querySelectorAll('.nav-list .nav-link');
 
         window.addEventListener('scroll', debounce(function() {
             let current = '';
