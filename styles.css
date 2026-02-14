@@ -963,6 +963,98 @@ a:hover {
 }
 
 /* ==========================================================================
+   Key Principles
+   ========================================================================== */
+
+.key-principle {
+    margin: var(--space-xl) 0;
+    padding: var(--space-lg);
+    background: var(--bg-secondary);
+    border-radius: var(--radius-lg);
+    border-left: 4px solid var(--brand-orange);
+}
+
+.principle-header {
+    display: flex;
+    align-items: center;
+    gap: var(--space-md);
+    margin-bottom: var(--space-md);
+}
+
+.principle-icon {
+    font-size: 1.5rem;
+}
+
+.principle-header h4 {
+    margin: 0;
+    color: var(--brand-blue);
+    font-size: 1.25rem;
+}
+
+[data-theme="dark"] .principle-header h4 {
+    color: var(--brand-orange);
+}
+
+.key-principle p {
+    color: var(--text-secondary);
+    margin-bottom: var(--space-sm);
+}
+
+.key-principle ul {
+    margin: var(--space-md) 0;
+    padding-left: var(--space-lg);
+}
+
+.key-principle li {
+    color: var(--text-secondary);
+    margin-bottom: var(--space-xs);
+}
+
+.example-prompt-inline {
+    background: var(--bg-tertiary);
+    padding: var(--space-md);
+    border-radius: var(--radius-md);
+    font-style: italic;
+    color: var(--text-primary);
+    margin: var(--space-md) 0;
+    border-left: 3px solid var(--brand-blue);
+}
+
+[data-theme="dark"] .example-prompt-inline {
+    border-left-color: var(--brand-orange);
+}
+
+.principles-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: var(--space-md);
+    margin: var(--space-xl) 0;
+}
+
+.principle-card {
+    padding: var(--space-lg);
+    background: var(--bg-secondary);
+    border-radius: var(--radius-md);
+    border-top: 3px solid var(--brand-orange);
+}
+
+.principle-card h4 {
+    color: var(--brand-blue);
+    margin-bottom: var(--space-sm);
+    font-size: 1rem;
+}
+
+[data-theme="dark"] .principle-card h4 {
+    color: var(--brand-orange);
+}
+
+.principle-card p {
+    margin: 0;
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+}
+
+/* ==========================================================================
    Plan Comparison
    ========================================================================== */
 
