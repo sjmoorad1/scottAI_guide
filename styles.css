@@ -209,6 +209,10 @@ a:hover {
 .logo img {
     height: 40px;
     width: auto;
+}
+
+/* Logo theme switching - Light mode: blue logo, Dark mode: white logo */
+.logo-light {
     display: block;
 }
 
@@ -249,21 +253,16 @@ a:hover {
     color: white;
 }
 
-.theme-toggle svg {
-    display: block;
-}
-
-.sun-icon,
-.moon-icon {
-    display: block;
-}
-
-/* Light mode: show moon (click to go dark) */
+/* Theme toggle icons - Light mode: moon visible, sun hidden */
 .sun-icon {
     display: none;
 }
 
-/* Dark mode: show sun (click to go light) */
+.moon-icon {
+    display: block;
+}
+
+/* Dark mode: sun visible, moon hidden */
 [data-theme="dark"] .sun-icon {
     display: block;
 }
