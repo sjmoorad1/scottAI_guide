@@ -177,6 +177,44 @@
         updateProgressBar();
         applyOSSelection(state.os);
         applyTheme(state.theme);
+        showWelcomeBackBanner();
+    }
+
+    // ==========================================
+    // Welcome Back Banner
+    // ==========================================
+
+    function showWelcomeBackBanner() {
+        if (state.completedSteps.size === 0) return;
+
+        const totalSteps = document.querySelectorAll('.step-checkbox input[type="checkbox"]').length;
+        const completedCount = state.completedSteps.size;
+        const percentage = Math.round((completedCount / totalSteps) * 100);
+
+        if (percentage >= 100) return; // Don't show if complete
+
+        const banner = document.createElement('div');
+        banner.className = 'welcome-back-banner';
+        banner.innerHTML = `
+            <div class="welcome-back-content">
+                <span class="welcome-back-text">Welcome back! You're ${percentage}% complete (${completedCount}/${totalSteps} steps)</span>
+                <button class="welcome-back-dismiss" aria-label="Dismiss">&times;</button>
+            </div>
+        `;
+
+        document.body.insertBefore(banner, document.body.firstChild);
+
+        // Auto-dismiss after 8 seconds
+        setTimeout(() => {
+            banner.classList.add('fade-out');
+            setTimeout(() => banner.remove(), 300);
+        }, 8000);
+
+        // Manual dismiss
+        banner.querySelector('.welcome-back-dismiss').addEventListener('click', () => {
+            banner.classList.add('fade-out');
+            setTimeout(() => banner.remove(), 300);
+        });
     }
 
     // ==========================================
@@ -563,7 +601,7 @@
 
         window.addEventListener('scroll', debounce(function() {
             let current = '';
-            const scrollPos = window.pageYOffset + 100;
+            const scrollPos = window.pageYOffset + 150; // Account for header + nav
 
             sections.forEach(section => {
                 const sectionTop = section.offsetTop;
@@ -574,12 +612,15 @@
                 }
             });
 
-            navItems.forEach(item => {
-                item.classList.remove('active');
-                if (item.getAttribute('href') === '#' + current) {
-                    item.classList.add('active');
-                }
-            });
+            // Only update if we found a current section
+            if (current) {
+                navItems.forEach(item => {
+                    item.classList.remove('active');
+                    if (item.getAttribute('href') === '#' + current) {
+                        item.classList.add('active');
+                    }
+                });
+            }
         }, 50));
     }
 
