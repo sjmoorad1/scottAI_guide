@@ -817,6 +817,236 @@ a:hover {
     border: 1px solid rgba(245, 158, 11, 0.3);
 }
 
+.callout-important {
+    background: rgba(99, 102, 241, 0.1);
+    border: 1px solid rgba(99, 102, 241, 0.3);
+}
+
+/* ==========================================================================
+   GitHub Concepts Grid
+   ========================================================================== */
+
+.github-concepts {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: var(--space-md);
+    margin: var(--space-lg) 0;
+}
+
+.concept-item {
+    padding: var(--space-md);
+    background: var(--bg-secondary);
+    border-radius: var(--radius-md);
+    border-left: 3px solid var(--brand-orange);
+}
+
+.concept-item strong {
+    display: block;
+    color: var(--brand-blue);
+    margin-bottom: var(--space-xs);
+}
+
+[data-theme="dark"] .concept-item strong {
+    color: var(--brand-orange);
+}
+
+.concept-item p {
+    margin: 0;
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+}
+
+/* ==========================================================================
+   Template Files Table
+   ========================================================================== */
+
+.template-files-table {
+    margin: var(--space-xl) 0;
+    padding: var(--space-lg);
+    background: var(--bg-secondary);
+    border-radius: var(--radius-lg);
+}
+
+.template-files-table h4 {
+    margin-bottom: var(--space-md);
+    color: var(--brand-blue);
+}
+
+[data-theme="dark"] .template-files-table h4 {
+    color: var(--brand-orange);
+}
+
+.files-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.files-table th,
+.files-table td {
+    padding: var(--space-sm) var(--space-md);
+    text-align: left;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.files-table th {
+    font-weight: 600;
+    color: var(--text-primary);
+    background: var(--bg-tertiary);
+}
+
+.files-table td:first-child {
+    white-space: nowrap;
+}
+
+.files-table td:last-child {
+    text-align: center;
+    width: 100px;
+}
+
+.download-link {
+    display: inline-block;
+    padding: var(--space-xs) var(--space-sm);
+    background: var(--brand-orange);
+    color: white;
+    text-decoration: none;
+    border-radius: var(--radius-sm);
+    font-size: 0.8rem;
+    font-weight: 500;
+    transition: background var(--transition-fast);
+}
+
+.download-link:hover {
+    background: var(--brand-orange-dark);
+}
+
+/* ==========================================================================
+   Tips Cards
+   ========================================================================== */
+
+.tip-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--space-md);
+    margin: var(--space-lg) 0;
+}
+
+.tip-card {
+    padding: var(--space-lg);
+    background: var(--bg-secondary);
+    border-radius: var(--radius-md);
+    border-left: 3px solid var(--brand-orange);
+}
+
+.tip-card h4 {
+    color: var(--brand-blue);
+    margin-bottom: var(--space-sm);
+}
+
+[data-theme="dark"] .tip-card h4 {
+    color: var(--brand-orange);
+}
+
+.tip-card p {
+    margin: 0;
+    color: var(--text-secondary);
+    font-size: 0.9375rem;
+}
+
+/* ==========================================================================
+   Plan Comparison
+   ========================================================================== */
+
+.plan-comparison {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: var(--space-lg);
+    margin: var(--space-lg) 0;
+}
+
+.plan-card {
+    padding: var(--space-lg);
+    background: var(--bg-secondary);
+    border: 2px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    position: relative;
+}
+
+.plan-card.recommended {
+    border-color: var(--brand-orange);
+}
+
+.recommended-badge {
+    position: absolute;
+    top: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--brand-orange);
+    color: white;
+    padding: var(--space-xs) var(--space-md);
+    border-radius: var(--radius-full);
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.plan-card h4 {
+    color: var(--text-primary);
+    margin-bottom: var(--space-md);
+}
+
+.plan-card ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.plan-card li {
+    padding: var(--space-xs) 0;
+    color: var(--text-secondary);
+    font-size: 0.9375rem;
+}
+
+.plan-card li::before {
+    content: "✓ ";
+    color: var(--color-success);
+}
+
+/* ==========================================================================
+   Safety List
+   ========================================================================== */
+
+.safety-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+    margin: var(--space-lg) 0;
+}
+
+.safety-item {
+    display: flex;
+    gap: var(--space-md);
+    padding: var(--space-md);
+    background: var(--bg-secondary);
+    border-radius: var(--radius-md);
+}
+
+.safety-icon {
+    font-size: 1.5rem;
+    flex-shrink: 0;
+}
+
+.safety-content strong {
+    display: block;
+    color: var(--text-primary);
+    margin-bottom: var(--space-xs);
+}
+
+.safety-content p {
+    margin: 0;
+    color: var(--text-secondary);
+    font-size: 0.9375rem;
+}
+
 /* ==========================================================================
    Success Box
    ========================================================================== */

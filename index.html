@@ -69,6 +69,7 @@
                 <li><a href="#phase3" class="nav-link">Phase 3</a></li>
                 <li><a href="#phase4" class="nav-link">Phase 4</a></li>
                 <li><a href="#workflow" class="nav-link">Workflow</a></li>
+                <li><a href="#tips" class="nav-link">Tips</a></li>
                 <li><a href="#reference" class="nav-link">Reference</a></li>
             </ul>
         </div>
@@ -105,55 +106,55 @@
                         <div class="capability-card">
                             <span class="capability-icon">📊</span>
                             <h4>Data Analysis</h4>
-                            <p>Read Excel/CSV files, calculate summaries, find patterns, create charts</p>
+                            <p>Read Excel/CSV files, identify trends, segment data, and generate actionable insights</p>
                             <button class="expand-btn" data-expand="example-analysis">See example →</button>
                             <div class="expand-content" id="example-analysis">
-                                <div class="example-prompt">"Read this Excel file and tell me which products had declining sales quarter over quarter"</div>
+                                <div class="example-prompt">"Read this customer sales history by product. Study the data thoroughly, then act as a product and data analyst to identify sales trends by customer, segment, and product. Develop a prioritized action plan to address declines. Generate results in separate tabs with both qualitative insights and quantitative analysis."</div>
                             </div>
                         </div>
                         <div class="capability-card">
                             <span class="capability-icon">⚙️</span>
                             <h4>Automation</h4>
-                            <p>Batch process files, rename/organize documents, extract information</p>
+                            <p>Batch process files, transform data between formats, schedule recurring tasks</p>
                             <button class="expand-btn" data-expand="example-automation">See example →</button>
                             <div class="expand-content" id="example-automation">
-                                <div class="example-prompt">"Rename all files in this folder using the date in each filename"</div>
+                                <div class="example-prompt">"I have 50 invoice PDFs in this folder. Extract the vendor name, invoice number, date, and total from each one. Create an Excel summary with all invoices sorted by date, and flag any duplicates."</div>
                             </div>
                         </div>
                         <div class="capability-card">
                             <span class="capability-icon">📄</span>
                             <h4>Document Processing</h4>
-                            <p>Parse PDFs, extract tables, convert formats, summarize content</p>
+                            <p>Parse contracts, extract key terms, compare versions, generate summaries</p>
                             <button class="expand-btn" data-expand="example-docs">See example →</button>
                             <div class="expand-content" id="example-docs">
-                                <div class="example-prompt">"Analyze these three PDFs and create a comparison table of the key terms"</div>
+                                <div class="example-prompt">"I have three vendor contracts in this folder. Create a comparison matrix showing: pricing terms, SLA commitments, termination clauses, and liability limits. Highlight any unusual or concerning terms and recommend which vendor offers the best overall value."</div>
                             </div>
                         </div>
                         <div class="capability-card">
                             <span class="capability-icon">💻</span>
-                            <h4>Code Development</h4>
-                            <p>Build scripts, create tools, connect to APIs, automate workflows</p>
+                            <h4>Tool Building</h4>
+                            <p>Create custom scripts, connect to APIs, build dashboards and reports</p>
                             <button class="expand-btn" data-expand="example-code">See example →</button>
                             <div class="expand-content" id="example-code">
-                                <div class="example-prompt">"Build a tool that pulls data from this API and saves it to a spreadsheet"</div>
+                                <div class="example-prompt">"Build me a simple web dashboard that connects to our Airtable base, pulls the sales data, and shows a chart of monthly revenue with the ability to filter by region. Make it look professional."</div>
                             </div>
                         </div>
                         <div class="capability-card">
                             <span class="capability-icon">🔍</span>
-                            <h4>Research</h4>
-                            <p>Gather information from files, compare data sources, generate reports</p>
+                            <h4>Research & Review</h4>
+                            <p>Analyze documents, research alternatives, provide recommendations with evidence</p>
                             <button class="expand-btn" data-expand="example-research">See example →</button>
                             <div class="expand-content" id="example-research">
-                                <div class="example-prompt">"Compare these vendor quotes and create a summary showing the pros/cons of each"</div>
+                                <div class="example-prompt">"Review this vendor agreement and service charges. Research the web and discussion boards to find how others have negotiated these terms more favorably. Provide real examples and commentary we can use to redline the agreement. Be thorough versus fast."</div>
                             </div>
                         </div>
                         <div class="capability-card">
                             <span class="capability-icon">🔧</span>
                             <h4>Problem Solving</h4>
-                            <p>Debug issues, optimize processes, find solutions to challenges</p>
+                            <p>Debug issues, troubleshoot processes, find root causes and solutions</p>
                             <button class="expand-btn" data-expand="example-debug">See example →</button>
                             <div class="expand-content" id="example-debug">
-                                <div class="example-prompt">"This script is throwing an error. Here's the message: [error]. What's wrong?"</div>
+                                <div class="example-prompt">"My monthly report script stopped working after IT updated our systems. Here's the error I'm getting. Figure out what changed, fix it, and make sure it won't break again. Test it thoroughly before telling me it's done."</div>
                             </div>
                         </div>
                     </div>
@@ -174,7 +175,7 @@
                         <div class="workflow-arrow">→</div>
                         <div class="workflow-step">
                             <span class="step-number">3</span>
-                            <span class="step-text">Claude writes code</span>
+                            <span class="step-text">Claude does the work</span>
                         </div>
                         <div class="workflow-arrow">→</div>
                         <div class="workflow-step">
@@ -248,8 +249,8 @@
                     </div>
                     <div class="step-content">
                         <ol class="step-list">
-                            <li>Open your browser and go to: <a href="https://code.visualstudio.com/" target="_blank">code.visualstudio.com</a></li>
-                            <li>Click the big blue <strong>"Download for <span class="os-text" data-mac="Mac" data-windows="Windows">Mac</span>"</strong> button</li>
+                            <li>Open your browser and go to: <a href="https://code.visualstudio.com/Download" target="_blank">code.visualstudio.com/Download</a></li>
+                            <li>Click the big blue <strong><span class="os-text" data-mac="Mac" data-windows="Windows">Mac</span></strong> button to download</li>
                             <li class="os-specific mac">Wait for the download, then double-click the .zip file to extract it</li>
                             <li class="os-specific mac">Drag "Visual Studio Code" to your Applications folder</li>
                             <li class="os-specific windows">Run the downloaded installer (VSCodeUserSetup-x64-x.xx.x.exe)</li>
@@ -315,12 +316,6 @@
                             </ol>
                         </div>
 
-                        <div class="callout callout-tip">
-                            <span class="callout-icon">💡</span>
-                            <div class="callout-content">
-                                The Terminal is your command center. <kbd>Ctrl</kbd>+<kbd>`</kbd> is the most important shortcut you'll learn.
-                            </div>
-                        </div>
                     </div>
                 </div>
 
@@ -938,6 +933,13 @@
 
                 <p class="section-intro">Learn how to organize projects so Claude works better and your work stays organized.</p>
 
+                <div class="callout callout-important">
+                    <span class="callout-icon">📁</span>
+                    <div class="callout-content">
+                        <strong>One project = one folder = one virtual environment.</strong> Every project you work on should have its own folder inside your <code>projects</code> directory, and each project gets its own virtual environment. This keeps everything organized and prevents conflicts between projects.
+                    </div>
+                </div>
+
                 <!-- Step 3.1: Virtual Environments -->
                 <div class="step" id="step-3-1">
                     <div class="step-header">
@@ -948,7 +950,7 @@
                         <h3>Step 3.1: Create Virtual Environment</h3>
                     </div>
                     <div class="step-content">
-                        <p>A "virtual environment" (venv) keeps each project's tools separate—like having different toolboxes for different jobs.</p>
+                        <p>A "virtual environment" (venv) is an isolated workspace for each project. Think of it like having separate toolboxes for different jobs—your kitchen renovation tools don't mix with your gardening tools. Setting one up is easy and takes seconds.</p>
 
                         <div class="code-block">
                             <div class="code-header">
@@ -1096,6 +1098,53 @@
 3. .claude/SESSION_LOG.md with a template for logging sessions</code></pre>
                         </div>
 
+                        <div class="callout callout-tip">
+                            <span class="callout-icon">📥</span>
+                            <div class="callout-content">
+                                <strong>Prefer to download templates?</strong> You can also <a href="templates/CLAUDE.md" download>download starter templates</a> and customize them.
+                            </div>
+                        </div>
+
+                        <div class="template-files-table">
+                            <h4>Configuration Files Explained</h4>
+                            <table class="files-table">
+                                <thead>
+                                    <tr>
+                                        <th>File</th>
+                                        <th>Purpose</th>
+                                        <th>Download</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><code>CLAUDE.md</code></td>
+                                        <td>Project overview Claude reads automatically. Include project context, file structure, and any special instructions.</td>
+                                        <td><a href="templates/CLAUDE.md" download class="download-link">Download</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td><code>AI_CODING_GUIDELINES.md</code></td>
+                                        <td>Rules for how Claude should work: explain before acting, stay focused, ask when unsure.</td>
+                                        <td><a href="templates/AI_CODING_GUIDELINES.md" download class="download-link">Download</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td><code>SESSION_LOG.md</code></td>
+                                        <td>Running log of what was done in each session. Great for picking up where you left off.</td>
+                                        <td><a href="templates/SESSION_LOG.md" download class="download-link">Download</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td><code>README.md</code></td>
+                                        <td>Quick reference for yourself: how to start the project, common commands, project structure.</td>
+                                        <td><a href="templates/README.md" download class="download-link">Download</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td><code>.gitignore</code></td>
+                                        <td>Tells Git which files to ignore (virtual environments, API keys, large data files).</td>
+                                        <td><a href="templates/.gitignore" download class="download-link">Download</a></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
                         <div class="success-box">
                             <span class="success-icon">✓</span>
                             <div class="success-content">
@@ -1141,6 +1190,37 @@
                 </div>
 
                 <p class="section-intro">Connect to GitHub for backup and version history. If something breaks, you can always go back.</p>
+
+                <div class="content-block">
+                    <h3>What is GitHub?</h3>
+                    <p><strong>GitHub</strong> is like Google Drive for code—but smarter. It stores your project files online and tracks every change you make. If you accidentally break something, you can rewind to any previous version. It's free for personal use and used by millions of developers worldwide.</p>
+
+                    <div class="github-concepts">
+                        <div class="concept-item">
+                            <strong>Repository (Repo)</strong>
+                            <p>A project folder stored on GitHub. Each project gets its own repo.</p>
+                        </div>
+                        <div class="concept-item">
+                            <strong>Local vs Remote</strong>
+                            <p><em>Local</em> = files on your computer. <em>Remote</em> = the copy on GitHub. You work locally, then "push" changes to the remote.</p>
+                        </div>
+                        <div class="concept-item">
+                            <strong>Commit</strong>
+                            <p>A snapshot of your project at a point in time, with a note about what changed. Like "Save As" with a description.</p>
+                        </div>
+                        <div class="concept-item">
+                            <strong>.gitignore</strong>
+                            <p>A file that tells Git which files to NOT track (passwords, large data files, virtual environments).</p>
+                        </div>
+                    </div>
+
+                    <div class="callout callout-tip">
+                        <span class="callout-icon">💡</span>
+                        <div class="callout-content">
+                            <strong>Why bother?</strong> Claude makes lots of changes fast. GitHub lets you track what changed, when, and why. If Claude breaks something, you can see exactly what happened and undo it.
+                        </div>
+                    </div>
+                </div>
 
                 <!-- Step 4.1: GitHub Account -->
                 <div class="step" id="step-4-1">
@@ -1382,10 +1462,141 @@
                 </div>
             </section>
 
+            <!-- TIPS & BEST PRACTICES SECTION -->
+            <section id="tips" class="section">
+                <div class="section-header">
+                    <span class="section-number">06</span>
+                    <h2>Tips & Best Practices</h2>
+                </div>
+
+                <p class="section-intro">Get the most out of Claude and avoid common pitfalls.</p>
+
+                <!-- Getting More from Claude -->
+                <div class="content-block">
+                    <h3>Getting Claude to Do More</h3>
+                    <p>Claude can often do more than it initially offers. If Claude tells you to do something yourself (like "create this file" or "set up this service"), try asking it to do it for you.</p>
+
+                    <div class="tip-cards">
+                        <div class="tip-card">
+                            <h4>Be Specific About Quality</h4>
+                            <p>Add phrases like "be thorough versus fast" or "test it thoroughly before telling me it's done." Claude will put in more effort when you signal that quality matters.</p>
+                        </div>
+                        <div class="tip-card">
+                            <h4>Ask for the Full Solution</h4>
+                            <p>Instead of accepting "you'll need to..." responses, say: "Don't just tell me what to do—do it for me." Claude can often complete tasks it initially just explains.</p>
+                        </div>
+                        <div class="tip-card">
+                            <h4>Provide Context</h4>
+                            <p>Share relevant files and explain the bigger picture. "This is for a quarterly board report" helps Claude make better decisions than just "analyze this data."</p>
+                        </div>
+                        <div class="tip-card">
+                            <h4>Iterate and Refine</h4>
+                            <p>First results aren't always perfect. Say "that's close, but can you also..." or "I like that, now add..." to guide Claude toward exactly what you need.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- APIs and .env -->
+                <div class="content-block">
+                    <h3>APIs and Environment Variables</h3>
+                    <p>As you build more powerful tools, you may want to connect to external services (Airtable, HubSpot, Google Sheets, etc.). These connections use <strong>API keys</strong>—secret passwords that grant access.</p>
+
+                    <div class="callout callout-warning">
+                        <span class="callout-icon">⚠️</span>
+                        <div class="callout-content">
+                            <strong>Never put API keys directly in your code.</strong> Anyone who sees your code would have your keys. Instead, store them in a <code>.env</code> file.
+                        </div>
+                    </div>
+
+                    <p>Create a file called <code>.env</code> in your project root:</p>
+                    <div class="code-block">
+                        <div class="code-header">
+                            <span class="code-label">.env file</span>
+                        </div>
+                        <pre><code># My API Keys (never commit this file!)
+AIRTABLE_API_KEY=your_key_here
+OPENAI_API_KEY=your_key_here
+HUBSPOT_API_KEY=your_key_here</code></pre>
+                    </div>
+
+                    <p>Your <code>.gitignore</code> file (from the templates) already includes <code>.env</code>, so it won't be uploaded to GitHub. Ask Claude to help you set up any API connections—it will use the <code>.env</code> pattern automatically.</p>
+                </div>
+
+                <!-- Costs and Plans -->
+                <div class="content-block">
+                    <h3>Understanding Costs</h3>
+                    <p>Claude CLI usage is tied to your Anthropic subscription plan:</p>
+
+                    <div class="plan-comparison">
+                        <div class="plan-card">
+                            <h4>Pro Plan ($20/month)</h4>
+                            <ul>
+                                <li>Limited Claude Code usage</li>
+                                <li>Can run out during heavy projects</li>
+                                <li>Good for occasional use</li>
+                            </ul>
+                        </div>
+                        <div class="plan-card recommended">
+                            <span class="recommended-badge">Recommended</span>
+                            <h4>Max Plan ($100/month)</h4>
+                            <ul>
+                                <li>Unlimited Claude Code usage</li>
+                                <li>Best for regular work</li>
+                                <li>No interruptions mid-project</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="callout callout-tip">
+                        <span class="callout-icon">💡</span>
+                        <div class="callout-content">
+                            <strong>If you're running out of usage on Pro:</strong> Consider upgrading to Max. The unlimited usage is worth it if you're using Claude regularly for real work.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Safety and Security -->
+                <div class="content-block">
+                    <h3>Safety Basics</h3>
+                    <p>Claude is powerful—which means a few simple habits keep your work secure:</p>
+
+                    <div class="safety-list">
+                        <div class="safety-item">
+                            <span class="safety-icon">🔑</span>
+                            <div class="safety-content">
+                                <strong>Protect API Keys</strong>
+                                <p>Keep them in <code>.env</code> files, never in code. Your <code>.gitignore</code> prevents them from being uploaded.</p>
+                            </div>
+                        </div>
+                        <div class="safety-item">
+                            <span class="safety-icon">👀</span>
+                            <div class="safety-content">
+                                <strong>Review Before Approving</strong>
+                                <p>Claude asks permission before running commands or making changes. Take a moment to understand what it's about to do.</p>
+                            </div>
+                        </div>
+                        <div class="safety-item">
+                            <span class="safety-icon">💾</span>
+                            <div class="safety-content">
+                                <strong>Commit Often</strong>
+                                <p>Regular Git commits mean you can always undo changes. If something goes wrong, you have a safe point to return to.</p>
+                            </div>
+                        </div>
+                        <div class="safety-item">
+                            <span class="safety-icon">📁</span>
+                            <div class="safety-content">
+                                <strong>Keep Projects Separate</strong>
+                                <p>One folder per project, one venv per project. This prevents Claude from accidentally affecting other work.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
             <!-- REFERENCE SECTION -->
             <section id="reference" class="section">
                 <div class="section-header">
-                    <span class="section-number">06</span>
+                    <span class="section-number">07</span>
                     <h2>Reference</h2>
                 </div>
 
