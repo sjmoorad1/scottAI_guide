@@ -563,15 +563,27 @@ a:hover {
     box-shadow: var(--shadow-md);
 }
 
-.capability-icon {
-    font-size: 2rem;
+.capability-header {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
     margin-bottom: var(--space-sm);
-    display: block;
+}
+
+.capability-icon {
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+    color: var(--brand-blue);
+}
+
+[data-theme="dark"] .capability-icon {
+    color: var(--brand-orange);
 }
 
 .capability-card h4 {
     color: var(--brand-blue);
-    margin-bottom: var(--space-sm);
+    margin: 0;
 }
 
 [data-theme="dark"] .capability-card h4 {
