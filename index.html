@@ -1,0 +1,1654 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agentic AI Setup Guide | AscendNxt</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-container">
+            <div class="logo">
+                <img src="images/AscendNxt Logo Blue.png" alt="AscendNxt" class="logo-light">
+                <img src="images/AscendNxt Logo White_no background.png" alt="AscendNxt" class="logo-dark">
+            </div>
+            <div class="header-right">
+                <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+                    <span class="sun-icon">☀️</span>
+                    <span class="moon-icon">🌙</span>
+                </button>
+                <a href="mailto:scott@ascendnxt.com" class="help-link">Need Help?</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>Agentic AI Setup Guide</h1>
+            <p class="hero-subtitle">Get started with Claude CLI for analysis, automation & development</p>
+
+            <!-- OS Selector -->
+            <div class="os-selector">
+                <span class="os-label">I'm setting up on:</span>
+                <div class="os-buttons">
+                    <button class="os-btn active" data-os="mac">
+                        <span class="os-icon">🍎</span> Mac
+                    </button>
+                    <button class="os-btn" data-os="windows">
+                        <span class="os-icon">🪟</span> Windows
+                    </button>
+                </div>
+            </div>
+
+            <!-- Progress Bar -->
+            <div class="progress-container">
+                <div class="progress-bar">
+                    <div class="progress-fill" id="progressFill"></div>
+                </div>
+                <div class="progress-text">
+                    <span id="progressPercent">0 steps</span>
+                    <span class="progress-time">~90 min total</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Navigation -->
+    <nav class="nav-sticky" id="stickyNav">
+        <div class="container">
+            <ul class="nav-list">
+                <li><a href="#overview" class="nav-link active">Overview</a></li>
+                <li><a href="#phase1" class="nav-link">Phase 1</a></li>
+                <li><a href="#phase2" class="nav-link">Phase 2</a></li>
+                <li><a href="#phase3" class="nav-link">Phase 3</a></li>
+                <li><a href="#phase4" class="nav-link">Phase 4</a></li>
+                <li><a href="#workflow" class="nav-link">Workflow</a></li>
+                <li><a href="#reference" class="nav-link">Reference</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container">
+
+            <!-- OVERVIEW SECTION -->
+            <section id="overview" class="section">
+                <div class="section-header">
+                    <span class="section-number">00</span>
+                    <h2>Overview</h2>
+                </div>
+
+                <div class="content-block">
+                    <h3>What is Agentic AI?</h3>
+                    <p><strong>"Agentic AI"</strong> refers to AI that can take actions on your behalf—reading files, writing code, running programs, and completing multi-step tasks autonomously. Instead of just answering questions, Claude CLI can actually <em>do</em> things: analyze your data, build tools, automate workflows, and more.</p>
+                    <p>You describe what you want in plain English. Claude figures out the steps, writes any necessary code, runs it, and delivers results. You guide the process with feedback, but Claude handles the technical details.</p>
+
+                    <div class="callout callout-tip">
+                        <span class="callout-icon">💡</span>
+                        <div class="callout-content">
+                            <strong>No coding experience required.</strong> You'll learn to describe tasks clearly and review results—Claude handles the programming.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="content-block">
+                    <h3>What You Can Do</h3>
+                    <div class="capability-grid">
+                        <div class="capability-card">
+                            <span class="capability-icon">📊</span>
+                            <h4>Data Analysis</h4>
+                            <p>Read Excel/CSV files, calculate summaries, find patterns, create charts</p>
+                            <button class="expand-btn" data-expand="example-analysis">See example →</button>
+                            <div class="expand-content" id="example-analysis">
+                                <div class="example-prompt">"Read this Excel file and tell me which products had declining sales quarter over quarter"</div>
+                            </div>
+                        </div>
+                        <div class="capability-card">
+                            <span class="capability-icon">⚙️</span>
+                            <h4>Automation</h4>
+                            <p>Batch process files, rename/organize documents, extract information</p>
+                            <button class="expand-btn" data-expand="example-automation">See example →</button>
+                            <div class="expand-content" id="example-automation">
+                                <div class="example-prompt">"Rename all files in this folder using the date in each filename"</div>
+                            </div>
+                        </div>
+                        <div class="capability-card">
+                            <span class="capability-icon">📄</span>
+                            <h4>Document Processing</h4>
+                            <p>Parse PDFs, extract tables, convert formats, summarize content</p>
+                            <button class="expand-btn" data-expand="example-docs">See example →</button>
+                            <div class="expand-content" id="example-docs">
+                                <div class="example-prompt">"Analyze these three PDFs and create a comparison table of the key terms"</div>
+                            </div>
+                        </div>
+                        <div class="capability-card">
+                            <span class="capability-icon">💻</span>
+                            <h4>Code Development</h4>
+                            <p>Build scripts, create tools, connect to APIs, automate workflows</p>
+                            <button class="expand-btn" data-expand="example-code">See example →</button>
+                            <div class="expand-content" id="example-code">
+                                <div class="example-prompt">"Build a tool that pulls data from this API and saves it to a spreadsheet"</div>
+                            </div>
+                        </div>
+                        <div class="capability-card">
+                            <span class="capability-icon">🔍</span>
+                            <h4>Research</h4>
+                            <p>Gather information from files, compare data sources, generate reports</p>
+                            <button class="expand-btn" data-expand="example-research">See example →</button>
+                            <div class="expand-content" id="example-research">
+                                <div class="example-prompt">"Compare these vendor quotes and create a summary showing the pros/cons of each"</div>
+                            </div>
+                        </div>
+                        <div class="capability-card">
+                            <span class="capability-icon">🔧</span>
+                            <h4>Problem Solving</h4>
+                            <p>Debug issues, optimize processes, find solutions to challenges</p>
+                            <button class="expand-btn" data-expand="example-debug">See example →</button>
+                            <div class="expand-content" id="example-debug">
+                                <div class="example-prompt">"This script is throwing an error. Here's the message: [error]. What's wrong?"</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="content-block">
+                    <h3>How It Works</h3>
+                    <div class="workflow-diagram">
+                        <div class="workflow-step">
+                            <span class="step-number">1</span>
+                            <span class="step-text">You describe task</span>
+                        </div>
+                        <div class="workflow-arrow">→</div>
+                        <div class="workflow-step">
+                            <span class="step-number">2</span>
+                            <span class="step-text">Claude reads files</span>
+                        </div>
+                        <div class="workflow-arrow">→</div>
+                        <div class="workflow-step">
+                            <span class="step-number">3</span>
+                            <span class="step-text">Claude writes code</span>
+                        </div>
+                        <div class="workflow-arrow">→</div>
+                        <div class="workflow-step">
+                            <span class="step-number">4</span>
+                            <span class="step-text">Claude runs it</span>
+                        </div>
+                        <div class="workflow-arrow">→</div>
+                        <div class="workflow-step">
+                            <span class="step-number">5</span>
+                            <span class="step-text">You review & refine</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="content-block">
+                    <h3>The Four Components You'll Set Up</h3>
+                    <div class="component-list">
+                        <div class="component-item">
+                            <div class="component-icon">📝</div>
+                            <div class="component-info">
+                                <h4>VS Code</h4>
+                                <p><strong>Your workspace.</strong> A free editor that shows your files on the left, content in the middle, and has a built-in Terminal where you'll interact with Claude.</p>
+                            </div>
+                        </div>
+                        <div class="component-item">
+                            <div class="component-icon">🐍</div>
+                            <div class="component-info">
+                                <h4>Python</h4>
+                                <p><strong>The engine.</strong> A programming language that Claude uses to build solutions. You don't need to learn it—Claude writes it—but it needs to be installed.</p>
+                            </div>
+                        </div>
+                        <div class="component-item">
+                            <div class="component-icon">🤖</div>
+                            <div class="component-info">
+                                <h4>Claude CLI</h4>
+                                <p><strong>Your AI partner.</strong> The command-line interface for Claude. You describe what you want, Claude reads your files, writes code, runs it, and delivers results.</p>
+                            </div>
+                        </div>
+                        <div class="component-item">
+                            <div class="component-icon">☁️</div>
+                            <div class="component-info">
+                                <h4>GitHub</h4>
+                                <p><strong>Your safety net.</strong> Cloud storage that tracks every change to your work. If something breaks, you can always go back.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- PHASE 1: FOUNDATION -->
+            <section id="phase1" class="section">
+                <div class="section-header">
+                    <span class="section-number">01</span>
+                    <h2>Phase 1: Foundation Setup</h2>
+                    <div class="section-meta">
+                        <span class="time-estimate">⏱️ 30-45 minutes</span>
+                        <span class="phase-status" id="phase1-status">Not started</span>
+                    </div>
+                </div>
+
+                <p class="section-intro">Install the basic tools and get comfortable with VS Code's layout. You can stop after this phase and return later.</p>
+
+                <!-- Step 1.1: VS Code -->
+                <div class="step" id="step-1-1">
+                    <div class="step-header">
+                        <label class="step-checkbox">
+                            <input type="checkbox" data-step="1-1">
+                            <span class="checkmark"></span>
+                        </label>
+                        <h3>Step 1.1: Install VS Code</h3>
+                    </div>
+                    <div class="step-content">
+                        <ol class="step-list">
+                            <li>Open your browser and go to: <a href="https://code.visualstudio.com/" target="_blank">code.visualstudio.com</a></li>
+                            <li>Click the big blue <strong>"Download for <span class="os-text" data-mac="Mac" data-windows="Windows">Mac</span>"</strong> button</li>
+                            <li class="os-specific mac">Wait for the download, then double-click the .zip file to extract it</li>
+                            <li class="os-specific mac">Drag "Visual Studio Code" to your Applications folder</li>
+                            <li class="os-specific windows">Run the downloaded installer (VSCodeUserSetup-x64-x.xx.x.exe)</li>
+                            <li class="os-specific windows">Accept the license agreement and click Next</li>
+                            <li class="os-specific windows"><strong>IMPORTANT:</strong> On "Select Additional Tasks," check ALL boxes, especially "Add to PATH"</li>
+                            <li>Open VS Code <span class="os-text" data-mac="from Applications (or Spotlight: Cmd+Space)" data-windows="from the Start Menu">from Applications</span></li>
+                        </ol>
+
+                        <div class="screenshot-placeholder">
+                            <div class="placeholder-content">
+                                <span class="placeholder-icon">🖼️</span>
+                                <span class="placeholder-text">VS Code Welcome Screen</span>
+                            </div>
+                        </div>
+
+                        <div class="success-box">
+                            <span class="success-icon">✓</span>
+                            <div class="success-content">
+                                <strong>Success looks like:</strong> A window opens with "Welcome" tab. You'll see an interface with icons on the left side.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 1.2: VS Code Layout -->
+                <div class="step" id="step-1-2">
+                    <div class="step-header">
+                        <label class="step-checkbox">
+                            <input type="checkbox" data-step="1-2">
+                            <span class="checkmark"></span>
+                        </label>
+                        <h3>Step 1.2: Learn the VS Code Layout</h3>
+                    </div>
+                    <div class="step-content">
+                        <p>Spend 5 minutes understanding the interface—it'll make everything easier.</p>
+
+                        <div class="vscode-layout-diagram">
+                            <div class="layout-item" data-area="activity">
+                                <span class="layout-label">Activity Bar</span>
+                                <span class="layout-desc">Far left icons. The files icon (Explorer) is most important.</span>
+                            </div>
+                            <div class="layout-item" data-area="sidebar">
+                                <span class="layout-label">Sidebar</span>
+                                <span class="layout-desc">Shows your folders and files, like Finder/File Explorer.</span>
+                            </div>
+                            <div class="layout-item" data-area="editor">
+                                <span class="layout-label">Editor Area</span>
+                                <span class="layout-desc">Where you view and edit files. Files open in tabs.</span>
+                            </div>
+                            <div class="layout-item highlight" data-area="terminal">
+                                <span class="layout-label">⭐ Terminal</span>
+                                <span class="layout-desc">THE IMPORTANT ONE. You'll interact with Claude here. Press Ctrl+` to toggle.</span>
+                            </div>
+                        </div>
+
+                        <div class="try-it-box">
+                            <h4>🎯 Try it now:</h4>
+                            <ol>
+                                <li>Press <kbd>Ctrl</kbd>+<kbd>`</kbd> (backtick key, left of 1). Terminal appears at bottom.</li>
+                                <li>Press <kbd>Ctrl</kbd>+<kbd>`</kbd> again. Terminal hides.</li>
+                                <li>Press <kbd>Ctrl</kbd>+<kbd>`</kbd> once more. Click in the Terminal area.</li>
+                            </ol>
+                        </div>
+
+                        <div class="callout callout-tip">
+                            <span class="callout-icon">💡</span>
+                            <div class="callout-content">
+                                The Terminal is your command center. <kbd>Ctrl</kbd>+<kbd>`</kbd> is the most important shortcut you'll learn.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 1.3: Package Manager (Mac) / Python (Windows) -->
+                <div class="step os-specific mac" id="step-1-3-mac">
+                    <div class="step-header">
+                        <label class="step-checkbox">
+                            <input type="checkbox" data-step="1-3">
+                            <span class="checkmark"></span>
+                        </label>
+                        <h3>Step 1.3: Install Homebrew</h3>
+                    </div>
+                    <div class="step-content">
+                        <p>Homebrew is a package manager that makes installing developer tools easy on Mac.</p>
+
+                        <ol class="step-list">
+                            <li>Open VS Code with Terminal visible (<kbd>Ctrl</kbd>+<kbd>`</kbd>)</li>
+                            <li>Copy and paste this command, then press Enter:</li>
+                        </ol>
+
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="code-label">Terminal</span>
+                                <button class="copy-btn" data-copy="/bin/bash -c &quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)&quot;">
+                                    <span class="copy-text">Copy</span>
+                                    <span class="copied-text">Copied!</span>
+                                </button>
+                            </div>
+                            <pre><code>/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"</code></pre>
+                        </div>
+
+                        <ol class="step-list" start="3">
+                            <li>Enter your Mac password when prompted (you won't see characters—that's normal)</li>
+                            <li>Press Enter when asked to continue</li>
+                            <li>Wait 2-5 minutes for installation</li>
+                            <li><strong>CRITICAL:</strong> Look for "Next steps" at the end and run those commands!</li>
+                        </ol>
+
+                        <div class="callout callout-warning">
+                            <span class="callout-icon">⚠️</span>
+                            <div class="callout-content">
+                                <strong>Don't skip the "Next steps" commands!</strong> They look something like:<br>
+                                <code>echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> ~/.zprofile</code>
+                            </div>
+                        </div>
+
+                        <p>Verify Homebrew works:</p>
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="code-label">Terminal</span>
+                                <button class="copy-btn" data-copy="brew --version">
+                                    <span class="copy-text">Copy</span>
+                                    <span class="copied-text">Copied!</span>
+                                </button>
+                            </div>
+                            <pre><code>brew --version</code></pre>
+                        </div>
+
+                        <div class="success-box">
+                            <span class="success-icon">✓</span>
+                            <div class="success-content">
+                                <strong>Success:</strong> You see "Homebrew 4.x.x"
+                            </div>
+                        </div>
+
+                        <details class="troubleshoot-accordion">
+                            <summary>🔧 Troubleshooting</summary>
+                            <div class="accordion-content">
+                                <p><strong>"command not found"</strong> - You missed the "Next steps." Close Terminal, reopen, and run the commands shown at the end of Homebrew installation.</p>
+                            </div>
+                        </details>
+                    </div>
+                </div>
+
+                <!-- Step 1.4: Install Python -->
+                <div class="step" id="step-1-4">
+                    <div class="step-header">
+                        <label class="step-checkbox">
+                            <input type="checkbox" data-step="1-4">
+                            <span class="checkmark"></span>
+                        </label>
+                        <h3>Step 1.<span class="os-text" data-mac="4" data-windows="3">4</span>: Install Python</h3>
+                    </div>
+                    <div class="step-content">
+                        <div class="os-specific mac">
+                            <p>Use Homebrew to install Python:</p>
+                            <div class="code-block">
+                                <div class="code-header">
+                                    <span class="code-label">Terminal</span>
+                                    <button class="copy-btn" data-copy="brew install python">
+                                        <span class="copy-text">Copy</span>
+                                        <span class="copied-text">Copied!</span>
+                                    </button>
+                                </div>
+                                <pre><code>brew install python</code></pre>
+                            </div>
+                        </div>
+
+                        <div class="os-specific windows">
+                            <ol class="step-list">
+                                <li>Go to: <a href="https://www.python.org/downloads/" target="_blank">python.org/downloads</a></li>
+                                <li>Click the yellow "Download Python 3.x.x" button</li>
+                                <li>Run the downloaded installer</li>
+                                <li><strong>CRITICAL:</strong> Check "Add Python to PATH" at the bottom!</li>
+                                <li>Click "Install Now"</li>
+                            </ol>
+                            <div class="callout callout-warning">
+                                <span class="callout-icon">⚠️</span>
+                                <div class="callout-content">
+                                    If you miss "Add Python to PATH," uninstall and reinstall with that box checked.
+                                </div>
+                            </div>
+                        </div>
+
+                        <p>Verify installation <span class="os-text" data-mac="(close and reopen VS Code first on Windows)" data-windows="(close and reopen VS Code first)">(wait for install to finish)</span>:</p>
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="code-label">Terminal</span>
+                                <button class="copy-btn" data-copy-mac="python3 --version" data-copy-windows="python --version">
+                                    <span class="copy-text">Copy</span>
+                                    <span class="copied-text">Copied!</span>
+                                </button>
+                            </div>
+                            <pre><code class="os-text" data-mac="python3 --version" data-windows="python --version">python3 --version</code></pre>
+                        </div>
+
+                        <div class="success-box">
+                            <span class="success-icon">✓</span>
+                            <div class="success-content">
+                                <strong>Success:</strong> You see "Python 3.12.x" or "Python 3.13.x"
+                            </div>
+                        </div>
+
+                        <div class="callout callout-tip os-specific mac">
+                            <span class="callout-icon">💡</span>
+                            <div class="callout-content">
+                                On Mac, always use <code>python3</code> (not just <code>python</code>).
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 1.5: Install Git -->
+                <div class="step" id="step-1-5">
+                    <div class="step-header">
+                        <label class="step-checkbox">
+                            <input type="checkbox" data-step="1-5">
+                            <span class="checkmark"></span>
+                        </label>
+                        <h3>Step 1.<span class="os-text" data-mac="5" data-windows="4">5</span>: Install Git</h3>
+                    </div>
+                    <div class="step-content">
+                        <p>Git tracks changes to your work—like version history for your files.</p>
+
+                        <div class="os-specific mac">
+                            <div class="code-block">
+                                <div class="code-header">
+                                    <span class="code-label">Terminal</span>
+                                    <button class="copy-btn" data-copy="brew install git">
+                                        <span class="copy-text">Copy</span>
+                                        <span class="copied-text">Copied!</span>
+                                    </button>
+                                </div>
+                                <pre><code>brew install git</code></pre>
+                            </div>
+                        </div>
+
+                        <div class="os-specific windows">
+                            <ol class="step-list">
+                                <li>Go to: <a href="https://git-scm.com/download/win" target="_blank">git-scm.com/download/win</a></li>
+                                <li>Download should start automatically</li>
+                                <li>Run installer, click Next through screens (defaults are fine)</li>
+                                <li>On "Choosing the default editor," select VS Code if available</li>
+                                <li>Click Install, then Finish</li>
+                                <li><strong>Close and reopen VS Code</strong></li>
+                            </ol>
+                        </div>
+
+                        <p>Verify Git installed:</p>
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="code-label">Terminal</span>
+                                <button class="copy-btn" data-copy="git --version">
+                                    <span class="copy-text">Copy</span>
+                                    <span class="copied-text">Copied!</span>
+                                </button>
+                            </div>
+                            <pre><code>git --version</code></pre>
+                        </div>
+
+                        <p>Configure Git with your name and email:</p>
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="code-label">Terminal</span>
+                                <button class="copy-btn" data-copy='git config --global user.name "Your Name"'>
+                                    <span class="copy-text">Copy</span>
+                                    <span class="copied-text">Copied!</span>
+                                </button>
+                            </div>
+                            <pre><code>git config --global user.name "Your Name"</code></pre>
+                        </div>
+                        <p class="code-note">Replace "Your Name" with your actual name</p>
+
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="code-label">Terminal</span>
+                                <button class="copy-btn" data-copy='git config --global user.email "your.email@example.com"'>
+                                    <span class="copy-text">Copy</span>
+                                    <span class="copied-text">Copied!</span>
+                                </button>
+                            </div>
+                            <pre><code>git config --global user.email "your.email@example.com"</code></pre>
+                        </div>
+                        <p class="code-note">Use the same email you'll use for GitHub</p>
+                    </div>
+                </div>
+
+                <!-- Step 1.6: Create Projects Folder -->
+                <div class="step" id="step-1-6">
+                    <div class="step-header">
+                        <label class="step-checkbox">
+                            <input type="checkbox" data-step="1-6">
+                            <span class="checkmark"></span>
+                        </label>
+                        <h3>Step 1.<span class="os-text" data-mac="6" data-windows="5">6</span>: Create Projects Folder</h3>
+                    </div>
+                    <div class="step-content">
+                        <p>Create a dedicated folder for all your projects:</p>
+
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="code-label">Terminal</span>
+                                <button class="copy-btn" data-copy-mac="mkdir -p ~/Documents/projects" data-copy-windows="mkdir %USERPROFILE%\Documents\projects">
+                                    <span class="copy-text">Copy</span>
+                                    <span class="copied-text">Copied!</span>
+                                </button>
+                            </div>
+                            <pre><code class="os-text" data-mac="mkdir -p ~/Documents/projects" data-windows="mkdir %USERPROFILE%\Documents\projects">mkdir -p ~/Documents/projects</code></pre>
+                        </div>
+
+                        <p>Open this folder in VS Code:</p>
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="code-label">Terminal</span>
+                                <button class="copy-btn" data-copy-mac="code ~/Documents/projects" data-copy-windows="code %USERPROFILE%\Documents\projects">
+                                    <span class="copy-text">Copy</span>
+                                    <span class="copied-text">Copied!</span>
+                                </button>
+                            </div>
+                            <pre><code class="os-text" data-mac="code ~/Documents/projects" data-windows="code %USERPROFILE%\Documents\projects">code ~/Documents/projects</code></pre>
+                        </div>
+
+                        <div class="success-box">
+                            <span class="success-icon">✓</span>
+                            <div class="success-content">
+                                <strong>Success:</strong> A new VS Code window opens with "PROJECTS" in the sidebar (it will be empty).
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Phase 1 Checkpoint -->
+                <div class="checkpoint">
+                    <h3>✅ Phase 1 Checkpoint</h3>
+                    <p>Before moving on, verify each item:</p>
+                    <ul class="checkpoint-list">
+                        <li>
+                            <label><input type="checkbox" data-checkpoint="1-a"> VS Code opens and you can toggle Terminal with <kbd>Ctrl</kbd>+<kbd>`</kbd></label>
+                        </li>
+                        <li class="os-specific mac">
+                            <label><input type="checkbox" data-checkpoint="1-b"> <code>brew --version</code> shows a version number</label>
+                        </li>
+                        <li>
+                            <label><input type="checkbox" data-checkpoint="1-c"> <code class="os-text" data-mac="python3 --version" data-windows="python --version">python3 --version</code> shows Python 3.x.x</label>
+                        </li>
+                        <li>
+                            <label><input type="checkbox" data-checkpoint="1-d"> <code>git --version</code> shows git version x.x.x</label>
+                        </li>
+                        <li>
+                            <label><input type="checkbox" data-checkpoint="1-e"> Projects folder is open in VS Code</label>
+                        </li>
+                    </ul>
+                    <div class="checkpoint-complete" id="phase1-complete">
+                        <span class="celebration">🎉</span>
+                        <strong>Phase 1 Complete!</strong> Great stopping point. Take a break if needed—Phase 2 is where Claude enters!
+                    </div>
+                </div>
+            </section>
+
+            <!-- PHASE 2: CLAUDE CLI -->
+            <section id="phase2" class="section">
+                <div class="section-header">
+                    <span class="section-number">02</span>
+                    <h2>Phase 2: Claude CLI Setup</h2>
+                    <div class="section-meta">
+                        <span class="time-estimate">⏱️ 15-20 minutes</span>
+                        <span class="phase-status" id="phase2-status">Not started</span>
+                    </div>
+                </div>
+
+                <p class="section-intro">Install Claude CLI and have your first AI-assisted session.</p>
+
+                <!-- Step 2.1: Node.js -->
+                <div class="step" id="step-2-1">
+                    <div class="step-header">
+                        <label class="step-checkbox">
+                            <input type="checkbox" data-step="2-1">
+                            <span class="checkmark"></span>
+                        </label>
+                        <h3>Step 2.1: Install Node.js</h3>
+                    </div>
+                    <div class="step-content">
+                        <p>Claude CLI is built with Node.js, so we need to install it first.</p>
+
+                        <div class="os-specific mac">
+                            <div class="code-block">
+                                <div class="code-header">
+                                    <span class="code-label">Terminal</span>
+                                    <button class="copy-btn" data-copy="brew install node">
+                                        <span class="copy-text">Copy</span>
+                                        <span class="copied-text">Copied!</span>
+                                    </button>
+                                </div>
+                                <pre><code>brew install node</code></pre>
+                            </div>
+                        </div>
+
+                        <div class="os-specific windows">
+                            <ol class="step-list">
+                                <li>Go to: <a href="https://nodejs.org/" target="_blank">nodejs.org</a></li>
+                                <li>Click the LTS (Long Term Support) version</li>
+                                <li>Run installer, accept defaults</li>
+                                <li>Close and reopen VS Code</li>
+                            </ol>
+                        </div>
+
+                        <p>Verify:</p>
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="code-label">Terminal</span>
+                                <button class="copy-btn" data-copy="node --version">
+                                    <span class="copy-text">Copy</span>
+                                    <span class="copied-text">Copied!</span>
+                                </button>
+                            </div>
+                            <pre><code>node --version</code></pre>
+                        </div>
+
+                        <div class="success-box">
+                            <span class="success-icon">✓</span>
+                            <div class="success-content">
+                                <strong>Success:</strong> You see "v20.x.x" or "v22.x.x"
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 2.2: Install Claude CLI -->
+                <div class="step" id="step-2-2">
+                    <div class="step-header">
+                        <label class="step-checkbox">
+                            <input type="checkbox" data-step="2-2">
+                            <span class="checkmark"></span>
+                        </label>
+                        <h3>Step 2.2: Install Claude CLI</h3>
+                    </div>
+                    <div class="step-content">
+                        <p>Install Claude CLI globally:</p>
+
+                        <div class="os-specific mac">
+                            <div class="code-block">
+                                <div class="code-header">
+                                    <span class="code-label">Terminal</span>
+                                    <button class="copy-btn" data-copy="curl -fsSL https://claude.ai/install.sh | bash">
+                                        <span class="copy-text">Copy</span>
+                                        <span class="copied-text">Copied!</span>
+                                    </button>
+                                </div>
+                                <pre><code>curl -fsSL https://claude.ai/install.sh | bash</code></pre>
+                            </div>
+                        </div>
+
+                        <div class="os-specific windows">
+                            <div class="code-block">
+                                <div class="code-header">
+                                    <span class="code-label">PowerShell</span>
+                                    <button class="copy-btn" data-copy="irm https://claude.ai/install.ps1 | iex">
+                                        <span class="copy-text">Copy</span>
+                                        <span class="copied-text">Copied!</span>
+                                    </button>
+                                </div>
+                                <pre><code>irm https://claude.ai/install.ps1 | iex</code></pre>
+                            </div>
+                        </div>
+
+                        <details class="troubleshoot-accordion">
+                            <summary>Alternative installation method</summary>
+                            <div class="accordion-content">
+                                <p>If the above doesn't work, try npm:</p>
+                                <div class="code-block">
+                                    <div class="code-header">
+                                        <span class="code-label">Terminal</span>
+                                        <button class="copy-btn" data-copy="npm install -g @anthropic-ai/claude-code">
+                                            <span class="copy-text">Copy</span>
+                                            <span class="copied-text">Copied!</span>
+                                        </button>
+                                    </div>
+                                    <pre><code>npm install -g @anthropic-ai/claude-code</code></pre>
+                                </div>
+                            </div>
+                        </details>
+
+                        <p>Verify:</p>
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="code-label">Terminal</span>
+                                <button class="copy-btn" data-copy="claude --version">
+                                    <span class="copy-text">Copy</span>
+                                    <span class="copied-text">Copied!</span>
+                                </button>
+                            </div>
+                            <pre><code>claude --version</code></pre>
+                        </div>
+
+                        <div class="success-box">
+                            <span class="success-icon">✓</span>
+                            <div class="success-content">
+                                <strong>Success:</strong> You see a version number like "1.x.x"
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 2.3: Anthropic Account -->
+                <div class="step" id="step-2-3">
+                    <div class="step-header">
+                        <label class="step-checkbox">
+                            <input type="checkbox" data-step="2-3">
+                            <span class="checkmark"></span>
+                        </label>
+                        <h3>Step 2.3: Create Anthropic Account</h3>
+                    </div>
+                    <div class="step-content">
+                        <ol class="step-list">
+                            <li>Go to: <a href="https://console.anthropic.com/" target="_blank">console.anthropic.com</a></li>
+                            <li>Click "Sign Up" and create an account</li>
+                            <li>Verify your email address</li>
+                            <li>Add a payment method or activate free trial credits</li>
+                        </ol>
+
+                        <div class="callout callout-tip">
+                            <span class="callout-icon">💡</span>
+                            <div class="callout-content">
+                                Claude CLI uses API credits. Cost is very low for typical use—a few dollars/month for moderate use.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 2.4: Authenticate -->
+                <div class="step" id="step-2-4">
+                    <div class="step-header">
+                        <label class="step-checkbox">
+                            <input type="checkbox" data-step="2-4">
+                            <span class="checkmark"></span>
+                        </label>
+                        <h3>Step 2.4: Authenticate Claude</h3>
+                    </div>
+                    <div class="step-content">
+                        <p>Start Claude for the first time:</p>
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="code-label">Terminal</span>
+                                <button class="copy-btn" data-copy="claude">
+                                    <span class="copy-text">Copy</span>
+                                    <span class="copied-text">Copied!</span>
+                                </button>
+                            </div>
+                            <pre><code>claude</code></pre>
+                        </div>
+
+                        <p>Follow the authentication prompts:</p>
+                        <ol class="step-list">
+                            <li>Press Enter when prompted</li>
+                            <li>A browser window opens—log in to your Anthropic account</li>
+                            <li>Click "Authorize"</li>
+                            <li>Return to VS Code</li>
+                        </ol>
+
+                        <div class="success-box">
+                            <span class="success-icon">✓</span>
+                            <div class="success-content">
+                                <strong>Success:</strong> You see a prompt waiting for your input, or a welcome message from Claude.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 2.5: First Session -->
+                <div class="step" id="step-2-5">
+                    <div class="step-header">
+                        <label class="step-checkbox">
+                            <input type="checkbox" data-step="2-5">
+                            <span class="checkmark"></span>
+                        </label>
+                        <h3>Step 2.5: Your First Claude Session</h3>
+                    </div>
+                    <div class="step-content">
+                        <p>Let's test everything! First, exit Claude if running:</p>
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="code-label">Claude</span>
+                                <button class="copy-btn" data-copy="/exit">
+                                    <span class="copy-text">Copy</span>
+                                    <span class="copied-text">Copied!</span>
+                                </button>
+                            </div>
+                            <pre><code>/exit</code></pre>
+                        </div>
+
+                        <p>Create a test project:</p>
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="code-label">Terminal</span>
+                                <button class="copy-btn" data-copy-mac="cd ~/Documents/projects && mkdir my-first-project && cd my-first-project" data-copy-windows="cd %USERPROFILE%\Documents\projects && mkdir my-first-project && cd my-first-project">
+                                    <span class="copy-text">Copy</span>
+                                    <span class="copied-text">Copied!</span>
+                                </button>
+                            </div>
+                            <pre><code class="os-text" data-mac="cd ~/Documents/projects && mkdir my-first-project && cd my-first-project" data-windows="cd %USERPROFILE%\Documents\projects && mkdir my-first-project && cd my-first-project">cd ~/Documents/projects && mkdir my-first-project && cd my-first-project</code></pre>
+                        </div>
+
+                        <p>Start Claude:</p>
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="code-label">Terminal</span>
+                                <button class="copy-btn" data-copy="claude">
+                                    <span class="copy-text">Copy</span>
+                                    <span class="copied-text">Copied!</span>
+                                </button>
+                            </div>
+                            <pre><code>claude</code></pre>
+                        </div>
+
+                        <p>Try your first request:</p>
+                        <div class="code-block example-prompt-block">
+                            <div class="code-header">
+                                <span class="code-label">Say to Claude</span>
+                                <button class="copy-btn" data-copy='Create a Python script called hello.py that prints "Hello! My AI assistant is working!"'>
+                                    <span class="copy-text">Copy</span>
+                                    <span class="copied-text">Copied!</span>
+                                </button>
+                            </div>
+                            <pre><code>Create a Python script called hello.py that prints "Hello! My AI assistant is working!"</code></pre>
+                        </div>
+
+                        <p>Watch what happens:</p>
+                        <ol class="step-list">
+                            <li>Claude thinks about your request</li>
+                            <li>Claude creates a file (hello.py)</li>
+                            <li>You see the file appear in VS Code's sidebar</li>
+                            <li>Claude may offer to run it</li>
+                        </ol>
+
+                        <p>If Claude doesn't run it, exit and run manually:</p>
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="code-label">Terminal</span>
+                                <button class="copy-btn" data-copy-mac="python3 hello.py" data-copy-windows="python hello.py">
+                                    <span class="copy-text">Copy</span>
+                                    <span class="copied-text">Copied!</span>
+                                </button>
+                            </div>
+                            <pre><code class="os-text" data-mac="python3 hello.py" data-windows="python hello.py">python3 hello.py</code></pre>
+                        </div>
+
+                        <div class="success-box highlight">
+                            <span class="success-icon">🎉</span>
+                            <div class="success-content">
+                                <strong>Congratulations!</strong> You described what you wanted in English, and Claude built it!
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Phase 2 Checkpoint -->
+                <div class="checkpoint">
+                    <h3>✅ Phase 2 Checkpoint</h3>
+                    <ul class="checkpoint-list">
+                        <li><label><input type="checkbox" data-checkpoint="2-a"> <code>claude</code> starts the Claude interface</label></li>
+                        <li><label><input type="checkbox" data-checkpoint="2-b"> Claude created hello.py when asked</label></li>
+                        <li><label><input type="checkbox" data-checkpoint="2-c"> You can see new files in VS Code's sidebar</label></li>
+                        <li><label><input type="checkbox" data-checkpoint="2-d"> You know how to exit Claude (<code>/exit</code>)</label></li>
+                    </ul>
+                    <div class="checkpoint-complete" id="phase2-complete">
+                        <span class="celebration">🎉</span>
+                        <strong>Phase 2 Complete!</strong> You're now working with AI assistance!
+                    </div>
+                </div>
+            </section>
+
+            <!-- PHASE 3: PROJECT SETUP -->
+            <section id="phase3" class="section">
+                <div class="section-header">
+                    <span class="section-number">03</span>
+                    <h2>Phase 3: Project Structure</h2>
+                    <div class="section-meta">
+                        <span class="time-estimate">⏱️ 20-30 minutes</span>
+                        <span class="phase-status" id="phase3-status">Not started</span>
+                    </div>
+                </div>
+
+                <p class="section-intro">Learn how to organize projects so Claude works better and your work stays organized.</p>
+
+                <!-- Step 3.1: Virtual Environments -->
+                <div class="step" id="step-3-1">
+                    <div class="step-header">
+                        <label class="step-checkbox">
+                            <input type="checkbox" data-step="3-1">
+                            <span class="checkmark"></span>
+                        </label>
+                        <h3>Step 3.1: Create Virtual Environment</h3>
+                    </div>
+                    <div class="step-content">
+                        <p>A "virtual environment" (venv) keeps each project's tools separate—like having different toolboxes for different jobs.</p>
+
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="code-label">Terminal</span>
+                                <button class="copy-btn" data-copy-mac="python3 -m venv venv" data-copy-windows="python -m venv venv">
+                                    <span class="copy-text">Copy</span>
+                                    <span class="copied-text">Copied!</span>
+                                </button>
+                            </div>
+                            <pre><code class="os-text" data-mac="python3 -m venv venv" data-windows="python -m venv venv">python3 -m venv venv</code></pre>
+                        </div>
+
+                        <p>Activate it:</p>
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="code-label">Terminal</span>
+                                <button class="copy-btn" data-copy-mac="source venv/bin/activate" data-copy-windows="venv\Scripts\activate">
+                                    <span class="copy-text">Copy</span>
+                                    <span class="copied-text">Copied!</span>
+                                </button>
+                            </div>
+                            <pre><code class="os-text" data-mac="source venv/bin/activate" data-windows="venv\Scripts\activate">source venv/bin/activate</code></pre>
+                        </div>
+
+                        <div class="success-box">
+                            <span class="success-icon">✓</span>
+                            <div class="success-content">
+                                <strong>Success:</strong> You see "(venv)" at the start of your Terminal prompt.
+                            </div>
+                        </div>
+
+                        <div class="callout callout-warning">
+                            <span class="callout-icon">⚠️</span>
+                            <div class="callout-content">
+                                <strong>Remember:</strong> Activate your venv every time you start working on a project!
+                            </div>
+                        </div>
+
+                        <details class="troubleshoot-accordion os-specific windows">
+                            <summary>🔧 PowerShell execution policy error?</summary>
+                            <div class="accordion-content">
+                                <p>Run this once:</p>
+                                <div class="code-block">
+                                    <div class="code-header">
+                                        <span class="code-label">PowerShell</span>
+                                        <button class="copy-btn" data-copy="Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser">
+                                            <span class="copy-text">Copy</span>
+                                            <span class="copied-text">Copied!</span>
+                                        </button>
+                                    </div>
+                                    <pre><code>Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser</code></pre>
+                                </div>
+                                <p>Then try activating again.</p>
+                            </div>
+                        </details>
+                    </div>
+                </div>
+
+                <!-- Step 3.2: .claude Folder -->
+                <div class="step" id="step-3-2">
+                    <div class="step-header">
+                        <label class="step-checkbox">
+                            <input type="checkbox" data-step="3-2">
+                            <span class="checkmark"></span>
+                        </label>
+                        <h3>Step 3.2: Create .claude Configuration</h3>
+                    </div>
+                    <div class="step-content">
+                        <p>The <code>.claude</code> folder gives Claude context about your project. Claude reads <code>CLAUDE.md</code> automatically when you start a session.</p>
+
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="code-label">Terminal</span>
+                                <button class="copy-btn" data-copy-mac="mkdir -p .claude" data-copy-windows="mkdir .claude">
+                                    <span class="copy-text">Copy</span>
+                                    <span class="copied-text">Copied!</span>
+                                </button>
+                            </div>
+                            <pre><code class="os-text" data-mac="mkdir -p .claude" data-windows="mkdir .claude">mkdir -p .claude</code></pre>
+                        </div>
+
+                        <p>Start Claude and ask it to create the configuration files:</p>
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="code-label">Terminal</span>
+                                <button class="copy-btn" data-copy="claude">
+                                    <span class="copy-text">Copy</span>
+                                    <span class="copied-text">Copied!</span>
+                                </button>
+                            </div>
+                            <pre><code>claude</code></pre>
+                        </div>
+
+                        <div class="code-block example-prompt-block">
+                            <div class="code-header">
+                                <span class="code-label">Say to Claude</span>
+                                <button class="copy-btn" data-copy-mac='Create these files for my project:
+
+1. .claude/CLAUDE.md with:
+   - Project name: My First Project
+   - Description: A workspace for AI-assisted analysis and automation
+   - Virtual environment: venv/ (activate with "source venv/bin/activate")
+   - A Session Start section reminding to read AI_CODING_GUIDELINES.md
+
+2. .claude/AI_CODING_GUIDELINES.md with rules:
+   - State approach before making changes
+   - Only modify what I ask
+   - Ask if unsure rather than guessing
+
+3. .claude/SESSION_LOG.md with a template for logging sessions' data-copy-windows='Create these files for my project:
+
+1. .claude/CLAUDE.md with:
+   - Project name: My First Project
+   - Description: A workspace for AI-assisted analysis and automation
+   - Virtual environment: venv/ (activate with "venv\Scripts\activate")
+   - A Session Start section reminding to read AI_CODING_GUIDELINES.md
+
+2. .claude/AI_CODING_GUIDELINES.md with rules:
+   - State approach before making changes
+   - Only modify what I ask
+   - Ask if unsure rather than guessing
+
+3. .claude/SESSION_LOG.md with a template for logging sessions'>
+                                    <span class="copy-text">Copy</span>
+                                    <span class="copied-text">Copied!</span>
+                                </button>
+                            </div>
+                            <pre><code>Create these files for my project:
+
+1. .claude/CLAUDE.md with:
+   - Project name: My First Project
+   - Description: A workspace for AI-assisted analysis and automation
+   - Virtual environment: venv/ (activate with "<span class="os-text" data-mac="source venv/bin/activate" data-windows="venv\Scripts\activate">source venv/bin/activate</span>")
+   - A Session Start section reminding to read AI_CODING_GUIDELINES.md
+
+2. .claude/AI_CODING_GUIDELINES.md with rules:
+   - State approach before making changes
+   - Only modify what I ask
+   - Ask if unsure rather than guessing
+
+3. .claude/SESSION_LOG.md with a template for logging sessions</code></pre>
+                        </div>
+
+                        <div class="success-box">
+                            <span class="success-icon">✓</span>
+                            <div class="success-content">
+                                <strong>Success:</strong> You see three new files in the .claude folder in your sidebar.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Phase 3 Checkpoint -->
+                <div class="checkpoint">
+                    <h3>✅ Phase 3 Checkpoint</h3>
+                    <p>Your project structure should look like:</p>
+                    <div class="folder-structure">
+                        <pre>my-first-project/
+├── .claude/
+│   ├── CLAUDE.md           ← Claude reads this automatically
+│   ├── AI_CODING_GUIDELINES.md
+│   └── SESSION_LOG.md
+├── venv/                   ← Your virtual environment
+└── hello.py                ← Your first script</pre>
+                    </div>
+                    <ul class="checkpoint-list">
+                        <li><label><input type="checkbox" data-checkpoint="3-a"> (venv) appears in your Terminal prompt when activated</label></li>
+                        <li><label><input type="checkbox" data-checkpoint="3-b"> .claude folder exists with 3 files</label></li>
+                    </ul>
+                    <div class="checkpoint-complete" id="phase3-complete">
+                        <span class="celebration">🎉</span>
+                        <strong>Phase 3 Complete!</strong> Your project is professionally organized.
+                    </div>
+                </div>
+            </section>
+
+            <!-- PHASE 4: GITHUB -->
+            <section id="phase4" class="section">
+                <div class="section-header">
+                    <span class="section-number">04</span>
+                    <h2>Phase 4: GitHub Integration</h2>
+                    <div class="section-meta">
+                        <span class="time-estimate">⏱️ 20-30 minutes</span>
+                        <span class="phase-status" id="phase4-status">Not started</span>
+                    </div>
+                </div>
+
+                <p class="section-intro">Connect to GitHub for backup and version history. If something breaks, you can always go back.</p>
+
+                <!-- Step 4.1: GitHub Account -->
+                <div class="step" id="step-4-1">
+                    <div class="step-header">
+                        <label class="step-checkbox">
+                            <input type="checkbox" data-step="4-1">
+                            <span class="checkmark"></span>
+                        </label>
+                        <h3>Step 4.1: Create GitHub Account</h3>
+                    </div>
+                    <div class="step-content">
+                        <ol class="step-list">
+                            <li>Go to: <a href="https://github.com/" target="_blank">github.com</a></li>
+                            <li>Click "Sign up"</li>
+                            <li>Choose a username (visible publicly)</li>
+                            <li>Use the same email you configured Git with</li>
+                            <li>Verify your email</li>
+                        </ol>
+                    </div>
+                </div>
+
+                <!-- Step 4.2: GitHub CLI -->
+                <div class="step" id="step-4-2">
+                    <div class="step-header">
+                        <label class="step-checkbox">
+                            <input type="checkbox" data-step="4-2">
+                            <span class="checkmark"></span>
+                        </label>
+                        <h3>Step 4.2: Install GitHub CLI</h3>
+                    </div>
+                    <div class="step-content">
+                        <div class="os-specific mac">
+                            <div class="code-block">
+                                <div class="code-header">
+                                    <span class="code-label">Terminal</span>
+                                    <button class="copy-btn" data-copy="brew install gh">
+                                        <span class="copy-text">Copy</span>
+                                        <span class="copied-text">Copied!</span>
+                                    </button>
+                                </div>
+                                <pre><code>brew install gh</code></pre>
+                            </div>
+                        </div>
+
+                        <div class="os-specific windows">
+                            <ol class="step-list">
+                                <li>Go to: <a href="https://cli.github.com/" target="_blank">cli.github.com</a></li>
+                                <li>Click "Download for Windows"</li>
+                                <li>Run installer, accept defaults</li>
+                                <li>Close and reopen VS Code</li>
+                            </ol>
+                        </div>
+
+                        <p>Authenticate:</p>
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="code-label">Terminal</span>
+                                <button class="copy-btn" data-copy="gh auth login">
+                                    <span class="copy-text">Copy</span>
+                                    <span class="copied-text">Copied!</span>
+                                </button>
+                            </div>
+                            <pre><code>gh auth login</code></pre>
+                        </div>
+
+                        <p>Follow prompts: GitHub.com → HTTPS → Login with web browser → Copy code → Authorize</p>
+
+                        <div class="success-box">
+                            <span class="success-icon">✓</span>
+                            <div class="success-content">
+                                <strong>Success:</strong> You see "Logged in as your-username"
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 4.3: Initialize & Push -->
+                <div class="step" id="step-4-3">
+                    <div class="step-header">
+                        <label class="step-checkbox">
+                            <input type="checkbox" data-step="4-3">
+                            <span class="checkmark"></span>
+                        </label>
+                        <h3>Step 4.3: Save to GitHub</h3>
+                    </div>
+                    <div class="step-content">
+                        <p>Exit Claude first:</p>
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="code-label">Claude</span>
+                                <button class="copy-btn" data-copy="/exit">
+                                    <span class="copy-text">Copy</span>
+                                    <span class="copied-text">Copied!</span>
+                                </button>
+                            </div>
+                            <pre><code>/exit</code></pre>
+                        </div>
+
+                        <p>Create a .gitignore (tells Git what NOT to upload):</p>
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="code-label">Terminal</span>
+                                <button class="copy-btn" data-copy="claude">
+                                    <span class="copy-text">Copy</span>
+                                    <span class="copied-text">Copied!</span>
+                                </button>
+                            </div>
+                            <pre><code>claude</code></pre>
+                        </div>
+
+                        <div class="code-block example-prompt-block">
+                            <div class="code-header">
+                                <span class="code-label">Say to Claude</span>
+                                <button class="copy-btn" data-copy="Create a .gitignore file for a Python project. Ignore: venv/, .env, __pycache__/, .DS_Store, *.pyc">
+                                    <span class="copy-text">Copy</span>
+                                    <span class="copied-text">Copied!</span>
+                                </button>
+                            </div>
+                            <pre><code>Create a .gitignore file for a Python project. Ignore: venv/, .env, __pycache__/, .DS_Store, *.pyc</code></pre>
+                        </div>
+
+                        <p>Exit Claude and set up Git:</p>
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="code-label">Terminal</span>
+                                <button class="copy-btn" data-copy="git init && git add . && git commit -m 'Initial project setup'">
+                                    <span class="copy-text">Copy</span>
+                                    <span class="copied-text">Copied!</span>
+                                </button>
+                            </div>
+                            <pre><code>git init && git add . && git commit -m "Initial project setup"</code></pre>
+                        </div>
+
+                        <p>Create repository on GitHub and push:</p>
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="code-label">Terminal</span>
+                                <button class="copy-btn" data-copy="gh repo create my-first-project --private --source=. --push">
+                                    <span class="copy-text">Copy</span>
+                                    <span class="copied-text">Copied!</span>
+                                </button>
+                            </div>
+                            <pre><code>gh repo create my-first-project --private --source=. --push</code></pre>
+                        </div>
+
+                        <div class="callout callout-tip">
+                            <span class="callout-icon">💡</span>
+                            <div class="callout-content">
+                                <code>--private</code> means only you can see it. Change to <code>--public</code> to share.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Phase 4 Checkpoint -->
+                <div class="checkpoint">
+                    <h3>✅ Phase 4 Checkpoint</h3>
+                    <ul class="checkpoint-list">
+                        <li><label><input type="checkbox" data-checkpoint="4-a"> Go to <a href="https://github.com" target="_blank">github.com</a> and sign in</label></li>
+                        <li><label><input type="checkbox" data-checkpoint="4-b"> You see "my-first-project" in your repositories</label></li>
+                        <li><label><input type="checkbox" data-checkpoint="4-c"> Click it—you see your files including .claude folder</label></li>
+                    </ul>
+                    <div class="checkpoint-complete" id="phase4-complete">
+                        <span class="celebration">🎉🎉🎉</span>
+                        <strong>Setup Complete!</strong> You're ready to work with AI assistance!
+                    </div>
+                </div>
+            </section>
+
+            <!-- WORKFLOW SECTION -->
+            <section id="workflow" class="section">
+                <div class="section-header">
+                    <span class="section-number">05</span>
+                    <h2>Daily Workflow</h2>
+                </div>
+
+                <div class="content-block">
+                    <h3>Starting a Session</h3>
+                    <ol class="workflow-list">
+                        <li><strong>Open VS Code</strong></li>
+                        <li><strong>Open project folder:</strong> File → Open Folder</li>
+                        <li><strong>Open Terminal:</strong> <kbd>Ctrl</kbd>+<kbd>`</kbd></li>
+                        <li><strong>Activate venv:</strong> <code class="os-text" data-mac="source venv/bin/activate" data-windows="venv\Scripts\activate">source venv/bin/activate</code></li>
+                        <li><strong>Start Claude:</strong> <code>claude</code></li>
+                        <li><strong>Describe your task</strong></li>
+                    </ol>
+                </div>
+
+                <div class="content-block">
+                    <h3>Example Tasks</h3>
+                    <div class="example-tabs">
+                        <div class="tab-buttons">
+                            <button class="tab-btn active" data-tab="analysis">📊 Analysis</button>
+                            <button class="tab-btn" data-tab="automation">⚙️ Automation</button>
+                            <button class="tab-btn" data-tab="development">💻 Development</button>
+                            <button class="tab-btn" data-tab="debugging">🔧 Debugging</button>
+                        </div>
+                        <div class="tab-content active" id="tab-analysis">
+                            <div class="example-prompt">"Read the sales.xlsx file and tell me which products had declining sales quarter over quarter. Show me a summary table."</div>
+                            <p class="example-outcome">→ Claude reads the file, analyzes trends, and displays results.</p>
+                        </div>
+                        <div class="tab-content" id="tab-automation">
+                            <div class="example-prompt">"Rename all PDF files in the invoices folder using the date found in each filename. Format: YYYY-MM-DD_invoice.pdf"</div>
+                            <p class="example-outcome">→ Claude examines files, writes a script, and renames them.</p>
+                        </div>
+                        <div class="tab-content" id="tab-development">
+                            <div class="example-prompt">"Create a script that pulls data from this API endpoint and saves it to a CSV file daily."</div>
+                            <p class="example-outcome">→ Claude builds the script and explains how to schedule it.</p>
+                        </div>
+                        <div class="tab-content" id="tab-debugging">
+                            <div class="example-prompt">"This script is throwing an error: [paste error]. What's wrong and how do I fix it?"</div>
+                            <p class="example-outcome">→ Claude diagnoses the issue and provides a fix.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="content-block">
+                    <h3>Ending a Session</h3>
+                    <ol class="workflow-list">
+                        <li><strong>Update log:</strong> Tell Claude "Update SESSION_LOG with what we did"</li>
+                        <li><strong>Exit Claude:</strong> <code>/exit</code></li>
+                        <li><strong>Save to GitHub:</strong></li>
+                    </ol>
+                    <div class="code-block">
+                        <div class="code-header">
+                            <span class="code-label">Terminal</span>
+                            <button class="copy-btn" data-copy='git add . && git commit -m "Description of changes" && git push'>
+                                <span class="copy-text">Copy</span>
+                                <span class="copied-text">Copied!</span>
+                            </button>
+                        </div>
+                        <pre><code>git add . && git commit -m "Description of changes" && git push</code></pre>
+                    </div>
+                </div>
+            </section>
+
+            <!-- REFERENCE SECTION -->
+            <section id="reference" class="section">
+                <div class="section-header">
+                    <span class="section-number">06</span>
+                    <h2>Reference</h2>
+                </div>
+
+                <div class="reference-tabs">
+                    <div class="tab-buttons">
+                        <button class="tab-btn active" data-tab="commands">Commands</button>
+                        <button class="tab-btn" data-tab="glossary">Glossary</button>
+                        <button class="tab-btn" data-tab="troubleshoot">Troubleshooting</button>
+                        <button class="tab-btn" data-tab="resources">Resources</button>
+                    </div>
+
+                    <div class="tab-content active" id="tab-commands">
+                        <div class="command-category">
+                            <h4>Navigation</h4>
+                            <table class="command-table">
+                                <tr>
+                                    <td><code class="os-text" data-mac="pwd" data-windows="cd">pwd</code></td>
+                                    <td>Show current folder</td>
+                                    <td><button class="copy-btn small" data-copy-mac="pwd" data-copy-windows="cd">Copy</button></td>
+                                </tr>
+                                <tr>
+                                    <td><code class="os-text" data-mac="ls" data-windows="dir">ls</code></td>
+                                    <td>List files</td>
+                                    <td><button class="copy-btn small" data-copy-mac="ls" data-copy-windows="dir">Copy</button></td>
+                                </tr>
+                                <tr>
+                                    <td><code>cd foldername</code></td>
+                                    <td>Change folder</td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td><code>cd ..</code></td>
+                                    <td>Go up one folder</td>
+                                    <td><button class="copy-btn small" data-copy="cd ..">Copy</button></td>
+                                </tr>
+                            </table>
+                        </div>
+
+                        <div class="command-category">
+                            <h4>Python & Virtual Environment</h4>
+                            <table class="command-table">
+                                <tr>
+                                    <td><code class="os-text" data-mac="python3 -m venv venv" data-windows="python -m venv venv">python3 -m venv venv</code></td>
+                                    <td>Create venv</td>
+                                    <td><button class="copy-btn small" data-copy-mac="python3 -m venv venv" data-copy-windows="python -m venv venv">Copy</button></td>
+                                </tr>
+                                <tr>
+                                    <td><code class="os-text" data-mac="source venv/bin/activate" data-windows="venv\Scripts\activate">source venv/bin/activate</code></td>
+                                    <td>Activate venv</td>
+                                    <td><button class="copy-btn small" data-copy-mac="source venv/bin/activate" data-copy-windows="venv\Scripts\activate">Copy</button></td>
+                                </tr>
+                                <tr>
+                                    <td><code>deactivate</code></td>
+                                    <td>Exit venv</td>
+                                    <td><button class="copy-btn small" data-copy="deactivate">Copy</button></td>
+                                </tr>
+                            </table>
+                        </div>
+
+                        <div class="command-category">
+                            <h4>Claude CLI</h4>
+                            <table class="command-table">
+                                <tr>
+                                    <td><code>claude</code></td>
+                                    <td>Start Claude</td>
+                                    <td><button class="copy-btn small" data-copy="claude">Copy</button></td>
+                                </tr>
+                                <tr>
+                                    <td><code>/exit</code></td>
+                                    <td>Exit Claude</td>
+                                    <td><button class="copy-btn small" data-copy="/exit">Copy</button></td>
+                                </tr>
+                                <tr>
+                                    <td><code>/help</code></td>
+                                    <td>Show help</td>
+                                    <td><button class="copy-btn small" data-copy="/help">Copy</button></td>
+                                </tr>
+                            </table>
+                        </div>
+
+                        <div class="command-category">
+                            <h4>Git</h4>
+                            <table class="command-table">
+                                <tr>
+                                    <td><code>git status</code></td>
+                                    <td>See changes</td>
+                                    <td><button class="copy-btn small" data-copy="git status">Copy</button></td>
+                                </tr>
+                                <tr>
+                                    <td><code>git add .</code></td>
+                                    <td>Stage all</td>
+                                    <td><button class="copy-btn small" data-copy="git add .">Copy</button></td>
+                                </tr>
+                                <tr>
+                                    <td><code>git commit -m "msg"</code></td>
+                                    <td>Save snapshot</td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td><code>git push</code></td>
+                                    <td>Upload to GitHub</td>
+                                    <td><button class="copy-btn small" data-copy="git push">Copy</button></td>
+                                </tr>
+                            </table>
+                        </div>
+
+                        <div class="command-category">
+                            <h4>Keyboard Shortcuts</h4>
+                            <table class="command-table">
+                                <tr>
+                                    <td><kbd>Ctrl</kbd>+<kbd>`</kbd></td>
+                                    <td>Toggle Terminal</td>
+                                </tr>
+                                <tr>
+                                    <td><kbd class="os-text" data-mac="Cmd" data-windows="Ctrl">Cmd</kbd>+<kbd>S</kbd></td>
+                                    <td>Save file</td>
+                                </tr>
+                                <tr>
+                                    <td><kbd>Ctrl</kbd>+<kbd>C</kbd></td>
+                                    <td>Cancel operation</td>
+                                </tr>
+                                <tr>
+                                    <td><kbd>↑</kbd></td>
+                                    <td>Previous command</td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+
+                    <div class="tab-content" id="tab-glossary">
+                        <div class="glossary-list">
+                            <details class="glossary-item">
+                                <summary><strong>API</strong></summary>
+                                <p>Application Programming Interface. A way for programs to talk to each other.</p>
+                            </details>
+                            <details class="glossary-item">
+                                <summary><strong>CLI</strong></summary>
+                                <p>Command Line Interface. Text-based interaction with software.</p>
+                            </details>
+                            <details class="glossary-item">
+                                <summary><strong>Commit</strong></summary>
+                                <p>A saved snapshot of your work at a specific moment. Like a save point.</p>
+                            </details>
+                            <details class="glossary-item">
+                                <summary><strong>Git</strong></summary>
+                                <p>Version control software that tracks changes to your files over time.</p>
+                            </details>
+                            <details class="glossary-item">
+                                <summary><strong>GitHub</strong></summary>
+                                <p>Cloud storage for Git repositories. Your code's online home.</p>
+                            </details>
+                            <details class="glossary-item os-specific mac">
+                                <summary><strong>Homebrew</strong></summary>
+                                <p>Mac package manager for installing developer tools easily.</p>
+                            </details>
+                            <details class="glossary-item">
+                                <summary><strong>Repository (Repo)</strong></summary>
+                                <p>A project folder tracked by Git. Contains your code and its history.</p>
+                            </details>
+                            <details class="glossary-item">
+                                <summary><strong>Terminal</strong></summary>
+                                <p>Text-based interface for typing commands to your computer.</p>
+                            </details>
+                            <details class="glossary-item">
+                                <summary><strong>Venv (Virtual Environment)</strong></summary>
+                                <p>An isolated Python workspace for a single project.</p>
+                            </details>
+                        </div>
+                    </div>
+
+                    <div class="tab-content" id="tab-troubleshoot">
+                        <div class="troubleshoot-list">
+                            <details class="troubleshoot-item">
+                                <summary><strong>"Command not found"</strong></summary>
+                                <div class="troubleshoot-content">
+                                    <p>The tool isn't installed or isn't in your PATH.</p>
+                                    <ul>
+                                        <li>Close and reopen VS Code</li>
+                                        <li class="os-specific mac">Make sure you ran the "Next steps" after Homebrew</li>
+                                        <li>Try reinstalling the tool</li>
+                                    </ul>
+                                </div>
+                            </details>
+                            <details class="troubleshoot-item">
+                                <summary><strong>Terminal seems frozen</strong></summary>
+                                <div class="troubleshoot-content">
+                                    <p>A command is running or stuck.</p>
+                                    <ul>
+                                        <li>Press <kbd>Ctrl</kbd>+<kbd>C</kbd> to cancel</li>
+                                        <li>Close Terminal and open new one (<kbd>Ctrl</kbd>+<kbd>`</kbd>)</li>
+                                        <li>Restart VS Code</li>
+                                    </ul>
+                                </div>
+                            </details>
+                            <details class="troubleshoot-item">
+                                <summary><strong>Claude made a mistake</strong></summary>
+                                <div class="troubleshoot-content">
+                                    <p>This is normal! AI isn't perfect. Just tell Claude:</p>
+                                    <ul>
+                                        <li>"That's not right. Undo that change."</li>
+                                        <li>"That broke something. Here's the error: [paste]. Fix it."</li>
+                                        <li>"Try a different approach."</li>
+                                    </ul>
+                                </div>
+                            </details>
+                            <details class="troubleshoot-item">
+                                <summary><strong>Missing packages error</strong></summary>
+                                <div class="troubleshoot-content">
+                                    <p>You probably forgot to activate your virtual environment.</p>
+                                    <p>Run: <code class="os-text" data-mac="source venv/bin/activate" data-windows="venv\Scripts\activate">source venv/bin/activate</code></p>
+                                    <p>Look for (venv) at the start of your prompt.</p>
+                                </div>
+                            </details>
+                            <details class="troubleshoot-item os-specific windows">
+                                <summary><strong>PowerShell execution policy error</strong></summary>
+                                <div class="troubleshoot-content">
+                                    <p>Run this once:</p>
+                                    <code>Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser</code>
+                                </div>
+                            </details>
+                        </div>
+                    </div>
+
+                    <div class="tab-content" id="tab-resources">
+                        <div class="resource-grid">
+                            <a href="https://code.visualstudio.com/" target="_blank" class="resource-card">
+                                <span class="resource-icon">📝</span>
+                                <span class="resource-name">VS Code</span>
+                                <span class="resource-url">code.visualstudio.com</span>
+                            </a>
+                            <a href="https://console.anthropic.com/" target="_blank" class="resource-card">
+                                <span class="resource-icon">🤖</span>
+                                <span class="resource-name">Anthropic Console</span>
+                                <span class="resource-url">console.anthropic.com</span>
+                            </a>
+                            <a href="https://code.claude.com/docs" target="_blank" class="resource-card">
+                                <span class="resource-icon">📚</span>
+                                <span class="resource-name">Claude Code Docs</span>
+                                <span class="resource-url">code.claude.com/docs</span>
+                            </a>
+                            <a href="https://github.com/" target="_blank" class="resource-card">
+                                <span class="resource-icon">☁️</span>
+                                <span class="resource-name">GitHub</span>
+                                <span class="resource-url">github.com</span>
+                            </a>
+                            <a href="https://anthropic.skilljar.com/claude-code-in-action" target="_blank" class="resource-card">
+                                <span class="resource-icon">🎓</span>
+                                <span class="resource-name">Claude Code Course</span>
+                                <span class="resource-url">anthropic.skilljar.com</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <img src="images/AscendNxt Logo White.png" alt="AscendNxt" class="footer-logo">
+                    <p>Empowering teams with AI-assisted workflows</p>
+                </div>
+                <div class="footer-help">
+                    <p>Questions or stuck?</p>
+                    <a href="mailto:scott@ascendnxt.com" class="footer-email">scott@ascendnxt.com</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 AscendNxt. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

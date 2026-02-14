@@ -1,0 +1,578 @@
+/**
+ * Agentic AI Setup Guide - Interactive Tutorial
+ * JavaScript for OS toggle, progress tracking, copy-to-clipboard, and more
+ */
+
+(function() {
+    'use strict';
+
+    // ==========================================
+    // Configuration & State
+    // ==========================================
+
+    const STORAGE_KEYS = {
+        OS: 'agentic-ai-guide-os',
+        THEME: 'agentic-ai-guide-theme',
+        PROGRESS: 'agentic-ai-guide-progress',
+        COMPLETED_PHASES: 'agentic-ai-guide-completed-phases'
+    };
+
+    const state = {
+        os: 'mac',
+        theme: 'light',
+        completedSteps: new Set(),
+        completedPhases: new Set()
+    };
+
+    // ==========================================
+    // Initialization
+    // ==========================================
+
+    document.addEventListener('DOMContentLoaded', function() {
+        loadSavedState();
+        initOSToggle();
+        initThemeToggle();
+        initCopyButtons();
+        initProgressTracking();
+        initNavigation();
+        initExpandableContent();
+        initTabs();
+        initSearchFilter();
+        updateProgressBar();
+        applyOSSelection(state.os);
+        applyTheme(state.theme);
+    });
+
+    // ==========================================
+    // Load Saved State from localStorage
+    // ==========================================
+
+    function loadSavedState() {
+        // Load OS preference
+        const savedOS = localStorage.getItem(STORAGE_KEYS.OS);
+        if (savedOS && (savedOS === 'mac' || savedOS === 'windows')) {
+            state.os = savedOS;
+        }
+
+        // Load theme preference
+        const savedTheme = localStorage.getItem(STORAGE_KEYS.THEME);
+        if (savedTheme && (savedTheme === 'light' || savedTheme === 'dark')) {
+            state.theme = savedTheme;
+        } else {
+            // Check system preference
+            if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+                state.theme = 'dark';
+            }
+        }
+
+        // Load completed steps
+        const savedProgress = localStorage.getItem(STORAGE_KEYS.PROGRESS);
+        if (savedProgress) {
+            try {
+                const progressArray = JSON.parse(savedProgress);
+                state.completedSteps = new Set(progressArray);
+            } catch (e) {
+                console.error('Error loading progress:', e);
+            }
+        }
+
+        // Load completed phases
+        const savedPhases = localStorage.getItem(STORAGE_KEYS.COMPLETED_PHASES);
+        if (savedPhases) {
+            try {
+                const phasesArray = JSON.parse(savedPhases);
+                state.completedPhases = new Set(phasesArray);
+            } catch (e) {
+                console.error('Error loading phases:', e);
+            }
+        }
+    }
+
+    // ==========================================
+    // OS Toggle Functionality
+    // ==========================================
+
+    function initOSToggle() {
+        const osButtons = document.querySelectorAll('.os-btn');
+
+        osButtons.forEach(btn => {
+            btn.addEventListener('click', function() {
+                const selectedOS = this.dataset.os;
+                if (selectedOS) {
+                    applyOSSelection(selectedOS);
+                    saveOSPreference(selectedOS);
+                }
+            });
+        });
+    }
+
+    function applyOSSelection(os) {
+        state.os = os;
+        document.body.setAttribute('data-os', os);
+
+        // Update button states
+        const osButtons = document.querySelectorAll('.os-btn');
+        osButtons.forEach(btn => {
+            btn.classList.toggle('active', btn.dataset.os === os);
+        });
+
+        // Update OS-specific text content
+        document.querySelectorAll('[data-mac][data-windows]').forEach(el => {
+            el.textContent = el.dataset[os];
+        });
+
+        // Update code blocks with OS-specific content
+        document.querySelectorAll('code[data-copy-mac][data-copy-windows]').forEach(code => {
+            code.textContent = code.dataset[os === 'mac' ? 'copyMac' : 'copyWindows'];
+        });
+    }
+
+    function saveOSPreference(os) {
+        localStorage.setItem(STORAGE_KEYS.OS, os);
+    }
+
+    // ==========================================
+    // Theme Toggle Functionality
+    // ==========================================
+
+    function initThemeToggle() {
+        const themeToggle = document.querySelector('.theme-toggle');
+        if (themeToggle) {
+            themeToggle.addEventListener('click', function() {
+                const newTheme = state.theme === 'light' ? 'dark' : 'light';
+                applyTheme(newTheme);
+                saveThemePreference(newTheme);
+            });
+        }
+
+        // Listen for system theme changes
+        if (window.matchMedia) {
+            window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e => {
+                if (!localStorage.getItem(STORAGE_KEYS.THEME)) {
+                    applyTheme(e.matches ? 'dark' : 'light');
+                }
+            });
+        }
+    }
+
+    function applyTheme(theme) {
+        state.theme = theme;
+        document.documentElement.setAttribute('data-theme', theme);
+
+        // Update theme toggle icon
+        const themeToggle = document.querySelector('.theme-toggle');
+        if (themeToggle) {
+            themeToggle.innerHTML = theme === 'light'
+                ? '<svg viewBox="0 0 24 24" width="20" height="20"><path fill="currentColor" d="M12 3a9 9 0 1 0 9 9c0-.46-.04-.92-.1-1.36a5.389 5.389 0 0 1-4.4 2.26 5.403 5.403 0 0 1-3.14-9.8c-.44-.06-.9-.1-1.36-.1z"/></svg>'
+                : '<svg viewBox="0 0 24 24" width="20" height="20"><circle cx="12" cy="12" r="5" fill="currentColor"/><path fill="currentColor" d="M12 1v2m0 18v2M4.22 4.22l1.42 1.42m12.72 12.72l1.42 1.42M1 12h2m18 0h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>';
+        }
+    }
+
+    function saveThemePreference(theme) {
+        localStorage.setItem(STORAGE_KEYS.THEME, theme);
+    }
+
+    // ==========================================
+    // Copy to Clipboard
+    // ==========================================
+
+    function initCopyButtons() {
+        document.querySelectorAll('.copy-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                let textToCopy = '';
+
+                // Check for OS-specific copy on the button itself
+                if (this.dataset.copyMac && this.dataset.copyWindows) {
+                    textToCopy = state.os === 'mac'
+                        ? this.dataset.copyMac
+                        : this.dataset.copyWindows;
+                }
+                // Check for direct data-copy attribute on button
+                else if (this.dataset.copy) {
+                    textToCopy = this.dataset.copy;
+                }
+                // Look in the code block
+                else {
+                    const codeBlock = this.closest('.code-block');
+                    if (codeBlock) {
+                        const codeElement = codeBlock.querySelector('code');
+                        if (codeElement) {
+                            // Check for OS-specific copy content on code element
+                            if (codeElement.dataset.copyMac && codeElement.dataset.copyWindows) {
+                                textToCopy = state.os === 'mac'
+                                    ? codeElement.dataset.copyMac
+                                    : codeElement.dataset.copyWindows;
+                            } else {
+                                textToCopy = codeElement.textContent;
+                            }
+                        }
+                    }
+                }
+
+                if (textToCopy) {
+                    copyToClipboard(textToCopy, this);
+                }
+            });
+        });
+    }
+
+    function copyToClipboard(text, button) {
+        navigator.clipboard.writeText(text).then(() => {
+            // Show success state
+            const originalText = button.innerHTML;
+            button.innerHTML = '<svg viewBox="0 0 24 24" width="16" height="16"><path fill="currentColor" d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg> Copied!';
+            button.classList.add('copied');
+
+            setTimeout(() => {
+                button.innerHTML = originalText;
+                button.classList.remove('copied');
+            }, 2000);
+        }).catch(err => {
+            console.error('Failed to copy:', err);
+            // Fallback for older browsers
+            fallbackCopyToClipboard(text, button);
+        });
+    }
+
+    function fallbackCopyToClipboard(text, button) {
+        const textArea = document.createElement('textarea');
+        textArea.value = text;
+        textArea.style.position = 'fixed';
+        textArea.style.left = '-9999px';
+        document.body.appendChild(textArea);
+        textArea.select();
+
+        try {
+            document.execCommand('copy');
+            const originalText = button.innerHTML;
+            button.innerHTML = '<svg viewBox="0 0 24 24" width="16" height="16"><path fill="currentColor" d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg> Copied!';
+            button.classList.add('copied');
+
+            setTimeout(() => {
+                button.innerHTML = originalText;
+                button.classList.remove('copied');
+            }, 2000);
+        } catch (err) {
+            console.error('Fallback copy failed:', err);
+        }
+
+        document.body.removeChild(textArea);
+    }
+
+    // ==========================================
+    // Progress Tracking
+    // ==========================================
+
+    function initProgressTracking() {
+        // Initialize step checkboxes - the input is inside the label.step-checkbox
+        document.querySelectorAll('.step-checkbox input[type="checkbox"]').forEach(checkbox => {
+            const stepId = checkbox.dataset.step;
+
+            // Restore saved state
+            if (state.completedSteps.has(stepId)) {
+                checkbox.checked = true;
+            }
+
+            checkbox.addEventListener('change', function() {
+                if (this.checked) {
+                    state.completedSteps.add(stepId);
+                } else {
+                    state.completedSteps.delete(stepId);
+                }
+                saveProgress();
+                updateProgressBar();
+                checkPhaseCompletion();
+            });
+        });
+
+        // Initialize checkpoint buttons
+        document.querySelectorAll('.checkpoint-btn').forEach(btn => {
+            const phase = btn.dataset.phase;
+
+            if (state.completedPhases.has(phase)) {
+                btn.classList.add('completed');
+                btn.innerHTML = '<svg viewBox="0 0 24 24" width="20" height="20"><path fill="currentColor" d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg> Phase Complete!';
+            }
+
+            btn.addEventListener('click', function() {
+                if (!state.completedPhases.has(phase)) {
+                    completePhase(phase, this);
+                }
+            });
+        });
+    }
+
+    function saveProgress() {
+        localStorage.setItem(STORAGE_KEYS.PROGRESS, JSON.stringify([...state.completedSteps]));
+    }
+
+    function saveCompletedPhases() {
+        localStorage.setItem(STORAGE_KEYS.COMPLETED_PHASES, JSON.stringify([...state.completedPhases]));
+    }
+
+    function updateProgressBar() {
+        const totalSteps = document.querySelectorAll('.step-checkbox input[type="checkbox"]').length;
+        const completedSteps = state.completedSteps.size;
+        const percentage = totalSteps > 0 ? Math.round((completedSteps / totalSteps) * 100) : 0;
+
+        const progressFill = document.querySelector('.progress-fill');
+        const progressPercent = document.getElementById('progressPercent');
+
+        if (progressFill) {
+            progressFill.style.width = percentage + '%';
+        }
+
+        if (progressPercent) {
+            progressPercent.textContent = `${completedSteps}/${totalSteps} (${percentage}%)`;
+        }
+    }
+
+    function checkPhaseCompletion() {
+        // Check each phase for completion
+        document.querySelectorAll('.checkpoint').forEach(checkpoint => {
+            const phase = checkpoint.dataset.phase;
+            const section = checkpoint.closest('section');
+
+            if (section) {
+                const checkboxes = section.querySelectorAll('.step-checkbox input[type="checkbox"]');
+                const allChecked = Array.from(checkboxes).every(cb => cb.checked);
+
+                if (allChecked && checkboxes.length > 0) {
+                    const btn = checkpoint.querySelector('.checkpoint-btn');
+                    if (btn && !btn.classList.contains('completed')) {
+                        btn.classList.add('ready');
+                    }
+                }
+            }
+        });
+    }
+
+    function completePhase(phase, button) {
+        state.completedPhases.add(phase);
+        saveCompletedPhases();
+
+        button.classList.remove('ready');
+        button.classList.add('completed');
+        button.innerHTML = '<svg viewBox="0 0 24 24" width="20" height="20"><path fill="currentColor" d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg> Phase Complete!';
+
+        // Celebration animation
+        showCelebration();
+    }
+
+    function showCelebration() {
+        const celebration = document.createElement('div');
+        celebration.className = 'celebration';
+        celebration.innerHTML = '🎉';
+        document.body.appendChild(celebration);
+
+        // Trigger animation
+        setTimeout(() => celebration.classList.add('show'), 10);
+
+        // Remove after animation
+        setTimeout(() => {
+            celebration.classList.remove('show');
+            setTimeout(() => celebration.remove(), 300);
+        }, 1500);
+    }
+
+    // ==========================================
+    // Navigation
+    // ==========================================
+
+    function initNavigation() {
+        // Smooth scroll for nav links
+        document.querySelectorAll('a[href^="#"]').forEach(link => {
+            link.addEventListener('click', function(e) {
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+
+                if (targetElement) {
+                    e.preventDefault();
+
+                    // Close mobile menu if open
+                    const navLinks = document.querySelector('.nav-links');
+                    const menuToggle = document.querySelector('.mobile-menu-toggle');
+                    if (navLinks && navLinks.classList.contains('active')) {
+                        navLinks.classList.remove('active');
+                        if (menuToggle) menuToggle.classList.remove('active');
+                    }
+
+                    // Scroll to target
+                    const headerOffset = 80;
+                    const elementPosition = targetElement.getBoundingClientRect().top;
+                    const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+                    window.scrollTo({
+                        top: offsetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Mobile menu toggle
+        const menuToggle = document.querySelector('.mobile-menu-toggle');
+        const navLinks = document.querySelector('.nav-links');
+
+        if (menuToggle && navLinks) {
+            menuToggle.addEventListener('click', function() {
+                this.classList.toggle('active');
+                navLinks.classList.toggle('active');
+            });
+        }
+
+        // Active nav highlighting on scroll
+        const sections = document.querySelectorAll('section[id]');
+        const navItems = document.querySelectorAll('.nav-links a');
+
+        window.addEventListener('scroll', debounce(function() {
+            let current = '';
+            const scrollPos = window.pageYOffset + 100;
+
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.offsetHeight;
+
+                if (scrollPos >= sectionTop && scrollPos < sectionTop + sectionHeight) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navItems.forEach(item => {
+                item.classList.remove('active');
+                if (item.getAttribute('href') === '#' + current) {
+                    item.classList.add('active');
+                }
+            });
+        }, 50));
+    }
+
+    // ==========================================
+    // Expandable Content
+    // ==========================================
+
+    function initExpandableContent() {
+        // Capability card expand buttons
+        document.querySelectorAll('.expand-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                const targetId = this.dataset.expand;
+                const expandContent = document.getElementById(targetId);
+
+                if (expandContent) {
+                    const isExpanded = expandContent.classList.contains('active');
+                    expandContent.classList.toggle('active');
+                    this.textContent = isExpanded ? 'See example →' : 'Hide example ←';
+                }
+            });
+        });
+
+        // Collapsible sections
+        document.querySelectorAll('.collapsible-toggle').forEach(toggle => {
+            toggle.addEventListener('click', function() {
+                const section = this.closest('.collapsible');
+                section.classList.toggle('expanded');
+            });
+        });
+    }
+
+    // ==========================================
+    // Tabs
+    // ==========================================
+
+    function initTabs() {
+        // Handle tabs with .example-tabs and .reference-tabs containers
+        document.querySelectorAll('.example-tabs, .reference-tabs').forEach(tabContainer => {
+            const tabButtons = tabContainer.querySelectorAll('.tab-btn');
+            const tabContents = tabContainer.querySelectorAll('.tab-content');
+
+            tabButtons.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const targetTab = this.dataset.tab;
+
+                    // Update button states
+                    tabButtons.forEach(b => b.classList.remove('active'));
+                    this.classList.add('active');
+
+                    // Update content visibility - match by ID pattern tab-{name}
+                    tabContents.forEach(content => {
+                        const contentId = content.id;
+                        const isMatch = contentId === 'tab-' + targetTab;
+                        content.classList.toggle('active', isMatch);
+                    });
+                });
+            });
+        });
+    }
+
+    // ==========================================
+    // Search/Filter (for Reference section)
+    // ==========================================
+
+    function initSearchFilter() {
+        const searchInput = document.querySelector('.command-search');
+
+        if (searchInput) {
+            searchInput.addEventListener('input', debounce(function() {
+                const query = this.value.toLowerCase().trim();
+                const rows = document.querySelectorAll('.command-table tbody tr');
+
+                rows.forEach(row => {
+                    const text = row.textContent.toLowerCase();
+                    row.style.display = text.includes(query) ? '' : 'none';
+                });
+            }, 200));
+        }
+
+        // Glossary filter
+        const glossarySearch = document.querySelector('.glossary-search');
+
+        if (glossarySearch) {
+            glossarySearch.addEventListener('input', debounce(function() {
+                const query = this.value.toLowerCase().trim();
+                const terms = document.querySelectorAll('.glossary-item');
+
+                terms.forEach(term => {
+                    const text = term.textContent.toLowerCase();
+                    term.style.display = text.includes(query) ? '' : 'none';
+                });
+            }, 200));
+        }
+    }
+
+    // ==========================================
+    // Utility Functions
+    // ==========================================
+
+    function debounce(func, wait) {
+        let timeout;
+        return function executedFunction(...args) {
+            const later = () => {
+                clearTimeout(timeout);
+                func.apply(this, args);
+            };
+            clearTimeout(timeout);
+            timeout = setTimeout(later, wait);
+        };
+    }
+
+    // ==========================================
+    // Reset Progress (for testing/debugging)
+    // ==========================================
+
+    window.resetProgress = function() {
+        localStorage.removeItem(STORAGE_KEYS.PROGRESS);
+        localStorage.removeItem(STORAGE_KEYS.COMPLETED_PHASES);
+        state.completedSteps.clear();
+        state.completedPhases.clear();
+
+        document.querySelectorAll('.step-checkbox input[type="checkbox"]').forEach(cb => cb.checked = false);
+        document.querySelectorAll('.checkpoint-btn').forEach(btn => {
+            btn.classList.remove('completed', 'ready');
+            btn.innerHTML = 'Mark Phase Complete';
+        });
+
+        updateProgressBar();
+        console.log('Progress reset!');
+    };
+
+})();
