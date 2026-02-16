@@ -548,6 +548,12 @@
         state.completedPhases.add(phase);
         saveCompletedPhases();
 
+        // Log phase completion to Google Sheets
+        const email = localStorage.getItem(EMAIL_KEY);
+        if (email) {
+            logAccess(email, 'completed_phase' + phase);
+        }
+
         button.classList.remove('ready');
         button.classList.add('completed');
         button.innerHTML = '<svg viewBox="0 0 24 24" width="20" height="20"><path fill="currentColor" d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg> Phase Complete!';
