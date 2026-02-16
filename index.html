@@ -2058,6 +2058,21 @@ HUBSPOT_API_KEY=your_key_here</code></pre>
                                     <code>Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser</code>
                                 </div>
                             </details>
+                            <details class="troubleshoot-item os-specific windows">
+                                <summary><strong>"python is not recognized"</strong></summary>
+                                <div class="troubleshoot-content">
+                                    <p>You missed the "Add Python to PATH" checkbox during installation.</p>
+                                    <p><strong>To fix:</strong></p>
+                                    <ol>
+                                        <li>Open Settings → Apps → Installed apps</li>
+                                        <li>Find Python, click the three dots, and select Uninstall</li>
+                                        <li>Re-download from <a href="https://www.python.org/downloads/" target="_blank">python.org/downloads</a></li>
+                                        <li>Run the installer and <strong>check "Add Python to PATH"</strong> at the bottom</li>
+                                        <li>Click "Install Now"</li>
+                                        <li>Close and reopen VS Code</li>
+                                    </ol>
+                                </div>
+                            </details>
                         </div>
                     </div>
 
