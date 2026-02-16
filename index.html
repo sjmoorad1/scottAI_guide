@@ -276,6 +276,13 @@
 
                 <p class="section-intro">Install the basic tools and get comfortable with VS Code's layout. You can stop after this phase and return later.</p>
 
+                <div class="callout callout-tip">
+                    <svg class="callout-icon" viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M9 21c0 .55.45 1 1 1h4c.55 0 1-.45 1-1v-1H9v1zm3-19C8.14 2 5 5.14 5 9c0 2.38 1.19 4.47 3 5.74V17c0 .55.45 1 1 1h6c.55 0 1-.45 1-1v-2.26c1.81-1.27 3-3.36 3-5.74 0-3.86-3.14-7-7-7z"/></svg>
+                    <div class="callout-content">
+                        <strong>Already have some tools installed?</strong> Run the verification command for each step. If it works, skip to the next step.
+                    </div>
+                </div>
+
                 <!-- Step 1.1: VS Code -->
                 <div class="step" id="step-1-1">
                     <div class="step-header">
@@ -395,8 +402,7 @@
                         <div class="callout callout-warning">
                             <svg class="callout-icon" viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M1 21h22L12 2 1 21zm12-3h-2v-2h2v2zm0-4h-2v-4h2v4z"/></svg>
                             <div class="callout-content">
-                                <strong>Don't skip the "Next steps" commands!</strong> They look something like:<br>
-                                <code>echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> ~/.zprofile</code>
+                                <strong>Don't skip the "Next steps" commands!</strong> Copy and run what YOUR terminal shows—the exact path depends on your Mac (Apple Silicon uses <code>/opt/homebrew</code>, Intel uses <code>/usr/local</code>).
                             </div>
                         </div>
 
@@ -472,7 +478,7 @@
                             </div>
                         </div>
 
-                        <p>Verify installation <span class="os-text" data-mac="(close and reopen VS Code first on Windows)" data-windows="(close and reopen VS Code first)">(wait for install to finish)</span>:</p>
+                        <p>Verify installation <span class="os-text" data-mac="(wait for install to finish)" data-windows="(close and reopen VS Code first)">(wait for install to finish)</span>:</p>
                         <div class="code-block">
                             <div class="code-header">
                                 <span class="code-label">Terminal</span>
@@ -737,6 +743,7 @@
                         </div>
 
                         <div class="os-specific windows">
+                            <p class="code-note" style="margin-bottom: 8px;">Make sure you're in PowerShell (not Command Prompt). Look for "pwsh" or "powershell" in the terminal dropdown.</p>
                             <div class="code-block">
                                 <div class="code-header">
                                     <span class="code-label">PowerShell</span>
@@ -1073,7 +1080,7 @@
 
                         <div class="code-block">
                             <div class="code-header">
-                                <span class="code-label">Terminal</span>
+                                <span class="code-label">Terminal (outside Claude)</span>
                                 <button class="copy-btn" data-copy-mac="python3 -m venv venv" data-copy-windows="python -m venv venv">
                                     <span class="copy-text">Copy</span>
                                     <span class="copied-text">Copied!</span>
@@ -1085,7 +1092,7 @@
                         <p>Activate it:</p>
                         <div class="code-block">
                             <div class="code-header">
-                                <span class="code-label">Terminal</span>
+                                <span class="code-label">Terminal (outside Claude)</span>
                                 <button class="copy-btn" data-copy-mac="source venv/bin/activate" data-copy-windows="venv\Scripts\activate">
                                     <span class="copy-text">Copy</span>
                                     <span class="copied-text">Copied!</span>
@@ -1146,7 +1153,7 @@
 
                         <div class="code-block">
                             <div class="code-header">
-                                <span class="code-label">Terminal</span>
+                                <span class="code-label">Terminal (outside Claude)</span>
                                 <button class="copy-btn" data-copy-mac="mkdir -p .claude" data-copy-windows="mkdir .claude">
                                     <span class="copy-text">Copy</span>
                                     <span class="copied-text">Copied!</span>
@@ -1347,7 +1354,7 @@
                         <div class="os-specific mac">
                             <div class="code-block">
                                 <div class="code-header">
-                                    <span class="code-label">Terminal</span>
+                                    <span class="code-label">Terminal (outside Claude)</span>
                                     <button class="copy-btn" data-copy="brew install gh">
                                         <span class="copy-text">Copy</span>
                                         <span class="copied-text">Copied!</span>
@@ -1369,7 +1376,7 @@
                         <p>Authenticate:</p>
                         <div class="code-block">
                             <div class="code-header">
-                                <span class="code-label">Terminal</span>
+                                <span class="code-label">Terminal (outside Claude)</span>
                                 <button class="copy-btn" data-copy="gh auth login">
                                     <span class="copy-text">Copy</span>
                                     <span class="copied-text">Copied!</span>
@@ -1399,7 +1406,9 @@
                         <h3>Step 4.3: Save to GitHub</h3>
                     </div>
                     <div class="step-content">
-                        <p>Exit Claude first (if you're inside):</p>
+                        <p>Your .gitignore file from Phase 3 tells Git which files to ignore. Now let's initialize Git and save your project.</p>
+
+                        <p>If you're inside Claude, exit first:</p>
                         <div class="code-block">
                             <div class="code-header">
                                 <span class="code-label">Inside Claude</span>
@@ -1411,42 +1420,7 @@
                             <pre><code>/exit</code></pre>
                         </div>
 
-                        <p>Create a .gitignore (tells Git what NOT to upload). Start Claude:</p>
-                        <div class="code-block">
-                            <div class="code-header">
-                                <span class="code-label">Terminal (outside Claude)</span>
-                                <button class="copy-btn" data-copy="claude">
-                                    <span class="copy-text">Copy</span>
-                                    <span class="copied-text">Copied!</span>
-                                </button>
-                            </div>
-                            <pre><code>claude</code></pre>
-                        </div>
-
-                        <div class="code-block example-prompt-block">
-                            <div class="code-header">
-                                <span class="code-label">Inside Claude</span>
-                                <button class="copy-btn" data-copy="Create a .gitignore file for a Python project. Ignore: venv/, .env, __pycache__/, .DS_Store, *.pyc">
-                                    <span class="copy-text">Copy</span>
-                                    <span class="copied-text">Copied!</span>
-                                </button>
-                            </div>
-                            <pre><code>Create a .gitignore file for a Python project. Ignore: venv/, .env, __pycache__/, .DS_Store, *.pyc</code></pre>
-                        </div>
-
-                        <p>Exit Claude:</p>
-                        <div class="code-block">
-                            <div class="code-header">
-                                <span class="code-label">Inside Claude</span>
-                                <button class="copy-btn" data-copy="/exit">
-                                    <span class="copy-text">Copy</span>
-                                    <span class="copied-text">Copied!</span>
-                                </button>
-                            </div>
-                            <pre><code>/exit</code></pre>
-                        </div>
-
-                        <p>Now set up Git and make your first commit:</p>
+                        <p>Set up Git and make your first commit:</p>
                         <div class="code-block">
                             <div class="code-header">
                                 <span class="code-label">Terminal (outside Claude)</span>
@@ -1534,7 +1508,7 @@
                     </ol>
                     <div class="code-block">
                         <div class="code-header">
-                            <span class="code-label">Terminal</span>
+                            <span class="code-label">Terminal (outside Claude)</span>
                             <button class="copy-btn" data-copy='git add . && git commit -m "Description of changes" && git push'>
                                 <span class="copy-text">Copy</span>
                                 <span class="copied-text">Copied!</span>
@@ -1934,6 +1908,10 @@ HUBSPOT_API_KEY=your_key_here</code></pre>
                             <details class="glossary-item os-specific mac">
                                 <summary><strong>Homebrew</strong></summary>
                                 <p>An "app store" for developer tools on Mac. Install tools with a single command instead of downloading installers from websites.</p>
+                            </details>
+                            <details class="glossary-item">
+                                <summary><strong>PATH</strong></summary>
+                                <p>A list of folders where your computer looks for commands. If a tool isn't "in your PATH," your terminal won't find it.</p>
                             </details>
                             <details class="glossary-item">
                                 <summary><strong>PRD (Product Requirements Document)</strong></summary>
