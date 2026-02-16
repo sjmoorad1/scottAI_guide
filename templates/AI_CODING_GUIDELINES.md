@@ -31,6 +31,28 @@ Before making changes, briefly explain what you understand the task to be and yo
 
 ---
 
+## Coding Principles
+
+### DRY — Don't Repeat Yourself
+If the same logic appears in multiple places, extract it into a single function or module. Duplicated code means duplicated bugs.
+
+### SSOT — Single Source of Truth
+Data should live in one place. Don't create copies of information that can get out of sync. One authoritative source, referenced everywhere else.
+
+### Use IDs and Key Constraints
+When working with data (databases, spreadsheets, APIs):
+- Always have a unique identifier for each record
+- Use foreign keys to link related data
+- Never rely on names or descriptions as identifiers—they change
+
+### Fail Fast
+Validate inputs early. If something's wrong, error immediately with a clear message. Don't let bad data silently propagate through the system.
+
+### Keep Functions Small
+Each function should do one thing well. If you're describing what a function does and use the word "and," it probably should be two functions.
+
+---
+
 ## Working Style
 
 **One step at a time.** Make one change, verify it works, then move on.
