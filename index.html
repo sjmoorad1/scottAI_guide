@@ -1640,6 +1640,38 @@ HUBSPOT_API_KEY=your_key_here</code></pre>
                     <p>Your <code>.gitignore</code> file (from the templates) already includes <code>.env</code>, so it won't be uploaded to GitHub. Ask Claude to help you set up any API connections—it will use the <code>.env</code> pattern automatically.</p>
                 </div>
 
+                <!-- Refactoring with Claude -->
+                <div class="content-block">
+                    <h3>Refactoring Existing Code</h3>
+                    <p>When you need to restructure or improve an existing project, Claude can help—but refactoring requires a disciplined approach:</p>
+
+                    <div class="principles-grid">
+                        <div class="principle-card">
+                            <h4>Understand First</h4>
+                            <p>Before changing anything, ask Claude to explain the current architecture. "Walk me through how this codebase is structured and how the pieces connect."</p>
+                        </div>
+                        <div class="principle-card">
+                            <h4>Plan Before Coding</h4>
+                            <p>Document what you're changing and why. Ask Claude to create a refactoring plan with clear steps before touching any code.</p>
+                        </div>
+                        <div class="principle-card">
+                            <h4>One Change at a Time</h4>
+                            <p>Refactor incrementally. Make one change, test it works, commit it. Then move to the next. Never leave the codebase broken.</p>
+                        </div>
+                        <div class="principle-card">
+                            <h4>Don't Mix with Features</h4>
+                            <p>Refactoring and adding features are separate tasks. Do one or the other, not both at once. Mixing them makes bugs hard to trace.</p>
+                        </div>
+                    </div>
+
+                    <div class="callout callout-tip">
+                        <svg class="callout-icon" viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M9 21c0 .55.45 1 1 1h4c.55 0 1-.45 1-1v-1H9v1zm3-19C8.14 2 5 5.14 5 9c0 2.38 1.19 4.47 3 5.74V17c0 .55.45 1 1 1h6c.55 0 1-.45 1-1v-2.26c1.81-1.27 3-3.36 3-5.74 0-3.86-3.14-7-7-7z"/></svg>
+                        <div class="callout-content">
+                            <strong>Commit frequently during refactoring.</strong> Small commits make rollback easy. If something breaks, you can undo just the last change instead of losing hours of work.
+                        </div>
+                    </div>
+                </div>
+
                 <!-- Safety and Security -->
                 <div class="content-block">
                     <h3>Safety Basics</h3>
