@@ -1166,6 +1166,7 @@
 
                         <div class="template-files-table">
                             <h4>Files for the .claude folder</h4>
+                            <p style="font-size: 0.9em; color: var(--text-muted); margin-bottom: 12px;">Claude reads these files automatically. <code>PROJECT.md</code> and <code>ARCHITECTURE.md</code> are living documents—fill in the basics when you start, then update them as your project evolves.</p>
                             <table class="files-table">
                                 <thead>
                                     <tr>
@@ -1177,17 +1178,27 @@
                                 <tbody>
                                     <tr>
                                         <td><code>CLAUDE.md</code></td>
-                                        <td>Project overview Claude reads automatically at session start.</td>
+                                        <td><strong>Session protocol.</strong> Rules Claude follows every session.</td>
                                         <td><a href="templates/CLAUDE.md" download class="download-link">Download</a></td>
                                     </tr>
                                     <tr>
+                                        <td><code>PROJECT.md</code></td>
+                                        <td><strong>Business scope.</strong> Goals, features, constraints.</td>
+                                        <td><a href="templates/PROJECT.md" download class="download-link">Download</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td><code>ARCHITECTURE.md</code></td>
+                                        <td><strong>Technical specs.</strong> Tech stack, patterns, decisions.</td>
+                                        <td><a href="templates/ARCHITECTURE.md" download class="download-link">Download</a></td>
+                                    </tr>
+                                    <tr>
                                         <td><code>AI_CODING_GUIDELINES.md</code></td>
-                                        <td>Rules for how Claude should work.</td>
+                                        <td>Coding standards and principles.</td>
                                         <td><a href="templates/AI_CODING_GUIDELINES.md" download class="download-link">Download</a></td>
                                     </tr>
                                     <tr>
                                         <td><code>SESSION_LOG.md</code></td>
-                                        <td><strong>Prevents amnesia.</strong> Update at the end of each session.</td>
+                                        <td><strong>Prevents amnesia.</strong> Update at session end.</td>
                                         <td><a href="templates/SESSION_LOG.md" download class="download-link">Download</a></td>
                                     </tr>
                                 </tbody>
@@ -1205,39 +1216,30 @@
                                 <tbody>
                                     <tr>
                                         <td><code>README.md</code></td>
-                                        <td>Quick reference for yourself.</td>
+                                        <td>Quick reference for you (not Claude).</td>
                                         <td><a href="templates/README.md" download class="download-link">Download</a></td>
                                     </tr>
                                     <tr>
                                         <td><code>.gitignore</code></td>
                                         <td>Tells Git which files to ignore.</td>
-                                        <td><a href="templates/gitignore" download=".gitignore" class="download-link">Download</a></td>
+                                        <td><a href="#" class="download-link" id="gitignore-download-btn">Download</a></td>
                                     </tr>
                                 </tbody>
                             </table>
 
-                            <details class="troubleshoot-accordion" style="margin-top: 12px;">
-                                <summary>If .gitignore downloads with the wrong name</summary>
-                                <div class="accordion-content">
-                                    <p>The file must be named exactly <code>.gitignore</code> (with the leading dot). To rename it:</p>
-                                    <p class="os-specific mac"><strong>Mac:</strong> In Terminal, run: <code>mv ~/Downloads/gitignore ~/Downloads/.gitignore</code></p>
-                                    <p class="os-specific windows"><strong>Windows:</strong> In PowerShell, run: <code>ren $env:USERPROFILE\Downloads\gitignore .gitignore</code></p>
-                                    <p>Then move the renamed file to your project folder.</p>
-                                </div>
-                            </details>
                         </div>
 
                         <p><strong>Move the files into place:</strong></p>
                         <ol class="step-list">
                             <li>Open your Downloads folder <span class="os-text" data-mac="in Finder" data-windows="in File Explorer">in Finder</span></li>
-                            <li>Drag <code>CLAUDE.md</code>, <code>AI_CODING_GUIDELINES.md</code>, and <code>SESSION_LOG.md</code> into the <code>.claude</code> folder in VS Code's sidebar</li>
+                            <li>Drag all 5 <code>.md</code> files into the <code>.claude</code> folder in VS Code's sidebar</li>
                             <li>Drag <code>README.md</code> and <code>.gitignore</code> into the project root (the top level, not inside .claude)</li>
                         </ol>
 
                         <div class="success-box">
                             <span class="success-icon"><svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg></span>
                             <div class="success-content">
-                                <strong>Success:</strong> You see the new files in your project sidebar (.claude folder with 3 files, plus README.md and .gitignore).
+                                <strong>Success:</strong> You see the .claude folder with 5 files, plus README.md and .gitignore in the project root.
                             </div>
                         </div>
                     </div>
@@ -1250,18 +1252,20 @@
                     <div class="folder-structure">
                         <pre>my-first-project/
 ├── .claude/
-│   ├── CLAUDE.md           ← Claude reads this automatically
+│   ├── CLAUDE.md           ← Session protocol (auto-read)
+│   ├── PROJECT.md          ← Business scope
+│   ├── ARCHITECTURE.md     ← Technical specs
 │   ├── AI_CODING_GUIDELINES.md
 │   └── SESSION_LOG.md
 ├── venv/                   ← Your virtual environment
 ├── .gitignore              ← Tells Git what to ignore
-├── README.md               ← Your project notes
+├── README.md               ← Quick reference for you
 └── hello.py                ← Your first script</pre>
                     </div>
                     <ul class="checkpoint-list">
                         <li><label><input type="checkbox" data-checkpoint="3-a"> (venv) appears in your Terminal prompt when activated</label></li>
-                        <li><label><input type="checkbox" data-checkpoint="3-b"> .claude folder exists with 3 files</label></li>
-                        <li><label><input type="checkbox" data-checkpoint="3-c"> .gitignore and README.md are in the project root</label></li>
+                        <li><label><input type="checkbox" data-checkpoint="3-b"> .claude folder exists with 5 files</label></li>
+                        <li><label><input type="checkbox" data-checkpoint="3-c"> README.md and .gitignore are in the project root</label></li>
                     </ul>
                     <div class="checkpoint-complete" id="phase3-complete">
                         <span class="celebration"><svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor"><path d="M19 5h-2V3H7v2H5c-1.1 0-2 .9-2 2v1c0 2.55 1.92 4.63 4.39 4.94.63 1.5 1.98 2.63 3.61 2.96V19H7v2h10v-2h-4v-3.1c1.63-.33 2.98-1.46 3.61-2.96C19.08 12.63 21 10.55 21 8V7c0-1.1-.9-2-2-2zM5 8V7h2v3.82C5.84 10.4 5 9.3 5 8zm14 0c0 1.3-.84 2.4-2 2.82V7h2v1z"/></svg></span>
@@ -1484,6 +1488,22 @@
 
                 <p class="section-intro">Setup complete. Time to put Claude to work on something real.</p>
 
+                <!-- Returning to Your Project - Quick Reference -->
+                <div class="callout callout-important" id="returning" style="margin-bottom: 24px;">
+                    <svg class="callout-icon" viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M12 5V1L7 6l5 5V7c3.31 0 6 2.69 6 6s-2.69 6-6 6-6-2.69-6-6H4c0 4.42 3.58 8 8 8s8-3.58 8-8-3.58-8-8-8z"/></svg>
+                    <div class="callout-content">
+                        <strong>Returning to Your Project?</strong> Quick checklist for day 2 and beyond:<br>
+                        <ol style="margin: 8px 0 0 0; padding-left: 20px;">
+                            <li>Open VS Code</li>
+                            <li>File → Open Folder → select your project</li>
+                            <li>Open Terminal: <kbd>Ctrl</kbd>+<kbd>`</kbd></li>
+                            <li>Activate venv: <code class="os-text" data-mac="source venv/bin/activate" data-windows="venv\Scripts\activate">source venv/bin/activate</code></li>
+                            <li>Start Claude: <code>claude</code></li>
+                        </ol>
+                        <p style="margin: 8px 0 0 0; font-size: 0.9em;"><strong>Why activate venv?</strong> Packages you installed yesterday live inside the venv. Without activating it, your scripts will fail with "module not found."</p>
+                    </div>
+                </div>
+
                 <div class="content-block">
                     <h3>Starting a Session</h3>
                     <ol class="workflow-list">
@@ -1495,17 +1515,33 @@
                         <li><strong>Activate venv:</strong> <code class="os-text" data-mac="source venv/bin/activate" data-windows="venv\Scripts\activate">source venv/bin/activate</code></li>
                         <li><strong>Start Claude:</strong> <code>claude</code></li>
                         <li><strong>Describe your task</strong> — be specific about what you need and what "done" looks like</li>
+                        <li><strong>Remind Claude of the guidelines:</strong></li>
                     </ol>
+                    <div class="callout callout-tip" style="margin-top: 12px;">
+                        <svg class="callout-icon" viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M9 21c0 .55.45 1 1 1h4c.55 0 1-.45 1-1v-1H9v1zm3-19C8.14 2 5 5.14 5 9c0 2.38 1.19 4.47 3 5.74V17c0 .55.45 1 1 1h6c.55 0 1-.45 1-1v-2.26c1.81-1.27 3-3.36 3-5.74 0-3.86-3.14-7-7-7z"/></svg>
+                        <div class="callout-content">
+                            <strong>Paste this after your task description:</strong><br>
+                            "Don't forget your Claude GUIDELINES: Always follow best practices — never assume, never change scope outside the task at hand. Advise me on tradeoffs — don't just say yes to everything. Read through all the .md files in your .claude/ folder before executing. Keep those docs concise but current — update them if our solution changes warrant it."
+                        </div>
+                    </div>
                 </div>
 
                 <div class="content-block">
                     <h3>Ending a Session</h3>
-                    <p><strong>Important:</strong> Claude's memory resets when you exit. The SESSION_LOG is how Claude remembers what happened in previous sessions. If you skip this step, Claude starts fresh next time with no context.</p>
+                    <p><strong>Important:</strong> Claude's memory resets when you exit. Your documentation files are how Claude remembers context between sessions.</p>
                     <ol class="workflow-list">
+                        <li><strong>Update docs if needed:</strong> If scope or features changed, update <code>PROJECT.md</code>. If tech decisions changed, update <code>ARCHITECTURE.md</code>.</li>
                         <li><strong>Update log:</strong> Tell Claude "Update SESSION_LOG with what we did"</li>
+                        <li><strong>Push to GitHub:</strong> Tell Claude "Push these updates to GitHub"</li>
                         <li><strong>Exit Claude:</strong> <code>/exit</code></li>
-                        <li><strong>Save to GitHub:</strong></li>
                     </ol>
+                    <div class="callout callout-tip" style="margin-top: 12px;">
+                        <svg class="callout-icon" viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M9 21c0 .55.45 1 1 1h4c.55 0 1-.45 1-1v-1H9v1zm3-19C8.14 2 5 5.14 5 9c0 2.38 1.19 4.47 3 5.74V17c0 .55.45 1 1 1h6c.55 0 1-.45 1-1v-2.26c1.81-1.27 3-3.36 3-5.74 0-3.86-3.14-7-7-7z"/></svg>
+                        <div class="callout-content">
+                            <strong>Quick wrap-up prompt:</strong><br>
+                            "Okay, done. We are good. Push these updates to the GitHub repo and add an entry to SESSION_LOG.md."
+                        </div>
+                    </div>
                     <div class="code-block">
                         <div class="code-header">
                             <span class="code-label">Terminal (outside Claude)</span>
@@ -1876,7 +1912,15 @@ HUBSPOT_API_KEY=your_key_here</code></pre>
 
                     <div class="tab-content" id="tab-prd">
                         <div class="prd-content">
-                            <p><strong>A PRD (Product Requirements Document)</strong> is a structured brief that captures everything Claude needs to build something right the first time. For complex projects, spending 10 minutes on a PRD saves hours of rework.</p>
+                            <p><strong>A PRD (Product Requirements Document)</strong> helps you define initial requirements before building. For complex projects, spending 10 minutes on a PRD saves hours of rework.</p>
+
+                            <div class="callout callout-info" style="margin: 16px 0;">
+                                <svg class="callout-icon" viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
+                                <div class="callout-content">
+                                    <strong>PRD → PROJECT.md</strong><br>
+                                    A PRD is great for initial planning, but it gets stale as the project evolves. Once you've captured your requirements, transfer the key points into <code>PROJECT.md</code>—that's the living document you and Claude maintain throughout the project. Your project templates include a <code>PROJECT.md</code> ready for this.
+                                </div>
+                            </div>
 
                             <h4>Key Sections</h4>
                             <div class="prd-template">
@@ -2070,6 +2114,37 @@ HUBSPOT_API_KEY=your_key_here</code></pre>
             </div>
         </div>
     </footer>
+
+    <!-- Gitignore Download Modal -->
+    <div id="gitignore-modal" class="modal-overlay" style="display: none;">
+        <div class="modal-content">
+            <h3>Downloading .gitignore</h3>
+            <p>Browsers can't download files starting with a dot. Use <strong>Save As</strong> to name it correctly:</p>
+
+            <div class="os-specific mac">
+                <ol class="step-list" style="margin: 16px 0;">
+                    <li>Click "Download" below — a Save dialog will appear</li>
+                    <li>Change the filename from <code>gitignore</code> to <code>.gitignore</code></li>
+                    <li>Save to your Downloads folder</li>
+                </ol>
+                <p style="font-size: 0.9em; color: #666;"><strong>Tip:</strong> Press <kbd>Cmd</kbd> + <kbd>S</kbd> if no dialog appears, or right-click the link and choose "Download Linked File As..."</p>
+            </div>
+
+            <div class="os-specific windows">
+                <ol class="step-list" style="margin: 16px 0;">
+                    <li>Click "Download" below — a Save dialog will appear</li>
+                    <li>Change the filename from <code>gitignore</code> to <code>.gitignore</code></li>
+                    <li>Save to your Downloads folder</li>
+                </ol>
+                <p style="font-size: 0.9em; color: #666;"><strong>Tip:</strong> If no dialog appears, right-click the link and choose "Save link as..."</p>
+            </div>
+
+            <div style="margin-top: 20px; display: flex; gap: 12px; justify-content: flex-end;">
+                <button class="btn-secondary" id="gitignore-cancel">Cancel</button>
+                <a href="templates/gitignore" download=".gitignore" class="btn-primary" id="gitignore-confirm">Download</a>
+            </div>
+        </div>
+    </div>
 
     <script src="script.js"></script>
 </body>

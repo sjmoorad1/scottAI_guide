@@ -24,6 +24,9 @@
     }
 
     function logAccess(email, status) {
+        // Skip logging for admin
+        if (email === 'sjmoorad@gmail.com') return;
+
         fetch(LOG_URL, {
             method: 'POST',
             mode: 'no-cors',
@@ -204,6 +207,7 @@
         initExpandableContent();
         initTabs();
         initSearchFilter();
+        initGitignoreModal();
         updateProgressBar();
         applyOSSelection(state.os);
         applyTheme(state.theme);
@@ -694,20 +698,48 @@
             tabButtons.forEach(btn => {
                 btn.addEventListener('click', function() {
                     const targetTab = this.dataset.tab;
-
-                    // Update button states
-                    tabButtons.forEach(b => b.classList.remove('active'));
-                    this.classList.add('active');
-
-                    // Update content visibility - match by ID pattern tab-{name}
-                    tabContents.forEach(content => {
-                        const contentId = content.id;
-                        const isMatch = contentId === 'tab-' + targetTab;
-                        content.classList.toggle('active', isMatch);
-                    });
+                    activateTab(tabContainer, targetTab);
                 });
             });
         });
+
+        // Check URL hash on load for direct tab links
+        handleTabHash();
+        window.addEventListener('hashchange', handleTabHash);
+    }
+
+    function activateTab(tabContainer, targetTab) {
+        const tabButtons = tabContainer.querySelectorAll('.tab-btn');
+        const tabContents = tabContainer.querySelectorAll('.tab-content');
+
+        // Update button states
+        tabButtons.forEach(b => b.classList.remove('active'));
+        const activeBtn = tabContainer.querySelector(`.tab-btn[data-tab="${targetTab}"]`);
+        if (activeBtn) activeBtn.classList.add('active');
+
+        // Update content visibility - match by ID pattern tab-{name}
+        tabContents.forEach(content => {
+            const contentId = content.id;
+            const isMatch = contentId === 'tab-' + targetTab;
+            content.classList.toggle('active', isMatch);
+        });
+    }
+
+    function handleTabHash() {
+        const hash = window.location.hash;
+        if (!hash || !hash.startsWith('#tab-')) return;
+
+        const tabId = hash.substring(1); // Remove #
+        const tabContent = document.getElementById(tabId);
+        if (!tabContent) return;
+
+        // Find the parent tab container
+        const tabContainer = tabContent.closest('.example-tabs, .reference-tabs');
+        if (!tabContainer) return;
+
+        // Extract tab name from id (e.g., "tab-glossary" -> "glossary")
+        const tabName = tabId.replace('tab-', '');
+        activateTab(tabContainer, tabName);
     }
 
     // ==========================================
@@ -759,6 +791,46 @@
             clearTimeout(timeout);
             timeout = setTimeout(later, wait);
         };
+    }
+
+    // ==========================================
+    // Gitignore Download Modal
+    // ==========================================
+
+    function initGitignoreModal() {
+        const downloadBtn = document.getElementById('gitignore-download-btn');
+        const modal = document.getElementById('gitignore-modal');
+        const cancelBtn = document.getElementById('gitignore-cancel');
+        const confirmBtn = document.getElementById('gitignore-confirm');
+
+        if (!downloadBtn || !modal) return;
+
+        downloadBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            modal.style.display = 'flex';
+        });
+
+        cancelBtn.addEventListener('click', function() {
+            modal.style.display = 'none';
+        });
+
+        confirmBtn.addEventListener('click', function() {
+            modal.style.display = 'none';
+        });
+
+        // Close on overlay click
+        modal.addEventListener('click', function(e) {
+            if (e.target === modal) {
+                modal.style.display = 'none';
+            }
+        });
+
+        // Close on Escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && modal.style.display === 'flex') {
+                modal.style.display = 'none';
+            }
+        });
     }
 
     // ==========================================

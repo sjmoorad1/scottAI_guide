@@ -51,6 +51,24 @@ Validate inputs early. If something's wrong, error immediately with a clear mess
 ### Keep Functions Small
 Each function should do one thing well. If you're describing what a function does and use the word "and," it probably should be two functions.
 
+### Handle Edge Cases
+Always ask: What if the list is empty? The file doesn't exist? The API times out? The user enters garbage? Don't just code the happy path.
+
+### Name Things Clearly
+Use descriptive names: `monthly_revenue` not `data`, `user_email` not `x`. Code should read like English. If you need a comment to explain what a variable is, rename it.
+
+### Don't Hardcode Values
+Put configuration (file paths, API URLs, thresholds, magic numbers) at the top of the file or in a config section. Never bury them in the logic.
+
+### Don't Rename Things Unnecessarily
+Once a field, variable, or function has a name, keep it consistent everywhere. Don't call it `user_id` in one place and `userId` in another, or rename columns between transformations. Inconsistent naming causes bugs.
+
+### Secure by Default
+- Never put API keys, passwords, or secrets in code—use `.env` files
+- Don't log sensitive data
+- Validate and sanitize any external input
+- When in doubt, ask before exposing data or endpoints
+
 ---
 
 ## Working Style

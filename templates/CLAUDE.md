@@ -1,14 +1,48 @@
-# [Project Name]
+# Project Guidelines
+
+> **Claude — READ THIS FIRST:** This is your primary instruction file for this project. Follow these rules every session.
 
 ## What This Is
-One sentence description.
+Brief description of the project. *(Fill this in when setting up.)*
 
 ## Key Facts
 - **Venv:** `source venv/bin/activate`
-- **Run:** [main command]
-- **Gotchas:** [anything that will bite you]
+- **Run:** *(Fill in: e.g., `python main.py`, `streamlit run app.py`)*
+- **Gotchas:** *(Fill in: any quirks or things that will bite you)*
 
-## Session Protocol
-**Start of session:** Read `SESSION_LOG.md` to see what was done previously.
+---
 
-**End of session:** Before the user exits, remind them to update SESSION_LOG (or offer to do it). Keep entries to 2-4 bullets—just enough to resume, not documentation.
+## Session Start Checklist
+
+**Before executing any task, you MUST:**
+1. Read `PROJECT.md` for business context and scope boundaries
+2. Read `ARCHITECTURE.md` for technical context and patterns
+3. Read `AI_CODING_GUIDELINES.md` for coding standards
+4. Skim the last 2-3 entries in `SESSION_LOG.md` for recent context
+5. Confirm you understand the task scope — ask if unclear
+
+Do not skip these steps. Do not assume.
+
+---
+
+## Session End Checklist
+
+**Before the session closes, you MUST:**
+1. Update `PROJECT.md` if scope, goals, or features changed
+2. Update `ARCHITECTURE.md` if tech decisions or patterns changed
+3. Offer to push changes to GitHub if any code was written
+4. Add a dated entry to `SESSION_LOG.md` (2-4 bullets max)
+
+---
+
+## File Reference
+
+All files in this folder are living documents — keep them concise but current:
+
+| File | What it tracks |
+|------|----------------|
+| `CLAUDE.md` | Session protocol and quick reference (this file) |
+| `PROJECT.md` | Business scope: goals, features, constraints |
+| `ARCHITECTURE.md` | Technical specs: stack, patterns, decisions |
+| `AI_CODING_GUIDELINES.md` | Coding standards and principles |
+| `SESSION_LOG.md` | Running log of session outcomes |
