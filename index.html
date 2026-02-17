@@ -1191,8 +1191,8 @@
                         <p>Download these template files:</p>
 
                         <div class="template-files-table">
-                            <h4>Files for the .claude folder</h4>
-                            <p style="font-size: 0.9em; color: var(--text-muted); margin-bottom: 12px;">Claude reads these files automatically. <code>PROJECT.md</code> and <code>ARCHITECTURE.md</code> are living documents—fill in the basics when you start, then update them as your project evolves.</p>
+                            <h4>Files for .claude/</h4>
+                            <p style="font-size: 0.9em; color: var(--text-muted); margin-bottom: 12px;">These go directly in the <code>.claude</code> folder.</p>
                             <table class="files-table">
                                 <thead>
                                     <tr>
@@ -1204,28 +1204,42 @@
                                 <tbody>
                                     <tr>
                                         <td><code>CLAUDE.md</code></td>
-                                        <td><strong>Session protocol.</strong> Rules Claude follows every session.</td>
+                                        <td><strong>Session protocol.</strong> Rules Claude follows every session. <em>(auto-loaded)</em></td>
                                         <td><a href="templates/CLAUDE.md" download class="download-link">Download</a></td>
-                                    </tr>
-                                    <tr>
-                                        <td><code>PROJECT.md</code></td>
-                                        <td><strong>Business scope.</strong> Goals, features, constraints.</td>
-                                        <td><a href="templates/PROJECT.md" download class="download-link">Download</a></td>
-                                    </tr>
-                                    <tr>
-                                        <td><code>ARCHITECTURE.md</code></td>
-                                        <td><strong>Technical specs.</strong> Tech stack, patterns, decisions.</td>
-                                        <td><a href="templates/ARCHITECTURE.md" download class="download-link">Download</a></td>
-                                    </tr>
-                                    <tr>
-                                        <td><code>AI_CODING_GUIDELINES.md</code></td>
-                                        <td>Coding standards and principles.</td>
-                                        <td><a href="templates/AI_CODING_GUIDELINES.md" download class="download-link">Download</a></td>
                                     </tr>
                                     <tr>
                                         <td><code>SESSION_LOG.md</code></td>
                                         <td><strong>Prevents amnesia.</strong> Update at session end.</td>
                                         <td><a href="templates/SESSION_LOG.md" download class="download-link">Download</a></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                            <h4 style="margin-top: 16px;">Files for .claude/rules/</h4>
+                            <p style="font-size: 0.9em; color: var(--text-muted); margin-bottom: 12px;"><strong>Important:</strong> Files in the <code>rules/</code> subfolder are <strong>automatically loaded</strong> into Claude's context every session. No need to tell Claude to read them.</p>
+                            <table class="files-table">
+                                <thead>
+                                    <tr>
+                                        <th>File</th>
+                                        <th>Purpose</th>
+                                        <th></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><code>PROJECT.md</code></td>
+                                        <td><strong>Business scope.</strong> Goals, features, constraints. <em>(auto-loaded)</em></td>
+                                        <td><a href="templates/rules/PROJECT.md" download class="download-link">Download</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td><code>ARCHITECTURE.md</code></td>
+                                        <td><strong>Technical specs.</strong> Tech stack, patterns, decisions. <em>(auto-loaded)</em></td>
+                                        <td><a href="templates/rules/ARCHITECTURE.md" download class="download-link">Download</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td><code>AI_CODING_GUIDELINES.md</code></td>
+                                        <td>Coding standards and principles. <em>(auto-loaded)</em></td>
+                                        <td><a href="templates/rules/AI_CODING_GUIDELINES.md" download class="download-link">Download</a></td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -1258,14 +1272,16 @@
                         <p><strong>Move the files into place:</strong></p>
                         <ol class="step-list">
                             <li>Open your Downloads folder <span class="os-text" data-mac="in Finder" data-windows="in File Explorer">in Finder</span></li>
-                            <li>Drag all 5 <code>.md</code> files into the <code>.claude</code> folder in VS Code's sidebar</li>
+                            <li>Drag <code>CLAUDE.md</code> and <code>SESSION_LOG.md</code> into the <code>.claude</code> folder</li>
+                            <li>Create a <code>rules</code> folder inside <code>.claude</code> (right-click → New Folder)</li>
+                            <li>Drag <code>PROJECT.md</code>, <code>ARCHITECTURE.md</code>, and <code>AI_CODING_GUIDELINES.md</code> into <code>.claude/rules/</code></li>
                             <li>Drag <code>README.md</code> and <code>.gitignore</code> into the project root (the top level, not inside .claude)</li>
                         </ol>
 
                         <div class="success-box">
                             <span class="success-icon"><svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg></span>
                             <div class="success-content">
-                                <strong>Success:</strong> You see the .claude folder with 5 files, plus README.md and .gitignore in the project root.
+                                <strong>Success:</strong> You see the .claude folder with 2 files and a rules subfolder containing 3 files, plus README.md and .gitignore in the project root.
                             </div>
                         </div>
                     </div>
@@ -1278,11 +1294,12 @@
                     <div class="folder-structure">
                         <pre>my-first-project/
 ├── .claude/
-│   ├── CLAUDE.md           ← Session protocol (auto-read)
-│   ├── PROJECT.md          ← Business scope
-│   ├── ARCHITECTURE.md     ← Technical specs
-│   ├── AI_CODING_GUIDELINES.md
-│   └── SESSION_LOG.md
+│   ├── CLAUDE.md           ← Session protocol (auto-loaded)
+│   ├── SESSION_LOG.md      ← Session history
+│   └── rules/              ← Everything here is auto-loaded!
+│       ├── PROJECT.md
+│       ├── ARCHITECTURE.md
+│       └── AI_CODING_GUIDELINES.md
 ├── venv/                   ← Your virtual environment
 ├── .gitignore              ← Tells Git what to ignore
 ├── README.md               ← Quick reference for you
@@ -1290,7 +1307,7 @@
                     </div>
                     <ul class="checkpoint-list">
                         <li><label><input type="checkbox" data-checkpoint="3-a"> (venv) appears in your Terminal prompt when activated</label></li>
-                        <li><label><input type="checkbox" data-checkpoint="3-b"> .claude folder exists with 5 files</label></li>
+                        <li><label><input type="checkbox" data-checkpoint="3-b"> .claude folder has 2 files + rules subfolder with 3 files</label></li>
                         <li><label><input type="checkbox" data-checkpoint="3-c"> README.md and .gitignore are in the project root</label></li>
                     </ul>
                     <div class="checkpoint-complete" id="phase3-complete">
