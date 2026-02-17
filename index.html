@@ -754,6 +754,21 @@
                                 </div>
                                 <pre><code>irm https://claude.ai/install.ps1 | iex</code></pre>
                             </div>
+
+                            <div class="warning-box" style="margin-top: 16px;">
+                                <span class="warning-icon"><svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M1 21h22L12 2 1 21zm12-3h-2v-2h2v2zm0-4h-2v-4h2v4z"/></svg></span>
+                                <div class="warning-content">
+                                    <strong>Important:</strong> You'll likely see a message saying Claude isn't in your PATH. Add it now:
+                                    <ol style="margin: 8px 0 0 0; padding-left: 20px;">
+                                        <li>Press <kbd>Windows</kbd> key, type <strong>environment variables</strong>, press Enter</li>
+                                        <li>Click <strong>"Environment Variables..."</strong> button</li>
+                                        <li>Under "User variables," select <strong>Path</strong> → click <strong>Edit</strong></li>
+                                        <li>Click <strong>New</strong> → paste: <code>%USERPROFILE%\.local\bin</code></li>
+                                        <li>Click <strong>OK</strong> on all windows</li>
+                                        <li>Close and reopen VS Code completely</li>
+                                    </ol>
+                                </div>
+                            </div>
                         </div>
 
                         <details class="troubleshoot-accordion">
@@ -810,7 +825,18 @@
                                     </div>
                                 </div>
                                 <div class="os-specific windows">
-                                    <p>Close VS Code completely and reopen it. If still not working, try reinstalling with the PowerShell command above.</p>
+                                    <p>You need to add Claude to your PATH. Follow the steps in the warning box above, or run this in PowerShell:</p>
+                                    <div class="code-block">
+                                        <div class="code-header">
+                                            <span class="code-label">PowerShell</span>
+                                            <button class="copy-btn" data-copy="[Environment]::SetEnvironmentVariable('Path', $env:Path + ';' + $env:USERPROFILE + '\.local\bin', 'User')">
+                                                <span class="copy-text">Copy</span>
+                                                <span class="copied-text">Copied!</span>
+                                            </button>
+                                        </div>
+                                        <pre><code>[Environment]::SetEnvironmentVariable('Path', $env:Path + ';' + $env:USERPROFILE + '\.local\bin', 'User')</code></pre>
+                                    </div>
+                                    <p style="margin-top: 8px;">Then close and reopen VS Code completely.</p>
                                 </div>
                                 <p style="margin-top: 12px;"><strong>Still having issues?</strong> Run <code>claude doctor</code> to diagnose your installation.</p>
                             </div>
