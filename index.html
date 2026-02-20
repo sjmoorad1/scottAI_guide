@@ -605,6 +605,13 @@
                         </div>
                         <p class="code-note"><code>mkdir</code> = "make directory" (creates a new folder)</p>
 
+                        <div class="callout callout-tip">
+                            <svg class="callout-icon" viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M9 21c0 .55.45 1 1 1h4c.55 0 1-.45 1-1v-1H9v1zm3-19C8.14 2 5 5.14 5 9c0 2.38 1.19 4.47 3 5.74V17c0 .55.45 1 1 1h6c.55 0 1-.45 1-1v-2.26c1.81-1.27 3-3.36 3-5.74 0-3.86-3.14-7-7-7z"/></svg>
+                            <div class="callout-content">
+                                <strong>Naming tip:</strong> Avoid spaces in folder and project names. Use hyphens instead: <code>my-sales-dashboard</code> not <code>my sales dashboard</code>. Spaces in paths can cause command-line headaches.
+                            </div>
+                        </div>
+
                         <p>Open this folder in VS Code:</p>
                         <ol>
                             <li>Click <strong>File → Open Folder</strong> (or <kbd>Cmd</kbd>+<kbd>O</kbd> on Mac / <kbd>Ctrl</kbd>+<kbd>K</kbd> <kbd>Ctrl</kbd>+<kbd>O</kbd> on Windows)</li>
@@ -1180,13 +1187,14 @@
                         <div class="code-block">
                             <div class="code-header">
                                 <span class="code-label">Terminal (outside Claude)</span>
-                                <button class="copy-btn" data-copy-mac="mkdir -p .claude" data-copy-windows="mkdir .claude">
+                                <button class="copy-btn" data-copy-mac="mkdir -p .claude/rules" data-copy-windows="mkdir .claude && mkdir .claude\rules">
                                     <span class="copy-text">Copy</span>
                                     <span class="copied-text">Copied!</span>
                                 </button>
                             </div>
-                            <pre><code class="os-text" data-mac="mkdir -p .claude" data-windows="mkdir .claude">mkdir -p .claude</code></pre>
+                            <pre><code class="os-text" data-mac="mkdir -p .claude/rules" data-windows="mkdir .claude && mkdir .claude\rules">mkdir -p .claude/rules</code></pre>
                         </div>
+                        <p class="code-note">This creates both the <code>.claude</code> folder and the <code>rules</code> subfolder in one command.</p>
 
                         <p>Download these template files:</p>
 
@@ -1261,11 +1269,12 @@
                                     </tr>
                                     <tr>
                                         <td><code>.gitignore</code></td>
-                                        <td>Tells Git which files to ignore.</td>
+                                        <td>Tells Git which files to ignore (API keys, cache, etc.).</td>
                                         <td><a href="#" class="download-link" id="gitignore-download-btn">Download</a></td>
                                     </tr>
                                 </tbody>
                             </table>
+                            <p style="font-size: 0.85em; color: var(--text-muted); margin-top: 8px;"><strong>Note:</strong> Python's <code>venv</code> creates its own <code>.gitignore</code> inside the <code>venv/</code> folder. That only ignores the venv contents. The project root <code>.gitignore</code> handles everything else: API keys in <code>.env</code>, cache files, IDE settings, and OS junk files.</p>
 
                         </div>
 
@@ -1273,7 +1282,6 @@
                         <ol class="step-list">
                             <li>Open your Downloads folder <span class="os-text" data-mac="in Finder" data-windows="in File Explorer">in Finder</span></li>
                             <li>Drag <code>CLAUDE.md</code> and <code>SESSION_LOG.md</code> into the <code>.claude</code> folder</li>
-                            <li>Create a <code>rules</code> folder inside <code>.claude</code> (right-click → New Folder)</li>
                             <li>Drag <code>PROJECT.md</code>, <code>ARCHITECTURE.md</code>, and <code>AI_CODING_GUIDELINES.md</code> into <code>.claude/rules/</code></li>
                             <li>Drag <code>README.md</code> and <code>.gitignore</code> into the project root (the top level, not inside .claude)</li>
                         </ol>
