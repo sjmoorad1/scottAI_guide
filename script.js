@@ -191,28 +191,7 @@
     // Changelog Data
     // ==========================================
 
-    const CHANGELOG = [
-        {
-            date: '2025-02-21',
-            items: [
-                { section: 'Level 2', text: 'Added Advanced Topics section: SQLite, SQL Server, API keys, large files, debugging' },
-                { section: 'Phase 2', text: 'Clarified PowerShell vs Command Prompt for Windows users with visual guide' },
-                { section: 'Phase 2', text: 'Added PATH fix warning for Mac users after Claude CLI install' },
-                { section: 'Phase 2', text: 'Added model configuration: default to Sonnet 4.5 to save tokens' },
-                { section: 'Phase 3', text: 'Added terminal command to create .claude/rules/ folder in one step' },
-                { section: 'Phase 1', text: 'Added tip about avoiding spaces in folder and project names' },
-                { section: 'Phase 1', text: 'Added troubleshooting for Mac Python version mismatch (old 3.9/3.10)' },
-                { section: 'Phase 1', text: 'Updated version checks: Homebrew 5.x, Node v22+, Python 3.14' },
-                { section: 'Phase 3', text: 'Clarified why project root .gitignore is needed (venv creates its own)' },
-                { section: 'Phase 4', text: 'Moved git config to Phase 4 (after GitHub account creation)' },
-                { section: 'Tips', text: 'Added "Paste Images" tip — Ctrl+V on Mac for images in terminal' },
-                { section: 'All', text: 'Standardized "restart terminal" instructions to use exit command' },
-                { section: 'Nav', text: 'Renamed Phase 1 to "Installs", Phase 3 to "Project Setup" for clarity' },
-                { section: 'All', text: 'Added What\'s New changelog for returning users' }
-            ]
-        }
-        // Add new entries at the TOP of this array
-    ];
+    // Changelog is loaded from CHANGELOG.md - see parseChangelog() function
 
     const state = {
         os: 'mac',
@@ -863,95 +842,132 @@
     }
 
     // ==========================================
-    // What's New Modal
+    // What's New Modal (fetches from CHANGELOG.md)
     // ==========================================
 
-    function showWhatsNew() {
+    async function showWhatsNew() {
         const lastVisit = localStorage.getItem(STORAGE_KEYS.LAST_VISIT);
         const now = new Date().toISOString();
-
-        // Get changes since last visit
-        const newChanges = getChangesSince(lastVisit);
 
         // Update last visit timestamp
         localStorage.setItem(STORAGE_KEYS.LAST_VISIT, now);
 
-        // Don't show if no new changes
-        if (newChanges.length === 0) return;
+        // First visit - don't show anything
+        if (!lastVisit) return;
 
-        // Build the modal HTML
-        const modal = document.createElement('div');
-        modal.id = 'whats-new-modal';
-        modal.className = 'modal-overlay';
+        try {
+            // Fetch and parse CHANGELOG.md
+            const response = await fetch('CHANGELOG.md');
+            if (!response.ok) return;
 
-        let changesHtml = '';
-        newChanges.forEach(entry => {
-            const formattedDate = formatDate(entry.date);
-            const itemsHtml = entry.items.map(item =>
-                `<li><span class="changelog-section">${item.section}</span> ${item.text}</li>`
-            ).join('');
-            changesHtml += `
-                <div class="changelog-entry">
-                    <div class="changelog-date">${formattedDate}</div>
-                    <ul class="changelog-items">${itemsHtml}</ul>
+            const markdown = await response.text();
+            const changelog = parseChangelog(markdown);
+
+            // Get changes since last visit
+            const lastVisitDate = new Date(lastVisit);
+            const newChanges = changelog.filter(entry => {
+                const entryDate = new Date(entry.date + 'T23:59:59');
+                return entryDate > lastVisitDate;
+            });
+
+            // Don't show if no new changes
+            if (newChanges.length === 0) return;
+
+            // Build the modal HTML
+            const modal = document.createElement('div');
+            modal.id = 'whats-new-modal';
+            modal.className = 'modal-overlay';
+
+            let changesHtml = '';
+            newChanges.forEach(entry => {
+                const formattedDate = formatDate(entry.date);
+                const itemsHtml = entry.items.map(item =>
+                    `<li><span class="changelog-section">${item.section}</span> ${item.text}</li>`
+                ).join('');
+                changesHtml += `
+                    <div class="changelog-entry">
+                        <div class="changelog-date">${formattedDate}</div>
+                        <ul class="changelog-items">${itemsHtml}</ul>
+                    </div>
+                `;
+            });
+
+            modal.innerHTML = `
+                <div class="modal-content whats-new-content">
+                    <h3>🆕 What's New</h3>
+                    <p>Updates since your last visit:</p>
+                    <div class="changelog-list">
+                        ${changesHtml}
+                    </div>
+                    <div class="modal-actions">
+                        <button class="btn-primary" id="whats-new-close">Got it!</button>
+                    </div>
                 </div>
             `;
-        });
 
-        modal.innerHTML = `
-            <div class="modal-content whats-new-content">
-                <h3>🆕 What's New</h3>
-                <p>Updates since your last visit:</p>
-                <div class="changelog-list">
-                    ${changesHtml}
-                </div>
-                <div class="modal-actions">
-                    <button class="btn-primary" id="whats-new-close">Got it!</button>
-                </div>
-            </div>
-        `;
+            document.body.appendChild(modal);
 
-        document.body.appendChild(modal);
+            // Show with slight delay for animation
+            setTimeout(() => modal.classList.add('show'), 10);
 
-        // Show with slight delay for animation
-        setTimeout(() => modal.classList.add('show'), 10);
+            // Close handlers
+            const closeBtn = document.getElementById('whats-new-close');
+            closeBtn.addEventListener('click', closeWhatsNew);
+            modal.addEventListener('click', function(e) {
+                if (e.target === modal) closeWhatsNew();
+            });
+            document.addEventListener('keydown', function handler(e) {
+                if (e.key === 'Escape') {
+                    closeWhatsNew();
+                    document.removeEventListener('keydown', handler);
+                }
+            });
 
-        // Close handlers
-        const closeBtn = document.getElementById('whats-new-close');
-        closeBtn.addEventListener('click', closeWhatsNew);
-        modal.addEventListener('click', function(e) {
-            if (e.target === modal) closeWhatsNew();
-        });
-        document.addEventListener('keydown', function handler(e) {
-            if (e.key === 'Escape') {
-                closeWhatsNew();
-                document.removeEventListener('keydown', handler);
+            function closeWhatsNew() {
+                modal.classList.remove('show');
+                setTimeout(() => modal.remove(), 300);
             }
-        });
-
-        function closeWhatsNew() {
-            modal.classList.remove('show');
-            setTimeout(() => modal.remove(), 300);
+        } catch (error) {
+            console.log('Could not load changelog:', error);
         }
     }
 
-    function getChangesSince(lastVisit) {
-        if (!lastVisit) {
-            // First visit - show nothing (they haven't seen the guide yet)
-            return [];
-        }
+    function parseChangelog(markdown) {
+        const entries = [];
+        const lines = markdown.split('\n');
 
-        const lastVisitDate = new Date(lastVisit);
-        const changes = [];
+        let currentDate = null;
+        let currentItems = [];
 
-        for (const entry of CHANGELOG) {
-            const entryDate = new Date(entry.date + 'T23:59:59'); // End of that day
-            if (entryDate > lastVisitDate) {
-                changes.push(entry);
+        for (const line of lines) {
+            // Match date headers like "## 2025-02-21"
+            const dateMatch = line.match(/^## (\d{4}-\d{2}-\d{2})/);
+            if (dateMatch) {
+                // Save previous entry if exists
+                if (currentDate && currentItems.length > 0) {
+                    entries.push({ date: currentDate, items: currentItems });
+                }
+                currentDate = dateMatch[1];
+                currentItems = [];
+                continue;
+            }
+
+            // Match list items like "- [Section] Description"
+            const itemMatch = line.match(/^- \[([^\]]+)\]\s*(.+)/);
+            if (itemMatch && currentDate) {
+                currentItems.push({
+                    section: itemMatch[1],
+                    text: itemMatch[2]
+                });
             }
         }
 
-        return changes;
+        // Don't forget the last entry
+        if (currentDate && currentItems.length > 0) {
+            entries.push({ date: currentDate, items: currentItems });
+        }
+
+        return entries;
     }
 
     function formatDate(dateStr) {
