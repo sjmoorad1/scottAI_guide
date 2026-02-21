@@ -2155,6 +2155,85 @@ body[data-os="windows"] li.os-specific.windows {
 }
 
 /* ==========================================================================
+   What's New Modal
+   ========================================================================== */
+
+#whats-new-modal {
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+#whats-new-modal.show {
+    opacity: 1;
+}
+
+.whats-new-content {
+    max-width: 520px;
+    max-height: 80vh;
+    overflow-y: auto;
+}
+
+.whats-new-content h3 {
+    font-size: 1.3rem;
+    margin-bottom: 8px;
+}
+
+.changelog-list {
+    margin: 16px 0;
+}
+
+.changelog-entry {
+    margin-bottom: 16px;
+}
+
+.changelog-entry:last-child {
+    margin-bottom: 0;
+}
+
+.changelog-date {
+    font-weight: 600;
+    color: var(--brand-blue);
+    font-size: 0.9rem;
+    margin-bottom: 8px;
+}
+
+.changelog-items {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.changelog-items li {
+    padding: 6px 0;
+    border-bottom: 1px solid var(--border-color);
+    font-size: 0.9rem;
+    line-height: 1.4;
+}
+
+.changelog-items li:last-child {
+    border-bottom: none;
+}
+
+.changelog-section {
+    display: inline-block;
+    background: var(--bg-tertiary);
+    color: var(--text-secondary);
+    font-size: 0.75rem;
+    font-weight: 600;
+    padding: 2px 8px;
+    border-radius: 4px;
+    margin-right: 8px;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+}
+
+.modal-actions {
+    margin-top: 20px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+/* ==========================================================================
    Responsive Design
    ========================================================================== */
 

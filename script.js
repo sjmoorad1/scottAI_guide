@@ -183,8 +183,30 @@
         OS: 'agentic-ai-guide-os',
         THEME: 'agentic-ai-guide-theme',
         PROGRESS: 'agentic-ai-guide-progress',
-        COMPLETED_PHASES: 'agentic-ai-guide-completed-phases'
+        COMPLETED_PHASES: 'agentic-ai-guide-completed-phases',
+        LAST_VISIT: 'agentic-ai-guide-last-visit'
     };
+
+    // ==========================================
+    // Changelog Data
+    // ==========================================
+
+    const CHANGELOG = [
+        {
+            date: '2025-02-21',
+            items: [
+                { section: 'Level 2', text: 'Added Advanced Topics section: SQLite, SQL Server, API keys, large files, debugging' },
+                { section: 'Phase 2', text: 'Clarified PowerShell vs Command Prompt for Windows users with visual guide' },
+                { section: 'Phase 3', text: 'Added terminal command to create .claude/rules/ folder in one step' },
+                { section: 'Phase 1', text: 'Added tip about avoiding spaces in folder and project names' },
+                { section: 'Phase 3', text: 'Clarified why project root .gitignore is needed (venv creates its own)' },
+                { section: 'All', text: 'Standardized "restart terminal" instructions to use exit command' },
+                { section: 'Phase 1', text: 'Updated Homebrew version check to 5.x.x' },
+                { section: 'Nav', text: 'Renamed Phase 1 to "Installs", Phase 3 to "Project Setup" for clarity' }
+            ]
+        }
+        // Add new entries at the TOP of this array
+    ];
 
     const state = {
         os: 'mac',
@@ -212,6 +234,7 @@
         applyOSSelection(state.os);
         applyTheme(state.theme);
         showWelcomeBackBanner();
+        showWhatsNew();
     }
 
     // ==========================================
@@ -832,6 +855,113 @@
             }
         });
     }
+
+    // ==========================================
+    // What's New Modal
+    // ==========================================
+
+    function showWhatsNew() {
+        const lastVisit = localStorage.getItem(STORAGE_KEYS.LAST_VISIT);
+        const now = new Date().toISOString();
+
+        // Get changes since last visit
+        const newChanges = getChangesSince(lastVisit);
+
+        // Update last visit timestamp
+        localStorage.setItem(STORAGE_KEYS.LAST_VISIT, now);
+
+        // Don't show if no new changes
+        if (newChanges.length === 0) return;
+
+        // Build the modal HTML
+        const modal = document.createElement('div');
+        modal.id = 'whats-new-modal';
+        modal.className = 'modal-overlay';
+
+        let changesHtml = '';
+        newChanges.forEach(entry => {
+            const formattedDate = formatDate(entry.date);
+            const itemsHtml = entry.items.map(item =>
+                `<li><span class="changelog-section">${item.section}</span> ${item.text}</li>`
+            ).join('');
+            changesHtml += `
+                <div class="changelog-entry">
+                    <div class="changelog-date">${formattedDate}</div>
+                    <ul class="changelog-items">${itemsHtml}</ul>
+                </div>
+            `;
+        });
+
+        modal.innerHTML = `
+            <div class="modal-content whats-new-content">
+                <h3>🆕 What's New</h3>
+                <p>Updates since your last visit:</p>
+                <div class="changelog-list">
+                    ${changesHtml}
+                </div>
+                <div class="modal-actions">
+                    <button class="btn-primary" id="whats-new-close">Got it!</button>
+                </div>
+            </div>
+        `;
+
+        document.body.appendChild(modal);
+
+        // Show with slight delay for animation
+        setTimeout(() => modal.classList.add('show'), 10);
+
+        // Close handlers
+        const closeBtn = document.getElementById('whats-new-close');
+        closeBtn.addEventListener('click', closeWhatsNew);
+        modal.addEventListener('click', function(e) {
+            if (e.target === modal) closeWhatsNew();
+        });
+        document.addEventListener('keydown', function handler(e) {
+            if (e.key === 'Escape') {
+                closeWhatsNew();
+                document.removeEventListener('keydown', handler);
+            }
+        });
+
+        function closeWhatsNew() {
+            modal.classList.remove('show');
+            setTimeout(() => modal.remove(), 300);
+        }
+    }
+
+    function getChangesSince(lastVisit) {
+        if (!lastVisit) {
+            // First visit - show nothing (they haven't seen the guide yet)
+            return [];
+        }
+
+        const lastVisitDate = new Date(lastVisit);
+        const changes = [];
+
+        for (const entry of CHANGELOG) {
+            const entryDate = new Date(entry.date + 'T23:59:59'); // End of that day
+            if (entryDate > lastVisitDate) {
+                changes.push(entry);
+            }
+        }
+
+        return changes;
+    }
+
+    function formatDate(dateStr) {
+        const date = new Date(dateStr + 'T00:00:00');
+        const options = { month: 'short', day: 'numeric', year: 'numeric' };
+        return date.toLocaleDateString('en-US', options);
+    }
+
+    // For testing: reset last visit to see the modal
+    window.resetLastVisit = function(daysAgo = 7) {
+        const date = new Date();
+        date.setDate(date.getDate() - daysAgo);
+        localStorage.setItem(STORAGE_KEYS.LAST_VISIT, date.toISOString());
+        console.log('Last visit set to:', date.toISOString());
+        console.log('Reload the page to see What\'s New modal');
+    };
 
     // ==========================================
     // Reset Progress (for testing/debugging)
