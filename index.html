@@ -563,30 +563,14 @@
                             <pre><code>git --version</code></pre>
                         </div>
 
-                        <p>Configure Git with your name and email:</p>
-                        <div class="code-block">
-                            <div class="code-header">
-                                <span class="code-label">Terminal</span>
-                                <button class="copy-btn" data-copy='git config --global user.name "Your Name"'>
-                                    <span class="copy-text">Copy</span>
-                                    <span class="copied-text">Copied!</span>
-                                </button>
+                        <div class="success-box">
+                            <span class="success-icon"><svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg></span>
+                            <div class="success-content">
+                                <strong>Success:</strong> You see "git version 2.x.x"
                             </div>
-                            <pre><code>git config --global user.name "Your Name"</code></pre>
                         </div>
-                        <p class="code-note">Replace "Your Name" with your actual name</p>
 
-                        <div class="code-block">
-                            <div class="code-header">
-                                <span class="code-label">Terminal</span>
-                                <button class="copy-btn" data-copy='git config --global user.email "your.email@example.com"'>
-                                    <span class="copy-text">Copy</span>
-                                    <span class="copied-text">Copied!</span>
-                                </button>
-                            </div>
-                            <pre><code>git config --global user.email "your.email@example.com"</code></pre>
-                        </div>
-                        <p class="code-note">Use the same email you'll use for GitHub</p>
+                        <p class="code-note">We'll configure Git with your name and email in Phase 4 after you create a GitHub account.</p>
                     </div>
                 </div>
 
@@ -1416,9 +1400,34 @@
                             <li>Go to: <a href="https://github.com/" target="_blank">github.com</a></li>
                             <li>Click "Sign up"</li>
                             <li>Choose a username (visible publicly)</li>
-                            <li>Use the same email you configured Git with</li>
+                            <li>Enter your email address</li>
                             <li>Verify your email</li>
                         </ol>
+
+                        <p style="margin-top: 16px;"><strong>Now configure Git to match your GitHub account:</strong></p>
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="code-label">Terminal (outside Claude)</span>
+                                <button class="copy-btn" data-copy='git config --global user.name "Your Name"'>
+                                    <span class="copy-text">Copy</span>
+                                    <span class="copied-text">Copied!</span>
+                                </button>
+                            </div>
+                            <pre><code>git config --global user.name "Your Name"</code></pre>
+                        </div>
+                        <p class="code-note">Replace "Your Name" with your actual name</p>
+
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="code-label">Terminal (outside Claude)</span>
+                                <button class="copy-btn" data-copy='git config --global user.email "your.email@example.com"'>
+                                    <span class="copy-text">Copy</span>
+                                    <span class="copied-text">Copied!</span>
+                                </button>
+                            </div>
+                            <pre><code>git config --global user.email "your.email@example.com"</code></pre>
+                        </div>
+                        <p class="code-note">Use the same email you just used for GitHub</p>
                     </div>
                 </div>
 
