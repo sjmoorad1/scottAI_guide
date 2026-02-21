@@ -82,6 +82,7 @@
                 <li><a href="#workflow" class="nav-link">Phase 5<span class="nav-subtitle">You're Ready</span></a></li>
                 <li><a href="#tips" class="nav-link">Tips<span class="nav-subtitle">&nbsp;</span></a></li>
                 <li><a href="#reference" class="nav-link">Reference<span class="nav-subtitle">&nbsp;</span></a></li>
+                <li><a href="#advanced" class="nav-link">Level 2<span class="nav-subtitle">Advanced</span></a></li>
             </ul>
         </div>
     </nav>
@@ -2174,6 +2175,223 @@ HUBSPOT_API_KEY=your_key_here</code></pre>
                         </div>
                     </div>
                 </div>
+            </section>
+
+            <!-- ADVANCED TOPICS SECTION -->
+            <section id="advanced" class="section">
+                <div class="section-header">
+                    <span class="section-number">L2</span>
+                    <h2>Level 2: Advanced Topics</h2>
+                </div>
+
+                <p class="section-intro">Ready to go deeper? These topics build on the fundamentals. Tackle them as needed — you don't have to read everything at once.</p>
+
+                <div class="callout callout-info">
+                    <svg class="callout-icon" viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
+                    <div class="callout-content">
+                        <strong>When do I need this?</strong> Most users can accomplish their goals with the basics. Come back here when you hit a specific need — like inspecting a database Claude created, or connecting to your company's SQL Server.
+                    </div>
+                </div>
+
+                <!-- SQLite Basics -->
+                <div class="content-block" id="advanced-sqlite">
+                    <h3>Working with SQLite Databases</h3>
+                    <p><strong>What it is:</strong> SQLite is a lightweight database stored as a single file. Claude often creates these automatically when your data is too large for Excel or needs relational queries.</p>
+
+                    <p><strong>When you'll encounter it:</strong></p>
+                    <ul>
+                        <li>Claude says "I'll store this in a SQLite database for better performance"</li>
+                        <li>You see a <code>.db</code> or <code>.sqlite</code> file appear in your project</li>
+                        <li>You want to inspect what Claude built without asking it to query</li>
+                    </ul>
+
+                    <p><strong>How to view SQLite databases in VS Code:</strong></p>
+                    <ol class="step-list">
+                        <li>Open VS Code Extensions (<kbd>Cmd</kbd>+<kbd>Shift</kbd>+<kbd>X</kbd> / <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>X</kbd>)</li>
+                        <li>Search for <strong>"SQLite Viewer"</strong> by Florian Klampfer</li>
+                        <li>Click Install</li>
+                        <li>Click any <code>.db</code> file in your project — it opens as a spreadsheet view</li>
+                    </ol>
+
+                    <div class="callout callout-tip">
+                        <svg class="callout-icon" viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M9 21c0 .55.45 1 1 1h4c.55 0 1-.45 1-1v-1H9v1zm3-19C8.14 2 5 5.14 5 9c0 2.38 1.19 4.47 3 5.74V17c0 .55.45 1 1 1h6c.55 0 1-.45 1-1v-2.26c1.81-1.27 3-3.36 3-5.74 0-3.86-3.14-7-7-7z"/></svg>
+                        <div class="callout-content">
+                            <strong>Pro tip:</strong> You don't usually need to query SQLite directly. Just ask Claude: "Show me all records where status is 'pending'" — it will write and run the query for you.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- SQL Server / Azure SQL -->
+                <div class="content-block" id="advanced-sqlserver">
+                    <h3>Connecting to SQL Server / Azure SQL</h3>
+                    <p><strong>What it is:</strong> Enterprise databases your company likely uses. Unlike SQLite (a file), these run on servers and require connection credentials.</p>
+
+                    <p><strong>When you'll need this:</strong></p>
+                    <ul>
+                        <li>Your company has existing data in SQL Server or Azure SQL</li>
+                        <li>You want Claude to query production data (read-only recommended!)</li>
+                        <li>You're building dashboards that connect to company databases</li>
+                    </ul>
+
+                    <p><strong>Option 1: VS Code Extension</strong></p>
+                    <ol class="step-list">
+                        <li>Install the <strong>"SQL Server (mssql)"</strong> extension by Microsoft</li>
+                        <li>Click the SQL Server icon in the sidebar</li>
+                        <li>Add a connection with your server details</li>
+                        <li>Browse tables, run queries directly in VS Code</li>
+                    </ol>
+
+                    <p><strong>Option 2: Azure Data Studio</strong> (standalone app)</p>
+                    <ul>
+                        <li>Download from <a href="https://azure.microsoft.com/en-us/products/data-studio" target="_blank">azure.microsoft.com/products/data-studio</a></li>
+                        <li>More powerful than the extension for complex work</li>
+                        <li>Built-in query editor, execution plans, notebooks</li>
+                    </ul>
+
+                    <div class="callout callout-warning">
+                        <svg class="callout-icon" viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M1 21h22L12 2 1 21zm12-3h-2v-2h2v2zm0-4h-2v-4h2v4z"/></svg>
+                        <div class="callout-content">
+                            <strong>Be careful:</strong> When connecting Claude to production databases, always use read-only credentials. One wrong UPDATE statement can ruin your day.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- API Keys Deep Dive -->
+                <div class="content-block" id="advanced-api-keys">
+                    <h3>Managing API Keys & Secrets</h3>
+                    <p>The basics covered <code>.env</code> files. Here's more depth for when you're juggling multiple APIs.</p>
+
+                    <p><strong>Best practices:</strong></p>
+                    <ul>
+                        <li><strong>One .env per project</strong> — Don't share across projects</li>
+                        <li><strong>Never commit .env</strong> — Your <code>.gitignore</code> should already exclude it</li>
+                        <li><strong>Use descriptive names</strong> — <code>OPENAI_API_KEY</code> not <code>KEY1</code></li>
+                        <li><strong>Document required keys</strong> — Add a <code>.env.example</code> file with placeholder values</li>
+                    </ul>
+
+                    <p><strong>Example .env.example file:</strong></p>
+                    <div class="code-block">
+                        <div class="code-header">
+                            <span class="code-label">.env.example</span>
+                        </div>
+                        <pre><code># Copy this file to .env and fill in your actual keys
+OPENAI_API_KEY=sk-your-key-here
+AIRTABLE_API_KEY=pat-your-key-here
+DATABASE_URL=your-connection-string</code></pre>
+                    </div>
+
+                    <p><strong>Loading in Python:</strong></p>
+                    <div class="code-block">
+                        <div class="code-header">
+                            <span class="code-label">Python</span>
+                        </div>
+                        <pre><code>from dotenv import load_dotenv
+import os
+
+load_dotenv()  # Reads .env file
+
+api_key = os.getenv("OPENAI_API_KEY")
+if not api_key:
+    raise ValueError("Missing OPENAI_API_KEY in .env")</code></pre>
+                    </div>
+
+                    <div class="callout callout-tip">
+                        <svg class="callout-icon" viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M9 21c0 .55.45 1 1 1h4c.55 0 1-.45 1-1v-1H9v1zm3-19C8.14 2 5 5.14 5 9c0 2.38 1.19 4.47 3 5.74V17c0 .55.45 1 1 1h6c.55 0 1-.45 1-1v-2.26c1.81-1.27 3-3.36 3-5.74 0-3.86-3.14-7-7-7z"/></svg>
+                        <div class="callout-content">
+                            <strong>Tell Claude about your .env:</strong> When starting a session, mention "I have API keys in .env" — Claude will use <code>python-dotenv</code> automatically.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Working with Large Files -->
+                <div class="content-block" id="advanced-large-files">
+                    <h3>Working with Large Files</h3>
+                    <p>Excel has limits. Here's what to do when your data outgrows spreadsheets.</p>
+
+                    <p><strong>Signs you've outgrown Excel:</strong></p>
+                    <ul>
+                        <li>Files over 50MB or 500K+ rows</li>
+                        <li>Excel crashes or freezes during analysis</li>
+                        <li>You need to join data from multiple large files</li>
+                        <li>Repeated analyses that could be automated</li>
+                    </ul>
+
+                    <p><strong>Solutions Claude can help with:</strong></p>
+                    <table class="command-table" style="margin: 16px 0;">
+                        <tr>
+                            <td><strong>Chunked processing</strong></td>
+                            <td>Read large files in pieces, process, combine results</td>
+                        </tr>
+                        <tr>
+                            <td><strong>SQLite conversion</strong></td>
+                            <td>Import CSV/Excel into SQLite for fast queries</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Parquet files</strong></td>
+                            <td>Compressed columnar format — 10x smaller, 10x faster</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Sampling</strong></td>
+                            <td>Analyze a representative subset first</td>
+                        </tr>
+                    </table>
+
+                    <p><strong>Example prompt:</strong></p>
+                    <div class="code-block">
+                        <div class="code-header">
+                            <span class="code-label">Ask Claude</span>
+                        </div>
+                        <pre><code>I have a 2GB CSV file with sales transactions. It's too big for
+Excel. Help me:
+1. Import it into SQLite
+2. Create summary queries for monthly totals by region
+3. Export the summary to Excel for my report</code></pre>
+                    </div>
+                </div>
+
+                <!-- Debugging with Claude -->
+                <div class="content-block" id="advanced-debugging">
+                    <h3>Debugging with Claude</h3>
+                    <p>When things break, here's how to get Claude's help effectively.</p>
+
+                    <p><strong>What to include when reporting errors:</strong></p>
+                    <ol class="step-list">
+                        <li><strong>The full error message</strong> — Copy the entire traceback, not just the last line</li>
+                        <li><strong>What you were trying to do</strong> — "I ran the script to process sales data"</li>
+                        <li><strong>What you expected</strong> — "It should create a summary.xlsx file"</li>
+                        <li><strong>What actually happened</strong> — "It crashed after processing 500 rows"</li>
+                    </ol>
+
+                    <p><strong>Example debugging prompt:</strong></p>
+                    <div class="code-block">
+                        <div class="code-header">
+                            <span class="code-label">Ask Claude</span>
+                        </div>
+                        <pre><code>I got this error when running the analysis script:
+
+[paste full error here]
+
+I was trying to process the Q4 sales file. It worked yesterday
+with the Q3 file. What's different and how do I fix it?</code></pre>
+                    </div>
+
+                    <p><strong>Common issues Claude can diagnose:</strong></p>
+                    <ul>
+                        <li><strong>ModuleNotFoundError</strong> — Missing package (forgot to activate venv or install)</li>
+                        <li><strong>FileNotFoundError</strong> — Wrong path or file moved</li>
+                        <li><strong>KeyError</strong> — Column name mismatch in data</li>
+                        <li><strong>PermissionError</strong> — File open in another program</li>
+                        <li><strong>Memory errors</strong> — File too large (see Large Files section above)</li>
+                    </ul>
+
+                    <div class="callout callout-tip">
+                        <svg class="callout-icon" viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M9 21c0 .55.45 1 1 1h4c.55 0 1-.45 1-1v-1H9v1zm3-19C8.14 2 5 5.14 5 9c0 2.38 1.19 4.47 3 5.74V17c0 .55.45 1 1 1h6c.55 0 1-.45 1-1v-2.26c1.81-1.27 3-3.36 3-5.74 0-3.86-3.14-7-7-7z"/></svg>
+                        <div class="callout-content">
+                            <strong>Prevention tip:</strong> Ask Claude to add error handling when writing scripts: "Add try/except blocks with helpful error messages so I know what went wrong."
+                        </div>
+                    </div>
+                </div>
+
             </section>
 
         </div>
