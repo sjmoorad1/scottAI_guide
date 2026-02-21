@@ -197,12 +197,18 @@
             items: [
                 { section: 'Level 2', text: 'Added Advanced Topics section: SQLite, SQL Server, API keys, large files, debugging' },
                 { section: 'Phase 2', text: 'Clarified PowerShell vs Command Prompt for Windows users with visual guide' },
+                { section: 'Phase 2', text: 'Added PATH fix warning for Mac users after Claude CLI install' },
+                { section: 'Phase 2', text: 'Added model configuration: default to Sonnet 4.5 to save tokens' },
                 { section: 'Phase 3', text: 'Added terminal command to create .claude/rules/ folder in one step' },
                 { section: 'Phase 1', text: 'Added tip about avoiding spaces in folder and project names' },
+                { section: 'Phase 1', text: 'Added troubleshooting for Mac Python version mismatch (old 3.9/3.10)' },
+                { section: 'Phase 1', text: 'Updated version checks: Homebrew 5.x, Node v22+, Python 3.14' },
                 { section: 'Phase 3', text: 'Clarified why project root .gitignore is needed (venv creates its own)' },
+                { section: 'Phase 4', text: 'Moved git config to Phase 4 (after GitHub account creation)' },
+                { section: 'Tips', text: 'Added "Paste Images" tip — Ctrl+V on Mac for images in terminal' },
                 { section: 'All', text: 'Standardized "restart terminal" instructions to use exit command' },
-                { section: 'Phase 1', text: 'Updated Homebrew version check to 5.x.x' },
-                { section: 'Nav', text: 'Renamed Phase 1 to "Installs", Phase 3 to "Project Setup" for clarity' }
+                { section: 'Nav', text: 'Renamed Phase 1 to "Installs", Phase 3 to "Project Setup" for clarity' },
+                { section: 'All', text: 'Added What\'s New changelog for returning users' }
             ]
         }
         // Add new entries at the TOP of this array
