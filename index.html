@@ -875,6 +875,26 @@
                                 <p style="margin-top: 12px;"><strong>Still having issues?</strong> Run <code>claude doctor</code> to diagnose your installation.</p>
                             </div>
                         </details>
+
+                        <h4 style="margin: 24px 0 12px 0;">Set Your Default Model</h4>
+                        <p>Claude defaults to Opus (the most powerful but most expensive model). For most tasks, <strong>Sonnet 4.5</strong> is faster, cheaper, and equally capable. Set it as your default:</p>
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="code-label">Terminal</span>
+                                <button class="copy-btn" data-copy="claude config set model claude-sonnet-4-5-20250929">
+                                    <span class="copy-text">Copy</span>
+                                    <span class="copied-text">Copied!</span>
+                                </button>
+                            </div>
+                            <pre><code>claude config set model claude-sonnet-4-5-20250929</code></pre>
+                        </div>
+
+                        <div class="callout callout-tip">
+                            <svg class="callout-icon" viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M9 21c0 .55.45 1 1 1h4c.55 0 1-.45 1-1v-1H9v1zm3-19C8.14 2 5 5.14 5 9c0 2.38 1.19 4.47 3 5.74V17c0 .55.45 1 1 1h6c.55 0 1-.45 1-1v-2.26c1.81-1.27 3-3.36 3-5.74 0-3.86-3.14-7-7-7z"/></svg>
+                            <div class="callout-content">
+                                <strong>When to use Opus:</strong> For complex multi-step tasks, deep code refactoring, or when Sonnet isn't getting it right, switch to Opus for that session: <code>claude --model claude-opus-4-5-20250929</code>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
@@ -1749,6 +1769,11 @@
                         <div class="tip-card">
                             <h4>Provide Context</h4>
                             <p>Share relevant files and explain the bigger picture. "This is for a quarterly board report" helps Claude make better decisions than just "analyze this data."</p>
+                        </div>
+                        <div class="tip-card">
+                            <h4>Paste Images Liberally</h4>
+                            <p>Claude can see images! Paste screenshots of errors, design mockups, data samples, or UI examples directly into your chat. It's often faster than describing what you're looking at.</p>
+                            <p class="os-specific mac" style="margin-top: 8px; font-size: 0.85em; color: var(--text-muted);"><strong>Mac tip:</strong> Use <kbd>Ctrl</kbd>+<kbd>V</kbd> (not <kbd>Cmd</kbd>+<kbd>V</kbd>) to paste images in the terminal.</p>
                         </div>
                     </div>
                 </div>
