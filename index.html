@@ -747,6 +747,23 @@
                                 </div>
                                 <pre><code>curl -fsSL https://claude.ai/install.sh | bash</code></pre>
                             </div>
+
+                            <div class="warning-box" style="margin-top: 16px;">
+                                <span class="warning-icon"><svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M1 21h22L12 2 1 21zm12-3h-2v-2h2v2zm0-4h-2v-4h2v4z"/></svg></span>
+                                <div class="warning-content">
+                                    <strong>If you see a message about PATH:</strong> The installer may say <code>~/.local/bin is not in your PATH</code>. Run this command to fix it:
+                                    <div class="code-block" style="margin: 12px 0 8px 0;">
+                                        <div class="code-header">
+                                            <span class="code-label">Terminal</span>
+                                            <button class="copy-btn" data-copy="echo 'export PATH=&quot;$HOME/.local/bin:$PATH&quot;' >> ~/.zshrc && source ~/.zshrc">
+                                                <span class="copy-text">Copy</span>
+                                                <span class="copied-text">Copied!</span>
+                                            </button>
+                                        </div>
+                                        <pre><code>echo 'export PATH="$HOME/.local/bin:$PATH"' >> ~/.zshrc && source ~/.zshrc</code></pre>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
 
                         <div class="os-specific windows">
