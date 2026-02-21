@@ -669,6 +669,13 @@
 
                 <p class="section-intro">Install Claude CLI and have your first AI-assisted session.</p>
 
+                <div class="callout callout-info os-specific windows">
+                    <svg class="callout-icon" viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
+                    <div class="callout-content">
+                        <strong>About your Terminal:</strong> Windows has two command-line tools: <strong>PowerShell</strong> and <strong>Command Prompt</strong>. They look similar but work differently. This guide requires <strong>PowerShell</strong> — it's the modern one that handles the installation commands correctly.
+                    </div>
+                </div>
+
                 <!-- Step 2.1: Node.js -->
                 <div class="step" id="step-2-1">
                     <div class="step-header">
@@ -750,7 +757,17 @@
                         </div>
 
                         <div class="os-specific windows">
-                            <p class="code-note" style="margin-bottom: 8px;">Make sure you're in PowerShell (not Command Prompt). Look for "pwsh" or "powershell" in the terminal dropdown.</p>
+                            <p><strong>First, confirm you're in PowerShell</strong> (not Command Prompt):</p>
+                            <ol class="step-list" style="margin-bottom: 16px;">
+                                <li>Look at the top-right of your terminal panel in VS Code</li>
+                                <li>Click the dropdown arrow (next to the <code>+</code> button)</li>
+                                <li>Select <strong>PowerShell</strong> if it's not already selected</li>
+                            </ol>
+                            <div class="screenshot">
+                                <img src="images/powershell-dropdown.png" alt="VS Code terminal dropdown showing PowerShell selected" class="screenshot-img">
+                                <p class="screenshot-caption">The terminal dropdown in VS Code — select PowerShell here</p>
+                            </div>
+                            <p style="margin-top: 16px;">Now run the installer:</p>
                             <div class="code-block">
                                 <div class="code-header">
                                     <span class="code-label">PowerShell</span>
