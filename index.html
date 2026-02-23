@@ -222,7 +222,7 @@
                 </div>
 
                 <div class="content-block">
-                    <h3>The Four Components You'll Set Up</h3>
+                    <h3>The Five Components You'll Set Up</h3>
                     <div class="component-list">
                         <div class="component-item">
                             <div class="component-icon">
@@ -240,6 +240,15 @@
                             <div class="component-info">
                                 <h4>Python</h4>
                                 <p><strong>The engine.</strong> A programming language that Claude uses to build solutions. You don't need to learn it—Claude writes it—but it needs to be installed.</p>
+                            </div>
+                        </div>
+                        <div class="component-item">
+                            <div class="component-icon">
+                                <img src="images/nodejs-icon.svg" alt="Node.js" class="component-logo">
+                            </div>
+                            <div class="component-info">
+                                <h4>Node.js</h4>
+                                <p><strong>The runtime.</strong> A platform that Claude CLI runs on. Like Python, you won't interact with it directly—but it needs to be installed.</p>
                             </div>
                         </div>
                         <div class="component-item">
@@ -1676,6 +1685,19 @@
                         <pre><code>git add . && git commit -m "Description of changes" && git push</code></pre>
                     </div>
                     <p class="code-note"><code>git push</code> = upload your commits to GitHub (your backup)</p>
+                </div>
+
+                <div class="content-block">
+                    <h3>Switching Projects</h3>
+                    <p>Opening a new folder in VS Code doesn't automatically reset your terminal. Before working on a different project:</p>
+                    <ol class="workflow-list">
+                        <li><strong>Exit Claude if running:</strong> <code>/exit</code></li>
+                        <li><strong>Check your location:</strong> <code>pwd</code></li>
+                        <li><strong>Navigate to new project:</strong> <code class="os-text" data-mac="cd ~/Documents/projects/other-project" data-windows="cd %USERPROFILE%\Documents\projects\other-project">cd ~/Documents/projects/other-project</code></li>
+                        <li><strong>Deactivate old venv:</strong> <code>deactivate</code></li>
+                        <li><strong>Activate new venv:</strong> <code class="os-text" data-mac="source venv/bin/activate" data-windows="venv\Scripts\activate">source venv/bin/activate</code></li>
+                        <li><strong>Start Claude:</strong> <code>claude</code></li>
+                    </ol>
                 </div>
 
                 <!-- From Theory to Reality - moved from Tips -->
