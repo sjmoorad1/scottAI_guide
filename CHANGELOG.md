@@ -2,6 +2,12 @@
 
 User-facing changes to the Agentic AI Setup Guide. Internal fixes (typos, CSS tweaks) are not logged.
 
+## 2025-02-23
+
+### Added
+- [Overview] Node.js added as 5th component — now visible upfront so users can request IT approval for all tools at once
+- [Phase 5] "Switching Projects" section — steps for changing projects mid-session (deactivate venv, cd, reactivate)
+
 ## 2025-02-21
 
 ### Added
