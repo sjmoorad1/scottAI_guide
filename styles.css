@@ -548,7 +548,7 @@ a:hover {
    ========================================================================== */
 
 .graduation-block {
-    background: linear-gradient(135deg, #c0592b, #a63d00);
+    background: linear-gradient(135deg, #c17f30, #a85d10);
     color: white;
     padding: var(--space-xl);
     border-radius: var(--radius-lg);
@@ -556,7 +556,7 @@ a:hover {
 }
 
 .graduation-block h3 {
-    color: white;
+    color: white !important;
     margin-bottom: var(--space-sm);
 }
 
@@ -570,7 +570,7 @@ a:hover {
 .graduation-block .btn-primary {
     display: inline-block;
     background: white;
-    color: #a63d00;
+    color: #a85d10;
     padding: var(--space-sm) var(--space-xl);
     border-radius: var(--radius-md);
     font-weight: 600;
@@ -583,7 +583,7 @@ a:hover {
 }
 
 [data-theme="dark"] .graduation-block {
-    background: linear-gradient(135deg, #b34700, #8a3500);
+    background: linear-gradient(135deg, #a85d10, #8a4a08);
 }
 
 /* ==========================================================================
