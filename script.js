@@ -246,13 +246,7 @@
 
         document.body.insertBefore(banner, document.body.firstChild);
 
-        // Auto-dismiss after 8 seconds
-        setTimeout(() => {
-            banner.classList.add('fade-out');
-            setTimeout(() => banner.remove(), 300);
-        }, 8000);
-
-        // Manual dismiss
+        // Manual dismiss only — user must click to close
         banner.querySelector('.welcome-back-dismiss').addEventListener('click', () => {
             banner.classList.add('fade-out');
             setTimeout(() => banner.remove(), 300);

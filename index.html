@@ -983,7 +983,7 @@
                         </details>
 
                         <h4 style="margin: 24px 0 12px 0;">Set Your Default Model</h4>
-                        <p>Claude defaults to Opus (the most powerful but most expensive model). For most tasks, <strong>Sonnet 4.6</strong> is faster, cheaper, and equally capable. Set it as your default:</p>
+                        <p>Claude offers multiple models. <strong>Sonnet 4.6</strong> is fast, cost-effective, and more than capable for most tasks. <strong>Opus 4.6</strong> is the most powerful but uses more of your quota. Confirm Sonnet is your default:</p>
                         <div class="code-block">
                             <div class="code-header">
                                 <span class="code-label">Terminal</span>
@@ -998,7 +998,7 @@
                         <div class="callout callout-tip">
                             <svg class="callout-icon" viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M9 21c0 .55.45 1 1 1h4c.55 0 1-.45 1-1v-1H9v1zm3-19C8.14 2 5 5.14 5 9c0 2.38 1.19 4.47 3 5.74V17c0 .55.45 1 1 1h6c.55 0 1-.45 1-1v-2.26c1.81-1.27 3-3.36 3-5.74 0-3.86-3.14-7-7-7z"/></svg>
                             <div class="callout-content">
-                                <strong>When to use Opus:</strong> For complex multi-step tasks, deep code refactoring, or when Sonnet isn't getting it right, switch to Opus for that session: <code>claude --model claude-opus-4-6</code>
+                                <strong>When to use Opus:</strong> For complex multi-step tasks, deep code refactoring, or when Sonnet isn't getting it right, switch to Opus for that session: <code>claude --model claude-opus-4-6</code>. <a href="https://docs.anthropic.com/en/docs/about-claude/models" target="_blank" class="inline-link">Learn more about Claude's models →</a>
                             </div>
                         </div>
                     </div>
@@ -1432,6 +1432,14 @@
                         </div>
 
                         <p><strong>Move the files into place:</strong></p>
+                        <div class="callout callout-warning" style="margin-bottom: 12px;">
+                            <svg class="callout-icon" viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M1 21h22L12 2 1 21zm12-3h-2v-2h2v2zm0-4h-2v-4h2v4z"/></svg>
+                            <div class="callout-content">
+                                <strong>Can't see the .claude folder?</strong> Folders starting with a dot are hidden by default.
+                                <span class="os-specific mac">Press <kbd>Cmd</kbd>+<kbd>Shift</kbd>+<kbd>.</kbd> in Finder to show hidden files.</span>
+                                <span class="os-specific windows">In File Explorer, click <strong>View → Show → Hidden items</strong>.</span>
+                            </div>
+                        </div>
                         <ol class="step-list">
                             <li>Open your Downloads folder <span class="os-text" data-mac="in Finder" data-windows="in File Explorer">in Finder</span></li>
                             <li>Drag <code>CLAUDE.md</code> and <code>SESSION_LOG.md</code> into the <code>.claude</code> folder</li>
@@ -2854,6 +2862,16 @@ HUBSPOT_API_KEY=your_key_here</code></pre>
                                     <td><button class="copy-btn small" data-copy="/exit">Copy</button></td>
                                 </tr>
                                 <tr>
+                                    <td><code>/model</code></td>
+                                    <td>Switch model mid-session</td>
+                                    <td><button class="copy-btn small" data-copy="/model">Copy</button></td>
+                                </tr>
+                                <tr>
+                                    <td><code>/compact</code></td>
+                                    <td>Summarize conversation to save context</td>
+                                    <td><button class="copy-btn small" data-copy="/compact">Copy</button></td>
+                                </tr>
+                                <tr>
                                     <td><code>/help</code></td>
                                     <td>Show help</td>
                                     <td><button class="copy-btn small" data-copy="/help">Copy</button></td>
@@ -2993,7 +3011,19 @@ HUBSPOT_API_KEY=your_key_here</code></pre>
                         <div class="glossary-list">
                             <details class="glossary-item">
                                 <summary><strong>API</strong></summary>
-                                <p>Application Programming Interface. A way for programs to talk to each other.</p>
+                                <p>Application Programming Interface. A way for programs to talk to each other. You use APIs to connect to services like Airtable, HubSpot, or Google Sheets.</p>
+                            </details>
+                            <details class="glossary-item">
+                                <summary><strong>API Key</strong></summary>
+                                <p>A secret password that grants your code access to an external service's API. Always stored in a <code>.env</code> file, never in your code.</p>
+                            </details>
+                            <details class="glossary-item">
+                                <summary><strong>Azure</strong></summary>
+                                <p>Microsoft's cloud platform. Used to host web apps (App Service), databases (Azure SQL), and manage authentication (Entra ID).</p>
+                            </details>
+                            <details class="glossary-item">
+                                <summary><strong>CI/CD</strong></summary>
+                                <p>Continuous Integration / Continuous Deployment. Automates building and deploying your app when you push code to GitHub. No manual uploads needed.</p>
                             </details>
                             <details class="glossary-item">
                                 <summary><strong>CLI</strong></summary>
@@ -3002,6 +3032,22 @@ HUBSPOT_API_KEY=your_key_here</code></pre>
                             <details class="glossary-item">
                                 <summary><strong>Commit</strong></summary>
                                 <p>A saved snapshot of your work at a specific moment. Like a save point.</p>
+                            </details>
+                            <details class="glossary-item">
+                                <summary><strong>Deployment</strong></summary>
+                                <p>Moving your app from your computer to a server so others can access it via the internet.</p>
+                            </details>
+                            <details class="glossary-item">
+                                <summary><strong>.env File</strong></summary>
+                                <p>A file that stores secret values (API keys, database passwords) outside your code. Your <code>.gitignore</code> prevents it from being uploaded to GitHub.</p>
+                            </details>
+                            <details class="glossary-item">
+                                <summary><strong>Entra ID (Azure AD)</strong></summary>
+                                <p>Microsoft's identity service. Controls who can sign into your web app — typically restricted to people in your organization.</p>
+                            </details>
+                            <details class="glossary-item">
+                                <summary><strong>Flask</strong></summary>
+                                <p>A Python web framework for building web applications. Handles URLs, forms, and page rendering. Lightweight and beginner-friendly.</p>
                             </details>
                             <details class="glossary-item">
                                 <summary><strong>Git</strong></summary>
@@ -3016,6 +3062,10 @@ HUBSPOT_API_KEY=your_key_here</code></pre>
                                 <p>An "app store" for developer tools on Mac. Install tools with a single command instead of downloading installers from websites.</p>
                             </details>
                             <details class="glossary-item">
+                                <summary><strong>HTMX</strong></summary>
+                                <p>A library that makes web pages interactive without writing JavaScript. Buttons update parts of the page, forms submit without reloading.</p>
+                            </details>
+                            <details class="glossary-item">
                                 <summary><strong>PATH</strong></summary>
                                 <p>A list of folders where your computer looks for commands. If a tool isn't "in your PATH," your terminal won't find it.</p>
                             </details>
@@ -3026,6 +3076,14 @@ HUBSPOT_API_KEY=your_key_here</code></pre>
                             <details class="glossary-item">
                                 <summary><strong>Repository (Repo)</strong></summary>
                                 <p>A project folder tracked by Git. Contains your code and its history.</p>
+                            </details>
+                            <details class="glossary-item">
+                                <summary><strong>SQLite</strong></summary>
+                                <p>A lightweight database stored as a single file. Claude often creates these automatically when your data is too large for Excel.</p>
+                            </details>
+                            <details class="glossary-item">
+                                <summary><strong>Tailwind CSS</strong></summary>
+                                <p>A CSS framework that lets you style web pages using utility classes instead of writing custom CSS. Produces professional-looking results quickly.</p>
                             </details>
                             <details class="glossary-item">
                                 <summary><strong>Terminal</strong></summary>

@@ -2438,6 +2438,12 @@ body[data-os="windows"] li.os-specific.windows {
    ========================================================================== */
 
 @media (max-width: 768px) {
+    .info-table td:first-child {
+        white-space: normal;
+        width: auto;
+        min-width: 80px;
+    }
+
     .mobile-menu-toggle {
         display: flex;
     }
