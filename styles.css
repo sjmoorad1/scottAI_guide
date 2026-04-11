@@ -2466,6 +2466,25 @@ body[data-os="windows"] li.os-specific.windows {
     max-width: 520px;
     max-height: 80vh;
     overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: var(--bg-tertiary) transparent;
+}
+
+.whats-new-content::-webkit-scrollbar {
+    width: 6px;
+}
+
+.whats-new-content::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.whats-new-content::-webkit-scrollbar-thumb {
+    background: var(--bg-tertiary);
+    border-radius: 3px;
+}
+
+.whats-new-content::-webkit-scrollbar-thumb:hover {
+    background: var(--text-muted);
 }
 
 .whats-new-content h3 {

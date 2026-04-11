@@ -946,12 +946,20 @@
                 continue;
             }
 
-            // Match list items like "- [Section] Description"
-            const itemMatch = line.match(/^- \[([^\]]+)\]\s*(.+)/);
+            // Match popup-worthy items: "- [Section] !"User text" Technical note"
+            // or simple flag: "- [Section] !Description" (no quotes = show full text)
+            // Items without ! are developer-only and skip the popup
+            const itemMatch = line.match(/^- \[([^\]]+)\]\s*!(.+)/);
             if (itemMatch && currentDate) {
+                let text = itemMatch[2];
+                // If text starts with a quote, extract just the quoted part
+                const quoteMatch = text.match(/^"([^"]+)"/);
+                if (quoteMatch) {
+                    text = quoteMatch[1];
+                }
                 currentItems.push({
                     section: itemMatch[1],
-                    text: itemMatch[2]
+                    text: text.trim()
                 });
             }
         }

@@ -24,15 +24,39 @@ What NOT to log:
 - CSS/style tweaks
 - Internal refactoring
 
-Format: `- [Section] Brief description`
+### Popup Flag System
 
-Example:
+The "What's New" popup only shows entries marked with `!`. This separates developer notes from user-facing notifications.
+
+**Format options:**
+
 ```markdown
-## 2025-02-22
+# User-facing (shows in popup) — quote the user-friendly text, put technical note after
+- [Section] !"User-friendly summary" Technical description for developer tracking
+
+# User-facing (simple) — no quotes, entire text shows in popup
+- [Section] !Brief description that works for both audiences
+
+# Developer-only (no popup) — no ! flag
+- [Section] Internal restructuring or technical detail
+```
+
+**Rules:**
+- Add `!` only when the user benefits from knowing about the change
+- Quoted text after `!` is what appears in the popup — write it for a non-technical reader
+- Text after the closing quote is developer context — never shown to users
+- No `!` = developer-only entry, invisible in popup
+
+**Example:**
+```markdown
+## 2026-04-11
 
 ### Added
-- [Tips] New tip about keyboard shortcuts
+- [Level 2] !"New topic: access Claude from your phone via Telegram or iMessage" Added remote access topic with Channels, Remote Control, and Dispatch
+- [Level 2] Topic index with anchor links grouped by category
 ```
+
+In this example, only the first line shows in the popup (with the quoted text). The second line is developer-only.
 
 ## Tips Duplication Policy
 

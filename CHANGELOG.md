@@ -5,24 +5,24 @@ User-facing changes to the Agentic AI Setup Guide. Internal fixes (typos, CSS tw
 ## 2026-04-11
 
 ### Added
-- [Level 2] New "Accessing Claude from Anywhere" topic — Remote Control, Channels (Telegram/Discord/iMessage), and Desktop App dispatch
-- [Level 2] Topic index with anchor links grouped by category (Working Smarter, Working with Data, Working Remotely)
+- [Level 2] !"New topic: Access Claude from anywhere — Remote Control, Channels (Telegram/Discord/iMessage), and phone dispatch" New "Accessing Claude from Anywhere" topic covering Remote Control, Channels, and Desktop App dispatch
+- [Level 2] !"Level 2 topics now grouped with a clickable index — find what you need faster" Topic index with anchor links grouped by category (Working Smarter, Working with Data, Working Remotely)
 - [Level 3] Topic index with anchor links for all six topics
-- [Overview] "What This Guide Sets Up" recommendation block — tells readers exactly what Phases 1–5 install and what comes later
+- [Overview] !"Clearer tool overview — what this guide sets up and what comes later" Added "What This Guide Sets Up" recommendation block
 
 ### Changed
-- [Overview] Tool comparison table restructured into two tiers: "Claude Code — Same Engine, Different Interfaces" and "Other Claude Tools"
-- [Level 2] Topics reorganized into three groups: Working Smarter (prompts, project config, debugging), Working with Data (SQLite, SQL Server, large files, APIs, keys), Working Remotely (new)
+- [Overview] !"Claude tool comparison redesigned — interfaces vs companion tools" Tool comparison table restructured into two tiers
+- [Level 2] Topics reorganized into three groups: Working Smarter, Working with Data, Working Remotely
 - [Overview] Removed VS Code/JetBrains from tool comparison — this guide teaches CLI, not IDE extensions
 - [Overview] Claude Code Web marked as preview
 
 ## 2026-04-10
 
 ### Added
-- [Overview] "Which Claude Tool Is Right?" comparison table — CLI, Desktop App, Web, Chat, IDE, Excel side-by-side
-- [Overview] "Where This Goes" showcase — see real apps people have built with Claude
-- [Level 2] New topics: Teaching Claude About Your Project, Working with APIs, Prompt Engineering
-- [Level 3] New "Building Real Apps" section — Web Apps, Databases, Cloud Deployment, Auth, CI/CD, Modern UI
+- [Overview] !"See all Claude tools compared side-by-side" Added tool comparison table
+- [Overview] !"New showcase: see real apps people have built with Claude" Added "Where This Goes" section
+- [Level 2] !"New topics: Teaching Claude About Your Project, Working with APIs, Prompt Engineering" Three new Level 2 skill topics
+- [Level 3] !"New Level 3: Building Real Apps — web apps, databases, cloud deployment, auth, CI/CD, modern UI" Full Level 3 section added
 
 ### Changed
 - [Nav] Reorganized navigation — setup phases, skill-building, and reference are now clearly separated
@@ -31,14 +31,14 @@ User-facing changes to the Agentic AI Setup Guide. Internal fixes (typos, CSS tw
 ## 2025-02-23
 
 ### Added
-- [Overview] Node.js added as 5th component — now visible upfront so users can request IT approval for all tools at once
-- [Phase 5] "Switching Projects" section — steps for changing projects mid-session (deactivate venv, cd, reactivate)
+- [Overview] !"Node.js added to setup list — request IT approval for all tools at once" Node.js now listed as 5th component
+- [Phase 5] !"New section: how to switch between projects mid-session" Added Switching Projects steps
 
 ## 2025-02-21
 
 ### Added
-- [Level 2] New "Advanced Topics" section: SQLite basics, SQL Server connections, API key management, working with large files, debugging with Claude
-- [Tips] "Paste Images Liberally" tip — explains Ctrl+V for images on Mac
+- [Level 2] !"New Advanced Topics section: databases, API keys, large files, debugging" SQLite, SQL Server, API key management, large files, debugging with Claude
+- [Tips] !"New tip: paste screenshots directly into Claude with Ctrl+V" Paste Images Liberally tip added
 - [Phase 2] Model configuration step — default to Sonnet 4.5 to save tokens, with guidance on when to use Opus
 - [Phase 2] PATH fix warning for Mac users after Claude CLI install
 - [Phase 1] Troubleshooting for Mac Python version mismatch (old 3.9/3.10 showing instead of Homebrew version)
