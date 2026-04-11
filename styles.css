@@ -587,6 +587,41 @@ a:hover {
 }
 
 /* ==========================================================================
+   Featured Block (From Theory to Reality)
+   ========================================================================== */
+
+.featured-block {
+    border: 2px solid var(--brand-orange);
+    border-radius: var(--radius-lg);
+    padding: var(--space-lg);
+    position: relative;
+}
+
+.featured-banner {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+    background: var(--brand-orange);
+    color: #1a1a2e;
+    padding: var(--space-xs) var(--space-md);
+    border-radius: var(--radius-md);
+    font-weight: 700;
+    font-size: 0.875rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: var(--space-md);
+    width: fit-content;
+}
+
+.featured-banner svg {
+    flex-shrink: 0;
+}
+
+[data-theme="dark"] .featured-banner {
+    color: #1a1a2e;
+}
+
+/* ==========================================================================
    Main Content
    ========================================================================== */
 
@@ -1894,6 +1929,46 @@ kbd {
 .command-table td:last-child {
     text-align: right;
     width: 60px;
+}
+
+/* Info Tables (2-column content tables in L2/L3 — NOT the command reference tables) */
+.info-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.info-table th {
+    text-align: left;
+    padding: var(--space-sm) var(--space-md);
+    border-bottom: 2px solid var(--border-color);
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.info-table td {
+    padding: var(--space-sm) var(--space-md);
+    border-bottom: 1px solid var(--border-color);
+    vertical-align: top;
+    line-height: 1.5;
+}
+
+.info-table td:first-child {
+    font-weight: 600;
+    white-space: nowrap;
+    width: 180px;
+    min-width: 120px;
+}
+
+.info-table td:last-child {
+    text-align: left;
+    color: var(--text-secondary);
+}
+
+.info-table code {
+    font-size: 0.85em;
+    background: var(--bg-tertiary);
+    padding: 2px 6px;
+    border-radius: var(--radius-sm);
 }
 
 /* ==========================================================================
