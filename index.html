@@ -1030,6 +1030,113 @@
                                 <strong>When to use Opus:</strong> For complex multi-step tasks, deep code refactoring, or when Sonnet isn't getting it right, switch to Opus for that session: <code>claude --model claude-opus-4-6</code>. <a href="https://docs.anthropic.com/en/docs/about-claude/models" target="_blank" class="inline-link">Learn more about Claude's models →</a>
                             </div>
                         </div>
+
+                        <h4 style="margin: 24px 0 12px 0;">Optional: Enable Audio Notifications</h4>
+                        <p>Claude frequently pauses to ask for your approval before running commands. If you're multitasking or step away, you can easily miss these prompts and Claude sits idle. This optional setting plays a sound whenever Claude needs your attention.</p>
+
+                        <div class="os-specific mac">
+                            <p>Open (or create) your global settings file:</p>
+                            <div class="code-block">
+                                <div class="code-header">
+                                    <span class="code-label">Terminal</span>
+                                    <button class="copy-btn" data-copy-mac="open ~/.claude/settings.json">
+                                        <span class="copy-text">Copy</span>
+                                        <span class="copied-text">Copied!</span>
+                                    </button>
+                                </div>
+                                <pre><code>open ~/.claude/settings.json</code></pre>
+                            </div>
+                            <p>Add this to the file (or merge it with existing content):</p>
+                            <div class="code-block">
+                                <div class="code-header">
+                                    <span class="code-label">~/.claude/settings.json</span>
+                                    <button class="copy-btn" data-copy='{
+  "hooks": {
+    "Notification": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "afplay /System/Library/Sounds/Blow.aiff &"
+          }
+        ]
+      }
+    ]
+  }
+}'>
+                                        <span class="copy-text">Copy</span>
+                                        <span class="copied-text">Copied!</span>
+                                    </button>
+                                </div>
+                                <pre><code>{
+  "hooks": {
+    "Notification": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "afplay /System/Library/Sounds/Blow.aiff &"
+          }
+        ]
+      }
+    ]
+  }
+}</code></pre>
+                            </div>
+                            <p style="font-size: 0.9em; color: var(--text-muted);">Want a different sound? Try <code>Glass.aiff</code>, <code>Ping.aiff</code>, or <code>Submarine.aiff</code> — all in <code>/System/Library/Sounds/</code>.</p>
+                        </div>
+
+                        <div class="os-specific windows">
+                            <p>Open (or create) your global settings file. In PowerShell:</p>
+                            <div class="code-block">
+                                <div class="code-header">
+                                    <span class="code-label">PowerShell</span>
+                                    <button class="copy-btn" data-copy="notepad $env:USERPROFILE\.claude\settings.json">
+                                        <span class="copy-text">Copy</span>
+                                        <span class="copied-text">Copied!</span>
+                                    </button>
+                                </div>
+                                <pre><code>notepad $env:USERPROFILE\.claude\settings.json</code></pre>
+                            </div>
+                            <p>Add this to the file (or merge it with existing content):</p>
+                            <div class="code-block">
+                                <div class="code-header">
+                                    <span class="code-label">settings.json</span>
+                                    <button class="copy-btn" data-copy='{
+  "hooks": {
+    "Notification": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "powershell -C \"[System.Media.SystemSounds]::Beep.Play()\""
+          }
+        ]
+      }
+    ]
+  }
+}'>
+                                        <span class="copy-text">Copy</span>
+                                        <span class="copied-text">Copied!</span>
+                                    </button>
+                                </div>
+                                <pre><code>{
+  "hooks": {
+    "Notification": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "powershell -C \"[System.Media.SystemSounds]::Beep.Play()\""
+          }
+        ]
+      }
+    ]
+  }
+}</code></pre>
+                            </div>
+                            <p style="font-size: 0.9em; color: var(--text-muted);">Other sound options: replace <code>Beep</code> with <code>Asterisk</code>, <code>Exclamation</code>, or <code>Hand</code>.</p>
+                        </div>
                     </div>
                 </div>
 
@@ -2863,6 +2970,10 @@ base.html with:
                                 <h4>Paste Images Liberally</h4>
                                 <p>Claude can see images! Paste screenshots of errors, design mockups, data samples, or UI examples directly into your chat. It's often faster than describing what you're looking at.</p>
                                 <p class="os-specific mac" style="margin-top: 8px; font-size: 0.85em; color: var(--text-muted);"><strong>Mac tip:</strong> Use <kbd>Ctrl</kbd>+<kbd>V</kbd> (not <kbd>Cmd</kbd>+<kbd>V</kbd>) to paste images in the terminal.</p>
+                            </div>
+                            <div class="tip-card">
+                                <h4>Enable Audio Notifications</h4>
+                                <p>Claude pauses frequently to ask for approval. If you're multitasking or step away, you'll miss these prompts and Claude sits idle. Add a notification sound in <code>~/.claude/settings.json</code> so you never miss a prompt. <a href="#step-2-2" class="inline-link">See setup instructions →</a></p>
                             </div>
                         </div>
 

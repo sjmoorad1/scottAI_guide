@@ -5,6 +5,8 @@ User-facing changes to the Agentic AI Setup Guide. Internal fixes (typos, CSS tw
 ## 2026-04-11
 
 ### Added
+- [Phase 2] !"New optional step: enable audio notifications so you never miss a Claude prompt" Audio notification setup with platform-specific instructions (Mac: afplay, Windows: PowerShell SystemSounds)
+- [Tips] Audio notification tip card in Tips & Best Practices
 - [Level 2] !"New topic: Access Claude from anywhere — Remote Control, Channels (Telegram/Discord/iMessage), and phone dispatch" New "Accessing Claude from Anywhere" topic covering Remote Control, Channels, and Desktop App dispatch
 - [Level 2] !"Level 2 topics now grouped with a clickable index — find what you need faster" Topic index with anchor links grouped by category (Working Smarter, Working with Data, Working Remotely)
 - [Level 3] Topic index with anchor links for all six topics
