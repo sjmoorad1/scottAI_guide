@@ -1,10 +1,10 @@
 # Agentic AI Setup Guide - Session Log
 
-## 2026-04-10: Major restructure — Level 2/3 split, nav redesign, content expansion
-- **What was done:** Added 3-level structure (L1: Setup, L2: Skills, L3: Apps). Created 3 new L2 topics (CLAUDE.md/Memory, APIs, Prompt Engineering) and 6 full L3 topics (Web App, Databases, Cloud Deploy, Auth, CI/CD, Modern UI). Added "Choose Your Tool" comparison table, "Where This Goes" showcase, graduation hooks. Merged Tips into Reference tab. Restructured nav with visual divider. Fixed DOM order to match nav order. Updated model refs to 4.6.
-- **Key decisions:** CLI-first teaching path (not Desktop) because terminal literacy is needed for L2-L3. Tips duplicated in-context AND in Reference tab (training reinforcement, not DRY violation — documented in CLAUDE.md). L3 is full content not teasers.
-- **Gotchas:** DOM reorder of Reference section was complex — orphaned content from partial edits required sed cleanup. Screenshot of Reference showed Tips tab missing during mid-edit state (expected, fixed by completing the move).
-- **Next steps:** Add 3 showcase screenshots (dashboard, inventory, analytics). Review multi-role findings and consider addressing lower-priority items (hidden dot-folders note, context window management topic).
+## 2026-04-10: Major restructure + multi-role review polish
+- **What was done:** 3-level structure (L1 Setup, L2 Skills, L3 Apps). 9 new content sections. Nav redesign with divider. Tips merged into Reference. "Choose Your Tool" table. Showcase section with placeholders. Model refs → 4.6. Templates → Five Absolutes. Multi-role review fixes: glossary (+10 terms), hidden files note, banner manual dismiss, info-table mobile fix, /model + /compact commands, model docs link. "From Theory to Reality" duplicated into Tips tab + cross-linked from L2. Graduation block colors → warm gold.
+- **Key decisions:** CLI-first (not Desktop) for terminal literacy. Tips duplicated intentionally (documented in CLAUDE.md). L3 full content not teasers. Graduation blocks: gold for L1/L2, green for L3 summit.
+- **Gotchas:** DOM reorder required sed cleanup. info-table vs command-table CSS split needed for L2/L3 content tables. Graduation block color took 3 iterations (purple → rust → gold) to get contrast + warmth right. h3 needed `!important` white override due to global orange heading style.
+- **Next steps:** Add 3 showcase screenshots (BHM BOT dashboard, Katz Roast inventory, ALH analytics). Consider: context window management L2 topic, scheduled scripts topic, Streamlit intermediate step before L3 Flask.
 
 ## 2026-02-16: Trainee feedback fixes, walkthroughs, command explanations
 - Fixed `code` command issue - replaced with File → Open Folder instructions
