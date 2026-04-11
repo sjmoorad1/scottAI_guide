@@ -2,26 +2,31 @@
 
 User-facing changes to the Agentic AI Setup Guide. Internal fixes (typos, CSS tweaks) are not logged.
 
+## 2026-04-11
+
+### Added
+- [Level 2] New "Accessing Claude from Anywhere" topic — Remote Control, Channels (Telegram/Discord/iMessage), and Desktop App dispatch
+- [Level 2] Topic index with anchor links grouped by category (Working Smarter, Working with Data, Working Remotely)
+- [Level 3] Topic index with anchor links for all six topics
+- [Overview] "What This Guide Sets Up" recommendation block — tells readers exactly what Phases 1–5 install and what comes later
+
+### Changed
+- [Overview] Tool comparison table restructured into two tiers: "Claude Code — Same Engine, Different Interfaces" and "Other Claude Tools"
+- [Level 2] Topics reorganized into three groups: Working Smarter (prompts, project config, debugging), Working with Data (SQLite, SQL Server, large files, APIs, keys), Working Remotely (new)
+- [Overview] Removed VS Code/JetBrains from tool comparison — this guide teaches CLI, not IDE extensions
+- [Overview] Claude Code Web marked as preview
+
 ## 2026-04-10
 
 ### Added
-- [Overview] "Claude's Tools — Which One Is Right?" comparison table — CLI, Desktop App, Web, Chat, IDE, Excel
-- [Overview] "Where This Goes" showcase section with screenshot placeholders showing real apps built with Claude
-- [Level 2] Three new topics: Teaching Claude About Your Project (CLAUDE.md & Memory), Working with APIs, Prompt Engineering for Better Results
-- [Level 3] New "Building Real Apps" section with 6 full topics: First Web App, Databases Beyond SQLite, Deploying to the Cloud, Authentication & Security, CI/CD with GitHub Actions, Modern UI Patterns
-- [Level 1] Graduation hook at end of Phase 5 — "What's Next → Level 2"
-- [Level 2] Graduation hook — "Ready to Build? → Level 3"
-- [Level 2] Prerequisite self-assessment callout
-- [Level 3] Prerequisite self-assessment callout
+- [Overview] "Which Claude Tool Is Right?" comparison table — CLI, Desktop App, Web, Chat, IDE, Excel side-by-side
+- [Overview] "Where This Goes" showcase — see real apps people have built with Claude
+- [Level 2] New topics: Teaching Claude About Your Project, Working with APIs, Prompt Engineering
+- [Level 3] New "Building Real Apps" section — Web Apps, Databases, Cloud Deployment, Auth, CI/CD, Modern UI
 
 ### Changed
-- [Nav] Restructured with visual divider separating setup path (Phases 1-5) from advanced content (Level 2, Level 3, Reference)
-- [Nav] Removed standalone Tips nav item — Tips merged into Reference as first tab
-- [Nav] Added Level 3 nav item with "Apps" subtitle
-- [Level 2] Renamed from "Advanced Topics" to "Leveling Up" with "Skills" subtitle
-- [Reference] Tips & Best Practices now first tab in Reference section (tips remain duplicated in-context within phases for reinforcement)
-- [Phase 2] Updated model references: Sonnet 4.5 → 4.6, Opus 4.5 → 4.6, simplified model IDs (no date suffix)
-- [Footer] Copyright updated to 2025-2026
+- [Nav] Reorganized navigation — setup phases, skill-building, and reference are now clearly separated
+- [Phase 2] Updated to latest Claude model versions (Sonnet 4.6, Opus 4.6)
 
 ## 2025-02-23
 

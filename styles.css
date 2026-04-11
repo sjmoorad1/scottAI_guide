@@ -1931,6 +1931,101 @@ kbd {
     width: 60px;
 }
 
+/* Topic Index (anchor link lists at top of L2/L3) */
+.topic-index {
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    padding: var(--space-lg);
+    margin-bottom: var(--space-xl);
+}
+
+.topic-index h4 {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--text-muted);
+    margin-bottom: var(--space-sm);
+}
+
+.topic-index h4:not(:first-child) {
+    margin-top: var(--space-md);
+}
+
+.topic-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-xs) var(--space-md);
+}
+
+.topic-links a {
+    color: var(--brand-blue);
+    text-decoration: none;
+    font-size: 0.9375rem;
+    transition: color var(--transition-fast);
+}
+
+.topic-links a:hover {
+    color: var(--brand-orange);
+}
+
+[data-theme="dark"] .topic-links a {
+    color: var(--brand-orange-light);
+}
+
+[data-theme="dark"] .topic-links a:hover {
+    color: var(--brand-orange);
+}
+
+.topic-links .topic-sep {
+    color: var(--text-muted);
+    opacity: 0.4;
+    user-select: none;
+}
+
+/* Section Group Headings (within L2/L3) */
+.section-group-heading {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--text-muted);
+    margin-top: var(--space-2xl);
+    margin-bottom: var(--space-md);
+    padding-bottom: var(--space-xs);
+    border-bottom: 1px solid var(--border-color);
+}
+
+/* Recommendation Block (tool table) */
+.recommend-block {
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    padding: var(--space-lg);
+    margin: var(--space-lg) 0;
+}
+
+.recommend-block h4 {
+    color: var(--brand-blue);
+    margin-bottom: var(--space-sm);
+}
+
+[data-theme="dark"] .recommend-block h4 {
+    color: var(--brand-orange-light);
+}
+
+.recommend-block .info-table {
+    margin: var(--space-sm) 0 0 0;
+}
+
+.recommend-label {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--text-muted);
+    margin-top: var(--space-md);
+    margin-bottom: var(--space-xs);
+}
+
 /* Info Tables (2-column content tables in L2/L3 — NOT the command reference tables) */
 .info-table {
     width: 100%;

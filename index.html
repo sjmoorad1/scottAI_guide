@@ -124,53 +124,82 @@
                     <h3>Claude's Tools — Which One Is Right?</h3>
                     <p>Claude comes in several forms. They're not all the same. Here's what matters:</p>
 
-                    <table class="info-table" style="margin: 16px 0;">
+                    <p style="margin-bottom: var(--space-xs);"><strong>Claude Code — Same Engine, Different Interfaces</strong></p>
+                    <p style="font-size: 0.9375rem; color: var(--text-secondary); margin-bottom: var(--space-sm);">These all run Claude Code — the agentic AI that reads your files, writes code, runs commands, and deploys apps. Pick the interface that fits how you work:</p>
+                    <table class="info-table" style="margin: 0 0 16px 0;">
                         <thead>
                             <tr>
-                                <th style="text-align: left;">Tool</th>
+                                <th style="text-align: left;">Interface</th>
                                 <th style="text-align: left;">Best For</th>
-                                <th style="text-align: left;">Can Build & Deploy?</th>
+                                <th style="text-align: left;">Runs On</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
-                                <td><strong>Claude Code (CLI)</strong></td>
-                                <td>Full development — apps, automation, databases, cloud deployment</td>
-                                <td>Yes — full terminal access</td>
+                                <td><strong>CLI (Terminal)</strong></td>
+                                <td>Full development — fastest for coding, testing, deploying</td>
+                                <td>Your machine</td>
                             </tr>
                             <tr>
-                                <td><strong>Claude Code (Desktop App)</strong></td>
-                                <td>Visual diffs, live previews, parallel sessions</td>
-                                <td>Yes — visual interface, less direct terminal control</td>
+                                <td><strong>Desktop App</strong></td>
+                                <td>Visual diffs, live previews, background tasks, remote access from your phone</td>
+                                <td>Your machine</td>
                             </tr>
                             <tr>
-                                <td><strong>Claude Code (Web)</strong></td>
-                                <td>Long-running tasks that continue while you're away</td>
-                                <td>Yes — but runs in the cloud, not on your machine</td>
-                            </tr>
-                            <tr>
-                                <td><strong>Claude.ai (Chat)</strong></td>
-                                <td>Quick questions, brainstorming, conversation</td>
-                                <td>No — conversation only</td>
-                            </tr>
-                            <tr>
-                                <td><strong>Claude in VS Code / JetBrains</strong></td>
-                                <td>Inline code edits while you're already in your editor</td>
-                                <td>Limited — helps with code, doesn't run things for you</td>
-                            </tr>
-                            <tr>
-                                <td><strong>Claude in Excel</strong></td>
-                                <td>Spreadsheet tasks without leaving Excel</td>
-                                <td>Spreadsheets only</td>
+                                <td><strong>Web</strong></td>
+                                <td>Delegate tasks from any browser — runs in the cloud while you're away (preview)</td>
+                                <td>Cloud (clones your GitHub repo)</td>
                             </tr>
                         </tbody>
                     </table>
 
-                    <div class="callout callout-info">
-                        <svg class="callout-icon" viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
-                        <div class="callout-content">
-                            <strong>This guide teaches CLI.</strong> It's harder to set up than the Desktop App, but it gives you full terminal access — which you'll need when you're ready to run scripts, connect databases, install packages, and deploy to the cloud. The Desktop App is a great complement for visual review, but the CLI is where the real building happens.
-                        </div>
+                    <p style="margin-bottom: var(--space-xs);"><strong>Other Claude Tools</strong></p>
+                    <p style="font-size: 0.9375rem; color: var(--text-secondary); margin-bottom: var(--space-sm);">These are useful companions, but they can't build or deploy apps:</p>
+                    <table class="info-table" style="margin: 0 0 16px 0;">
+                        <tbody>
+                            <tr>
+                                <td><strong>Claude.ai (Chat)</strong></td>
+                                <td>Quick questions, brainstorming, writing — no access to your files</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Claude for Excel</strong></td>
+                                <td>Spreadsheet analysis and formulas without leaving Excel (beta)</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <div class="recommend-block">
+                        <h4>What This Guide Sets Up</h4>
+                        <p style="font-size: 0.9375rem; color: var(--text-secondary);">Phases 1–5 install the foundation you need to build real projects:</p>
+                        <table class="info-table">
+                            <tbody>
+                                <tr>
+                                    <td><strong>Claude Code CLI</strong></td>
+                                    <td>Your primary workspace — full terminal access for building, testing, and deploying</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>VS Code</strong></td>
+                                    <td>Your editor — where you see and manage the files Claude creates</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>GitHub</strong></td>
+                                    <td>Your safety net — version control so nothing is ever lost</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <p class="recommend-label">As you advance (Level 2+)</p>
+                        <table class="info-table">
+                            <tbody>
+                                <tr>
+                                    <td><strong>Desktop App</strong></td>
+                                    <td>Visual diffs, background tasks, and <a href="#advanced-remote" class="inline-link">remote access from your phone</a></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Channels</strong></td>
+                                    <td><a href="#advanced-remote" class="inline-link">Chat with your Claude session</a> via Telegram, Discord, or iMessage from anywhere</td>
+                                </tr>
+                            </tbody>
+                        </table>
                     </div>
                 </div>
 
@@ -1895,6 +1924,187 @@
                     </div>
                 </div>
 
+                <div class="topic-index">
+                    <h4>Working Smarter</h4>
+                    <div class="topic-links">
+                        <a href="#advanced-prompting">Prompt Engineering</a>
+                        <span class="topic-sep">·</span>
+                        <a href="#advanced-claude-md">Teaching Claude About Your Project</a>
+                        <span class="topic-sep">·</span>
+                        <a href="#advanced-debugging">Debugging with Claude</a>
+                    </div>
+                    <h4>Working with Data</h4>
+                    <div class="topic-links">
+                        <a href="#advanced-sqlite">SQLite Databases</a>
+                        <span class="topic-sep">·</span>
+                        <a href="#advanced-sqlserver">SQL Server / Azure SQL</a>
+                        <span class="topic-sep">·</span>
+                        <a href="#advanced-large-files">Large Files</a>
+                        <span class="topic-sep">·</span>
+                        <a href="#advanced-apis">Working with APIs</a>
+                        <span class="topic-sep">·</span>
+                        <a href="#advanced-api-keys">Managing API Keys</a>
+                    </div>
+                    <h4>Working Remotely</h4>
+                    <div class="topic-links">
+                        <a href="#advanced-remote">Accessing Claude from Anywhere</a>
+                    </div>
+                </div>
+
+                <!-- ======================== WORKING SMARTER ======================== -->
+                <h4 class="section-group-heading">Working Smarter</h4>
+
+                <!-- Prompt Engineering (moved from below) -->
+                <div class="content-block" id="advanced-prompting">
+                    <h3>Prompt Engineering for Better Results</h3>
+                    <p><strong>What it is:</strong> The way you ask Claude to do something directly affects the quality of what you get back. Small changes in how you frame a request can mean the difference between "okay" output and exactly what you needed.</p>
+
+                    <p><strong>Level up your prompts:</strong></p>
+
+                    <table class="info-table" style="margin: 16px 0;">
+                        <thead>
+                            <tr>
+                                <th style="text-align: left;">Instead of this...</th>
+                                <th style="text-align: left;">Try this</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>"Analyze this data"</td>
+                                <td>"Analyze this sales data by region and quarter. Flag any declining trends. Create a summary table and a chart."</td>
+                            </tr>
+                            <tr>
+                                <td>"Fix this error"</td>
+                                <td>"Here's the full error. This worked yesterday with the Q3 file. What changed and how do I fix it?"</td>
+                            </tr>
+                            <tr>
+                                <td>"Build me a dashboard"</td>
+                                <td>"Build a dashboard showing monthly revenue by product line. Include filters for date range and region. Use the data in sales.csv."</td>
+                            </tr>
+                            <tr>
+                                <td>"Make it better"</td>
+                                <td>"The chart is hard to read. Use a bar chart instead of a line chart, add data labels, and sort by highest to lowest."</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <p><strong>Power techniques:</strong></p>
+                    <ul>
+                        <li><strong>Set the role:</strong> "Act as a senior data analyst reviewing this for the CFO." Claude adjusts its depth and tone.</li>
+                        <li><strong>Multi-role review:</strong> After Claude finishes, say "Now review this as a QA tester. What would break? What edge cases are missing?"</li>
+                        <li><strong>Specify the output:</strong> "Generate results in a new Excel file with separate tabs for summary, detail, and charts."</li>
+                        <li><strong>Set quality expectations:</strong> "Be thorough versus fast. Test your work before telling me it's done."</li>
+                        <li><strong>Constrain scope:</strong> "Only modify the sales calculation function. Don't touch any other files."</li>
+                    </ul>
+
+                    <div class="callout callout-tip">
+                        <svg class="callout-icon" viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M9 21c0 .55.45 1 1 1h4c.55 0 1-.45 1-1v-1H9v1zm3-19C8.14 2 5 5.14 5 9c0 2.38 1.19 4.47 3 5.74V17c0 .55.45 1 1 1h6c.55 0 1-.45 1-1v-2.26c1.81-1.27 3-3.36 3-5.74 0-3.86-3.14-7-7-7z"/></svg>
+                        <div class="callout-content">
+                            <strong>The best prompt is a conversation.</strong> Don't try to get everything right in one message. Start with your goal, review the first result, then refine: "That's close, but also include..." or "The format is right but the numbers look wrong — double check the Q2 totals."
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Teaching Claude About Your Project (moved from below) -->
+                <div class="content-block" id="advanced-claude-md">
+                    <h3>Teaching Claude About Your Project</h3>
+                    <p><strong>What it is:</strong> A system of configuration files that give Claude persistent context about your project — its architecture, coding standards, and how you like to work. Without these, every new session starts from scratch.</p>
+
+                    <p><strong>Why it matters:</strong> Imagine hiring a contractor who forgets everything between visits. That's Claude without project context files. With them, Claude knows your conventions, avoids past mistakes, and picks up where it left off.</p>
+
+                    <p><strong>The .claude/ folder structure:</strong></p>
+                    <div class="code-block">
+                        <div class="code-header">
+                            <span class="code-label">Project Structure</span>
+                        </div>
+                        <pre><code>your-project/
+├── .claude/
+│   ├── CLAUDE.md          # Project overview — auto-loaded every session
+│   ├── SESSION_LOG.md     # Running history of what was done
+│   └── rules/
+│       └── AI_CODING_GUIDELINES.md  # How Claude should write code
+├── .env                   # API keys (gitignored)
+├── .gitignore
+└── your code...</code></pre>
+                    </div>
+
+                    <p><strong>What goes in CLAUDE.md:</strong></p>
+                    <ul>
+                        <li><strong>Project overview</strong> — What this is, who it's for, what it does</li>
+                        <li><strong>Run commands</strong> — How to start the app, run tests, deploy</li>
+                        <li><strong>Tech stack</strong> — Frameworks, database, cloud platform</li>
+                        <li><strong>Environment setup</strong> — Venv name, Python version, port number</li>
+                        <li><strong>Key conventions</strong> — Naming patterns, file organization, coding rules</li>
+                    </ul>
+
+                    <p><strong>What goes in SESSION_LOG.md:</strong></p>
+                    <p>A dated entry at the end of each work session: what was done, key decisions, gotchas encountered, and next steps. This prevents repeating mistakes and gives the next session a running start.</p>
+
+                    <div class="code-block">
+                        <div class="code-header">
+                            <span class="code-label">Example SESSION_LOG.md entry</span>
+                        </div>
+                        <pre><code>## 2026-04-10: Added inventory dashboard
+- **What was done:** Built green coffee inventory with depletion gauges
+- **Key decisions:** Used hybrid ledger (one-time seed + transactions)
+- **Gotchas:** Jinja2 format filter doesn't support %+,.1f
+- **Next steps:** Wire up recipe cost calculator</code></pre>
+                    </div>
+
+                    <div class="callout callout-tip">
+                        <svg class="callout-icon" viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M9 21c0 .55.45 1 1 1h4c.55 0 1-.45 1-1v-1H9v1zm3-19C8.14 2 5 5.14 5 9c0 2.38 1.19 4.47 3 5.74V17c0 .55.45 1 1 1h6c.55 0 1-.45 1-1v-2.26c1.81-1.27 3-3.36 3-5.74 0-3.86-3.14-7-7-7z"/></svg>
+                        <div class="callout-content">
+                            <strong>Ask Claude to set it up for you.</strong> Start a session and say: "Create a .claude folder for this project with a CLAUDE.md, SESSION_LOG.md, and AI_CODING_GUIDELINES.md. Here's what this project does: [describe it]." Claude will scaffold the entire structure.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Debugging with Claude (moved from below) -->
+                <div class="content-block" id="advanced-debugging">
+                    <h3>Debugging with Claude</h3>
+                    <p>When things break, here's how to get Claude's help effectively.</p>
+
+                    <p><strong>What to include when reporting errors:</strong></p>
+                    <ol class="step-list">
+                        <li><strong>The full error message</strong> — Copy the entire traceback, not just the last line</li>
+                        <li><strong>What you were trying to do</strong> — "I ran the script to process sales data"</li>
+                        <li><strong>What you expected</strong> — "It should create a summary.xlsx file"</li>
+                        <li><strong>What actually happened</strong> — "It crashed after processing 500 rows"</li>
+                    </ol>
+
+                    <p><strong>Example debugging prompt:</strong></p>
+                    <div class="code-block">
+                        <div class="code-header">
+                            <span class="code-label">Ask Claude</span>
+                        </div>
+                        <pre><code>I got this error when running the analysis script:
+
+[paste full error here]
+
+I was trying to process the Q4 sales file. It worked yesterday
+with the Q3 file. What's different and how do I fix it?</code></pre>
+                    </div>
+
+                    <p><strong>Common issues Claude can diagnose:</strong></p>
+                    <ul>
+                        <li><strong>ModuleNotFoundError</strong> — Missing package (forgot to activate venv or install)</li>
+                        <li><strong>FileNotFoundError</strong> — Wrong path or file moved</li>
+                        <li><strong>KeyError</strong> — Column name mismatch in data</li>
+                        <li><strong>PermissionError</strong> — File open in another program</li>
+                        <li><strong>Memory errors</strong> — File too large (see Large Files section below)</li>
+                    </ul>
+
+                    <div class="callout callout-tip">
+                        <svg class="callout-icon" viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M9 21c0 .55.45 1 1 1h4c.55 0 1-.45 1-1v-1H9v1zm3-19C8.14 2 5 5.14 5 9c0 2.38 1.19 4.47 3 5.74V17c0 .55.45 1 1 1h6c.55 0 1-.45 1-1v-2.26c1.81-1.27 3-3.36 3-5.74 0-3.86-3.14-7-7-7z"/></svg>
+                        <div class="callout-content">
+                            <strong>Prevention tip:</strong> Ask Claude to add error handling when writing scripts: "Add try/except blocks with helpful error messages so I know what went wrong."
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ======================== WORKING WITH DATA ======================== -->
+                <h4 class="section-group-heading">Working with Data</h4>
+
                 <!-- SQLite Basics -->
                 <div class="content-block" id="advanced-sqlite">
                     <h3>Working with SQLite Databases</h3>
@@ -2051,103 +2261,6 @@ Excel. Help me:
                     </div>
                 </div>
 
-                <!-- Debugging with Claude -->
-                <div class="content-block" id="advanced-debugging">
-                    <h3>Debugging with Claude</h3>
-                    <p>When things break, here's how to get Claude's help effectively.</p>
-
-                    <p><strong>What to include when reporting errors:</strong></p>
-                    <ol class="step-list">
-                        <li><strong>The full error message</strong> — Copy the entire traceback, not just the last line</li>
-                        <li><strong>What you were trying to do</strong> — "I ran the script to process sales data"</li>
-                        <li><strong>What you expected</strong> — "It should create a summary.xlsx file"</li>
-                        <li><strong>What actually happened</strong> — "It crashed after processing 500 rows"</li>
-                    </ol>
-
-                    <p><strong>Example debugging prompt:</strong></p>
-                    <div class="code-block">
-                        <div class="code-header">
-                            <span class="code-label">Ask Claude</span>
-                        </div>
-                        <pre><code>I got this error when running the analysis script:
-
-[paste full error here]
-
-I was trying to process the Q4 sales file. It worked yesterday
-with the Q3 file. What's different and how do I fix it?</code></pre>
-                    </div>
-
-                    <p><strong>Common issues Claude can diagnose:</strong></p>
-                    <ul>
-                        <li><strong>ModuleNotFoundError</strong> — Missing package (forgot to activate venv or install)</li>
-                        <li><strong>FileNotFoundError</strong> — Wrong path or file moved</li>
-                        <li><strong>KeyError</strong> — Column name mismatch in data</li>
-                        <li><strong>PermissionError</strong> — File open in another program</li>
-                        <li><strong>Memory errors</strong> — File too large (see Large Files section above)</li>
-                    </ul>
-
-                    <div class="callout callout-tip">
-                        <svg class="callout-icon" viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M9 21c0 .55.45 1 1 1h4c.55 0 1-.45 1-1v-1H9v1zm3-19C8.14 2 5 5.14 5 9c0 2.38 1.19 4.47 3 5.74V17c0 .55.45 1 1 1h6c.55 0 1-.45 1-1v-2.26c1.81-1.27 3-3.36 3-5.74 0-3.86-3.14-7-7-7z"/></svg>
-                        <div class="callout-content">
-                            <strong>Prevention tip:</strong> Ask Claude to add error handling when writing scripts: "Add try/except blocks with helpful error messages so I know what went wrong."
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Teaching Claude About Your Project -->
-                <div class="content-block" id="advanced-claude-md">
-                    <h3>Teaching Claude About Your Project</h3>
-                    <p><strong>What it is:</strong> A system of configuration files that give Claude persistent context about your project — its architecture, coding standards, and how you like to work. Without these, every new session starts from scratch.</p>
-
-                    <p><strong>Why it matters:</strong> Imagine hiring a contractor who forgets everything between visits. That's Claude without project context files. With them, Claude knows your conventions, avoids past mistakes, and picks up where it left off.</p>
-
-                    <p><strong>The .claude/ folder structure:</strong></p>
-                    <div class="code-block">
-                        <div class="code-header">
-                            <span class="code-label">Project Structure</span>
-                        </div>
-                        <pre><code>your-project/
-├── .claude/
-│   ├── CLAUDE.md          # Project overview — auto-loaded every session
-│   ├── SESSION_LOG.md     # Running history of what was done
-│   └── rules/
-│       └── AI_CODING_GUIDELINES.md  # How Claude should write code
-├── .env                   # API keys (gitignored)
-├── .gitignore
-└── your code...</code></pre>
-                    </div>
-
-                    <p><strong>What goes in CLAUDE.md:</strong></p>
-                    <ul>
-                        <li><strong>Project overview</strong> — What this is, who it's for, what it does</li>
-                        <li><strong>Run commands</strong> — How to start the app, run tests, deploy</li>
-                        <li><strong>Tech stack</strong> — Frameworks, database, cloud platform</li>
-                        <li><strong>Environment setup</strong> — Venv name, Python version, port number</li>
-                        <li><strong>Key conventions</strong> — Naming patterns, file organization, coding rules</li>
-                    </ul>
-
-                    <p><strong>What goes in SESSION_LOG.md:</strong></p>
-                    <p>A dated entry at the end of each work session: what was done, key decisions, gotchas encountered, and next steps. This prevents repeating mistakes and gives the next session a running start.</p>
-
-                    <div class="code-block">
-                        <div class="code-header">
-                            <span class="code-label">Example SESSION_LOG.md entry</span>
-                        </div>
-                        <pre><code>## 2026-04-10: Added inventory dashboard
-- **What was done:** Built green coffee inventory with depletion gauges
-- **Key decisions:** Used hybrid ledger (one-time seed + transactions)
-- **Gotchas:** Jinja2 format filter doesn't support %+,.1f
-- **Next steps:** Wire up recipe cost calculator</code></pre>
-                    </div>
-
-                    <div class="callout callout-tip">
-                        <svg class="callout-icon" viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M9 21c0 .55.45 1 1 1h4c.55 0 1-.45 1-1v-1H9v1zm3-19C8.14 2 5 5.14 5 9c0 2.38 1.19 4.47 3 5.74V17c0 .55.45 1 1 1h6c.55 0 1-.45 1-1v-2.26c1.81-1.27 3-3.36 3-5.74 0-3.86-3.14-7-7-7z"/></svg>
-                        <div class="callout-content">
-                            <strong>Ask Claude to set it up for you.</strong> Start a session and say: "Create a .claude folder for this project with a CLAUDE.md, SESSION_LOG.md, and AI_CODING_GUIDELINES.md. Here's what this project does: [describe it]." Claude will scaffold the entire structure.
-                        </div>
-                    </div>
-                </div>
-
                 <!-- Working with APIs -->
                 <div class="content-block" id="advanced-apis">
                     <h3>Working with APIs</h3>
@@ -2214,53 +2327,69 @@ with a count of contacts per company.</code></pre>
                     </div>
                 </div>
 
-                <!-- Prompt Engineering -->
-                <div class="content-block" id="advanced-prompting">
-                    <h3>Prompt Engineering for Better Results</h3>
-                    <p><strong>What it is:</strong> The way you ask Claude to do something directly affects the quality of what you get back. Small changes in how you frame a request can mean the difference between "okay" output and exactly what you needed.</p>
+                <!-- ======================== WORKING REMOTELY ======================== -->
+                <h4 class="section-group-heading">Working Remotely</h4>
 
-                    <p><strong>Level up your prompts:</strong></p>
+                <!-- Accessing Claude from Anywhere -->
+                <div class="content-block" id="advanced-remote">
+                    <h3>Accessing Claude from Anywhere</h3>
+                    <p><strong>What it is:</strong> Once you're comfortable with Claude Code on your desktop, the next question is: what if you're away from your desk? Claude has three ways to stay connected to your running session remotely — from your phone, a browser, or a messaging app.</p>
 
                     <table class="info-table" style="margin: 16px 0;">
                         <thead>
                             <tr>
-                                <th style="text-align: left;">Instead of this...</th>
-                                <th style="text-align: left;">Try this</th>
+                                <th style="text-align: left;">Method</th>
+                                <th style="text-align: left;">How It Works</th>
+                                <th style="text-align: left;">Best For</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
-                                <td>"Analyze this data"</td>
-                                <td>"Analyze this sales data by region and quarter. Flag any declining trends. Create a summary table and a chart."</td>
+                                <td><strong>Remote Control</strong></td>
+                                <td>Drive your local session from a browser or phone — full two-way conversation</td>
+                                <td>Steering work in progress while away from your desk</td>
                             </tr>
                             <tr>
-                                <td>"Fix this error"</td>
-                                <td>"Here's the full error. This worked yesterday with the Q3 file. What changed and how do I fix it?"</td>
+                                <td><strong>Channels</strong></td>
+                                <td>Chat with your Claude session via Telegram, Discord, or iMessage</td>
+                                <td>Quick messages and check-ins from anywhere</td>
                             </tr>
                             <tr>
-                                <td>"Build me a dashboard"</td>
-                                <td>"Build a dashboard showing monthly revenue by product line. Include filters for date range and region. Use the data in sales.csv."</td>
-                            </tr>
-                            <tr>
-                                <td>"Make it better"</td>
-                                <td>"The chart is hard to read. Use a bar chart instead of a line chart, add data labels, and sort by highest to lowest."</td>
+                                <td><strong>Desktop App</strong></td>
+                                <td>Send tasks from the Claude mobile app to your desktop</td>
+                                <td>Delegating a task while you're away — fire and forget</td>
                             </tr>
                         </tbody>
                     </table>
 
-                    <p><strong>Power techniques:</strong></p>
-                    <ul>
-                        <li><strong>Set the role:</strong> "Act as a senior data analyst reviewing this for the CFO." Claude adjusts its depth and tone.</li>
-                        <li><strong>Multi-role review:</strong> After Claude finishes, say "Now review this as a QA tester. What would break? What edge cases are missing?"</li>
-                        <li><strong>Specify the output:</strong> "Generate results in a new Excel file with separate tabs for summary, detail, and charts."</li>
-                        <li><strong>Set quality expectations:</strong> "Be thorough versus fast. Test your work before telling me it's done."</li>
-                        <li><strong>Constrain scope:</strong> "Only modify the sales calculation function. Don't touch any other files."</li>
-                    </ul>
+                    <p><strong>Remote Control</strong> (GA — available now):</p>
+                    <ol class="step-list">
+                        <li>Start a remote session: <code>claude --remote-control</code> (or <code>/remote-control</code> from an existing session)</li>
+                        <li>Scan the QR code with your phone, or open the session URL in any browser</li>
+                        <li>You're now driving the same local session — your files, tools, and MCP servers are all there</li>
+                    </ol>
+
+                    <p><strong>Channels — Telegram example</strong> (research preview — requires Claude Code v2.1.80+ and <a href="https://bun.sh" target="_blank">Bun</a>):</p>
+                    <ol class="step-list">
+                        <li>Create a Telegram bot via <a href="https://t.me/BotFather" target="_blank">BotFather</a> — copy the token</li>
+                        <li>Install the plugin: <code>/plugin install telegram@claude-plugins-official</code></li>
+                        <li>Configure: <code>/telegram:configure &lt;token&gt;</code></li>
+                        <li>Restart with channels: <code>claude --channels plugin:telegram@claude-plugins-official</code></li>
+                        <li>Text your bot on Telegram — pair with the code it returns, then lock access to your account</li>
+                    </ol>
+                    <p>Discord and iMessage follow the same pattern. iMessage requires no bot setup on macOS — it reads your Messages database directly.</p>
+
+                    <div class="callout callout-warning">
+                        <svg class="callout-icon" viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M1 21h22L12 2 1 21zm12-3h-2v-2h2v2zm0-4h-2v-4h2v4z"/></svg>
+                        <div class="callout-content">
+                            <strong>Your machine must stay on.</strong> All three methods run against your local Claude Code session. If your computer sleeps or the session closes, the connection drops. For always-on access, run Claude in a persistent terminal (e.g., <code>tmux</code> or <code>screen</code>).
+                        </div>
+                    </div>
 
                     <div class="callout callout-tip">
                         <svg class="callout-icon" viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M9 21c0 .55.45 1 1 1h4c.55 0 1-.45 1-1v-1H9v1zm3-19C8.14 2 5 5.14 5 9c0 2.38 1.19 4.47 3 5.74V17c0 .55.45 1 1 1h6c.55 0 1-.45 1-1v-2.26c1.81-1.27 3-3.36 3-5.74 0-3.86-3.14-7-7-7z"/></svg>
                         <div class="callout-content">
-                            <strong>The best prompt is a conversation.</strong> Don't try to get everything right in one message. Start with your goal, review the first result, then refine: "That's close, but also include..." or "The format is right but the numbers look wrong — double check the Q2 totals."
+                            <strong>Start with Remote Control.</strong> It's GA, requires no extra installs, and gives you the fullest experience. Try Channels later when you want a lighter, message-based workflow.
                         </div>
                     </div>
                 </div>
@@ -2269,7 +2398,7 @@ with a count of contacts per company.</code></pre>
                 <div class="content-block" id="level2-next">
                     <div class="graduation-block">
                         <h3>Ready to Build Something Real?</h3>
-                        <p>You've sharpened your skills — smarter prompts, project memory, API connections, and real debugging chops. If you're ready to go from scripts and analysis to <strong>full web applications with databases, cloud hosting, and professional UI</strong>, Level 3 is your next step.</p>
+                        <p>You've sharpened your skills — smarter prompts, project memory, API connections, remote access, and real debugging chops. If you're ready to go from scripts and analysis to <strong>full web applications with databases, cloud hosting, and professional UI</strong>, Level 3 is your next step.</p>
                         <p style="margin-top: 12px;"><a href="#level3" class="btn-primary" style="text-decoration: none;">Go to Level 3: Building Real Apps →</a></p>
                     </div>
                 </div>
@@ -2289,6 +2418,23 @@ with a count of contacts per company.</code></pre>
                     <svg class="callout-icon" viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
                     <div class="callout-content">
                         <strong>You should be comfortable with:</strong> Everything in Level 2 — especially project configuration (CLAUDE.md), working with APIs, and debugging. You should feel confident navigating the terminal, reading errors, and guiding Claude through multi-step tasks.
+                    </div>
+                </div>
+
+                <div class="topic-index">
+                    <h4>In This Section</h4>
+                    <div class="topic-links">
+                        <a href="#level3-webapp">First Web App</a>
+                        <span class="topic-sep">·</span>
+                        <a href="#level3-databases">Databases Beyond SQLite</a>
+                        <span class="topic-sep">·</span>
+                        <a href="#level3-deploy">Deploying to the Cloud</a>
+                        <span class="topic-sep">·</span>
+                        <a href="#level3-auth">Authentication & Security</a>
+                        <span class="topic-sep">·</span>
+                        <a href="#level3-cicd">CI/CD with GitHub Actions</a>
+                        <span class="topic-sep">·</span>
+                        <a href="#level3-ui">Modern UI Patterns</a>
                     </div>
                 </div>
 
