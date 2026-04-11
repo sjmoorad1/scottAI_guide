@@ -461,6 +461,131 @@ a:hover {
     color: var(--brand-orange);
 }
 
+.nav-divider {
+    display: flex;
+    align-items: center;
+    padding: 0 var(--space-xs);
+    color: var(--text-muted);
+    opacity: 0.4;
+    font-size: 1.2rem;
+    user-select: none;
+}
+
+.nav-divider::before {
+    content: "·";
+    font-weight: 700;
+    font-size: 1.5rem;
+    line-height: 1;
+}
+
+/* ==========================================================================
+   Showcase Grid (Where This Goes)
+   ========================================================================== */
+
+.showcase-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--space-lg);
+    margin: var(--space-lg) 0;
+}
+
+.showcase-card {
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    background: var(--bg-secondary);
+    transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.showcase-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.showcase-image {
+    width: 100%;
+    aspect-ratio: 16 / 10;
+    background: var(--bg-tertiary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.showcase-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.showcase-placeholder {
+    color: var(--text-muted);
+    font-style: italic;
+    font-size: 0.9rem;
+    padding: var(--space-md);
+    text-align: center;
+}
+
+.showcase-caption {
+    padding: var(--space-md);
+}
+
+.showcase-caption strong {
+    display: block;
+    margin-bottom: var(--space-xs);
+    color: var(--text-primary);
+}
+
+.showcase-caption p {
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+    margin: 0;
+    line-height: 1.5;
+}
+
+/* ==========================================================================
+   Graduation Blocks
+   ========================================================================== */
+
+.graduation-block {
+    background: linear-gradient(135deg, var(--brand-blue), #4f46e5);
+    color: white;
+    padding: var(--space-xl);
+    border-radius: var(--radius-lg);
+    text-align: center;
+}
+
+.graduation-block h3 {
+    color: white;
+    margin-bottom: var(--space-sm);
+}
+
+.graduation-block p {
+    color: rgba(255, 255, 255, 0.9);
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.graduation-block .btn-primary {
+    display: inline-block;
+    background: white;
+    color: var(--brand-blue);
+    padding: var(--space-sm) var(--space-xl);
+    border-radius: var(--radius-md);
+    font-weight: 600;
+    transition: all var(--transition-fast);
+}
+
+.graduation-block .btn-primary:hover {
+    background: rgba(255, 255, 255, 0.9);
+    transform: translateY(-1px);
+}
+
+[data-theme="dark"] .graduation-block {
+    background: linear-gradient(135deg, #4f46e5, #7c3aed);
+}
+
 /* ==========================================================================
    Main Content
    ========================================================================== */

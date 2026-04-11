@@ -34,5 +34,13 @@ Example:
 - [Tips] New tip about keyboard shortcuts
 ```
 
+## Tips Duplication Policy
+
+Tips appear in TWO places by design (training reinforcement, not a DRY violation):
+1. **In-context** within the relevant Phase (where they're actionable during setup)
+2. **In the Tips tab** within Reference (where they're browsable later)
+
+**When updating a tip, update BOTH locations.** Search for the tip text to find both instances.
+
 ## Session Log
 `SESSION_LOG.md` prevents amnesia between sessions. **Keep entries brief** - 2-4 bullet points max. Just enough to resume context, not documentation.

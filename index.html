@@ -79,10 +79,11 @@
                 <li><a href="#phase2" class="nav-link">Phase 2<span class="nav-subtitle">Claude CLI</span></a></li>
                 <li><a href="#phase3" class="nav-link">Phase 3<span class="nav-subtitle">Project Setup</span></a></li>
                 <li><a href="#phase4" class="nav-link">Phase 4<span class="nav-subtitle">GitHub</span></a></li>
-                <li><a href="#workflow" class="nav-link">Phase 5<span class="nav-subtitle">You're Ready</span></a></li>
-                <li><a href="#tips" class="nav-link">Tips<span class="nav-subtitle">&nbsp;</span></a></li>
+                <li><a href="#workflow" class="nav-link">Phase 5<span class="nav-subtitle">Ready</span></a></li>
+                <li class="nav-divider" aria-hidden="true"></li>
+                <li><a href="#advanced" class="nav-link">Level 2<span class="nav-subtitle">Skills</span></a></li>
+                <li><a href="#level3" class="nav-link">Level 3<span class="nav-subtitle">Apps</span></a></li>
                 <li><a href="#reference" class="nav-link">Reference<span class="nav-subtitle">&nbsp;</span></a></li>
-                <li><a href="#advanced" class="nav-link">Level 2<span class="nav-subtitle">Advanced</span></a></li>
             </ul>
         </div>
     </nav>
@@ -115,6 +116,60 @@
                         <svg class="callout-icon" viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M1 21h22L12 2 1 21zm12-3h-2v-2h2v2zm0-4h-2v-4h2v4z"/></svg>
                         <div class="callout-content">
                             <strong>You'll need admin rights</strong> on your computer to install the required software. If you're on a company laptop with restricted permissions, check with IT first.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="content-block">
+                    <h3>Claude's Tools — Which One Is Right?</h3>
+                    <p>Claude comes in several forms. They're not all the same. Here's what matters:</p>
+
+                    <table class="command-table" style="margin: 16px 0;">
+                        <thead>
+                            <tr>
+                                <th style="text-align: left;">Tool</th>
+                                <th style="text-align: left;">Best For</th>
+                                <th style="text-align: left;">Can Build & Deploy?</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Claude Code (CLI)</strong></td>
+                                <td>Full development — apps, automation, databases, cloud deployment</td>
+                                <td>Yes — full terminal access</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Claude Code (Desktop App)</strong></td>
+                                <td>Visual diffs, live previews, parallel sessions</td>
+                                <td>Yes — visual interface, less direct terminal control</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Claude Code (Web)</strong></td>
+                                <td>Long-running tasks that continue while you're away</td>
+                                <td>Yes — but runs in the cloud, not on your machine</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Claude.ai (Chat)</strong></td>
+                                <td>Quick questions, brainstorming, conversation</td>
+                                <td>No — conversation only</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Claude in VS Code / JetBrains</strong></td>
+                                <td>Inline code edits while you're already in your editor</td>
+                                <td>Limited — helps with code, doesn't run things for you</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Claude in Excel</strong></td>
+                                <td>Spreadsheet tasks without leaving Excel</td>
+                                <td>Spreadsheets only</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <div class="callout callout-info">
+                        <svg class="callout-icon" viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
+                        <div class="callout-content">
+                            <strong>This guide teaches CLI.</strong> It's harder to set up than the Desktop App, but it gives you full terminal access — which you'll need when you're ready to run scripts, connect databases, install packages, and deploy to the cloud. The Desktop App is a great complement for visual review, but the CLI is where the real building happens.
                         </div>
                     </div>
                 </div>
@@ -187,6 +242,48 @@
                             <div class="expand-content" id="example-debug">
                                 <div class="example-prompt">"My monthly report script stopped working after IT updated our systems. Here's the error I'm getting. Figure out what changed, fix it, and make sure it won't break again. Test it thoroughly before telling me it's done."</div>
                             </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="content-block">
+                    <h3>Where This Goes</h3>
+                    <p>The setup you're about to do is the same foundation used to build real, production applications. Here's what people build after graduating through the levels of this guide:</p>
+
+                    <div class="showcase-grid">
+                        <div class="showcase-card">
+                            <div class="showcase-image">
+                                <img src="images/showcase-dashboard.png" alt="Production trading dashboard with KPIs, charts, and real-time data" class="showcase-img" onerror="this.parentElement.innerHTML='<div class=\'showcase-placeholder\'>Dashboard Screenshot</div>'">
+                            </div>
+                            <div class="showcase-caption">
+                                <strong>Trading Operations Platform</strong>
+                                <p>Web app with optimization algorithms, interactive dashboards, bid evaluation, and automatic PDF generation — deployed to the cloud with automated updates.</p>
+                            </div>
+                        </div>
+                        <div class="showcase-card">
+                            <div class="showcase-image">
+                                <img src="images/showcase-inventory.png" alt="Inventory management with gauges, data grids, and planning tools" class="showcase-img" onerror="this.parentElement.innerHTML='<div class=\'showcase-placeholder\'>Inventory App Screenshot</div>'">
+                            </div>
+                            <div class="showcase-caption">
+                                <strong>Production Tracking & Inventory</strong>
+                                <p>Roast logging, real-time inventory gauges, recipe management, and demand planning — built as a web app with a database backend.</p>
+                            </div>
+                        </div>
+                        <div class="showcase-card">
+                            <div class="showcase-image">
+                                <img src="images/showcase-analytics.png" alt="Hotel analytics with interactive maps, competitive analysis, and data visualization" class="showcase-img" onerror="this.parentElement.innerHTML='<div class=\'showcase-placeholder\'>Analytics Screenshot</div>'">
+                            </div>
+                            <div class="showcase-caption">
+                                <strong>Market Analytics Dashboard</strong>
+                                <p>Competitive analysis with interactive maps, waterfall charts, and portfolio scoring — connected to a cloud database with live data.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="callout callout-tip">
+                        <svg class="callout-icon" viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M9 21c0 .55.45 1 1 1h4c.55 0 1-.45 1-1v-1H9v1zm3-19C8.14 2 5 5.14 5 9c0 2.38 1.19 4.47 3 5.74V17c0 .55.45 1 1 1h6c.55 0 1-.45 1-1v-2.26c1.81-1.27 3-3.36 3-5.74 0-3.86-3.14-7-7-7z"/></svg>
+                        <div class="callout-content">
+                            <strong>None of these required prior coding experience.</strong> Every one was built by describing requirements in plain English and guiding Claude through the process. Level 1 gets you started. <a href="#advanced" class="inline-link">Level 2</a> sharpens your skills. <a href="#level3" class="inline-link">Level 3</a> teaches you to build apps like these.
                         </div>
                     </div>
                 </div>
@@ -886,22 +983,22 @@
                         </details>
 
                         <h4 style="margin: 24px 0 12px 0;">Set Your Default Model</h4>
-                        <p>Claude defaults to Opus (the most powerful but most expensive model). For most tasks, <strong>Sonnet 4.5</strong> is faster, cheaper, and equally capable. Set it as your default:</p>
+                        <p>Claude defaults to Opus (the most powerful but most expensive model). For most tasks, <strong>Sonnet 4.6</strong> is faster, cheaper, and equally capable. Set it as your default:</p>
                         <div class="code-block">
                             <div class="code-header">
                                 <span class="code-label">Terminal</span>
-                                <button class="copy-btn" data-copy="claude config set model claude-sonnet-4-5-20250929">
+                                <button class="copy-btn" data-copy="claude config set model claude-sonnet-4-6">
                                     <span class="copy-text">Copy</span>
                                     <span class="copied-text">Copied!</span>
                                 </button>
                             </div>
-                            <pre><code>claude config set model claude-sonnet-4-5-20250929</code></pre>
+                            <pre><code>claude config set model claude-sonnet-4-6</code></pre>
                         </div>
 
                         <div class="callout callout-tip">
                             <svg class="callout-icon" viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M9 21c0 .55.45 1 1 1h4c.55 0 1-.45 1-1v-1H9v1zm3-19C8.14 2 5 5.14 5 9c0 2.38 1.19 4.47 3 5.74V17c0 .55.45 1 1 1h6c.55 0 1-.45 1-1v-2.26c1.81-1.27 3-3.36 3-5.74 0-3.86-3.14-7-7-7z"/></svg>
                             <div class="callout-content">
-                                <strong>When to use Opus:</strong> For complex multi-step tasks, deep code refactoring, or when Sonnet isn't getting it right, switch to Opus for that session: <code>claude --model claude-opus-4-5-20250929</code>
+                                <strong>When to use Opus:</strong> For complex multi-step tasks, deep code refactoring, or when Sonnet isn't getting it right, switch to Opus for that session: <code>claude --model claude-opus-4-6</code>
                             </div>
                         </div>
                     </div>
@@ -1758,161 +1855,889 @@
                         </div>
                     </div>
                 </div>
+
+                <!-- Level 1 graduation hook -->
+                <div class="content-block" id="level1-next">
+                    <div class="graduation-block">
+                        <h3>What's Next?</h3>
+                        <p>You've got the fundamentals — Claude is installed, you know how to work with it, your project is set up, and you're connected to GitHub. That's the foundation for everything else.</p>
+                        <p>When you're ready to sharpen your skills — better prompts, project memory, API connections, and real debugging — Level 2 shows you how to get more out of every session.</p>
+                        <p style="margin-top: 12px;"><a href="#advanced" class="btn-primary" style="text-decoration: none;">Go to Level 2: Leveling Up →</a></p>
+                    </div>
+                </div>
             </section>
 
-            <!-- TIPS & BEST PRACTICES SECTION -->
-            <section id="tips" class="section">
+            <!-- LEVEL 2: LEVELING UP -->
+            <section id="advanced" class="section">
                 <div class="section-header">
-                    <span class="section-number">06</span>
-                    <h2>Tips & Best Practices</h2>
+                    <span class="section-number">L2</span>
+                    <h2>Level 2: Leveling Up</h2>
                 </div>
 
-                <p class="section-intro">Additional guidance for getting the most out of Claude.</p>
+                <p class="section-intro">You've been using Claude for a while. These topics take the same tools from Level 1 and show you how to use them with more skill and structure.</p>
 
-                <div class="callout callout-important">
-                    <svg class="callout-icon" viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10S17.5 2 12 2zm0 18c-4.4 0-8-3.6-8-8s3.6-8 8-8 8 3.6 8 8-3.6 8-8 8zm0-14c-3.3 0-6 2.7-6 6s2.7 6 6 6 6-2.7 6-6-2.7-6-6-6zm0 10c-2.2 0-4-1.8-4-4s1.8-4 4-4 4 1.8 4 4-1.8 4-4 4zm0-6c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z"/></svg>
+                <div class="callout callout-info">
+                    <svg class="callout-icon" viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
                     <div class="callout-content">
-                        <strong>First, the fundamentals.</strong> The tips below will help, but they won't matter much if you skip the core principles.
-                        <a href="#theory-to-reality" class="callout-link">Read "From Theory to Reality" →</a>
+                        <strong>You should be comfortable with:</strong> Starting Claude sessions, navigating the terminal, working in a project folder with a virtual environment, and pushing code to GitHub. If any of that feels unfamiliar, complete <a href="#phase1" class="inline-link">Level 1</a> first.
                     </div>
                 </div>
 
-                <div class="content-block">
-                    <h3>Additional Tips</h3>
-                    <div class="tip-cards">
-                        <div class="tip-card">
-                            <h4>Be Specific About Quality</h4>
-                            <p>Add phrases like "be thorough versus fast" or "test it thoroughly before telling me it's done." Claude will put in more effort when you signal that quality matters.</p>
-                        </div>
-                        <div class="tip-card">
-                            <h4>Ask for the Full Solution</h4>
-                            <p>Instead of accepting "you'll need to..." responses, say: "Don't just tell me what to do—do it for me." Claude can often complete tasks it initially just explains.</p>
-                        </div>
-                        <div class="tip-card">
-                            <h4>Provide Context</h4>
-                            <p>Share relevant files and explain the bigger picture. "This is for a quarterly board report" helps Claude make better decisions than just "analyze this data."</p>
-                        </div>
-                        <div class="tip-card">
-                            <h4>Paste Images Liberally</h4>
-                            <p>Claude can see images! Paste screenshots of errors, design mockups, data samples, or UI examples directly into your chat. It's often faster than describing what you're looking at.</p>
-                            <p class="os-specific mac" style="margin-top: 8px; font-size: 0.85em; color: var(--text-muted);"><strong>Mac tip:</strong> Use <kbd>Ctrl</kbd>+<kbd>V</kbd> (not <kbd>Cmd</kbd>+<kbd>V</kbd>) to paste images in the terminal.</p>
+                <!-- SQLite Basics -->
+                <div class="content-block" id="advanced-sqlite">
+                    <h3>Working with SQLite Databases</h3>
+                    <p><strong>What it is:</strong> SQLite is a lightweight database stored as a single file. Claude often creates these automatically when your data is too large for Excel or needs relational queries.</p>
+
+                    <p><strong>When you'll encounter it:</strong></p>
+                    <ul>
+                        <li>Claude says "I'll store this in a SQLite database for better performance"</li>
+                        <li>You see a <code>.db</code> or <code>.sqlite</code> file appear in your project</li>
+                        <li>You want to inspect what Claude built without asking it to query</li>
+                    </ul>
+
+                    <p><strong>How to view SQLite databases in VS Code:</strong></p>
+                    <ol class="step-list">
+                        <li>Open VS Code Extensions (<kbd>Cmd</kbd>+<kbd>Shift</kbd>+<kbd>X</kbd> / <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>X</kbd>)</li>
+                        <li>Search for <strong>"SQLite Viewer"</strong> by Florian Klampfer</li>
+                        <li>Click Install</li>
+                        <li>Click any <code>.db</code> file in your project — it opens as a spreadsheet view</li>
+                    </ol>
+
+                    <div class="callout callout-tip">
+                        <svg class="callout-icon" viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M9 21c0 .55.45 1 1 1h4c.55 0 1-.45 1-1v-1H9v1zm3-19C8.14 2 5 5.14 5 9c0 2.38 1.19 4.47 3 5.74V17c0 .55.45 1 1 1h6c.55 0 1-.45 1-1v-2.26c1.81-1.27 3-3.36 3-5.74 0-3.86-3.14-7-7-7z"/></svg>
+                        <div class="callout-content">
+                            <strong>Pro tip:</strong> You don't usually need to query SQLite directly. Just ask Claude: "Show me all records where status is 'pending'" — it will write and run the query for you.
                         </div>
                     </div>
                 </div>
 
-                <!-- APIs and .env -->
-                <div class="content-block">
-                    <h3>APIs and Environment Variables</h3>
-                    <p>As you build more powerful tools, you may want to connect to external services (Airtable, HubSpot, Google Sheets, etc.). These connections use <strong>API keys</strong>—secret passwords that grant access.</p>
+                <!-- SQL Server / Azure SQL -->
+                <div class="content-block" id="advanced-sqlserver">
+                    <h3>Connecting to SQL Server / Azure SQL</h3>
+                    <p><strong>What it is:</strong> Enterprise databases your company likely uses. Unlike SQLite (a file), these run on servers and require connection credentials.</p>
+
+                    <p><strong>When you'll need this:</strong></p>
+                    <ul>
+                        <li>Your company has existing data in SQL Server or Azure SQL</li>
+                        <li>You want Claude to query production data (read-only recommended!)</li>
+                        <li>You're building dashboards that connect to company databases</li>
+                    </ul>
+
+                    <p><strong>Option 1: VS Code Extension</strong></p>
+                    <ol class="step-list">
+                        <li>Install the <strong>"SQL Server (mssql)"</strong> extension by Microsoft</li>
+                        <li>Click the SQL Server icon in the sidebar</li>
+                        <li>Add a connection with your server details</li>
+                        <li>Browse tables, run queries directly in VS Code</li>
+                    </ol>
+
+                    <p><strong>Option 2: Azure Data Studio</strong> (standalone app)</p>
+                    <ul>
+                        <li>Download from <a href="https://azure.microsoft.com/en-us/products/data-studio" target="_blank">azure.microsoft.com/products/data-studio</a></li>
+                        <li>More powerful than the extension for complex work</li>
+                        <li>Built-in query editor, execution plans, notebooks</li>
+                    </ul>
 
                     <div class="callout callout-warning">
                         <svg class="callout-icon" viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M1 21h22L12 2 1 21zm12-3h-2v-2h2v2zm0-4h-2v-4h2v4z"/></svg>
                         <div class="callout-content">
-                            <strong>Never put API keys directly in your code.</strong> Anyone who sees your code would have your keys. Instead, store them in a <code>.env</code> file.
+                            <strong>Be careful:</strong> When connecting Claude to production databases, always use read-only credentials. One wrong UPDATE statement can ruin your day.
                         </div>
                     </div>
-
-                    <p>Create a file called <code>.env</code> in your project root:</p>
-                    <div class="code-block">
-                        <div class="code-header">
-                            <span class="code-label">.env file</span>
-                        </div>
-                        <pre><code># My API Keys (never commit this file!)
-AIRTABLE_API_KEY=your_key_here
-OPENAI_API_KEY=your_key_here
-HUBSPOT_API_KEY=your_key_here</code></pre>
-                    </div>
-
-                    <p>Your <code>.gitignore</code> file (from the templates) already includes <code>.env</code>, so it won't be uploaded to GitHub. Ask Claude to help you set up any API connections—it will use the <code>.env</code> pattern automatically.</p>
                 </div>
 
-                <!-- Refactoring with Claude -->
-                <div class="content-block">
-                    <h3>Refactoring Existing Code</h3>
-                    <p>When you need to restructure or improve an existing project, Claude can help—but refactoring requires a disciplined approach:</p>
+                <!-- API Keys Deep Dive -->
+                <div class="content-block" id="advanced-api-keys">
+                    <h3>Managing API Keys & Secrets</h3>
+                    <p>The basics covered <code>.env</code> files. Here's more depth for when you're juggling multiple APIs.</p>
 
-                    <div class="principles-grid">
-                        <div class="principle-card">
-                            <h4>Understand First</h4>
-                            <p>Before changing anything, ask Claude to explain the current architecture. "Walk me through how this codebase is structured and how the pieces connect."</p>
+                    <p><strong>Best practices:</strong></p>
+                    <ul>
+                        <li><strong>One .env per project</strong> — Don't share across projects</li>
+                        <li><strong>Never commit .env</strong> — Your <code>.gitignore</code> should already exclude it</li>
+                        <li><strong>Use descriptive names</strong> — <code>OPENAI_API_KEY</code> not <code>KEY1</code></li>
+                        <li><strong>Document required keys</strong> — Add a <code>.env.example</code> file with placeholder values</li>
+                    </ul>
+
+                    <p><strong>Example .env.example file:</strong></p>
+                    <div class="code-block">
+                        <div class="code-header">
+                            <span class="code-label">.env.example</span>
                         </div>
-                        <div class="principle-card">
-                            <h4>Plan Before Coding</h4>
-                            <p>Document what you're changing and why. Ask Claude to create a refactoring plan with clear steps before touching any code.</p>
+                        <pre><code># Copy this file to .env and fill in your actual keys
+OPENAI_API_KEY=sk-your-key-here
+AIRTABLE_API_KEY=pat-your-key-here
+DATABASE_URL=your-connection-string</code></pre>
+                    </div>
+
+                    <p><strong>Loading in Python:</strong></p>
+                    <div class="code-block">
+                        <div class="code-header">
+                            <span class="code-label">Python</span>
                         </div>
-                        <div class="principle-card">
-                            <h4>One Change at a Time</h4>
-                            <p>Refactor incrementally. Make one change, test it works, commit it. Then move to the next. Never leave the codebase broken.</p>
-                        </div>
-                        <div class="principle-card">
-                            <h4>Don't Mix with Features</h4>
-                            <p>Refactoring and adding features are separate tasks. Do one or the other, not both at once. Mixing them makes bugs hard to trace.</p>
-                        </div>
+                        <pre><code>from dotenv import load_dotenv
+import os
+
+load_dotenv()  # Reads .env file
+
+api_key = os.getenv("OPENAI_API_KEY")
+if not api_key:
+    raise ValueError("Missing OPENAI_API_KEY in .env")</code></pre>
                     </div>
 
                     <div class="callout callout-tip">
                         <svg class="callout-icon" viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M9 21c0 .55.45 1 1 1h4c.55 0 1-.45 1-1v-1H9v1zm3-19C8.14 2 5 5.14 5 9c0 2.38 1.19 4.47 3 5.74V17c0 .55.45 1 1 1h6c.55 0 1-.45 1-1v-2.26c1.81-1.27 3-3.36 3-5.74 0-3.86-3.14-7-7-7z"/></svg>
                         <div class="callout-content">
-                            <strong>Commit frequently during refactoring.</strong> Small commits make rollback easy. If something breaks, you can undo just the last change instead of losing hours of work.
+                            <strong>Tell Claude about your .env:</strong> When starting a session, mention "I have API keys in .env" — Claude will use <code>python-dotenv</code> automatically.
                         </div>
                     </div>
                 </div>
 
-                <!-- Safety and Security -->
-                <div class="content-block">
-                    <h3>Safety Basics</h3>
-                    <p>Claude is powerful—which means a few simple habits keep your work secure:</p>
+                <!-- Working with Large Files -->
+                <div class="content-block" id="advanced-large-files">
+                    <h3>Working with Large Files</h3>
+                    <p>Excel has limits. Here's what to do when your data outgrows spreadsheets.</p>
 
-                    <div class="safety-list">
-                        <div class="safety-item">
-                            <span class="safety-icon"><svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M12.65 10C11.83 7.67 9.61 6 7 6c-3.31 0-6 2.69-6 6s2.69 6 6 6c2.61 0 4.83-1.67 5.65-4H17v4h4v-4h2v-4H12.65zM7 14c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2z"/></svg></span>
-                            <div class="safety-content">
-                                <strong>Protect API Keys</strong>
-                                <p>Keep them in <code>.env</code> files, never in code. Your <code>.gitignore</code> prevents them from being uploaded.</p>
-                            </div>
+                    <p><strong>Signs you've outgrown Excel:</strong></p>
+                    <ul>
+                        <li>Files over 50MB or 500K+ rows</li>
+                        <li>Excel crashes or freezes during analysis</li>
+                        <li>You need to join data from multiple large files</li>
+                        <li>Repeated analyses that could be automated</li>
+                    </ul>
+
+                    <p><strong>Solutions Claude can help with:</strong></p>
+                    <table class="command-table" style="margin: 16px 0;">
+                        <tr>
+                            <td><strong>Chunked processing</strong></td>
+                            <td>Read large files in pieces, process, combine results</td>
+                        </tr>
+                        <tr>
+                            <td><strong>SQLite conversion</strong></td>
+                            <td>Import CSV/Excel into SQLite for fast queries</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Parquet files</strong></td>
+                            <td>Compressed columnar format — 10x smaller, 10x faster</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Sampling</strong></td>
+                            <td>Analyze a representative subset first</td>
+                        </tr>
+                    </table>
+
+                    <p><strong>Example prompt:</strong></p>
+                    <div class="code-block">
+                        <div class="code-header">
+                            <span class="code-label">Ask Claude</span>
                         </div>
-                        <div class="safety-item">
-                            <span class="safety-icon"><svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg></span>
-                            <div class="safety-content">
-                                <strong>Review Before Approving</strong>
-                                <p>Claude asks permission before running commands or making changes. Take a moment to understand what it's about to do.</p>
-                            </div>
+                        <pre><code>I have a 2GB CSV file with sales transactions. It's too big for
+Excel. Help me:
+1. Import it into SQLite
+2. Create summary queries for monthly totals by region
+3. Export the summary to Excel for my report</code></pre>
+                    </div>
+                </div>
+
+                <!-- Debugging with Claude -->
+                <div class="content-block" id="advanced-debugging">
+                    <h3>Debugging with Claude</h3>
+                    <p>When things break, here's how to get Claude's help effectively.</p>
+
+                    <p><strong>What to include when reporting errors:</strong></p>
+                    <ol class="step-list">
+                        <li><strong>The full error message</strong> — Copy the entire traceback, not just the last line</li>
+                        <li><strong>What you were trying to do</strong> — "I ran the script to process sales data"</li>
+                        <li><strong>What you expected</strong> — "It should create a summary.xlsx file"</li>
+                        <li><strong>What actually happened</strong> — "It crashed after processing 500 rows"</li>
+                    </ol>
+
+                    <p><strong>Example debugging prompt:</strong></p>
+                    <div class="code-block">
+                        <div class="code-header">
+                            <span class="code-label">Ask Claude</span>
                         </div>
-                        <div class="safety-item">
-                            <span class="safety-icon"><svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M17 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V7l-4-4zm2 16H5V5h11.17L19 7.83V19zm-7-7c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3zM6 6h9v4H6V6z"/></svg></span>
-                            <div class="safety-content">
-                                <strong>Commit Often</strong>
-                                <p>Regular Git commits mean you can always undo changes. If something goes wrong, you have a safe point to return to.</p>
-                            </div>
-                        </div>
-                        <div class="safety-item">
-                            <span class="safety-icon"><svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M10 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2h-8l-2-2z"/></svg></span>
-                            <div class="safety-content">
-                                <strong>Keep Projects Separate</strong>
-                                <p>One folder per project, one venv per project. This prevents Claude from accidentally affecting other work.</p>
-                            </div>
+                        <pre><code>I got this error when running the analysis script:
+
+[paste full error here]
+
+I was trying to process the Q4 sales file. It worked yesterday
+with the Q3 file. What's different and how do I fix it?</code></pre>
+                    </div>
+
+                    <p><strong>Common issues Claude can diagnose:</strong></p>
+                    <ul>
+                        <li><strong>ModuleNotFoundError</strong> — Missing package (forgot to activate venv or install)</li>
+                        <li><strong>FileNotFoundError</strong> — Wrong path or file moved</li>
+                        <li><strong>KeyError</strong> — Column name mismatch in data</li>
+                        <li><strong>PermissionError</strong> — File open in another program</li>
+                        <li><strong>Memory errors</strong> — File too large (see Large Files section above)</li>
+                    </ul>
+
+                    <div class="callout callout-tip">
+                        <svg class="callout-icon" viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M9 21c0 .55.45 1 1 1h4c.55 0 1-.45 1-1v-1H9v1zm3-19C8.14 2 5 5.14 5 9c0 2.38 1.19 4.47 3 5.74V17c0 .55.45 1 1 1h6c.55 0 1-.45 1-1v-2.26c1.81-1.27 3-3.36 3-5.74 0-3.86-3.14-7-7-7z"/></svg>
+                        <div class="callout-content">
+                            <strong>Prevention tip:</strong> Ask Claude to add error handling when writing scripts: "Add try/except blocks with helpful error messages so I know what went wrong."
                         </div>
                     </div>
                 </div>
+
+                <!-- Teaching Claude About Your Project -->
+                <div class="content-block" id="advanced-claude-md">
+                    <h3>Teaching Claude About Your Project</h3>
+                    <p><strong>What it is:</strong> A system of configuration files that give Claude persistent context about your project — its architecture, coding standards, and how you like to work. Without these, every new session starts from scratch.</p>
+
+                    <p><strong>Why it matters:</strong> Imagine hiring a contractor who forgets everything between visits. That's Claude without project context files. With them, Claude knows your conventions, avoids past mistakes, and picks up where it left off.</p>
+
+                    <p><strong>The .claude/ folder structure:</strong></p>
+                    <div class="code-block">
+                        <div class="code-header">
+                            <span class="code-label">Project Structure</span>
+                        </div>
+                        <pre><code>your-project/
+├── .claude/
+│   ├── CLAUDE.md          # Project overview — auto-loaded every session
+│   ├── SESSION_LOG.md     # Running history of what was done
+│   └── rules/
+│       └── AI_CODING_GUIDELINES.md  # How Claude should write code
+├── .env                   # API keys (gitignored)
+├── .gitignore
+└── your code...</code></pre>
+                    </div>
+
+                    <p><strong>What goes in CLAUDE.md:</strong></p>
+                    <ul>
+                        <li><strong>Project overview</strong> — What this is, who it's for, what it does</li>
+                        <li><strong>Run commands</strong> — How to start the app, run tests, deploy</li>
+                        <li><strong>Tech stack</strong> — Frameworks, database, cloud platform</li>
+                        <li><strong>Environment setup</strong> — Venv name, Python version, port number</li>
+                        <li><strong>Key conventions</strong> — Naming patterns, file organization, coding rules</li>
+                    </ul>
+
+                    <p><strong>What goes in SESSION_LOG.md:</strong></p>
+                    <p>A dated entry at the end of each work session: what was done, key decisions, gotchas encountered, and next steps. This prevents repeating mistakes and gives the next session a running start.</p>
+
+                    <div class="code-block">
+                        <div class="code-header">
+                            <span class="code-label">Example SESSION_LOG.md entry</span>
+                        </div>
+                        <pre><code>## 2026-04-10: Added inventory dashboard
+- **What was done:** Built green coffee inventory with depletion gauges
+- **Key decisions:** Used hybrid ledger (one-time seed + transactions)
+- **Gotchas:** Jinja2 format filter doesn't support %+,.1f
+- **Next steps:** Wire up recipe cost calculator</code></pre>
+                    </div>
+
+                    <div class="callout callout-tip">
+                        <svg class="callout-icon" viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M9 21c0 .55.45 1 1 1h4c.55 0 1-.45 1-1v-1H9v1zm3-19C8.14 2 5 5.14 5 9c0 2.38 1.19 4.47 3 5.74V17c0 .55.45 1 1 1h6c.55 0 1-.45 1-1v-2.26c1.81-1.27 3-3.36 3-5.74 0-3.86-3.14-7-7-7z"/></svg>
+                        <div class="callout-content">
+                            <strong>Ask Claude to set it up for you.</strong> Start a session and say: "Create a .claude folder for this project with a CLAUDE.md, SESSION_LOG.md, and AI_CODING_GUIDELINES.md. Here's what this project does: [describe it]." Claude will scaffold the entire structure.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Working with APIs -->
+                <div class="content-block" id="advanced-apis">
+                    <h3>Working with APIs</h3>
+                    <p><strong>What it is:</strong> APIs let your scripts connect to external services — pull data from Airtable, send emails through SendGrid, sync with HubSpot, or query any web service that offers an API.</p>
+
+                    <p><strong>When you'll need this:</strong></p>
+                    <ul>
+                        <li>You want to pull live data instead of downloading CSV exports</li>
+                        <li>You need to automate updates across systems (CRM, accounting, databases)</li>
+                        <li>You're building dashboards that refresh from real-time data sources</li>
+                    </ul>
+
+                    <p><strong>The pattern is always the same:</strong></p>
+                    <ol class="step-list">
+                        <li><strong>Get your API key</strong> from the service's developer/settings page</li>
+                        <li><strong>Store it in .env</strong> — never in your code</li>
+                        <li><strong>Tell Claude what you want</strong> — it will write the connection code</li>
+                    </ol>
+
+                    <p><strong>Example prompt:</strong></p>
+                    <div class="code-block">
+                        <div class="code-header">
+                            <span class="code-label">Ask Claude</span>
+                        </div>
+                        <pre><code>I have an Airtable base with a "Contacts" table. My API key is
+in .env as AIRTABLE_API_KEY. Pull all records where Status is
+"Active", and create an Excel summary grouped by company name
+with a count of contacts per company.</code></pre>
+                    </div>
+
+                    <p><strong>Common APIs Claude can connect to:</strong></p>
+                    <table class="command-table" style="margin: 16px 0;">
+                        <tr>
+                            <td><strong>Airtable</strong></td>
+                            <td>Databases, CRM, project tracking</td>
+                        </tr>
+                        <tr>
+                            <td><strong>HubSpot</strong></td>
+                            <td>CRM contacts, deals, marketing data</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Google Sheets</strong></td>
+                            <td>Read/write spreadsheet data programmatically</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Notion</strong></td>
+                            <td>Database queries, page creation, content management</td>
+                        </tr>
+                        <tr>
+                            <td><strong>OpenAI / Claude API</strong></td>
+                            <td>AI-powered analysis, text generation, classification</td>
+                        </tr>
+                        <tr>
+                            <td><strong>PandaDoc</strong></td>
+                            <td>Document tracking, e-signatures, proposals</td>
+                        </tr>
+                    </table>
+
+                    <div class="callout callout-warning">
+                        <svg class="callout-icon" viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M1 21h22L12 2 1 21zm12-3h-2v-2h2v2zm0-4h-2v-4h2v4z"/></svg>
+                        <div class="callout-content">
+                            <strong>API rate limits are real.</strong> Most services limit how many requests you can make per minute/hour. When working with APIs, ask Claude to add rate limiting and error handling. "If the API returns a rate limit error, wait and retry."
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Prompt Engineering -->
+                <div class="content-block" id="advanced-prompting">
+                    <h3>Prompt Engineering for Better Results</h3>
+                    <p><strong>What it is:</strong> The way you ask Claude to do something directly affects the quality of what you get back. Small changes in how you frame a request can mean the difference between "okay" output and exactly what you needed.</p>
+
+                    <p><strong>Level up your prompts:</strong></p>
+
+                    <table class="command-table" style="margin: 16px 0;">
+                        <thead>
+                            <tr>
+                                <th style="text-align: left;">Instead of this...</th>
+                                <th style="text-align: left;">Try this</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>"Analyze this data"</td>
+                                <td>"Analyze this sales data by region and quarter. Flag any declining trends. Create a summary table and a chart."</td>
+                            </tr>
+                            <tr>
+                                <td>"Fix this error"</td>
+                                <td>"Here's the full error. This worked yesterday with the Q3 file. What changed and how do I fix it?"</td>
+                            </tr>
+                            <tr>
+                                <td>"Build me a dashboard"</td>
+                                <td>"Build a dashboard showing monthly revenue by product line. Include filters for date range and region. Use the data in sales.csv."</td>
+                            </tr>
+                            <tr>
+                                <td>"Make it better"</td>
+                                <td>"The chart is hard to read. Use a bar chart instead of a line chart, add data labels, and sort by highest to lowest."</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <p><strong>Power techniques:</strong></p>
+                    <ul>
+                        <li><strong>Set the role:</strong> "Act as a senior data analyst reviewing this for the CFO." Claude adjusts its depth and tone.</li>
+                        <li><strong>Multi-role review:</strong> After Claude finishes, say "Now review this as a QA tester. What would break? What edge cases are missing?"</li>
+                        <li><strong>Specify the output:</strong> "Generate results in a new Excel file with separate tabs for summary, detail, and charts."</li>
+                        <li><strong>Set quality expectations:</strong> "Be thorough versus fast. Test your work before telling me it's done."</li>
+                        <li><strong>Constrain scope:</strong> "Only modify the sales calculation function. Don't touch any other files."</li>
+                    </ul>
+
+                    <div class="callout callout-tip">
+                        <svg class="callout-icon" viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M9 21c0 .55.45 1 1 1h4c.55 0 1-.45 1-1v-1H9v1zm3-19C8.14 2 5 5.14 5 9c0 2.38 1.19 4.47 3 5.74V17c0 .55.45 1 1 1h6c.55 0 1-.45 1-1v-2.26c1.81-1.27 3-3.36 3-5.74 0-3.86-3.14-7-7-7z"/></svg>
+                        <div class="callout-content">
+                            <strong>The best prompt is a conversation.</strong> Don't try to get everything right in one message. Start with your goal, review the first result, then refine: "That's close, but also include..." or "The format is right but the numbers look wrong — double check the Q2 totals."
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Level 2 graduation hook -->
+                <div class="content-block" id="level2-next">
+                    <div class="graduation-block">
+                        <h3>Ready to Build Something Real?</h3>
+                        <p>You've sharpened your skills — smarter prompts, project memory, API connections, and real debugging chops. If you're ready to go from scripts and analysis to <strong>full web applications with databases, cloud hosting, and professional UI</strong>, Level 3 is your next step.</p>
+                        <p style="margin-top: 12px;"><a href="#level3" class="btn-primary" style="text-decoration: none;">Go to Level 3: Building Real Apps →</a></p>
+                    </div>
+                </div>
+
+            </section>
+
+            <!-- LEVEL 3: BUILDING REAL APPS -->
+            <section id="level3" class="section">
+                <div class="section-header">
+                    <span class="section-number">L3</span>
+                    <h2>Level 3: Building Real Apps</h2>
+                </div>
+
+                <p class="section-intro">Move from scripts and analysis to production web applications. These topics introduce new tools, new infrastructure, and new ways of thinking about software.</p>
+
+                <div class="callout callout-info">
+                    <svg class="callout-icon" viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
+                    <div class="callout-content">
+                        <strong>You should be comfortable with:</strong> Everything in Level 2 — especially project configuration (CLAUDE.md), working with APIs, and debugging. You should feel confident navigating the terminal, reading errors, and guiding Claude through multi-step tasks.
+                    </div>
+                </div>
+
+                <!-- Your First Web App -->
+                <div class="content-block" id="level3-webapp">
+                    <h3>Your First Web App</h3>
+                    <p><strong>What it is:</strong> A web application runs in a browser instead of the terminal. Instead of a script that processes data and outputs a file, you get a live, interactive interface — forms, tables, charts, navigation — that anyone on your network (or the internet) can use.</p>
+
+                    <p><strong>The stack Claude builds with:</strong></p>
+                    <table class="command-table" style="margin: 16px 0;">
+                        <tr>
+                            <td><strong>Flask</strong></td>
+                            <td>Python web framework — handles URLs, forms, and page rendering. Lightweight and beginner-friendly.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Jinja2</strong></td>
+                            <td>Template engine — lets you put Python data into HTML pages. Comes bundled with Flask.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>HTMX</strong></td>
+                            <td>Makes pages interactive without writing JavaScript. Buttons that update parts of the page, forms that submit without reloading.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Alpine.js</strong></td>
+                            <td>Lightweight state management — toggling menus, managing form state, showing/hiding elements.</td>
+                        </tr>
+                    </table>
+
+                    <p><strong>How a Flask app is organized:</strong></p>
+                    <div class="code-block">
+                        <div class="code-header">
+                            <span class="code-label">Project Structure</span>
+                        </div>
+                        <pre><code>my-app/
+├── app/
+│   ├── __init__.py        # App factory — Flask starts here
+│   ├── config.py          # Settings (database, secrets)
+│   ├── routes/            # URL handlers (one file per feature area)
+│   │   ├── dashboard.py
+│   │   └── reports.py
+│   ├── services/          # Business logic (calculations, API calls)
+│   ├── templates/         # HTML pages (Jinja2)
+│   │   └── base.html      # Shared layout (nav, footer, CSS)
+│   └── static/            # CSS, JS, images
+├── run.py                 # Entry point: python run.py
+├── requirements.txt
+├── .env
+└── .claude/</code></pre>
+                    </div>
+
+                    <p><strong>Getting started:</strong></p>
+                    <div class="code-block">
+                        <div class="code-header">
+                            <span class="code-label">Ask Claude</span>
+                        </div>
+                        <pre><code>Create a Flask web app for tracking [your use case]. It should
+have a dashboard page showing key metrics, a form to add new
+records, and a table listing all records with search and filter.
+Use HTMX for interactivity and Tailwind CSS for styling. Store
+data in SQLite. Set up the standard project structure with
+routes, services, and templates folders.</code></pre>
+                    </div>
+
+                    <div class="callout callout-tip">
+                        <svg class="callout-icon" viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M9 21c0 .55.45 1 1 1h4c.55 0 1-.45 1-1v-1H9v1zm3-19C8.14 2 5 5.14 5 9c0 2.38 1.19 4.47 3 5.74V17c0 .55.45 1 1 1h6c.55 0 1-.45 1-1v-2.26c1.81-1.27 3-3.36 3-5.74 0-3.86-3.14-7-7-7z"/></svg>
+                        <div class="callout-content">
+                            <strong>Start with a PRD.</strong> Before building, write a <a href="#tab-prd" class="inline-link" onclick="document.querySelector('[data-tab=prd]').click(); return false;">Product Requirements Document</a> that describes what your app should do. The clearer your requirements, the better Claude's first attempt will be.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Databases Beyond SQLite -->
+                <div class="content-block" id="level3-databases">
+                    <h3>Databases Beyond SQLite</h3>
+                    <p><strong>What it is:</strong> SQLite is a single file on your computer — great for development and small apps. When you need multiple users, network access, or enterprise-grade reliability, you move to a server-based database like Azure SQL or PostgreSQL.</p>
+
+                    <p><strong>When to upgrade from SQLite:</strong></p>
+                    <ul>
+                        <li>Multiple people need to access the same data simultaneously</li>
+                        <li>Your app will be deployed to the cloud (not just your laptop)</li>
+                        <li>You need to connect to existing company databases</li>
+                        <li>Data is critical and needs automated backups and recovery</li>
+                    </ul>
+
+                    <p><strong>Azure SQL setup (the proven pattern):</strong></p>
+                    <ol class="step-list">
+                        <li><strong>Create the database</strong> — Azure Portal or <code>az sql</code> CLI commands</li>
+                        <li><strong>Store credentials in .env</strong> — Server, database name, username, password</li>
+                        <li><strong>Connect with pyodbc</strong> — Claude writes the connection code using your .env values</li>
+                        <li><strong>Set firewall rules</strong> — Allow your IP for development, allow Azure services for deployment</li>
+                    </ol>
+
+                    <div class="code-block">
+                        <div class="code-header">
+                            <span class="code-label">.env for Azure SQL</span>
+                        </div>
+                        <pre><code>SQL_SERVER=your-server.database.windows.net
+SQL_DATABASE=your-db-name
+SQL_USERNAME=your-admin-user
+SQL_PASSWORD=your-password</code></pre>
+                    </div>
+
+                    <div class="code-block">
+                        <div class="code-header">
+                            <span class="code-label">Ask Claude</span>
+                        </div>
+                        <pre><code>I have an Azure SQL database. Connection info is in .env. Create
+a db_helper.py module that manages connections with proper error
+handling and retry logic for cold starts. The database uses the
+"bot" schema. Show me how to query it.</code></pre>
+                    </div>
+
+                    <div class="callout callout-warning">
+                        <svg class="callout-icon" viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M1 21h22L12 2 1 21zm12-3h-2v-2h2v2zm0-4h-2v-4h2v4z"/></svg>
+                        <div class="callout-content">
+                            <strong>Always use parameterized queries.</strong> Never build SQL strings by concatenating user input — this creates SQL injection vulnerabilities. Tell Claude: "Use parameterized queries for all database operations."
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Deploying to the Cloud -->
+                <div class="content-block" id="level3-deploy">
+                    <h3>Deploying to the Cloud</h3>
+                    <p><strong>What it is:</strong> Moving your app from <code>localhost</code> (your computer) to a server that's always running and accessible from anywhere. Azure App Service is a managed hosting platform — you upload your code, it runs it.</p>
+
+                    <p><strong>What you need:</strong></p>
+                    <ul>
+                        <li>An Azure account (free tier available, or ~$13/month for a basic plan)</li>
+                        <li>The Azure CLI installed (<code class="os-text" data-mac="brew install azure-cli" data-windows="winget install Microsoft.AzureCLI">brew install azure-cli</code>)</li>
+                        <li>Your app running locally first — always get it working on your machine before deploying</li>
+                    </ul>
+
+                    <p><strong>The deployment process:</strong></p>
+                    <ol class="step-list">
+                        <li><strong>Create an App Service</strong> — Azure Portal or <code>az webapp create</code></li>
+                        <li><strong>Set environment variables</strong> — Your .env values go into Azure's App Settings</li>
+                        <li><strong>Create a startup script</strong> — Tells Azure how to run your app (gunicorn for Flask)</li>
+                        <li><strong>Deploy</strong> — Push code via <code>az webapp up</code> or GitHub Actions (see CI/CD below)</li>
+                        <li><strong>Verify</strong> — Check your app at <code>https://your-app.azurewebsites.net</code></li>
+                    </ol>
+
+                    <div class="code-block">
+                        <div class="code-header">
+                            <span class="code-label">startup.sh (Azure runs this on boot)</span>
+                        </div>
+                        <pre><code>#!/bin/bash
+source /home/site/wwwroot/antenv/bin/activate
+gunicorn --bind=0.0.0.0:8000 --timeout 120 --workers 2 "run:app"</code></pre>
+                    </div>
+
+                    <div class="code-block">
+                        <div class="code-header">
+                            <span class="code-label">Ask Claude</span>
+                        </div>
+                        <pre><code>Help me deploy this Flask app to Azure App Service. I have an
+Azure account. Walk me through each step: create the app
+service, configure environment variables, set up the startup
+script, and do the first deploy. Then help me set up GitHub
+Actions so future pushes deploy automatically.</code></pre>
+                    </div>
+
+                    <div class="callout callout-tip">
+                        <svg class="callout-icon" viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M9 21c0 .55.45 1 1 1h4c.55 0 1-.45 1-1v-1H9v1zm3-19C8.14 2 5 5.14 5 9c0 2.38 1.19 4.47 3 5.74V17c0 .55.45 1 1 1h6c.55 0 1-.45 1-1v-2.26c1.81-1.27 3-3.36 3-5.74 0-3.86-3.14-7-7-7z"/></svg>
+                        <div class="callout-content">
+                            <strong>Use Python 3.12 on Azure.</strong> Even if you run 3.13+ locally, Azure's ODBC drivers and build system are most reliable with 3.12. Specify the runtime explicitly when creating your app service.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Authentication & Security -->
+                <div class="content-block" id="level3-auth">
+                    <h3>Authentication & Security</h3>
+                    <p><strong>What it is:</strong> Once your app is on the internet, you need to control who can access it. Azure AD (now called Entra ID) lets you restrict access to people in your organization — they sign in with their company Microsoft account.</p>
+
+                    <p><strong>Why it matters:</strong> Without authentication, anyone who finds your URL can access your app, your data, and your dashboards. Authentication isn't optional for production apps.</p>
+
+                    <p><strong>The Entra ID pattern:</strong></p>
+                    <ol class="step-list">
+                        <li><strong>Create an App Registration</strong> in Azure AD — this gives your app an identity</li>
+                        <li><strong>Enable ID token issuance</strong> — critical step that's easy to miss (auth fails without it)</li>
+                        <li><strong>Create a client secret</strong> and store it as an App Setting</li>
+                        <li><strong>Configure authentication</strong> on the App Service — Azure handles the login flow</li>
+                    </ol>
+
+                    <div class="callout callout-warning">
+                        <svg class="callout-icon" viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M1 21h22L12 2 1 21zm12-3h-2v-2h2v2zm0-4h-2v-4h2v4z"/></svg>
+                        <div class="callout-content">
+                            <strong>Common gotcha:</strong> If you get a 401 error on the login callback, it's almost always because you forgot to enable ID token issuance on the App Registration. This is the #1 cause of auth setup failures.
+                        </div>
+                    </div>
+
+                    <p><strong>Security checklist for production apps:</strong></p>
+                    <ul>
+                        <li><strong>Authentication</strong> — Entra ID or equivalent (never leave apps open)</li>
+                        <li><strong>Secrets in App Settings</strong> — Not in code, not in .env on the server</li>
+                        <li><strong>Database credentials</strong> — Use read-only accounts where possible, parameterized queries always</li>
+                        <li><strong>HTTPS only</strong> — Azure enforces this by default, but verify it's not disabled</li>
+                        <li><strong>CSRF protection</strong> — Add Flask-WTF before exposing forms to real users</li>
+                    </ul>
+
+                    <div class="code-block">
+                        <div class="code-header">
+                            <span class="code-label">Ask Claude</span>
+                        </div>
+                        <pre><code>I need to add Azure AD authentication to my deployed app. My
+Azure tenant ID is [your tenant]. Walk me through setting up
+the App Registration, enabling ID tokens, creating a client
+secret, and configuring auth on the App Service. I want only
+people in my organization to access it.</code></pre>
+                    </div>
+                </div>
+
+                <!-- CI/CD with GitHub Actions -->
+                <div class="content-block" id="level3-cicd">
+                    <h3>CI/CD with GitHub Actions</h3>
+                    <p><strong>What it is:</strong> Continuous Integration / Continuous Deployment. Instead of manually deploying every time you make a change, GitHub Actions watches your repository — when you push code, it automatically builds and deploys to Azure.</p>
+
+                    <p><strong>Why it matters:</strong> Manual deploys are error-prone and slow. CI/CD means you push to GitHub, and minutes later your production app is updated. No SSH, no file transfers, no forgotten steps.</p>
+
+                    <p><strong>How it works:</strong></p>
+                    <ol class="step-list">
+                        <li><strong>You push code</strong> to GitHub (same as Level 1)</li>
+                        <li><strong>GitHub Actions triggers</strong> — reads a workflow YAML file in your repo</li>
+                        <li><strong>Build step</strong> — installs dependencies, runs tests</li>
+                        <li><strong>Deploy step</strong> — pushes the built app to Azure App Service</li>
+                        <li><strong>Your app is live</strong> — usually within 2-3 minutes</li>
+                    </ol>
+
+                    <div class="code-block">
+                        <div class="code-header">
+                            <span class="code-label">.github/workflows/deploy.yml (simplified)</span>
+                        </div>
+                        <pre><code>name: Deploy to Azure
+on:
+  push:
+    branches: [main]
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install -r requirements.txt
+      - uses: azure/webapps-deploy@v3
+        with:
+          app-name: 'your-app-name'
+          publish-profile: ${{ secrets.AZURE_PUBLISH_PROFILE }}</code></pre>
+                    </div>
+
+                    <div class="code-block">
+                        <div class="code-header">
+                            <span class="code-label">Ask Claude</span>
+                        </div>
+                        <pre><code>Set up GitHub Actions to automatically deploy my Flask app to
+Azure App Service when I push to main. The app is called
+[your-app-name]. Walk me through getting the publish profile
+from Azure and adding it as a GitHub secret.</code></pre>
+                    </div>
+
+                    <div class="callout callout-tip">
+                        <svg class="callout-icon" viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M9 21c0 .55.45 1 1 1h4c.55 0 1-.45 1-1v-1H9v1zm3-19C8.14 2 5 5.14 5 9c0 2.38 1.19 4.47 3 5.74V17c0 .55.45 1 1 1h6c.55 0 1-.45 1-1v-2.26c1.81-1.27 3-3.36 3-5.74 0-3.86-3.14-7-7-7z"/></svg>
+                        <div class="callout-content">
+                            <strong>Use path filters.</strong> Add <code>paths: ['app/**', 'requirements.txt', 'run.py']</code> to your workflow trigger so it only deploys when you change actual app code — not documentation or notes.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Modern UI Patterns -->
+                <div class="content-block" id="level3-ui">
+                    <h3>Modern UI Patterns</h3>
+                    <p><strong>What it is:</strong> The difference between a tool that works and a tool people <em>want</em> to use. Modern web UI frameworks let Claude build professional-looking interfaces without you designing anything — you describe what you want, Claude applies proven patterns.</p>
+
+                    <p><strong>The UI toolkit:</strong></p>
+                    <table class="command-table" style="margin: 16px 0;">
+                        <tr>
+                            <td><strong>Tailwind CSS</strong></td>
+                            <td>Utility-first CSS framework. Instead of writing custom styles, you compose classes: <code>bg-blue-500 text-white p-4 rounded</code>. Produces consistent, professional results fast.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>ag-Grid</strong></td>
+                            <td>Data tables with built-in search, filter, sort, inline editing, and export. Drop-in replacement for basic HTML tables.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Plotly.js</strong></td>
+                            <td>Interactive charts — bar, line, donut, heatmaps, Sankey diagrams. Hover tooltips, zoom, and export built in.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Dark Mode</strong></td>
+                            <td>CSS custom properties (variables) that swap colors based on a theme toggle. One set of variables, two themes.</td>
+                        </tr>
+                    </table>
+
+                    <p><strong>Design system thinking:</strong></p>
+                    <p>Professional apps don't style each page independently. They define a <strong>design system</strong> — colors, fonts, spacing, component styles — in one place (usually <code>base.html</code>), and every page inherits it. When you change a color in one place, it updates everywhere.</p>
+
+                    <div class="code-block">
+                        <div class="code-header">
+                            <span class="code-label">Ask Claude</span>
+                        </div>
+                        <pre><code>I want my app to look professional. Set up a design system in
+base.html with:
+- CSS variables for colors (primary, accent, success, warning,
+  danger) with both light and dark mode values
+- Tailwind CSS via CDN
+- Inter font from Google Fonts
+- ag-Grid for data tables with theme support
+- Plotly.js for charts
+- 48px minimum touch targets for mobile
+- Responsive sidebar navigation that collapses on mobile</code></pre>
+                    </div>
+
+                    <div class="callout callout-tip">
+                        <svg class="callout-icon" viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M9 21c0 .55.45 1 1 1h4c.55 0 1-.45 1-1v-1H9v1zm3-19C8.14 2 5 5.14 5 9c0 2.38 1.19 4.47 3 5.74V17c0 .55.45 1 1 1h6c.55 0 1-.45 1-1v-2.26c1.81-1.27 3-3.36 3-5.74 0-3.86-3.14-7-7-7z"/></svg>
+                        <div class="callout-content">
+                            <strong>Show Claude a screenshot.</strong> The fastest way to get the UI you want is to paste a screenshot of a design you like and say "Make it look like this." Claude will match the layout, colors, and component patterns.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Level 3 closing block -->
+                <div class="content-block" id="level3-complete">
+                    <div class="graduation-block" style="background: linear-gradient(135deg, #059669, #047857);">
+                        <h3>You've Reached the Summit</h3>
+                        <p>You now have the knowledge to build production web applications — from local development through cloud deployment with authentication and CI/CD. The same foundation behind real apps managing thousands of records and serving live users.</p>
+                        <p>Keep building. Keep iterating. And when you get stuck, check the <a href="#reference" style="color: white; text-decoration: underline;">Reference</a> section or reach out.</p>
+                        <p style="margin-top: 12px;"><a href="mailto:scott@ascendnxt.com" class="btn-primary" style="text-decoration: none;">Questions? scott@ascendnxt.com</a></p>
+                    </div>
+                </div>
+
             </section>
 
             <!-- REFERENCE SECTION -->
             <section id="reference" class="section">
                 <div class="section-header">
-                    <span class="section-number">07</span>
+                    <span class="section-number">06</span>
                     <h2>Reference</h2>
                 </div>
 
                 <div class="reference-tabs">
                     <div class="tab-buttons">
-                        <button class="tab-btn active" data-tab="commands">Commands</button>
+                        <button class="tab-btn active" data-tab="tips">Tips & Best Practices</button>
+                        <button class="tab-btn" data-tab="commands">Commands</button>
                         <button class="tab-btn" data-tab="prd">PRD Template</button>
                         <button class="tab-btn" data-tab="glossary">Glossary</button>
                         <button class="tab-btn" data-tab="troubleshoot">Troubleshooting</button>
                         <button class="tab-btn" data-tab="resources">Resources</button>
                     </div>
 
-                    <div class="tab-content active" id="tab-commands">
+                    <div class="tab-content active" id="tab-tips">
+                        <div class="callout callout-important" style="margin-bottom: 20px;">
+                            <svg class="callout-icon" viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10S17.5 2 12 2zm0 18c-4.4 0-8-3.6-8-8s3.6-8 8-8 8 3.6 8 8-3.6 8-8 8zm0-14c-3.3 0-6 2.7-6 6s2.7 6 6 6 6-2.7 6-6-2.7-6-6-6zm0 10c-2.2 0-4-1.8-4-4s1.8-4 4-4 4 1.8 4 4-1.8 4-4 4zm0-6c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z"/></svg>
+                            <div class="callout-content">
+                                <strong>First, the fundamentals.</strong> The tips below will help, but they won't matter much if you skip the core principles.
+                                <a href="#theory-to-reality" class="callout-link">Read "From Theory to Reality" →</a>
+                            </div>
+                        </div>
+
+                        <h4>Working with Claude</h4>
+                        <div class="tip-cards">
+                            <div class="tip-card">
+                                <h4>Be Specific About Quality</h4>
+                                <p>Add phrases like "be thorough versus fast" or "test it thoroughly before telling me it's done." Claude will put in more effort when you signal that quality matters.</p>
+                            </div>
+                            <div class="tip-card">
+                                <h4>Ask for the Full Solution</h4>
+                                <p>Instead of accepting "you'll need to..." responses, say: "Don't just tell me what to do—do it for me." Claude can often complete tasks it initially just explains.</p>
+                            </div>
+                            <div class="tip-card">
+                                <h4>Provide Context</h4>
+                                <p>Share relevant files and explain the bigger picture. "This is for a quarterly board report" helps Claude make better decisions than just "analyze this data."</p>
+                            </div>
+                            <div class="tip-card">
+                                <h4>Paste Images Liberally</h4>
+                                <p>Claude can see images! Paste screenshots of errors, design mockups, data samples, or UI examples directly into your chat. It's often faster than describing what you're looking at.</p>
+                                <p class="os-specific mac" style="margin-top: 8px; font-size: 0.85em; color: var(--text-muted);"><strong>Mac tip:</strong> Use <kbd>Ctrl</kbd>+<kbd>V</kbd> (not <kbd>Cmd</kbd>+<kbd>V</kbd>) to paste images in the terminal.</p>
+                            </div>
+                        </div>
+
+                        <h4 style="margin-top: 24px;">APIs and Environment Variables</h4>
+                        <p>As you build more powerful tools, you may want to connect to external services (Airtable, HubSpot, Google Sheets, etc.). These connections use <strong>API keys</strong>—secret passwords that grant access.</p>
+
+                        <div class="callout callout-warning" style="margin: 12px 0;">
+                            <svg class="callout-icon" viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M1 21h22L12 2 1 21zm12-3h-2v-2h2v2zm0-4h-2v-4h2v4z"/></svg>
+                            <div class="callout-content">
+                                <strong>Never put API keys directly in your code.</strong> Anyone who sees your code would have your keys. Instead, store them in a <code>.env</code> file.
+                            </div>
+                        </div>
+
+                        <p>Create a file called <code>.env</code> in your project root:</p>
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="code-label">.env file</span>
+                            </div>
+                            <pre><code># My API Keys (never commit this file!)
+AIRTABLE_API_KEY=your_key_here
+OPENAI_API_KEY=your_key_here
+HUBSPOT_API_KEY=your_key_here</code></pre>
+                        </div>
+
+                        <p>Your <code>.gitignore</code> file (from the templates) already includes <code>.env</code>, so it won't be uploaded to GitHub. Ask Claude to help you set up any API connections—it will use the <code>.env</code> pattern automatically.</p>
+
+                        <h4 style="margin-top: 24px;">Refactoring Existing Code</h4>
+                        <p>When you need to restructure or improve an existing project, Claude can help—but refactoring requires a disciplined approach:</p>
+
+                        <div class="principles-grid">
+                            <div class="principle-card">
+                                <h4>Understand First</h4>
+                                <p>Before changing anything, ask Claude to explain the current architecture. "Walk me through how this codebase is structured and how the pieces connect."</p>
+                            </div>
+                            <div class="principle-card">
+                                <h4>Plan Before Coding</h4>
+                                <p>Document what you're changing and why. Ask Claude to create a refactoring plan with clear steps before touching any code.</p>
+                            </div>
+                            <div class="principle-card">
+                                <h4>One Change at a Time</h4>
+                                <p>Refactor incrementally. Make one change, test it works, commit it. Then move to the next. Never leave the codebase broken.</p>
+                            </div>
+                            <div class="principle-card">
+                                <h4>Don't Mix with Features</h4>
+                                <p>Refactoring and adding features are separate tasks. Do one or the other, not both at once. Mixing them makes bugs hard to trace.</p>
+                            </div>
+                        </div>
+
+                        <h4 style="margin-top: 24px;">Safety Basics</h4>
+                        <p>Claude is powerful—which means a few simple habits keep your work secure:</p>
+
+                        <div class="safety-list">
+                            <div class="safety-item">
+                                <span class="safety-icon"><svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M12.65 10C11.83 7.67 9.61 6 7 6c-3.31 0-6 2.69-6 6s2.69 6 6 6c2.61 0 4.83-1.67 5.65-4H17v4h4v-4h2v-4H12.65zM7 14c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2z"/></svg></span>
+                                <div class="safety-content">
+                                    <strong>Protect API Keys</strong>
+                                    <p>Keep them in <code>.env</code> files, never in code. Your <code>.gitignore</code> prevents them from being uploaded.</p>
+                                </div>
+                            </div>
+                            <div class="safety-item">
+                                <span class="safety-icon"><svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg></span>
+                                <div class="safety-content">
+                                    <strong>Review Before Approving</strong>
+                                    <p>Claude asks permission before running commands or making changes. Take a moment to understand what it's about to do.</p>
+                                </div>
+                            </div>
+                            <div class="safety-item">
+                                <span class="safety-icon"><svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M17 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V7l-4-4zm2 16H5V5h11.17L19 7.83V19zm-7-7c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3zM6 6h9v4H6V6z"/></svg></span>
+                                <div class="safety-content">
+                                    <strong>Commit Often</strong>
+                                    <p>Regular Git commits mean you can always undo changes. If something goes wrong, you have a safe point to return to.</p>
+                                </div>
+                            </div>
+                            <div class="safety-item">
+                                <span class="safety-icon"><svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M10 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2h-8l-2-2z"/></svg></span>
+                                <div class="safety-content">
+                                    <strong>Keep Projects Separate</strong>
+                                    <p>One folder per project, one venv per project. This prevents Claude from accidentally affecting other work.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tab-content" id="tab-commands">
                         <div class="command-category">
                             <h4>Navigation</h4>
                             <table class="command-table">
@@ -2258,223 +3083,6 @@ HUBSPOT_API_KEY=your_key_here</code></pre>
                 </div>
             </section>
 
-            <!-- ADVANCED TOPICS SECTION -->
-            <section id="advanced" class="section">
-                <div class="section-header">
-                    <span class="section-number">L2</span>
-                    <h2>Level 2: Advanced Topics</h2>
-                </div>
-
-                <p class="section-intro">Ready to go deeper? These topics build on the fundamentals. Tackle them as needed — you don't have to read everything at once.</p>
-
-                <div class="callout callout-info">
-                    <svg class="callout-icon" viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
-                    <div class="callout-content">
-                        <strong>When do I need this?</strong> Most users can accomplish their goals with the basics. Come back here when you hit a specific need — like inspecting a database Claude created, or connecting to your company's SQL Server.
-                    </div>
-                </div>
-
-                <!-- SQLite Basics -->
-                <div class="content-block" id="advanced-sqlite">
-                    <h3>Working with SQLite Databases</h3>
-                    <p><strong>What it is:</strong> SQLite is a lightweight database stored as a single file. Claude often creates these automatically when your data is too large for Excel or needs relational queries.</p>
-
-                    <p><strong>When you'll encounter it:</strong></p>
-                    <ul>
-                        <li>Claude says "I'll store this in a SQLite database for better performance"</li>
-                        <li>You see a <code>.db</code> or <code>.sqlite</code> file appear in your project</li>
-                        <li>You want to inspect what Claude built without asking it to query</li>
-                    </ul>
-
-                    <p><strong>How to view SQLite databases in VS Code:</strong></p>
-                    <ol class="step-list">
-                        <li>Open VS Code Extensions (<kbd>Cmd</kbd>+<kbd>Shift</kbd>+<kbd>X</kbd> / <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>X</kbd>)</li>
-                        <li>Search for <strong>"SQLite Viewer"</strong> by Florian Klampfer</li>
-                        <li>Click Install</li>
-                        <li>Click any <code>.db</code> file in your project — it opens as a spreadsheet view</li>
-                    </ol>
-
-                    <div class="callout callout-tip">
-                        <svg class="callout-icon" viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M9 21c0 .55.45 1 1 1h4c.55 0 1-.45 1-1v-1H9v1zm3-19C8.14 2 5 5.14 5 9c0 2.38 1.19 4.47 3 5.74V17c0 .55.45 1 1 1h6c.55 0 1-.45 1-1v-2.26c1.81-1.27 3-3.36 3-5.74 0-3.86-3.14-7-7-7z"/></svg>
-                        <div class="callout-content">
-                            <strong>Pro tip:</strong> You don't usually need to query SQLite directly. Just ask Claude: "Show me all records where status is 'pending'" — it will write and run the query for you.
-                        </div>
-                    </div>
-                </div>
-
-                <!-- SQL Server / Azure SQL -->
-                <div class="content-block" id="advanced-sqlserver">
-                    <h3>Connecting to SQL Server / Azure SQL</h3>
-                    <p><strong>What it is:</strong> Enterprise databases your company likely uses. Unlike SQLite (a file), these run on servers and require connection credentials.</p>
-
-                    <p><strong>When you'll need this:</strong></p>
-                    <ul>
-                        <li>Your company has existing data in SQL Server or Azure SQL</li>
-                        <li>You want Claude to query production data (read-only recommended!)</li>
-                        <li>You're building dashboards that connect to company databases</li>
-                    </ul>
-
-                    <p><strong>Option 1: VS Code Extension</strong></p>
-                    <ol class="step-list">
-                        <li>Install the <strong>"SQL Server (mssql)"</strong> extension by Microsoft</li>
-                        <li>Click the SQL Server icon in the sidebar</li>
-                        <li>Add a connection with your server details</li>
-                        <li>Browse tables, run queries directly in VS Code</li>
-                    </ol>
-
-                    <p><strong>Option 2: Azure Data Studio</strong> (standalone app)</p>
-                    <ul>
-                        <li>Download from <a href="https://azure.microsoft.com/en-us/products/data-studio" target="_blank">azure.microsoft.com/products/data-studio</a></li>
-                        <li>More powerful than the extension for complex work</li>
-                        <li>Built-in query editor, execution plans, notebooks</li>
-                    </ul>
-
-                    <div class="callout callout-warning">
-                        <svg class="callout-icon" viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M1 21h22L12 2 1 21zm12-3h-2v-2h2v2zm0-4h-2v-4h2v4z"/></svg>
-                        <div class="callout-content">
-                            <strong>Be careful:</strong> When connecting Claude to production databases, always use read-only credentials. One wrong UPDATE statement can ruin your day.
-                        </div>
-                    </div>
-                </div>
-
-                <!-- API Keys Deep Dive -->
-                <div class="content-block" id="advanced-api-keys">
-                    <h3>Managing API Keys & Secrets</h3>
-                    <p>The basics covered <code>.env</code> files. Here's more depth for when you're juggling multiple APIs.</p>
-
-                    <p><strong>Best practices:</strong></p>
-                    <ul>
-                        <li><strong>One .env per project</strong> — Don't share across projects</li>
-                        <li><strong>Never commit .env</strong> — Your <code>.gitignore</code> should already exclude it</li>
-                        <li><strong>Use descriptive names</strong> — <code>OPENAI_API_KEY</code> not <code>KEY1</code></li>
-                        <li><strong>Document required keys</strong> — Add a <code>.env.example</code> file with placeholder values</li>
-                    </ul>
-
-                    <p><strong>Example .env.example file:</strong></p>
-                    <div class="code-block">
-                        <div class="code-header">
-                            <span class="code-label">.env.example</span>
-                        </div>
-                        <pre><code># Copy this file to .env and fill in your actual keys
-OPENAI_API_KEY=sk-your-key-here
-AIRTABLE_API_KEY=pat-your-key-here
-DATABASE_URL=your-connection-string</code></pre>
-                    </div>
-
-                    <p><strong>Loading in Python:</strong></p>
-                    <div class="code-block">
-                        <div class="code-header">
-                            <span class="code-label">Python</span>
-                        </div>
-                        <pre><code>from dotenv import load_dotenv
-import os
-
-load_dotenv()  # Reads .env file
-
-api_key = os.getenv("OPENAI_API_KEY")
-if not api_key:
-    raise ValueError("Missing OPENAI_API_KEY in .env")</code></pre>
-                    </div>
-
-                    <div class="callout callout-tip">
-                        <svg class="callout-icon" viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M9 21c0 .55.45 1 1 1h4c.55 0 1-.45 1-1v-1H9v1zm3-19C8.14 2 5 5.14 5 9c0 2.38 1.19 4.47 3 5.74V17c0 .55.45 1 1 1h6c.55 0 1-.45 1-1v-2.26c1.81-1.27 3-3.36 3-5.74 0-3.86-3.14-7-7-7z"/></svg>
-                        <div class="callout-content">
-                            <strong>Tell Claude about your .env:</strong> When starting a session, mention "I have API keys in .env" — Claude will use <code>python-dotenv</code> automatically.
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Working with Large Files -->
-                <div class="content-block" id="advanced-large-files">
-                    <h3>Working with Large Files</h3>
-                    <p>Excel has limits. Here's what to do when your data outgrows spreadsheets.</p>
-
-                    <p><strong>Signs you've outgrown Excel:</strong></p>
-                    <ul>
-                        <li>Files over 50MB or 500K+ rows</li>
-                        <li>Excel crashes or freezes during analysis</li>
-                        <li>You need to join data from multiple large files</li>
-                        <li>Repeated analyses that could be automated</li>
-                    </ul>
-
-                    <p><strong>Solutions Claude can help with:</strong></p>
-                    <table class="command-table" style="margin: 16px 0;">
-                        <tr>
-                            <td><strong>Chunked processing</strong></td>
-                            <td>Read large files in pieces, process, combine results</td>
-                        </tr>
-                        <tr>
-                            <td><strong>SQLite conversion</strong></td>
-                            <td>Import CSV/Excel into SQLite for fast queries</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Parquet files</strong></td>
-                            <td>Compressed columnar format — 10x smaller, 10x faster</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Sampling</strong></td>
-                            <td>Analyze a representative subset first</td>
-                        </tr>
-                    </table>
-
-                    <p><strong>Example prompt:</strong></p>
-                    <div class="code-block">
-                        <div class="code-header">
-                            <span class="code-label">Ask Claude</span>
-                        </div>
-                        <pre><code>I have a 2GB CSV file with sales transactions. It's too big for
-Excel. Help me:
-1. Import it into SQLite
-2. Create summary queries for monthly totals by region
-3. Export the summary to Excel for my report</code></pre>
-                    </div>
-                </div>
-
-                <!-- Debugging with Claude -->
-                <div class="content-block" id="advanced-debugging">
-                    <h3>Debugging with Claude</h3>
-                    <p>When things break, here's how to get Claude's help effectively.</p>
-
-                    <p><strong>What to include when reporting errors:</strong></p>
-                    <ol class="step-list">
-                        <li><strong>The full error message</strong> — Copy the entire traceback, not just the last line</li>
-                        <li><strong>What you were trying to do</strong> — "I ran the script to process sales data"</li>
-                        <li><strong>What you expected</strong> — "It should create a summary.xlsx file"</li>
-                        <li><strong>What actually happened</strong> — "It crashed after processing 500 rows"</li>
-                    </ol>
-
-                    <p><strong>Example debugging prompt:</strong></p>
-                    <div class="code-block">
-                        <div class="code-header">
-                            <span class="code-label">Ask Claude</span>
-                        </div>
-                        <pre><code>I got this error when running the analysis script:
-
-[paste full error here]
-
-I was trying to process the Q4 sales file. It worked yesterday
-with the Q3 file. What's different and how do I fix it?</code></pre>
-                    </div>
-
-                    <p><strong>Common issues Claude can diagnose:</strong></p>
-                    <ul>
-                        <li><strong>ModuleNotFoundError</strong> — Missing package (forgot to activate venv or install)</li>
-                        <li><strong>FileNotFoundError</strong> — Wrong path or file moved</li>
-                        <li><strong>KeyError</strong> — Column name mismatch in data</li>
-                        <li><strong>PermissionError</strong> — File open in another program</li>
-                        <li><strong>Memory errors</strong> — File too large (see Large Files section above)</li>
-                    </ul>
-
-                    <div class="callout callout-tip">
-                        <svg class="callout-icon" viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M9 21c0 .55.45 1 1 1h4c.55 0 1-.45 1-1v-1H9v1zm3-19C8.14 2 5 5.14 5 9c0 2.38 1.19 4.47 3 5.74V17c0 .55.45 1 1 1h6c.55 0 1-.45 1-1v-2.26c1.81-1.27 3-3.36 3-5.74 0-3.86-3.14-7-7-7z"/></svg>
-                        <div class="callout-content">
-                            <strong>Prevention tip:</strong> Ask Claude to add error handling when writing scripts: "Add try/except blocks with helpful error messages so I know what went wrong."
-                        </div>
-                    </div>
-                </div>
-
-            </section>
-
         </div>
     </main>
 
@@ -2492,7 +3100,7 @@ with the Q3 file. What's different and how do I fix it?</code></pre>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2025 AscendNxt. All rights reserved.</p>
+                <p>&copy; 2025-2026 AscendNxt. All rights reserved.</p>
             </div>
         </div>
     </footer>

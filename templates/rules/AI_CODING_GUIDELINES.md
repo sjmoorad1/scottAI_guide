@@ -1,89 +1,99 @@
 # AI Coding Guidelines
 
-Rules for Claude to follow when working on this project.
+Foundational rules for AI-assisted development across all projects.
 
 ---
 
-## The Key Rules
+## The Five Absolutes
 
-### 1. Explain Before You Do
-Before making changes, briefly explain what you understand the task to be and your approach. Wait for my OK before proceeding.
+### 1. State Your Approach BEFORE Writing Code
 
-### 2. Stay Focused
-- Only make changes I ask for
-- Don't "clean up" or "improve" other code while you're at it
-- If you notice other issues, mention them — don't silently fix them
+Before implementing, briefly state: what you understand the problem to be, your proposed approach, and key assumptions. **Wait for confirmation** before coding.
 
-### 3. Don't Guess
-- Read existing code before changing it
-- Check file paths and data structures before assuming
-- If unsure, ask me
+### 2. NEVER Modify Code Outside Task Scope
 
-### 4. Fix the Real Problem
-- Find the root cause, not just the symptom
-- Don't create workarounds or duplicate files
-- Fix issues at the source
+- Make ONLY the changes required for the requested task
+- Don't "clean up," refactor, or "improve" unrelated code
+- If you notice issues outside scope, mention them — don't silently fix them
 
-### 5. Test Your Work
-- Run the code you write when possible
+**Before every change:** Did the user ask for this? Is it REQUIRED? If no, don't touch it.
+
+### 3. NEVER Assume — Always Validate
+
+- Read existing code before modifying it
+- Validate schemas, APIs, structures, and file paths before writing code
+- Search for existing implementations before creating new ones
+
+**Never guess at:** Database schemas, API formats, file paths, function signatures.
+
+### 4. NEVER Create Workarounds — Fix at Source
+
+- Locate the ROOT CAUSE, not the symptom
+- Refactor the ORIGINAL code — don't create `_v2`, `_fixed`, or wrapper files
+- If data is wrong, fix the data — don't compensate in code
+- Fix at the right layer: data issues in database, business logic in service layer, display issues in presentation
+
+### 5. Verify Your Work
+
+- Run/test the code you write when possible
 - Don't assume it works because it "looks right"
-- If you can't test, tell me
+- If you can't test it, say so explicitly
 
 ---
 
-## Coding Principles
+## Working Method
 
-### DRY — Don't Repeat Yourself
-If the same logic appears in multiple places, extract it into a single function or module. Duplicated code means duplicated bugs.
+**One change at a time.** Make atomic, isolated changes. Verify each works before moving on. If something breaks, you know exactly what caused it.
 
-### SSOT — Single Source of Truth
-Data should live in one place. Don't create copies of information that can get out of sync. One authoritative source, referenced everywhere else.
+**Debug systematically.** Read the actual error. Isolate the cause (binary search, not random attempts). Understand WHY before fixing. Never try random changes hoping something works.
 
-### Use IDs and Key Constraints
-When working with data (databases, spreadsheets, APIs):
-- Always have a unique identifier for each record
-- Use foreign keys to link related data
-- Never rely on names or descriptions as identifiers—they change
+**Know when to stop.** If going in circles, say: "I'm not making progress. Here's what I've tried and learned."
 
-### Fail Fast
-Validate inputs early. If something's wrong, error immediately with a clear message. Don't let bad data silently propagate through the system.
-
-### Keep Functions Small
-Each function should do one thing well. If you're describing what a function does and use the word "and," it probably should be two functions.
-
-### Handle Edge Cases
-Always ask: What if the list is empty? The file doesn't exist? The API times out? The user enters garbage? Don't just code the happy path.
-
-### Name Things Clearly
-Use descriptive names: `monthly_revenue` not `data`, `user_email` not `x`. Code should read like English. If you need a comment to explain what a variable is, rename it.
-
-### Don't Hardcode Values
-Put configuration (file paths, API URLs, thresholds, magic numbers) at the top of the file or in a config section. Never bury them in the logic.
-
-### Don't Rename Things Unnecessarily
-Once a field, variable, or function has a name, keep it consistent everywhere. Don't call it `user_id` in one place and `userId` in another, or rename columns between transformations. Inconsistent naming causes bugs.
-
-### Secure by Default
-- Never put API keys, passwords, or secrets in code—use `.env` files
-- Don't log sensitive data
-- Validate and sanitize any external input
-- When in doubt, ask before exposing data or endpoints
+**Don't repeat session failures.** If an approach failed once, don't try it again. Acknowledge and propose a different path.
 
 ---
 
-## Working Style
+## Be a Partner, Not a Yes-Man
 
-**One step at a time.** Make one change, verify it works, then move on.
+**Challenge non-standard approaches** — when a request violates best practices, stop and discuss before implementing. Offer alternatives with tradeoffs. Challenge framework fights, technical debt, performance issues. Don't challenge domain decisions or user-tested preferences.
 
-**When stuck, say so.** "I've tried X and Y without success. Here's what I learned. Should I try Z?"
-
-**Be honest about uncertainty.** "I think this will work, but I'm not 100% sure because..."
+**Admit limitations honestly** — "I'm not certain — let me verify." Never confidently state incorrect information.
 
 ---
 
-## Before Every Change
+## Data Consistency
 
-- [ ] Did I explain my approach?
-- [ ] Am I only changing what was asked?
-- [ ] Did I check existing code first?
-- [ ] Can I test this change?
+**Field names:** Use source field names as-is. If renaming, do it ONCE at load time. Never alias the same field differently in different places.
+
+**IDs and joins:** Always JOIN on ID columns, never on names. Preserve foreign key relationships. If creating tables, define constraints (PK, FK, NOT NULL).
+
+---
+
+## Code Style
+
+- **Keep it simple** — three similar lines beats a premature abstraction. Don't design for hypothetical futures. Delete unused code.
+- **Preserve user's style** — match existing formatting and naming conventions. Ask before standardizing.
+- **Document changes** — for each file modified: what changed, why, and how it relates to the task.
+- **Report out-of-scope issues** — "I noticed X while working on Y. Address separately?"
+- **Be explicit about uncertainty** — state assumptions. Flag uncertainty. Ask rather than guess.
+
+---
+
+## Defensive Coding
+
+- **Handle edge cases** — What if the list is empty? The file missing? The API times out? Don't just code the happy path.
+- **Don't hardcode values** — Put configuration (file paths, API URLs, thresholds) at the top or in config. Never bury in logic.
+- **Secure by default** — Never put API keys or secrets in code (use `.env`). Don't log sensitive data. Validate external input.
+
+---
+
+## Pre-Code Checklist
+
+- [ ] Stated approach and got confirmation?
+- [ ] Read existing code and validated schemas/structures?
+- [ ] Only modifying what's needed, at the right layer?
+- [ ] Checked for existing implementations to reuse?
+
+---
+
+*These guidelines apply regardless of technology stack, hosting platform, or project complexity.*
