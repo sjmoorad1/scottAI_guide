@@ -1883,7 +1883,7 @@
                 <div class="callout callout-info">
                     <svg class="callout-icon" viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
                     <div class="callout-content">
-                        <strong>You should be comfortable with:</strong> Starting Claude sessions, navigating the terminal, working in a project folder with a virtual environment, and pushing code to GitHub. If any of that feels unfamiliar, complete <a href="#phase1" class="inline-link">Level 1</a> first.
+                        <strong>You should be comfortable with:</strong> Starting Claude sessions, navigating the terminal, working in a project folder with a virtual environment, and pushing code to GitHub. If any of that feels unfamiliar, complete <a href="#phase1" class="inline-link">Level 1</a> first. And if you haven't internalized the <a href="#theory-to-reality" class="inline-link">From Theory to Reality</a> principles, read those now — they're the foundation everything here builds on.
                     </div>
                 </div>
 
@@ -2632,13 +2632,64 @@ base.html with:
                     </div>
 
                     <div class="tab-content active" id="tab-tips">
-                        <div class="callout callout-important" style="margin-bottom: 20px;">
-                            <svg class="callout-icon" viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10S17.5 2 12 2zm0 18c-4.4 0-8-3.6-8-8s3.6-8 8-8 8 3.6 8 8-3.6 8-8 8zm0-14c-3.3 0-6 2.7-6 6s2.7 6 6 6 6-2.7 6-6-2.7-6-6-6zm0 10c-2.2 0-4-1.8-4-4s1.8-4 4-4 4 1.8 4 4-1.8 4-4 4zm0-6c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z"/></svg>
-                            <div class="callout-content">
-                                <strong>First, the fundamentals.</strong> The tips below will help, but they won't matter much if you skip the core principles.
-                                <a href="#theory-to-reality" class="callout-link">Read "From Theory to Reality" →</a>
+
+                        <!-- From Theory to Reality — duplicated here for discoverability -->
+                        <h4 style="color: var(--brand-orange); margin-bottom: var(--space-sm);">From Theory to Reality: What Actually Works</h4>
+                        <p style="margin-bottom: var(--space-md);">The difference between "okay" results and genuinely useful output comes down to how you set up and guide the work.</p>
+
+                        <div class="key-principle">
+                            <div class="principle-header">
+                                <span class="principle-icon"><svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8z"/><circle cx="12" cy="12" r="5"/></svg></span>
+                                <h4>Start Strong: Spell Out Everything Up Front</h4>
+                            </div>
+                            <p>Before Claude writes a single line, clearly describe:</p>
+                            <ul>
+                                <li><strong>The need</strong> — What problem are you solving? Why does this matter?</li>
+                                <li><strong>The functionality</strong> — What should it do, step by step?</li>
+                                <li><strong>The end result</strong> — What does "done" look like? What output do you expect?</li>
+                                <li><strong>The usage</strong> — Who will use this? How? How often?</li>
+                            </ul>
+                            <p>For larger projects, consider writing a <strong>PRD (Product Requirements Document)</strong>. <a href="#tab-prd" class="inline-link" onclick="document.querySelector('[data-tab=prd]').click(); return false;">See PRD template →</a></p>
+                        </div>
+
+                        <div class="key-principle">
+                            <div class="principle-header">
+                                <span class="principle-icon"><svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg></span>
+                                <h4>Review Like a Manager</h4>
+                            </div>
+                            <p>After Claude completes work, don't just accept it. Ask Claude to review its own work <em>as if it were a manager</em>:</p>
+                            <div class="example-prompt-inline">"Now review this as if you were a senior app development manager. Evaluate the design, the code quality, and the results. What would you improve?"</div>
+                            <p>Tailor the reviewer role: CFO for financial analysis, data architect for database design, UX expert for user-facing tools.</p>
+                        </div>
+
+                        <div class="key-principle">
+                            <div class="principle-header">
+                                <span class="principle-icon"><svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg></span>
+                                <h4>Partner, Not Yes-Man</h4>
+                            </div>
+                            <p>Tell Claude explicitly: <strong>"Be my partner, not a yes-man."</strong> You want Claude to push back when something doesn't make sense, suggest better approaches, and challenge assumptions.</p>
+                        </div>
+
+                        <div class="principles-grid" style="margin-bottom: var(--space-lg);">
+                            <div class="principle-card">
+                                <h4>Never Assume</h4>
+                                <p>Tell Claude: "If you're unsure about anything, ask me rather than guessing."</p>
+                            </div>
+                            <div class="principle-card">
+                                <h4>DRY — Don't Repeat Yourself</h4>
+                                <p>If Claude is duplicating logic, call it out. One piece of code, one source of truth.</p>
+                            </div>
+                            <div class="principle-card">
+                                <h4>SSOT — Single Source of Truth</h4>
+                                <p>Data should live in one place. Insist on one authoritative source.</p>
+                            </div>
+                            <div class="principle-card">
+                                <h4>Iterate and Refine</h4>
+                                <p>Say "that's close, but can you also..." to guide Claude toward exactly what you need.</p>
                             </div>
                         </div>
+
+                        <hr style="border: none; border-top: 1px solid var(--border-color); margin: var(--space-lg) 0;">
 
                         <h4>Working with Claude</h4>
                         <div class="tip-cards">
