@@ -25,8 +25,8 @@
     }
 
     function logAccess(email, status) {
-        // Skip logging for admin (temporarily disabled for testing)
-        // if (email === 'sjmoorad@gmail.com') return;
+        // Skip logging for admin
+        if (email === 'sjmoorad@gmail.com') return;
 
         fetch(`${SUPABASE_URL}/rest/v1/session_logs`, {
             method: 'POST',
