@@ -13,7 +13,8 @@
     const AUTH_KEY = 'agentic-ai-guide-auth';
     const EMAIL_KEY = 'agentic-ai-guide-email';
     const CORRECT_PASSWORD = 'Time2ElevateMyAIGame#1';
-    const LOG_URL = 'https://script.google.com/macros/s/AKfycbyb0PPh_0F9eypxzKdwciGmWlxB_bASTn-94y5Qh4WZSYMDUgOHR5q7JsTK-8qZd6O1/exec';
+    const SUPABASE_URL = 'https://yzlvoixolvmabxnhnyra.supabase.co';
+    const SUPABASE_ANON_KEY = 'sb_publishable_-mNMhKfju_VlWLA59KG2Ug_x31A72xB';
 
     function checkAuth() {
         return localStorage.getItem(AUTH_KEY) === 'authenticated' && localStorage.getItem(EMAIL_KEY);
@@ -24,13 +25,16 @@
     }
 
     function logAccess(email, status) {
-        // Skip logging for admin
-        if (email === 'sjmoorad@gmail.com') return;
+        // Skip logging for admin (temporarily disabled for testing)
+        // if (email === 'sjmoorad@gmail.com') return;
 
-        fetch(LOG_URL, {
+        fetch(`${SUPABASE_URL}/rest/v1/session_logs`, {
             method: 'POST',
-            mode: 'no-cors',
-            headers: { 'Content-Type': 'application/json' },
+            headers: {
+                'Content-Type': 'application/json',
+                'apikey': SUPABASE_ANON_KEY,
+                'Authorization': `Bearer ${SUPABASE_ANON_KEY}`
+            },
             body: JSON.stringify({ email: email, status: status })
         }).catch(() => {}); // Silent fail - don't block user
     }
