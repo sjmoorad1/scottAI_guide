@@ -1,5 +1,9 @@
 # Agentic AI Setup Guide - Session Log
 
+## 2026-04-11: Audio notification setup step
+- **What was done:** Added optional "Enable Audio Notifications" sub-step in Phase 2 (after model config). Platform-specific: Mac (afplay) and Windows (PowerShell SystemSounds). Added matching tip card in Reference > Tips tab. Updated CHANGELOG.
+- **Key decisions:** Placed in Phase 2 initial setup (not Level 2) — users benefit from day one. Kept as optional with accordion-free layout since it's short.
+
 ## 2026-04-10: Major restructure + multi-role review polish
 - **What was done:** 3-level structure (L1 Setup, L2 Skills, L3 Apps). 9 new content sections. Nav redesign with divider. Tips merged into Reference. "Choose Your Tool" table. Showcase section with placeholders. Model refs → 4.6. Templates → Five Absolutes. Multi-role review fixes: glossary (+10 terms), hidden files note, banner manual dismiss, info-table mobile fix, /model + /compact commands, model docs link. "From Theory to Reality" duplicated into Tips tab + cross-linked from L2. Graduation block colors → warm gold.
 - **Key decisions:** CLI-first (not Desktop) for terminal literacy. Tips duplicated intentionally (documented in CLAUDE.md). L3 full content not teasers. Graduation blocks: gold for L1/L2, green for L3 summit.

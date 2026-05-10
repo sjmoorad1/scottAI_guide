@@ -87,6 +87,50 @@ Before implementing, briefly state: what you understand the problem to be, your 
 
 ---
 
+## Azure Deployment — GitHub Actions Setup
+
+When deploying a Flask app to Azure App Service with GitHub Actions CI/CD, there are **manual Portal steps** that cannot be automated via CLI. These are routinely missed and cause failed deployments.
+
+**After creating the App Service and workflow file, complete these steps:**
+
+1. **Enable SCM basic auth** (CLI — do this first):
+   ```bash
+   az resource update --resource-group <rg> --name scm \
+     --namespace Microsoft.Web --resource-type basicPublishingCredentialsPolicies \
+     --parent sites/<app-name> --set properties.allow=true
+   az resource update --resource-group <rg> --name ftp \
+     --namespace Microsoft.Web --resource-type basicPublishingCredentialsPolicies \
+     --parent sites/<app-name> --set properties.allow=true
+   ```
+
+2. **Download publish profile** (Portal — cannot be done via CLI, it redacts credentials):
+   - Azure Portal → App Services → `<app-name>` → toolbar → **"Get publish profile"**
+   - Downloads a `.PublishSettings` XML file to your Downloads folder
+
+3. **Add as GitHub secret** (GitHub — must be done in browser):
+   - Open the downloaded `.PublishSettings` file in a **text editor**
+   - **Select All** (Cmd+A / Ctrl+A) → **Copy** (Cmd+C / Ctrl+C) — it's XML, copy the full content
+   - Go to: `https://github.com/<owner>/<repo>/settings/secrets/actions/new`
+   - Name: `AZUREAPPSERVICE_PUBLISHPROFILE_<APPNAME>` (uppercase, underscores, no hyphens)
+   - Secret: **paste** the full XML content
+   - Click **"Add secret"**
+
+4. **Trigger first deploy**:
+   - Go to the repo's **Actions** tab → select the workflow → click **"Run workflow"** → confirm
+   - Or: `gh workflow run "<workflow name>" --repo <owner>/<repo> --ref main`
+   - Or: push a change to `main` that touches a watched path
+
+**Critical App Service setting for first deploy:**
+```bash
+az webapp config appsettings set --name <app-name> --resource-group <rg> \
+  --settings SCM_DO_BUILD_DURING_DEPLOYMENT=true
+```
+Without this, the publish profile deploy copies files directly but **skips the Oryx build** — meaning `requirements.txt` is never installed and the app crashes with `ModuleNotFoundError`. This setting tells Azure to run `pip install -r requirements.txt` and build the `antenv` venv during deployment.
+
+**Do NOT attempt zip deploy, `az webapp up`, or other CLI-based deployment shortcuts.** These routinely fail due to file size, connection timeouts, or missing exclusions. Let GitHub Actions handle deployment — it's the proven pattern.
+
+---
+
 ## Pre-Code Checklist
 
 - [ ] Stated approach and got confirmation?

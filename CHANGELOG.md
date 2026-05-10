@@ -2,6 +2,25 @@
 
 User-facing changes to the Agentic AI Setup Guide. Internal fixes (typos, CSS tweaks) are not logged.
 
+## 2026-05-10
+
+### Added
+- [Phase 2] !"New setup step: set your effort level — controls how deeply Claude reasons before responding" Effort level configuration with table of levels and mid-session switching guidance
+- [Tips] !"New section: Tuning Claude's Quality — effort levels, extended thinking, and permission settings" Three tip cards covering effort, thinking, and reducing permission prompts, plus a copyable settings.json example
+- [Commands] Added `/effort max` to Claude CLI commands table
+
+### Changed
+- [Phase 2] !"Model setup updated — use aliases (sonnet, opus) so you always get the latest version" Model config now uses aliases instead of pinned version numbers
+- [Phase 1] Fixed Python version success text — was listing unreleased version
+- [Level 2] Updated Channels minimum version requirement and removed stale "research preview" label
+- [Phase 2] Added current-pricing link to plan comparison
+
+## 2026-04-20
+
+### Added
+- [Phase 3] !"New template: Code Review Requirements — teaches Claude a disciplined review process so it catches bugs instead of saying 'looks good'" Added CODE_REVIEW_REQUIREMENTS.md to rules templates and download table
+- [Tips] Code Reviews & Quality Checks section in Tips & Best Practices with guidance on when and how to trigger reviews
+
 ## 2026-04-11
 
 ### Added

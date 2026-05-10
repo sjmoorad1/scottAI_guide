@@ -18,6 +18,7 @@ The following files in `.claude/rules/` are **automatically loaded** into your c
 - `PROJECT.md` — Business scope, goals, constraints
 - `ARCHITECTURE.md` — Technical specs, stack, patterns
 - `AI_CODING_GUIDELINES.md` — Coding standards and principles
+- `CODE_REVIEW_REQUIREMENTS.md` — Code review and refactor protocol
 
 You do NOT need to manually read these files — they're already in your context.
 
@@ -52,5 +53,6 @@ Do not skip these steps. Do not assume.
 └── rules/                 ← Everything here is auto-loaded
     ├── PROJECT.md
     ├── ARCHITECTURE.md
-    └── AI_CODING_GUIDELINES.md
+    ├── AI_CODING_GUIDELINES.md
+    └── CODE_REVIEW_REQUIREMENTS.md
 ```

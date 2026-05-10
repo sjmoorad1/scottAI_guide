@@ -629,7 +629,7 @@
                         <div class="success-box">
                             <span class="success-icon"><svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg></span>
                             <div class="success-content">
-                                <strong>Success:</strong> You see "Python 3.12.x", "Python 3.13.x", or "Python 3.14.x"
+                                <strong>Success:</strong> You see "Python 3.12.x" or higher (e.g., "Python 3.13.x")
                             </div>
                         </div>
 
@@ -1012,22 +1012,69 @@
                         </details>
 
                         <h4 style="margin: 24px 0 12px 0;">Set Your Default Model</h4>
-                        <p>Claude offers multiple models. <strong>Sonnet 4.6</strong> is fast, cost-effective, and more than capable for most tasks. <strong>Opus 4.6</strong> is the most powerful but uses more of your quota. Confirm Sonnet is your default:</p>
+                        <p>Claude offers multiple models. <strong>Sonnet</strong> is fast, cost-effective, and more than capable for most tasks. <strong>Opus</strong> is the most powerful but uses more of your quota. Set Sonnet as your default:</p>
                         <div class="code-block">
                             <div class="code-header">
                                 <span class="code-label">Terminal</span>
-                                <button class="copy-btn" data-copy="claude config set model claude-sonnet-4-6">
+                                <button class="copy-btn" data-copy="claude config set model sonnet">
                                     <span class="copy-text">Copy</span>
                                     <span class="copied-text">Copied!</span>
                                 </button>
                             </div>
-                            <pre><code>claude config set model claude-sonnet-4-6</code></pre>
+                            <pre><code>claude config set model sonnet</code></pre>
                         </div>
 
                         <div class="callout callout-tip">
                             <svg class="callout-icon" viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M9 21c0 .55.45 1 1 1h4c.55 0 1-.45 1-1v-1H9v1zm3-19C8.14 2 5 5.14 5 9c0 2.38 1.19 4.47 3 5.74V17c0 .55.45 1 1 1h6c.55 0 1-.45 1-1v-2.26c1.81-1.27 3-3.36 3-5.74 0-3.86-3.14-7-7-7z"/></svg>
                             <div class="callout-content">
-                                <strong>When to use Opus:</strong> For complex multi-step tasks, deep code refactoring, or when Sonnet isn't getting it right, switch to Opus for that session: <code>claude --model claude-opus-4-6</code>. <a href="https://docs.anthropic.com/en/docs/about-claude/models" target="_blank" class="inline-link">Learn more about Claude's models →</a>
+                                <strong>When to use Opus:</strong> For complex multi-step tasks, deep code refactoring, or when Sonnet isn't getting it right, switch to Opus for that session: <code>claude --model opus</code>. Using the alias (e.g. <code>sonnet</code>, <code>opus</code>) always resolves to the latest version. <a href="https://docs.anthropic.com/en/docs/about-claude/models" target="_blank" class="inline-link">Learn more about Claude's models →</a>
+                            </div>
+                        </div>
+
+                        <h4 style="margin: 24px 0 12px 0;">Set Your Effort Level</h4>
+                        <p>Effort controls how deeply Claude reasons before responding. Higher effort means more thorough results but slower responses and more quota usage.</p>
+                        <table class="info-table" style="margin-bottom: var(--space-md);">
+                            <thead>
+                                <tr>
+                                    <th style="text-align: left;">Level</th>
+                                    <th style="text-align: left;">Best For</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><code>low</code></td>
+                                    <td>Quick questions, simple lookups</td>
+                                </tr>
+                                <tr>
+                                    <td><code>medium</code></td>
+                                    <td>Routine tasks, straightforward code</td>
+                                </tr>
+                                <tr>
+                                    <td><strong><code>high</code></strong></td>
+                                    <td>Recommended default — thorough analysis and quality code</td>
+                                </tr>
+                                <tr>
+                                    <td><code>max</code></td>
+                                    <td>Complex debugging, architecture, refactoring — deepest reasoning</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <p>Set <code>high</code> as your default:</p>
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="code-label">Terminal</span>
+                                <button class="copy-btn" data-copy="claude config set effortLevel high">
+                                    <span class="copy-text">Copy</span>
+                                    <span class="copied-text">Copied!</span>
+                                </button>
+                            </div>
+                            <pre><code>claude config set effortLevel high</code></pre>
+                        </div>
+
+                        <div class="callout callout-tip">
+                            <svg class="callout-icon" viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M9 21c0 .55.45 1 1 1h4c.55 0 1-.45 1-1v-1H9v1zm3-19C8.14 2 5 5.14 5 9c0 2.38 1.19 4.47 3 5.74V17c0 .55.45 1 1 1h6c.55 0 1-.45 1-1v-2.26c1.81-1.27 3-3.36 3-5.74 0-3.86-3.14-7-7-7z"/></svg>
+                            <div class="callout-content">
+                                <strong>Switching mid-session:</strong> Type <code>/effort max</code> inside Claude to bump effort for a difficult task, then <code>/effort high</code> to return to normal. <a href="#tab-tips" class="inline-link" onclick="document.querySelector('[data-tab=tips]').click(); return false;">More quality tuning tips →</a>
                             </div>
                         </div>
 
@@ -1181,7 +1228,7 @@
                         <div class="callout callout-tip">
                             <svg class="callout-icon" viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M9 21c0 .55.45 1 1 1h4c.55 0 1-.45 1-1v-1H9v1zm3-19C8.14 2 5 5.14 5 9c0 2.38 1.19 4.47 3 5.74V17c0 .55.45 1 1 1h6c.55 0 1-.45 1-1v-2.26c1.81-1.27 3-3.36 3-5.74 0-3.86-3.14-7-7-7z"/></svg>
                             <div class="callout-content">
-                                <strong>Our recommendation:</strong> Start with Pro. You can always upgrade to Max later if you find yourself running out of usage regularly.
+                                <strong>Our recommendation:</strong> Start with Pro. You can always upgrade to Max later if you find yourself running out of usage regularly. Check <a href="https://claude.ai" target="_blank" class="inline-link">claude.ai</a> for current pricing.
                             </div>
                         </div>
                     </div>
@@ -1228,7 +1275,7 @@
                             <span class="callout-icon"><svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg></span>
                             <div class="callout-content">
                                 <strong>Inside Claude vs. Terminal</strong><br>
-                                You're now <em>inside</em> Claude—your prompt shows <code>&gt;</code> waiting for your request. This is different from the regular terminal (which shows <code class="os-text" data-mac="$" data-windows="&gt;">$</code> or your username).<br><br>
+                                You're now <em>inside</em> Claude—your prompt shows <code>&gt;</code> waiting for your request. This is different from the regular terminal (which shows <code class="os-text" data-mac="$" data-windows="PS C:\>">$</code> or your system prompt).<br><br>
                                 <strong>Key difference:</strong>
                                 <ul style="margin: 8px 0 0 16px;">
                                     <li><strong>Inside Claude:</strong> Talk naturally—"create a file", "run the tests", etc. Claude runs commands for you.</li>
@@ -1538,6 +1585,11 @@
                                         <td>Coding standards and principles. <em>(auto-loaded)</em></td>
                                         <td><a href="templates/rules/AI_CODING_GUIDELINES.md" download class="download-link">Download</a></td>
                                     </tr>
+                                    <tr>
+                                        <td><code>CODE_REVIEW_REQUIREMENTS.md</code></td>
+                                        <td>How Claude must conduct code reviews and refactors. <em>(auto-loaded)</em></td>
+                                        <td><a href="templates/rules/CODE_REVIEW_REQUIREMENTS.md" download class="download-link">Download</a></td>
+                                    </tr>
                                 </tbody>
                             </table>
 
@@ -1579,14 +1631,14 @@
                         <ol class="step-list">
                             <li>Open your Downloads folder <span class="os-text" data-mac="in Finder" data-windows="in File Explorer">in Finder</span></li>
                             <li>Drag <code>CLAUDE.md</code> and <code>SESSION_LOG.md</code> into the <code>.claude</code> folder</li>
-                            <li>Drag <code>PROJECT.md</code>, <code>ARCHITECTURE.md</code>, and <code>AI_CODING_GUIDELINES.md</code> into <code>.claude/rules/</code></li>
+                            <li>Drag <code>PROJECT.md</code>, <code>ARCHITECTURE.md</code>, <code>AI_CODING_GUIDELINES.md</code>, and <code>CODE_REVIEW_REQUIREMENTS.md</code> into <code>.claude/rules/</code></li>
                             <li>Drag <code>README.md</code> and <code>.gitignore</code> into the project root (the top level, not inside .claude)</li>
                         </ol>
 
                         <div class="success-box">
                             <span class="success-icon"><svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg></span>
                             <div class="success-content">
-                                <strong>Success:</strong> You see the .claude folder with 2 files and a rules subfolder containing 3 files, plus README.md and .gitignore in the project root.
+                                <strong>Success:</strong> You see the .claude folder with 2 files and a rules subfolder containing 4 files, plus README.md and .gitignore in the project root.
                             </div>
                         </div>
                     </div>
@@ -1604,7 +1656,8 @@
 │   └── rules/              ← Everything here is auto-loaded!
 │       ├── PROJECT.md
 │       ├── ARCHITECTURE.md
-│       └── AI_CODING_GUIDELINES.md
+│       ├── AI_CODING_GUIDELINES.md
+│       └── CODE_REVIEW_REQUIREMENTS.md
 ├── venv/                   ← Your virtual environment
 ├── .gitignore              ← Tells Git what to ignore
 ├── README.md               ← Quick reference for you
@@ -1612,7 +1665,7 @@
                     </div>
                     <ul class="checkpoint-list">
                         <li><label><input type="checkbox" data-checkpoint="3-a"> (venv) appears in your Terminal prompt when activated</label></li>
-                        <li><label><input type="checkbox" data-checkpoint="3-b"> .claude folder has 2 files + rules subfolder with 3 files</label></li>
+                        <li><label><input type="checkbox" data-checkpoint="3-b"> .claude folder has 2 files + rules subfolder with 4 files</label></li>
                         <li><label><input type="checkbox" data-checkpoint="3-c"> README.md and .gitignore are in the project root</label></li>
                     </ul>
                     <div class="checkpoint-complete" id="phase3-complete">
@@ -1801,7 +1854,7 @@
                         <div class="code-block">
                             <div class="code-header">
                                 <span class="code-label">Terminal (outside Claude)</span>
-                                <button class="copy-btn" data-copy="git init && git add . && git commit -m 'Initial project setup'">
+                                <button class="copy-btn" data-copy='git init && git add . && git commit -m "Initial project setup"'>
                                     <span class="copy-text">Copy</span>
                                     <span class="copied-text">Copied!</span>
                                 </button>
@@ -2129,7 +2182,8 @@
 │   ├── CLAUDE.md          # Project overview — auto-loaded every session
 │   ├── SESSION_LOG.md     # Running history of what was done
 │   └── rules/
-│       └── AI_CODING_GUIDELINES.md  # How Claude should write code
+│       ├── AI_CODING_GUIDELINES.md      # How Claude should write code
+│       └── CODE_REVIEW_REQUIREMENTS.md  # How Claude should review code
 ├── .env                   # API keys (gitignored)
 ├── .gitignore
 └── your code...</code></pre>
@@ -2161,7 +2215,7 @@
                     <div class="callout callout-tip">
                         <svg class="callout-icon" viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M9 21c0 .55.45 1 1 1h4c.55 0 1-.45 1-1v-1H9v1zm3-19C8.14 2 5 5.14 5 9c0 2.38 1.19 4.47 3 5.74V17c0 .55.45 1 1 1h6c.55 0 1-.45 1-1v-2.26c1.81-1.27 3-3.36 3-5.74 0-3.86-3.14-7-7-7z"/></svg>
                         <div class="callout-content">
-                            <strong>Ask Claude to set it up for you.</strong> Start a session and say: "Create a .claude folder for this project with a CLAUDE.md, SESSION_LOG.md, and AI_CODING_GUIDELINES.md. Here's what this project does: [describe it]." Claude will scaffold the entire structure.
+                            <strong>Ask Claude to set it up for you.</strong> Start a session and say: "Create a .claude folder for this project with a CLAUDE.md, SESSION_LOG.md, AI_CODING_GUIDELINES.md, and CODE_REVIEW_REQUIREMENTS.md. Here's what this project does: [describe it]." Claude will scaffold the entire structure.
                         </div>
                     </div>
                 </div>
@@ -2476,7 +2530,7 @@ with a count of contacts per company.</code></pre>
                         <li>You're now driving the same local session — your files, tools, and MCP servers are all there</li>
                     </ol>
 
-                    <p><strong>Channels — Telegram example</strong> (research preview — requires Claude Code v2.1.80+ and <a href="https://bun.sh" target="_blank">Bun</a>):</p>
+                    <p><strong>Channels — Telegram example</strong> (requires Claude Code v2.1.100+):</p>
                     <ol class="step-list">
                         <li>Create a Telegram bot via <a href="https://t.me/BotFather" target="_blank">BotFather</a> — copy the token</li>
                         <li>Install the plugin: <code>/plugin install telegram@claude-plugins-official</code></li>
@@ -2977,6 +3031,84 @@ base.html with:
                             </div>
                         </div>
 
+                        <h4 style="margin-top: 24px;">Tuning Claude's Quality</h4>
+                        <p>Beyond prompt wording, these settings directly control how hard Claude works. All live in <code>~/.claude/settings.json</code>. <a href="#step-2-2" class="inline-link">See setup instructions →</a></p>
+
+                        <div class="tip-cards">
+                            <div class="tip-card">
+                                <h4>Effort Level</h4>
+                                <p>Controls reasoning depth. Default to <code>high</code> for a good quality/speed balance. For complex debugging, refactoring, or architecture — type <code>/effort max</code> mid-session.</p>
+                            </div>
+                            <div class="tip-card">
+                                <h4>Extended Thinking</h4>
+                                <p>Claude reasons step-by-step before responding — catching edge cases and producing more thorough work. Uses more of your quota and takes longer. Enable with <code>"alwaysThinkingEnabled": true</code> in settings.json.</p>
+                            </div>
+                            <div class="tip-card">
+                                <h4>Reduce Permission Prompts</h4>
+                                <p>Add a <code>permissions</code> block in settings.json with <code>"defaultMode": "acceptEdits"</code> to auto-approve file operations. Add <code>allow</code> and <code>deny</code> lists for trusted and dangerous shell commands.</p>
+                            </div>
+                        </div>
+
+                        <div class="callout callout-info" style="margin: 16px 0;">
+                            <svg class="callout-icon" viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
+                            <div class="callout-content">
+                                <strong>Recommended starting point:</strong> After setting your model and effort level with the <a href="#step-2-2" class="inline-link">Phase 2 commands</a>, add permissions to reduce approval prompts. Copy the example below — it's a complete file you can paste as-is, or merge the <code>permissions</code> block into your existing settings.json alongside any hooks you've already set up.
+                            </div>
+                        </div>
+
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="code-label">~/.claude/settings.json</span>
+                                <button class="copy-btn" data-copy='{
+  "model": "sonnet",
+  "effortLevel": "high",
+  "permissions": {
+    "defaultMode": "acceptEdits",
+    "allow": [
+      "Read", "Edit", "Write", "Glob", "Grep",
+      "Bash(python:*)", "Bash(python3:*)",
+      "Bash(pip install:*)", "Bash(pip list:*)",
+      "Bash(git status:*)", "Bash(git diff:*)", "Bash(git log:*)",
+      "Bash(git add:*)", "Bash(git commit:*)", "Bash(git push:*)",
+      "Bash(source:*)", "Bash(ls:*)", "Bash(mkdir:*)",
+      "WebSearch"
+    ],
+    "deny": [
+      "Bash(rm -rf *)", "Bash(rm -r *)",
+      "Bash(sudo *)",
+      "Bash(git push --force*)",
+      "Bash(git reset --hard*)"
+    ]
+  }
+}'>
+                                    <span class="copy-text">Copy</span>
+                                    <span class="copied-text">Copied!</span>
+                                </button>
+                            </div>
+                            <pre><code>{
+  "model": "sonnet",
+  "effortLevel": "high",
+  "permissions": {
+    "defaultMode": "acceptEdits",
+    "allow": [
+      "Read", "Edit", "Write", "Glob", "Grep",
+      "Bash(python:*)", "Bash(python3:*)",
+      "Bash(pip install:*)", "Bash(pip list:*)",
+      "Bash(git status:*)", "Bash(git diff:*)", "Bash(git log:*)",
+      "Bash(git add:*)", "Bash(git commit:*)", "Bash(git push:*)",
+      "Bash(source:*)", "Bash(ls:*)", "Bash(mkdir:*)",
+      "WebSearch"
+    ],
+    "deny": [
+      "Bash(rm -rf *)", "Bash(rm -r *)",
+      "Bash(sudo *)",
+      "Bash(git push --force*)",
+      "Bash(git reset --hard*)"
+    ]
+  }
+}</code></pre>
+                        </div>
+
                         <h4 style="margin-top: 24px;">APIs and Environment Variables</h4>
                         <p>As you build more powerful tools, you may want to connect to external services (Airtable, HubSpot, Google Sheets, etc.). These connections use <strong>API keys</strong>—secret passwords that grant access.</p>
 
@@ -3019,6 +3151,35 @@ HUBSPOT_API_KEY=your_key_here</code></pre>
                             <div class="principle-card">
                                 <h4>Don't Mix with Features</h4>
                                 <p>Refactoring and adding features are separate tasks. Do one or the other, not both at once. Mixing them makes bugs hard to trace.</p>
+                            </div>
+                        </div>
+
+                        <h4 style="margin-top: 24px;">Code Reviews & Quality Checks</h4>
+                        <p>Once your project grows beyond a few files, you'll want Claude to <strong>review</strong> its own work — not just write code and move on. The <code>CODE_REVIEW_REQUIREMENTS.md</code> file in your rules folder teaches Claude a disciplined review process:</p>
+
+                        <div class="principles-grid">
+                            <div class="principle-card">
+                                <h4>Read Every File</h4>
+                                <p>Claude must track which files it has actually read (with line counts) before making any claims about code quality.</p>
+                            </div>
+                            <div class="principle-card">
+                                <h4>Trace Data Flows</h4>
+                                <p>Bugs hide between files. Claude must trace what a form sends → what the backend reads → what hits the database → what comes back.</p>
+                            </div>
+                            <div class="principle-card">
+                                <h4>Review as Each User Role</h4>
+                                <p>Define your project's user roles. Claude walks through each screen as each role to catch usability gaps and missing features.</p>
+                            </div>
+                            <div class="principle-card">
+                                <h4>Log Bugs First, Fix Second</h4>
+                                <p>Claude reads everything and logs all issues before fixing anything. This prevents the "fix the first bug, stop looking" pattern.</p>
+                            </div>
+                        </div>
+
+                        <div class="callout callout-info" style="margin: 16px 0;">
+                            <svg class="callout-icon" viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
+                            <div class="callout-content">
+                                <strong>When to use it:</strong> Ask Claude to "review this project using the code review requirements" whenever you've built something substantial and want to catch bugs before they bite you. It's especially valuable before sharing your work or deploying.
                             </div>
                         </div>
 
@@ -3122,6 +3283,11 @@ HUBSPOT_API_KEY=your_key_here</code></pre>
                                     <td><code>/model</code></td>
                                     <td>Switch model mid-session</td>
                                     <td><button class="copy-btn small" data-copy="/model">Copy</button></td>
+                                </tr>
+                                <tr>
+                                    <td><code>/effort</code></td>
+                                    <td>Set effort level (low, medium, high, max)</td>
+                                    <td><button class="copy-btn small" data-copy="/effort">Copy</button></td>
                                 </tr>
                                 <tr>
                                     <td><code>/compact</code></td>
