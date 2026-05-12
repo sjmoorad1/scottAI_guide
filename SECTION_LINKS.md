@@ -25,7 +25,7 @@ https://ascendnxt.com/ai-guide/index.html#phase4
 https://ascendnxt.com/ai-guide/index.html#workflow
 
 **Tips & Best Practices**
-https://ascendnxt.com/ai-guide/index.html#tips
+https://ascendnxt.com/ai-guide/index.html#tab-tips
 
 **Reference**
 https://ascendnxt.com/ai-guide/index.html#reference
