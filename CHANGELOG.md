@@ -2,6 +2,12 @@
 
 User-facing changes to the Agentic AI Setup Guide. Internal fixes (typos, CSS tweaks) are not logged.
 
+## 2026-05-11
+
+### Added
+- [Level 3] !"New topic: Mechanical Guards — pytest tests that scan your codebase on every push and fail when Claude reintroduces a banned pattern (SSOT, security, framework rules)" New level3-guards content block between CI/CD and Modern UI Patterns, with three grouped categories of guards, AST example, and Ask-Claude prompt
+- [Level 3] Added `pytest` step to the CI/CD GitHub Actions YAML example so the guard suite runs on every push
+
 ## 2026-05-10
 
 ### Added

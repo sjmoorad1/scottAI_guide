@@ -103,6 +103,68 @@ https://ascendnxt.com/ai-guide/index.html#theory-to-reality
 
 ---
 
+## Level 2: Leveling Up
+
+**Level 2 (top)**
+https://ascendnxt.com/ai-guide/index.html#advanced
+
+**Prompt Engineering for Better Results**
+https://ascendnxt.com/ai-guide/index.html#advanced-prompting
+
+**Teaching Claude About Your Project**
+https://ascendnxt.com/ai-guide/index.html#advanced-claude-md
+
+**Debugging with Claude**
+https://ascendnxt.com/ai-guide/index.html#advanced-debugging
+
+**Working with SQLite Databases**
+https://ascendnxt.com/ai-guide/index.html#advanced-sqlite
+
+**Connecting to SQL Server / Azure SQL**
+https://ascendnxt.com/ai-guide/index.html#advanced-sqlserver
+
+**Managing API Keys & Secrets**
+https://ascendnxt.com/ai-guide/index.html#advanced-api-keys
+
+**Working with Large Files**
+https://ascendnxt.com/ai-guide/index.html#advanced-large-files
+
+**Working with APIs**
+https://ascendnxt.com/ai-guide/index.html#advanced-apis
+
+**Accessing Claude from Anywhere**
+https://ascendnxt.com/ai-guide/index.html#advanced-remote
+
+---
+
+## Level 3: Building Real Apps
+
+**Level 3 (top)**
+https://ascendnxt.com/ai-guide/index.html#level3
+
+**Your First Web App**
+https://ascendnxt.com/ai-guide/index.html#level3-webapp
+
+**Databases Beyond SQLite**
+https://ascendnxt.com/ai-guide/index.html#level3-databases
+
+**Deploying to the Cloud**
+https://ascendnxt.com/ai-guide/index.html#level3-deploy
+
+**Authentication & Security**
+https://ascendnxt.com/ai-guide/index.html#level3-auth
+
+**CI/CD with GitHub Actions**
+https://ascendnxt.com/ai-guide/index.html#level3-cicd
+
+**Mechanical Guards**
+https://ascendnxt.com/ai-guide/index.html#level3-guards
+
+**Modern UI Patterns**
+https://ascendnxt.com/ai-guide/index.html#level3-ui
+
+---
+
 ## Reference Tabs
 
 **Commands**

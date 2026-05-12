@@ -2595,6 +2595,8 @@ with a count of contacts per company.</code></pre>
                         <span class="topic-sep">·</span>
                         <a href="#level3-cicd">CI/CD with GitHub Actions</a>
                         <span class="topic-sep">·</span>
+                        <a href="#level3-guards">Mechanical Guards</a>
+                        <span class="topic-sep">·</span>
                         <a href="#level3-ui">Modern UI Patterns</a>
                     </div>
                 </div>
@@ -2841,6 +2843,7 @@ jobs:
         with:
           python-version: '3.12'
       - run: pip install -r requirements.txt
+      - run: pytest
       - uses: azure/webapps-deploy@v3
         with:
           app-name: 'your-app-name'
@@ -2861,6 +2864,113 @@ from Azure and adding it as a GitHub secret.</code></pre>
                         <svg class="callout-icon" viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M9 21c0 .55.45 1 1 1h4c.55 0 1-.45 1-1v-1H9v1zm3-19C8.14 2 5 5.14 5 9c0 2.38 1.19 4.47 3 5.74V17c0 .55.45 1 1 1h6c.55 0 1-.45 1-1v-2.26c1.81-1.27 3-3.36 3-5.74 0-3.86-3.14-7-7-7z"/></svg>
                         <div class="callout-content">
                             <strong>Use path filters.</strong> Add <code>paths: ['app/**', 'requirements.txt', 'run.py']</code> to your workflow trigger so it only deploys when you change actual app code — not documentation or notes.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Mechanical Guards -->
+                <div class="content-block" id="level3-guards">
+                    <h3>Mechanical Guards</h3>
+                    <p><strong>What it is:</strong> Pytest tests that scan your entire codebase on every push and fail loudly when Claude (or anyone) reintroduces a banned pattern. The discipline lives in the test, not in anyone's memory.</p>
+
+                    <p><strong>Why it matters:</strong> Over many sessions, Claude drifts on three categories of rules: <strong>SSOT/DRY</strong> (use the constant, not the string), <strong>security</strong> (no <code>|safe</code>, no f-string SQL), and <strong>framework conventions</strong> (use the current API, not the deprecated one). Each refactor pass finds violations the last pass missed, because reviewers look at the slice they're touching, not the whole project. The only durable fix is to turn each rule into a test — the test reads every file, on every push, with no fatigue and no memory loss.</p>
+
+                    <p><strong>What to guard:</strong> the categories below come from a real production app's guard suite. Adapt to your own domain.</p>
+
+                    <p style="margin-top: 12px;"><strong>SSOT &amp; DRY</strong> — one canonical home for each value:</p>
+                    <ul class="step-list">
+                        <li><strong>Status / enum literals</strong> — e.g. <code>"outstanding"</code>, <code>"won"</code>, <code>"lost"</code> must come from a constants module</li>
+                        <li><strong>Master data names</strong> — strategies, regions, customer tiers, facility names</li>
+                        <li><strong>Magic numbers</strong> — sleeve costs, truck capacities, thresholds that have a named home</li>
+                        <li><strong>Design tokens</strong> — hex colors and fonts living anywhere but <code>base.html</code> (must use CSS variables)</li>
+                        <li><strong>Hardcoded dropdown options</strong> — <code>&lt;option value="foo"&gt;</code> outside a <code>{% for %}</code> loop</li>
+                        <li><strong>Inline reproductions of a key calc</strong> — anyone re-deriving the SSOT margin or fee function by hand</li>
+                    </ul>
+
+                    <p style="margin-top: 12px;"><strong>Security</strong> — known dangerous patterns:</p>
+                    <ul class="step-list">
+                        <li><strong>Jinja <code>|safe</code> filter</strong> — XSS risk; use <code>|tojson</code> when injecting data into JavaScript</li>
+                        <li><strong>f-string SQL with user input</strong> — SQL injection; must use parameterized queries</li>
+                    </ul>
+
+                    <p style="margin-top: 12px;"><strong>Framework conventions &amp; resource hygiene</strong> — current API, no leaks:</p>
+                    <ul class="step-list">
+                        <li><strong>Deprecated library APIs</strong> — e.g. <code>new agGrid.Grid()</code> (pre-v32) must be <code>agGrid.createGrid()</code></li>
+                        <li><strong>Multiple DB connections per route</strong> — forces "open once, pass the conn, close in <code>finally</code>"</li>
+                        <li><strong>Vanilla DOM toggles</strong> — <code>element.style.display = '...'</code> in an Alpine app; should use <code>x-show</code> + <code>x-transition</code></li>
+                    </ul>
+
+                    <p style="margin-top: 12px;"><strong>The pattern:</strong> for each guard, one pytest test that walks every <code>.py</code> (or <code>.html</code>, or <code>.js</code>) file, skips the canonical source, and fails listing every offender as <code>file:line offending-value</code>. Same AST mechanism across all three buckets — only the forbidden set and the node type change (string constants for literals, attribute calls for deprecated APIs, assignments for DOM toggles).</p>
+
+                    <div class="code-block">
+                        <div class="code-header">
+                            <span class="code-label">tests/test_ssot_guards.py (status literals example)</span>
+                        </div>
+                        <pre><code>import ast, pathlib, pytest
+
+FORBIDDEN = {"outstanding", "won", "lost"}
+ALLOWLIST = {
+    # path -> reason it's exempt
+    "app/constants.py": "canonical source",
+    "tests/test_ssot_guards.py": "declares the forbidden set",
+}
+
+def test_no_hardcoded_status_literals():
+    offenders = []
+    for path in pathlib.Path("app").rglob("*.py"):
+        rel = str(path)
+        if rel in ALLOWLIST:
+            continue
+        tree = ast.parse(path.read_text())
+        for node in ast.walk(tree):
+            if isinstance(node, ast.Constant) and node.value in FORBIDDEN:
+                offenders.append(f"{rel}:{node.lineno} {node.value!r}")
+    if offenders:
+        pytest.fail("Hardcoded status literals:\n" + "\n".join(offenders))</code></pre>
+                    </div>
+
+                    <p><strong>Workflow:</strong></p>
+                    <ol class="step-list">
+                        <li><strong>Write the test</strong> with the forbidden set plus an allowlist for legitimate exceptions</li>
+                        <li><strong>Run it</strong> — it fails, listing every existing violation</li>
+                        <li><strong>Fix each violation</strong> by routing through the canonical constant</li>
+                        <li><strong>Re-run</strong> — passes. Commit. Any future violation now fails CI immediately.</li>
+                    </ol>
+
+                    <div class="code-block">
+                        <div class="code-header">
+                            <span class="code-label">Ask Claude</span>
+                        </div>
+                        <pre><code>Build a mechanical guard suite at tests/test_guards.py. For each
+rule below, write one pytest test that walks the relevant files,
+parses to AST (or regex for templates), skips a small allowlist,
+and fails listing offenders as file:line offending-value.
+
+SSOT guards (scan app/**/*.py):
+- Status literals: {"outstanding", "won", "lost"}
+- Region names: {"north", "south", "east", "west"}
+- Magic numbers: {0.15, 180}  # with named homes in constants
+- [add your own SSOT-critical sets]
+
+Security guards:
+- No |safe in app/templates/**/*.html (except allowlist)
+- No f-string SQL where the interpolated expression touches
+  request/form/args/json/values
+
+Framework guards:
+- No `new agGrid.Grid(` in templates or app/static/*.js
+- No function in app/routes/*.py that calls get_db() more than once
+- No `.style.display =` assignment in templates or app/static/*.js
+  (except base.html, db_waking.html)
+
+Then run the suite, list every violation, and fix them by routing
+each through the canonical pattern.</code></pre>
+                    </div>
+
+                    <div class="callout callout-tip">
+                        <svg class="callout-icon" viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M9 21c0 .55.45 1 1 1h4c.55 0 1-.45 1-1v-1H9v1zm3-19C8.14 2 5 5.14 5 9c0 2.38 1.19 4.47 3 5.74V17c0 .55.45 1 1 1h6c.55 0 1-.45 1-1v-2.26c1.81-1.27 3-3.36 3-5.74 0-3.86-3.14-7-7-7z"/></svg>
+                        <div class="callout-content">
+                            <strong>Pair with the CI step above.</strong> The <code>pytest</code> step in your GitHub Actions workflow runs these guards on every push — any reintroduced violation fails the build and blocks the deploy, without anyone having to remember the rule.
                         </div>
                     </div>
                 </div>
