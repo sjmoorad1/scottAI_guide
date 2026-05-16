@@ -2595,7 +2595,7 @@ with a count of contacts per company.</code></pre>
                         <span class="topic-sep">·</span>
                         <a href="#level3-cicd">CI/CD with GitHub Actions</a>
                         <span class="topic-sep">·</span>
-                        <a href="#level3-guards">Mechanical Guards</a>
+                        <a href="#level3-guards">Testing & Mechanical Guards</a>
                         <span class="topic-sep">·</span>
                         <a href="#level3-ui">Modern UI Patterns</a>
                     </div>
@@ -2868,12 +2868,75 @@ from Azure and adding it as a GitHub secret.</code></pre>
                     </div>
                 </div>
 
-                <!-- Mechanical Guards -->
+                <!-- Testing & Mechanical Guards -->
                 <div class="content-block" id="level3-guards">
-                    <h3>Mechanical Guards</h3>
-                    <p><strong>What it is:</strong> Pytest tests that scan your entire codebase on every push and fail loudly when Claude (or anyone) reintroduces a banned pattern. The discipline lives in the test, not in anyone's memory.</p>
+                    <h3>Testing & Mechanical Guards</h3>
+                    <p><strong>What it is:</strong> The full safety net for an AI-built codebase. Four tiers, cheapest first: <strong>smoke tests</strong> (does anything load?), <strong>functional tests</strong> (do features actually work?), <strong>mechanical guards</strong> (did Claude reintroduce a banned pattern?), and <strong>CI quality gates</strong> (style, types, schema drift, prod-data protection).</p>
 
-                    <p><strong>Why it matters:</strong> Over many sessions, Claude drifts on three categories of rules: <strong>SSOT/DRY</strong> (use the constant, not the string), <strong>security</strong> (no <code>|safe</code>, no f-string SQL), and <strong>framework conventions</strong> (use the current API, not the deprecated one). Each refactor pass finds violations the last pass missed, because reviewers look at the slice they're touching, not the whole project. The only durable fix is to turn each rule into a test — the test reads every file, on every push, with no fatigue and no memory loss.</p>
+                    <p><strong>Why it matters:</strong> Reviewers look at the slice they're touching. Tests look at everything, on every push, with no fatigue. Without them, Claude drifts — silent data loss on form edits, broken routes after renames, deprecated APIs creeping back in, SSOT violations multiplying. Each tier catches a different failure mode the others miss.</p>
+
+                    <h4 style="margin-top: var(--space-lg);">Tier 1: Smoke tests</h4>
+                    <p><strong>What it is:</strong> The cheapest tests in your suite. Each one answers a single yes/no question: <em>does the thing load at all?</em> No business logic, no assertions about correctness — just "did it explode."</p>
+                    <ul class="step-list">
+                        <li><strong>Import smoke</strong> — imports every module in the package. Catches syntax errors and broken references after renames.</li>
+                        <li><strong>Route/endpoint smoke</strong> — hits every URL with default inputs, asserts a successful response. Catches schema or rename changes that broke a view.</li>
+                        <li><strong>Page render smoke</strong> — headless launch of each page or screen. No exceptions on default inputs.</li>
+                    </ul>
+                    <div class="code-block">
+                        <div class="code-header">
+                            <span class="code-label">Ask Claude</span>
+                        </div>
+                        <pre><code>Add three smoke-test files under tests/:
+- test_imports.py: walk app/**/*.py, import each module, fail
+  listing any ImportError or SyntaxError.
+- test_routes.py: introspect the Flask app, GET every registered
+  URL rule with safe default args, assert status &lt; 500.
+- test_pages.py: same as routes but follow redirects and assert
+  no uncaught exceptions in the response body.
+Each should fit in ~30 lines.</code></pre>
+                    </div>
+
+                    <h4 style="margin-top: var(--space-lg);">Tier 2: Functional tests</h4>
+                    <p><strong>What it is:</strong> Tests that exercise real behavior with real assertions. Where the bugs that hurt customers live.</p>
+                    <ul class="step-list">
+                        <li><strong>Unit tests</strong> — exact-value assertions for business math and pure functions against hand calculations or trusted references.</li>
+                        <li><strong>Integration tests</strong> — wires multiple services together and verifies data flows across boundaries.</li>
+                        <li><strong>Form validation tests</strong> — submits every form, asserts required-field validation produces user-facing errors instead of server crashes.</li>
+                        <li><strong>Data round-trip tests</strong> — submits a form, reads the record back, asserts every field persisted. The single best defense against silent data-loss bugs on edit.</li>
+                        <li><strong>Data lifecycle tests</strong> — walks create → update → state transitions → delete, asserts audit log and cascade behavior.</li>
+                        <li><strong>Browser / UI interaction tests</strong> (Playwright or Selenium) — real browser clicks actual buttons, fills actual forms, verifies modals open and grids populate. The "did the feature really work" gate.</li>
+                        <li><strong>Edge case tests</strong> — empty inputs, nulls, single-row datasets, boundary values, zero/negative cases.</li>
+                        <li><strong>Regression tests</strong> — pinned 1:1 to past production incidents. Each one prevents a known bug from coming back.</li>
+                        <li><strong>Tiered priority (P0/P1/P2)</strong> — group tests by blast radius. P0 = money/safety-critical, hard-fails the build on any regression. P1/P2 can warn without blocking.</li>
+                    </ul>
+                    <div class="callout callout-tip">
+                        <svg class="callout-icon" viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M9 21c0 .55.45 1 1 1h4c.55 0 1-.45 1-1v-1H9v1zm3-19C8.14 2 5 5.14 5 9c0 2.38 1.19 4.47 3 5.74V17c0 .55.45 1 1 1h6c.55 0 1-.45 1-1v-2.26c1.81-1.27 3-3.36 3-5.74 0-3.86-3.14-7-7-7z"/></svg>
+                        <div class="callout-content">
+                            <strong>Data round-trip first.</strong> If you only add one functional test, make it round-trip. Submit the edit form, read the row back, assert every column matches. Catches the most common AI bug: edit handlers that null out fields not shown in the form.
+                        </div>
+                    </div>
+                    <div class="code-block">
+                        <div class="code-header">
+                            <span class="code-label">Ask Claude</span>
+                        </div>
+                        <pre><code>Build a functional test suite under tests/functional/:
+- For each business-math function in app/services/, add a unit
+  test with hand-calculated expected values.
+- For each form route, add (a) a validation test that posts
+  empty/invalid data and asserts a 4xx + error message, and
+  (b) a round-trip test that posts valid data, reads the row
+  back, asserts every DB column matches the submitted value.
+- For each multi-step workflow, add a data-lifecycle test:
+  create → update → status transitions → delete, asserting
+  audit log entries and cascade behavior at each step.
+Mark money-critical or auth-critical tests @pytest.mark.p0
+so CI can hard-fail on those even if others are skipped.</code></pre>
+                    </div>
+
+                    <h4 style="margin-top: var(--space-lg);">Tier 3: Mechanical guards</h4>
+                    <p><strong>What it is:</strong> Pytest tests that scan your entire codebase and fail when Claude reintroduces a banned pattern. The discipline lives in the test, not in anyone's memory.</p>
+
+                    <p><strong>Why this tier exists:</strong> Over many sessions, Claude drifts on three categories of rules: <strong>SSOT/DRY</strong> (use the constant, not the string), <strong>security</strong> (no <code>|safe</code>, no f-string SQL), and <strong>framework conventions</strong> (use the current API, not the deprecated one). Each refactor finds violations the last one missed, because reviewers look at the slice they're touching. The fix: turn each rule into a test that reads every file on every push.</p>
 
                     <p><strong>What to guard:</strong> the categories below come from a real production app's guard suite. Adapt to your own domain.</p>
 
@@ -2972,6 +3035,50 @@ each through the canonical pattern.</code></pre>
                         <div class="callout-content">
                             <strong>Pair with the CI step above.</strong> The <code>pytest</code> step in your GitHub Actions workflow runs these guards on every push — any reintroduced violation fails the build and blocks the deploy, without anyone having to remember the rule.
                         </div>
+                    </div>
+
+                    <h4 style="margin-top: var(--space-lg);">Tier 4: CI quality gates</h4>
+                    <p><strong>What it is:</strong> Extra checks bolted onto the same GitHub Actions workflow that runs your tests. They don't execute your code — they inspect it, the schema, or the environment.</p>
+                    <ul class="step-list">
+                        <li><strong>Style/format gates</strong> — code formatter and linter run in check-mode (e.g. <code>black --check</code>, <code>ruff check</code>). Blocks unformatted or non-compliant code from landing.</li>
+                        <li><strong>Type checks</strong> — static type analysis (<code>mypy</code>, <code>pyright</code>, TypeScript <code>tsc</code>) catches type mismatches before runtime.</li>
+                        <li><strong>Security scans</strong> — automated checks for secrets in code, SQL injection patterns, and vulnerable dependencies (<code>pip-audit</code>, <code>gitleaks</code>, GitHub's Dependabot).</li>
+                        <li><strong>Schema drift tests</strong> — diff the live database schema against a committed snapshot. Forces intentional snapshot updates with each migration.</li>
+                        <li><strong>Resource lifecycle tests</strong> — AST-walk code to verify every resource open (DB connection, file handle) is paired with a close in a <code>finally</code> block or context manager.</li>
+                        <li><strong>Environment guard tests</strong> — refuse to run the test suite against production. Hard gate against prod data corruption.</li>
+                        <li><strong>Test quality meta-test</strong> — fail on tests with zero asserts or trivially-true assertions. Prevents tests that can't fail.</li>
+                    </ul>
+                    <div class="code-block">
+                        <div class="code-header">
+                            <span class="code-label">.github/workflows/deploy.yml (add these steps before pytest)</span>
+                        </div>
+                        <pre><code>      - run: pip install black ruff mypy pip-audit
+      - run: black --check .
+      - run: ruff check .
+      - run: mypy app/
+      - run: pip-audit
+      - run: pytest        # smoke + functional + guards + meta</code></pre>
+                    </div>
+                    <div class="code-block">
+                        <div class="code-header">
+                            <span class="code-label">Ask Claude</span>
+                        </div>
+                        <pre><code>Wire these CI gates into .github/workflows/deploy.yml so they
+run before pytest and block deploy on failure:
+- black --check and ruff check (style/format)
+- mypy on app/ (type checks)
+- pip-audit (vulnerable dependencies)
+- gitleaks scan (committed secrets)
+Then add these pytest tests under tests/quality/:
+- test_schema_drift.py: dump live DB schema, diff against a
+  committed snapshot file, fail if they differ.
+- test_resource_lifecycle.py: AST-walk app/, find every
+  connect/open call, fail if the enclosing function doesn't
+  also contain a close/__exit__ in a finally or context manager.
+- test_env_guard.py: assert os.environ["ENV"] != "production"
+  at session start; fail the whole suite immediately if it is.
+- test_meta_quality.py: AST-walk tests/, fail on test functions
+  with zero assert statements or only `assert True`-style bodies.</code></pre>
                     </div>
                 </div>
 

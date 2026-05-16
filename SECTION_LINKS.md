@@ -157,7 +157,7 @@ https://ascendnxt.com/ai-guide/index.html#level3-auth
 **CI/CD with GitHub Actions**
 https://ascendnxt.com/ai-guide/index.html#level3-cicd
 
-**Mechanical Guards**
+**Testing & Mechanical Guards**
 https://ascendnxt.com/ai-guide/index.html#level3-guards
 
 **Modern UI Patterns**

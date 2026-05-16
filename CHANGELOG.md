@@ -2,6 +2,12 @@
 
 User-facing changes to the Agentic AI Setup Guide. Internal fixes (typos, CSS tweaks) are not logged.
 
+## 2026-05-16
+
+### Changed
+- [Level 3] !"Mechanical Guards expanded into a full 'Testing & Mechanical Guards' section with four tiers: smoke tests, functional tests, mechanical guards, and CI quality gates" Restructured level3-guards block: kept original SSOT/security/framework guard content as Tier 3, added Tier 1 (import/route/page smoke), Tier 2 (unit/integration/form validation/data round-trip/lifecycle/browser/edge case/regression/P0-P1-P2), and Tier 4 (style/format, type checks, security scans, schema drift, resource lifecycle, env guards, test quality meta). Each tier follows the existing What it is / Why / list / Ask Claude pattern — no new CSS introduced.
+- [Level 3] Renamed topic-index link from "Mechanical Guards" to "Testing & Mechanical Guards"
+
 ## 2026-05-11
 
 ### Added
