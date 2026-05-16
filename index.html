@@ -2875,8 +2875,10 @@ from Azure and adding it as a GitHub secret.</code></pre>
 
                     <p><strong>Why it matters:</strong> Reviewers look at the slice they're touching. Tests look at everything, on every push, with no fatigue. Without them, Claude drifts — silent data loss on form edits, broken routes after renames, deprecated APIs creeping back in, SSOT violations multiplying. Each tier catches a different failure mode the others miss.</p>
 
-                    <h4 style="margin-top: var(--space-lg);">Tier 1: Smoke tests</h4>
-                    <p><strong>What it is:</strong> The cheapest tests in your suite. Each one answers a single yes/no question: <em>does the thing load at all?</em> No business logic, no assertions about correctness — just "did it explode."</p>
+                    <details class="troubleshoot-accordion" open>
+                        <summary><strong>Tier 1: Smoke tests</strong> — the cheapest tests in your suite. <em>Does the thing load at all?</em></summary>
+                        <div class="accordion-content">
+                    <p><strong>What it is:</strong> Each test answers a single yes/no question: did it explode. No business logic, no assertions about correctness.</p>
                     <ul class="step-list">
                         <li><strong>Import smoke</strong> — imports every module in the package. Catches syntax errors and broken references after renames.</li>
                         <li><strong>Route/endpoint smoke</strong> — hits every URL with default inputs, asserts a successful response. Catches schema or rename changes that broke a view.</li>
@@ -2895,9 +2897,12 @@ from Azure and adding it as a GitHub secret.</code></pre>
   no uncaught exceptions in the response body.
 Each should fit in ~30 lines.</code></pre>
                     </div>
+                        </div>
+                    </details>
 
-                    <h4 style="margin-top: var(--space-lg);">Tier 2: Functional tests</h4>
-                    <p><strong>What it is:</strong> Tests that exercise real behavior with real assertions. Where the bugs that hurt customers live.</p>
+                    <details class="troubleshoot-accordion">
+                        <summary><strong>Tier 2: Functional tests</strong> — real behavior with real assertions. Where the bugs that hurt customers live.</summary>
+                        <div class="accordion-content">
                     <ul class="step-list">
                         <li><strong>Unit tests</strong> — exact-value assertions for business math and pure functions against hand calculations or trusted references.</li>
                         <li><strong>Integration tests</strong> — wires multiple services together and verifies data flows across boundaries.</li>
@@ -2932,8 +2937,12 @@ Each should fit in ~30 lines.</code></pre>
 Mark money-critical or auth-critical tests @pytest.mark.p0
 so CI can hard-fail on those even if others are skipped.</code></pre>
                     </div>
+                        </div>
+                    </details>
 
-                    <h4 style="margin-top: var(--space-lg);">Tier 3: Mechanical guards</h4>
+                    <details class="troubleshoot-accordion">
+                        <summary><strong>Tier 3: Mechanical guards</strong> — codebase-wide scans that fail when Claude reintroduces a banned pattern (SSOT, security, framework conventions).</summary>
+                        <div class="accordion-content">
                     <p><strong>What it is:</strong> Pytest tests that scan your entire codebase and fail when Claude reintroduces a banned pattern. The discipline lives in the test, not in anyone's memory.</p>
 
                     <p><strong>Why this tier exists:</strong> Over many sessions, Claude drifts on three categories of rules: <strong>SSOT/DRY</strong> (use the constant, not the string), <strong>security</strong> (no <code>|safe</code>, no f-string SQL), and <strong>framework conventions</strong> (use the current API, not the deprecated one). Each refactor finds violations the last one missed, because reviewers look at the slice they're touching. The fix: turn each rule into a test that reads every file on every push.</p>
@@ -3036,9 +3045,13 @@ each through the canonical pattern.</code></pre>
                             <strong>Pair with the CI step above.</strong> The <code>pytest</code> step in your GitHub Actions workflow runs these guards on every push — any reintroduced violation fails the build and blocks the deploy, without anyone having to remember the rule.
                         </div>
                     </div>
+                        </div>
+                    </details>
 
-                    <h4 style="margin-top: var(--space-lg);">Tier 4: CI quality gates</h4>
-                    <p><strong>What it is:</strong> Extra checks bolted onto the same GitHub Actions workflow that runs your tests. They don't execute your code — they inspect it, the schema, or the environment.</p>
+                    <details class="troubleshoot-accordion">
+                        <summary><strong>Tier 4: CI quality gates</strong> — checks bolted onto your GitHub Actions workflow: style, types, secrets, schema drift, env protection.</summary>
+                        <div class="accordion-content">
+                    <p><strong>What it is:</strong> Extra checks that don't execute your code — they inspect it, the schema, or the environment.</p>
                     <ul class="step-list">
                         <li><strong>Style/format gates</strong> — code formatter and linter run in check-mode (e.g. <code>black --check</code>, <code>ruff check</code>). Blocks unformatted or non-compliant code from landing.</li>
                         <li><strong>Type checks</strong> — static type analysis (<code>mypy</code>, <code>pyright</code>, TypeScript <code>tsc</code>) catches type mismatches before runtime.</li>
@@ -3080,6 +3093,8 @@ Then add these pytest tests under tests/quality/:
 - test_meta_quality.py: AST-walk tests/, fail on test functions
   with zero assert statements or only `assert True`-style bodies.</code></pre>
                     </div>
+                        </div>
+                    </details>
                 </div>
 
                 <!-- Modern UI Patterns -->
