@@ -2,6 +2,13 @@
 
 User-facing changes to the Agentic AI Setup Guide. Internal fixes (typos, CSS tweaks) are not logged.
 
+## 2026-05-25
+
+### Added
+- [Level 2] !"New topic: Keeping Long Sessions Sharp — why Claude drifts in long sessions and when to start a fresh one" New advanced-session-hygiene content block under Working Smarter, placed between Teaching Claude About Your Project and Debugging with Claude. Covers context rot, drift symptoms, when-to-start-fresh trigger table, what carries between sessions vs. what doesn't.
+- [Tips] !"New section: Catching Claude's Shortcuts — six shortcut patterns, warning phrases to listen for, and a 60-second pre-commit audit" Added between Code Reviews & Quality Checks and Safety Basics. Six principle cards, warning-phrase translation table, and a copy-pasteable pre-commit audit prompt.
+- [Level 3] !"Testing & Mechanical Guards: added Tier 5 — git hooks that catch mistakes at commit time, before CI" New Tier 5 accordion in level3-guards covering pre-commit (diff-only audit) and commit-msg (plan-item reference) hooks, with install_hooks.sh symlink pattern and Ask-Claude prompt.
+
 ## 2026-05-16
 
 ### Changed

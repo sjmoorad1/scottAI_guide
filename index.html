@@ -2091,6 +2091,8 @@
                         <span class="topic-sep">·</span>
                         <a href="#advanced-claude-md">Teaching Claude About Your Project</a>
                         <span class="topic-sep">·</span>
+                        <a href="#advanced-session-hygiene">Keeping Long Sessions Sharp</a>
+                        <span class="topic-sep">·</span>
                         <a href="#advanced-debugging">Debugging with Claude</a>
                     </div>
                     <h4>Working with Data</h4>
@@ -2216,6 +2218,70 @@
                         <svg class="callout-icon" viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M9 21c0 .55.45 1 1 1h4c.55 0 1-.45 1-1v-1H9v1zm3-19C8.14 2 5 5.14 5 9c0 2.38 1.19 4.47 3 5.74V17c0 .55.45 1 1 1h6c.55 0 1-.45 1-1v-2.26c1.81-1.27 3-3.36 3-5.74 0-3.86-3.14-7-7-7z"/></svg>
                         <div class="callout-content">
                             <strong>Ask Claude to set it up for you.</strong> Start a session and say: "Create a .claude folder for this project with a CLAUDE.md, SESSION_LOG.md, AI_CODING_GUIDELINES.md, and CODE_REVIEW_REQUIREMENTS.md. Here's what this project does: [describe it]." Claude will scaffold the entire structure.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Keeping Long Sessions Sharp -->
+                <div class="content-block" id="advanced-session-hygiene">
+                    <h3>Keeping Long Sessions Sharp</h3>
+                    <p><strong>What it is:</strong> Claude gets worse at long sessions — not because the model degrades, but because the conversation window fills up with tool results, file reads, and back-and-forth. The signal-to-noise ratio drops. Early decisions get less weight. Claude starts reverting to patterns that were already discussed and rejected.</p>
+
+                    <p><strong>Why it matters:</strong> Around the two-hour mark in a single session, you'll start to notice drift — Claude defending a shortcut you corrected an hour ago, re-suggesting an approach you ruled out, or "finding" issues incrementally that should have been in the original synthesis. Recognizing this and starting a fresh session is a feature, not a failure. The project files, the SESSION_LOG, and the rules in <code>.claude/</code> carry forward. The drift doesn't.</p>
+
+                    <p><strong>Signs you're in drifted territory:</strong></p>
+                    <ul>
+                        <li>You're correcting Claude on something you already corrected earlier in the same session</li>
+                        <li>Claude is "finding" issues piecemeal each time you ask — the synthesis was incomplete</li>
+                        <li>You've caught 3+ shortcuts in one exchange (the muscle memory of defending shortcuts is now loaded)</li>
+                        <li>Claude is asking padded questions ("Anything else?") instead of doing the work</li>
+                        <li>Claude reverts a decision the two of you already made earlier</li>
+                    </ul>
+
+                    <p><strong>When to start a fresh session:</strong></p>
+                    <table class="info-table" style="margin: 16px 0;">
+                        <thead>
+                            <tr>
+                                <th style="text-align: left;">Trigger</th>
+                                <th style="text-align: left;">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Past the ~2-hour mark in one session</td>
+                                <td>Consider a fresh session before the next major task</td>
+                            </tr>
+                            <tr>
+                                <td>Switching from planning to implementation</td>
+                                <td>Plan in one session, execute in a new one</td>
+                            </tr>
+                            <tr>
+                                <td>You've corrected Claude 3+ times in a row</td>
+                                <td>Stop. New session. The corrections aren't sticking inside this one.</td>
+                            </tr>
+                            <tr>
+                                <td>After a major plan revision</td>
+                                <td>Fresh session for execution work</td>
+                            </tr>
+                            <tr>
+                                <td>Moving to an unrelated task chunk</td>
+                                <td>Use <code>/clear</code> or exit and restart</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <p><strong>What carries between sessions (and what doesn't):</strong></p>
+                    <ul>
+                        <li><strong>Carries:</strong> Files on disk, your <code>.claude/CLAUDE.md</code>, <code>SESSION_LOG.md</code>, rules in <code>.claude/rules/</code>, git history, project state</li>
+                        <li><strong>Doesn't carry:</strong> The conversation transcript, in-flight context, anything not written to a file or committed</li>
+                    </ul>
+
+                    <p>This is exactly why <a href="#advanced-claude-md" class="inline-link">project context files</a> and the <a href="#workflow" class="inline-link">end-of-session log entry</a> matter. The next session starts with the disciplined version of the rules, not the drifted version of the conversation.</p>
+
+                    <div class="callout callout-tip">
+                        <svg class="callout-icon" viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M9 21c0 .55.45 1 1 1h4c.55 0 1-.45 1-1v-1H9v1zm3-19C8.14 2 5 5.14 5 9c0 2.38 1.19 4.47 3 5.74V17c0 .55.45 1 1 1h6c.55 0 1-.45 1-1v-2.26c1.81-1.27 3-3.36 3-5.74 0-3.86-3.14-7-7-7z"/></svg>
+                        <div class="callout-content">
+                            <strong>Before you close a long session,</strong> ask Claude: "Update SESSION_LOG.md with what we did, key decisions, gotchas, and next steps." That way the next session — fresh and sharp — picks up where this one left off, minus the drift.
                         </div>
                     </div>
                 </div>
@@ -3095,6 +3161,66 @@ Then add these pytest tests under tests/quality/:
                     </div>
                         </div>
                     </details>
+
+                    <details class="troubleshoot-accordion">
+                        <summary><strong>Tier 5: Git hooks</strong> — checks that run on your machine at commit time, before code even reaches CI.</summary>
+                        <div class="accordion-content">
+                    <p><strong>What it is:</strong> Small shell scripts in <code>.git/hooks/</code> that run automatically on git events. Two are worth wiring up: <code>pre-commit</code> (runs before the commit lands) and <code>commit-msg</code> (validates the commit message).</p>
+
+                    <p><strong>Why this tier exists:</strong> CI catches mistakes after you've pushed. Git hooks catch them before the commit even lands — cycle time is seconds instead of minutes and the broken commit never enters history. They also enforce process rules CI can't, like "every commit must reference the plan item it's working on."</p>
+
+                    <p><strong>Two hooks to start with:</strong></p>
+                    <ul class="step-list">
+                        <li><strong><code>pre-commit</code> — diff-only audit.</strong> Grep the staged diff (not the whole codebase) for the patterns you most want to keep out of new code: inline styles, hardcoded magic numbers, f-string SQL, deprecated APIs. Fast (under a second) and only flags what you're actually adding.</li>
+                        <li><strong><code>commit-msg</code> — plan-item reference.</strong> Reject any commit message that doesn't reference a plan item (e.g. <code>Closes #42</code>) or explicitly opt out (e.g. <code>No-plan: small typo fix</code>). Forces every change to either be on-plan or to declare itself as off-plan.</li>
+                    </ul>
+
+                    <div class="code-block">
+                        <div class="code-header">
+                            <span class="code-label">scripts/hooks/pre-commit (excerpt)</span>
+                        </div>
+                        <pre><code>#!/bin/bash
+# Block inline styles and f-string SQL in newly added lines only.
+diff=$(git diff --cached --unified=0 -- '*.py' '*.html')
+if echo "$diff" | grep -E '^\+.*style="' &gt; /dev/null; then
+  echo "Inline style added — use a CSS class."; exit 1
+fi
+if echo "$diff" | grep -E "^\+.*f['\"].*SELECT.*\{" &gt; /dev/null; then
+  echo "f-string SQL added — use a parameterized query."; exit 1
+fi</code></pre>
+                    </div>
+
+                    <div class="callout callout-tip">
+                        <svg class="callout-icon" viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M9 21c0 .55.45 1 1 1h4c.55 0 1-.45 1-1v-1H9v1zm3-19C8.14 2 5 5.14 5 9c0 2.38 1.19 4.47 3 5.74V17c0 .55.45 1 1 1h6c.55 0 1-.45 1-1v-2.26c1.81-1.27 3-3.36 3-5.74 0-3.86-3.14-7-7-7z"/></svg>
+                        <div class="callout-content">
+                            <strong>Keep hooks in version control.</strong> The <code>.git/hooks/</code> folder isn't tracked. Put the real source under <code>scripts/hooks/</code>, then add a one-line <code>scripts/install_hooks.sh</code> that symlinks them in. A fresh clone runs that once and the protections are restored.
+                        </div>
+                    </div>
+
+                    <div class="code-block">
+                        <div class="code-header">
+                            <span class="code-label">Ask Claude</span>
+                        </div>
+                        <pre><code>Set up two git hooks under scripts/hooks/ plus an
+install script:
+
+1. pre-commit — grep the staged diff (git diff --cached) for:
+   - inline style="..." in .html files
+   - f-string SQL where the interpolated expression touches
+     request/form/args
+   - any pattern from our SSOT guards (status literals,
+     region names, magic numbers)
+   Fail the commit listing offenders as file:line.
+
+2. commit-msg — reject the commit unless the message contains
+   either a plan-item reference (e.g. "Closes #") OR an explicit
+   opt-out line (e.g. "No-plan: ...").
+
+3. scripts/install_hooks.sh — symlinks scripts/hooks/* into
+   .git/hooks/ so a fresh clone restores them with one command.</code></pre>
+                    </div>
+                        </div>
+                    </details>
                 </div>
 
                 <!-- Modern UI Patterns -->
@@ -3412,6 +3538,94 @@ HUBSPOT_API_KEY=your_key_here</code></pre>
                             <svg class="callout-icon" viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
                             <div class="callout-content">
                                 <strong>When to use it:</strong> Ask Claude to "review this project using the code review requirements" whenever you've built something substantial and want to catch bugs before they bite you. It's especially valuable before sharing your work or deploying.
+                            </div>
+                        </div>
+
+                        <h4 style="margin-top: 24px;">Catching Claude's Shortcuts</h4>
+                        <p>When Claude is under pressure — long session, ambiguous problem, multiple things to track — it can fall back on shortcuts that sound reasonable but aren't. Recognizing the patterns is the easiest way to stop them.</p>
+
+                        <p><strong>Six common shortcut patterns:</strong></p>
+                        <div class="principles-grid">
+                            <div class="principle-card">
+                                <h4>"I'll do Part A now, Part B later"</h4>
+                                <p>Fragmenting a plan that should be done together. Half-fixes rarely get finished. Ask: "Why split this? Will Part B still be obvious in two sessions?"</p>
+                            </div>
+                            <div class="principle-card">
+                                <h4>"I'll be careful"</h4>
+                                <p>A promise instead of a check. Promises don't survive sessions. Ask: "Can we add a test or a guard that catches this if it comes back?"</p>
+                            </div>
+                            <div class="principle-card">
+                                <h4>"That's pre-existing — out of scope"</h4>
+                                <p>Silent leave-behind. Drift accumulates and the next session pattern-matches off it. Make Claude at least log the issue somewhere before moving on.</p>
+                            </div>
+                            <div class="principle-card">
+                                <h4>"We'll get to that next session"</h4>
+                                <p>Future-shortcut. If it isn't tracked in writing right now — task list, SESSION_LOG, drift log — it's lost. Make Claude write it down.</p>
+                            </div>
+                            <div class="principle-card">
+                                <h4>"Looks clean" / "Confident in the design"</h4>
+                                <p>Confidence without evidence. Ask: "What did you actually verify? Show me the query you ran or the test that passed."</p>
+                            </div>
+                            <div class="principle-card">
+                                <h4>Finding issues piecemeal</h4>
+                                <p>Every time you ask, Claude finds more. The original synthesis was incomplete. Stop and ask: "Give me the complete list — what else is in here?"</p>
+                            </div>
+                        </div>
+
+                        <p style="margin-top: 16px;"><strong>Warning phrases to listen for:</strong></p>
+                        <table class="info-table" style="margin: 16px 0;">
+                            <thead>
+                                <tr>
+                                    <th style="text-align: left;">When Claude says...</th>
+                                    <th style="text-align: left;">It usually means...</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>"Cosmetic busywork" or "minor cleanup"</td>
+                                    <td>The cleanup matters — leaving it lets future code pattern-match off the mess</td>
+                                </tr>
+                                <tr>
+                                    <td>"Costs nothing to leave it"</td>
+                                    <td>Dead code, dead columns, and dead files become traps for future-you</td>
+                                </tr>
+                                <tr>
+                                    <td>"User can do it manually"</td>
+                                    <td>Automation is faster than asking a human to eyeball N rows</td>
+                                </tr>
+                                <tr>
+                                    <td>"We can wait until it bites"</td>
+                                    <td>Reactive maintenance disguised as prioritization — the bite is the bug report</td>
+                                </tr>
+                                <tr>
+                                    <td>"Probably fine" / "should be fine"</td>
+                                    <td>Same shape as "looks clean" — no verification was done</td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <p style="margin-top: 16px;"><strong>The pre-commit gut-check (60-second self-audit):</strong></p>
+                        <p>Before Claude commits significant work, paste this back and ask it to actually run through:</p>
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="code-label">Ask Claude before any commit</span>
+                            </div>
+                            <pre><code>Before you commit, run this 60-second audit and answer each:
+1. Am I adding code that duplicates an existing pattern instead of reusing it?
+2. Am I producing more output than the user actually needs?
+3. Am I making a promise ("I'll be careful") instead of building a check?
+4. Am I asking padded questions ("anything else?") instead of doing the work?
+5. Am I pattern-matching off existing messy code instead of fixing the mess first?
+6. Am I deferring real work as "we'll get to that later"?
+7. Am I claiming something "looks clean" without verifying it?
+
+If yes to any: stop, fix the underlying issue, then proceed.</code></pre>
+                        </div>
+
+                        <div class="callout callout-tip">
+                            <svg class="callout-icon" viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M9 21c0 .55.45 1 1 1h4c.55 0 1-.45 1-1v-1H9v1zm3-19C8.14 2 5 5.14 5 9c0 2.38 1.19 4.47 3 5.74V17c0 .55.45 1 1 1h6c.55 0 1-.45 1-1v-2.26c1.81-1.27 3-3.36 3-5.74 0-3.86-3.14-7-7-7z"/></svg>
+                            <div class="callout-content">
+                                <strong>If Claude has slipped 3+ times in one session,</strong> the muscle memory of defending the shortcuts is now loaded. Start a <a href="#advanced-session-hygiene" class="inline-link">fresh session</a> rather than fighting it for another hour.
                             </div>
                         </div>
 

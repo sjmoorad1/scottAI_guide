@@ -114,6 +114,9 @@ https://ascendnxt.com/ai-guide/index.html#advanced-prompting
 **Teaching Claude About Your Project**
 https://ascendnxt.com/ai-guide/index.html#advanced-claude-md
 
+**Keeping Long Sessions Sharp**
+https://ascendnxt.com/ai-guide/index.html#advanced-session-hygiene
+
 **Debugging with Claude**
 https://ascendnxt.com/ai-guide/index.html#advanced-debugging
 
