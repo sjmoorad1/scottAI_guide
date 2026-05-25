@@ -2030,6 +2030,7 @@ kbd {
 .info-table {
     width: 100%;
     border-collapse: collapse;
+    margin: var(--space-md) 0;
 }
 
 .info-table th {

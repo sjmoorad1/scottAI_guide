@@ -10,6 +10,13 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 </head>
 <body>
+
+    <!-- SVG icon sprite (referenced via <use href="#icon-..."/>) -->
+    <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+        <symbol id="icon-tip" viewBox="0 0 24 24"><path fill="currentColor" d="M9 21c0 .55.45 1 1 1h4c.55 0 1-.45 1-1v-1H9v1zm3-19C8.14 2 5 5.14 5 9c0 2.38 1.19 4.47 3 5.74V17c0 .55.45 1 1 1h6c.55 0 1-.45 1-1v-2.26c1.81-1.27 3-3.36 3-5.74 0-3.86-3.14-7-7-7z"/></symbol>
+        <symbol id="icon-info" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></symbol>
+        <symbol id="icon-warning" viewBox="0 0 24 24"><path fill="currentColor" d="M1 21h22L12 2 1 21zm12-3h-2v-2h2v2zm0-4h-2v-4h2v4z"/></symbol>
+    </svg>
     <!-- Header -->
     <header class="header">
         <div class="header-container">
@@ -106,14 +113,14 @@
                     <p>You describe what you want in plain English. Claude figures out the steps, writes any necessary code, runs it, and delivers results. You guide the process with feedback, but Claude handles the technical details.</p>
 
                     <div class="callout callout-tip">
-                        <svg class="callout-icon" viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M9 21c0 .55.45 1 1 1h4c.55 0 1-.45 1-1v-1H9v1zm3-19C8.14 2 5 5.14 5 9c0 2.38 1.19 4.47 3 5.74V17c0 .55.45 1 1 1h6c.55 0 1-.45 1-1v-2.26c1.81-1.27 3-3.36 3-5.74 0-3.86-3.14-7-7-7z"/></svg>
+                        <svg class="callout-icon" width="20" height="20" aria-hidden="true"><use href="#icon-tip"/></svg>
                         <div class="callout-content">
                             <strong>No coding experience required.</strong> You'll learn to describe tasks clearly and review results—Claude handles the programming.
                         </div>
                     </div>
 
                     <div class="callout callout-warning">
-                        <svg class="callout-icon" viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M1 21h22L12 2 1 21zm12-3h-2v-2h2v2zm0-4h-2v-4h2v4z"/></svg>
+                        <svg class="callout-icon" width="20" height="20" aria-hidden="true"><use href="#icon-warning"/></svg>
                         <div class="callout-content">
                             <strong>You'll need admin rights</strong> on your computer to install the required software. If you're on a company laptop with restricted permissions, check with IT first.
                         </div>
@@ -310,7 +317,7 @@
                     </div>
 
                     <div class="callout callout-tip">
-                        <svg class="callout-icon" viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M9 21c0 .55.45 1 1 1h4c.55 0 1-.45 1-1v-1H9v1zm3-19C8.14 2 5 5.14 5 9c0 2.38 1.19 4.47 3 5.74V17c0 .55.45 1 1 1h6c.55 0 1-.45 1-1v-2.26c1.81-1.27 3-3.36 3-5.74 0-3.86-3.14-7-7-7z"/></svg>
+                        <svg class="callout-icon" width="20" height="20" aria-hidden="true"><use href="#icon-tip"/></svg>
                         <div class="callout-content">
                             <strong>None of these required prior coding experience.</strong> Every one was built by describing requirements in plain English and guiding Claude through the process. Level 1 gets you started. <a href="#advanced" class="inline-link">Level 2</a> sharpens your skills. <a href="#level3" class="inline-link">Level 3</a> teaches you to build apps like these.
                         </div>
@@ -413,7 +420,7 @@
                 <p class="section-intro">Install the basic tools and get comfortable with VS Code's layout. You can stop after this phase and return later.</p>
 
                 <div class="callout callout-tip">
-                    <svg class="callout-icon" viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M9 21c0 .55.45 1 1 1h4c.55 0 1-.45 1-1v-1H9v1zm3-19C8.14 2 5 5.14 5 9c0 2.38 1.19 4.47 3 5.74V17c0 .55.45 1 1 1h6c.55 0 1-.45 1-1v-2.26c1.81-1.27 3-3.36 3-5.74 0-3.86-3.14-7-7-7z"/></svg>
+                    <svg class="callout-icon" width="20" height="20" aria-hidden="true"><use href="#icon-tip"/></svg>
                     <div class="callout-content">
                         <strong>Already have some tools installed?</strong> Run the verification command for each step. If it works, skip to the next step.
                     </div>
@@ -536,7 +543,7 @@
                         </ol>
 
                         <div class="callout callout-warning">
-                            <svg class="callout-icon" viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M1 21h22L12 2 1 21zm12-3h-2v-2h2v2zm0-4h-2v-4h2v4z"/></svg>
+                            <svg class="callout-icon" width="20" height="20" aria-hidden="true"><use href="#icon-warning"/></svg>
                             <div class="callout-content">
                                 <strong>Don't skip the "Next steps" commands!</strong> Copy and run what YOUR terminal shows—the exact path depends on your Mac (Apple Silicon uses <code>/opt/homebrew</code>, Intel uses <code>/usr/local</code>).
                             </div>
@@ -607,7 +614,7 @@
                                 <li>Click "Install Now"</li>
                             </ol>
                             <div class="callout callout-warning">
-                                <svg class="callout-icon" viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M1 21h22L12 2 1 21zm12-3h-2v-2h2v2zm0-4h-2v-4h2v4z"/></svg>
+                                <svg class="callout-icon" width="20" height="20" aria-hidden="true"><use href="#icon-warning"/></svg>
                                 <div class="callout-content">
                                     If you miss "Add Python to PATH," uninstall and reinstall with that box checked.
                                 </div>
@@ -642,7 +649,7 @@
                         </details>
 
                         <div class="callout callout-tip os-specific mac">
-                            <svg class="callout-icon" viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M9 21c0 .55.45 1 1 1h4c.55 0 1-.45 1-1v-1H9v1zm3-19C8.14 2 5 5.14 5 9c0 2.38 1.19 4.47 3 5.74V17c0 .55.45 1 1 1h6c.55 0 1-.45 1-1v-2.26c1.81-1.27 3-3.36 3-5.74 0-3.86-3.14-7-7-7z"/></svg>
+                            <svg class="callout-icon" width="20" height="20" aria-hidden="true"><use href="#icon-tip"/></svg>
                             <div class="callout-content">
                                 On Mac, always use <code>python3</code> (not just <code>python</code>).
                             </div>
@@ -734,7 +741,7 @@
                         <p class="code-note"><code>mkdir</code> = "make directory" (creates a new folder)</p>
 
                         <div class="callout callout-tip">
-                            <svg class="callout-icon" viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M9 21c0 .55.45 1 1 1h4c.55 0 1-.45 1-1v-1H9v1zm3-19C8.14 2 5 5.14 5 9c0 2.38 1.19 4.47 3 5.74V17c0 .55.45 1 1 1h6c.55 0 1-.45 1-1v-2.26c1.81-1.27 3-3.36 3-5.74 0-3.86-3.14-7-7-7z"/></svg>
+                            <svg class="callout-icon" width="20" height="20" aria-hidden="true"><use href="#icon-tip"/></svg>
                             <div class="callout-content">
                                 <strong>Naming tip:</strong> Avoid spaces in folder and project names. Use hyphens instead: <code>my-sales-dashboard</code> not <code>my sales dashboard</code>. Spaces in paths can cause command-line headaches.
                             </div>
@@ -798,7 +805,7 @@
                 <p class="section-intro">Install Claude CLI and have your first AI-assisted session.</p>
 
                 <div class="callout callout-info os-specific windows">
-                    <svg class="callout-icon" viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
+                    <svg class="callout-icon" width="20" height="20" aria-hidden="true"><use href="#icon-info"/></svg>
                     <div class="callout-content">
                         <strong>About your Terminal:</strong> Windows has two command-line tools: <strong>PowerShell</strong> and <strong>Command Prompt</strong>. They look similar but work differently. This guide requires <strong>PowerShell</strong> — it's the modern one that handles the installation commands correctly.
                     </div>
@@ -1025,7 +1032,7 @@
                         </div>
 
                         <div class="callout callout-tip">
-                            <svg class="callout-icon" viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M9 21c0 .55.45 1 1 1h4c.55 0 1-.45 1-1v-1H9v1zm3-19C8.14 2 5 5.14 5 9c0 2.38 1.19 4.47 3 5.74V17c0 .55.45 1 1 1h6c.55 0 1-.45 1-1v-2.26c1.81-1.27 3-3.36 3-5.74 0-3.86-3.14-7-7-7z"/></svg>
+                            <svg class="callout-icon" width="20" height="20" aria-hidden="true"><use href="#icon-tip"/></svg>
                             <div class="callout-content">
                                 <strong>When to use Opus:</strong> For complex multi-step tasks, deep code refactoring, or when Sonnet isn't getting it right, switch to Opus for that session: <code>claude --model opus</code>. Using the alias (e.g. <code>sonnet</code>, <code>opus</code>) always resolves to the latest version. <a href="https://docs.anthropic.com/en/docs/about-claude/models" target="_blank" class="inline-link">Learn more about Claude's models →</a>
                             </div>
@@ -1072,7 +1079,7 @@
                         </div>
 
                         <div class="callout callout-tip">
-                            <svg class="callout-icon" viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M9 21c0 .55.45 1 1 1h4c.55 0 1-.45 1-1v-1H9v1zm3-19C8.14 2 5 5.14 5 9c0 2.38 1.19 4.47 3 5.74V17c0 .55.45 1 1 1h6c.55 0 1-.45 1-1v-2.26c1.81-1.27 3-3.36 3-5.74 0-3.86-3.14-7-7-7z"/></svg>
+                            <svg class="callout-icon" width="20" height="20" aria-hidden="true"><use href="#icon-tip"/></svg>
                             <div class="callout-content">
                                 <strong>Switching mid-session:</strong> Type <code>/effort max</code> inside Claude to bump effort for a difficult task, then <code>/effort high</code> to return to normal. <a href="#tab-tips" class="inline-link" onclick="document.querySelector('[data-tab=tips]').click(); return false;">More quality tuning tips →</a>
                             </div>
@@ -1226,7 +1233,7 @@
                         </div>
 
                         <div class="callout callout-tip">
-                            <svg class="callout-icon" viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M9 21c0 .55.45 1 1 1h4c.55 0 1-.45 1-1v-1H9v1zm3-19C8.14 2 5 5.14 5 9c0 2.38 1.19 4.47 3 5.74V17c0 .55.45 1 1 1h6c.55 0 1-.45 1-1v-2.26c1.81-1.27 3-3.36 3-5.74 0-3.86-3.14-7-7-7z"/></svg>
+                            <svg class="callout-icon" width="20" height="20" aria-hidden="true"><use href="#icon-tip"/></svg>
                             <div class="callout-content">
                                 <strong>Our recommendation:</strong> Start with Pro. You can always upgrade to Max later if you find yourself running out of usage regularly. Check <a href="https://claude.ai" target="_blank" class="inline-link">claude.ai</a> for current pricing.
                             </div>
@@ -1482,7 +1489,7 @@
                         </div>
 
                         <div class="callout callout-warning">
-                            <svg class="callout-icon" viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M1 21h22L12 2 1 21zm12-3h-2v-2h2v2zm0-4h-2v-4h2v4z"/></svg>
+                            <svg class="callout-icon" width="20" height="20" aria-hidden="true"><use href="#icon-warning"/></svg>
                             <div class="callout-content">
                                 <strong>Remember:</strong> Activate your venv every time you start working on a project!
                             </div>
@@ -1621,7 +1628,7 @@
 
                         <p><strong>Move the files into place:</strong></p>
                         <div class="callout callout-warning" style="margin-bottom: 12px;">
-                            <svg class="callout-icon" viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M1 21h22L12 2 1 21zm12-3h-2v-2h2v2zm0-4h-2v-4h2v4z"/></svg>
+                            <svg class="callout-icon" width="20" height="20" aria-hidden="true"><use href="#icon-warning"/></svg>
                             <div class="callout-content">
                                 <strong>Can't see the .claude folder?</strong> Folders starting with a dot are hidden by default.
                                 <span class="os-specific mac">Press <kbd>Cmd</kbd>+<kbd>Shift</kbd>+<kbd>.</kbd> in Finder to show hidden files.</span>
@@ -1689,7 +1696,7 @@
                 <p class="section-intro">Connect to GitHub for backup and version history. If something breaks, you can always go back.</p>
 
                 <div class="callout callout-warning">
-                    <svg class="callout-icon" viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M1 21h22L12 2 1 21zm12-3h-2v-2h2v2zm0-4h-2v-4h2v4z"/></svg>
+                    <svg class="callout-icon" width="20" height="20" aria-hidden="true"><use href="#icon-warning"/></svg>
                     <div class="callout-content">
                         <strong>This phase is not optional.</strong> GitHub is your undo button. Claude will make changes to your files—sometimes many at once. Without version control, a mistake could mean losing hours of work. With GitHub, you can always roll back.
                     </div>
@@ -1719,7 +1726,7 @@
                     </div>
 
                     <div class="callout callout-tip">
-                        <svg class="callout-icon" viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M9 21c0 .55.45 1 1 1h4c.55 0 1-.45 1-1v-1H9v1zm3-19C8.14 2 5 5.14 5 9c0 2.38 1.19 4.47 3 5.74V17c0 .55.45 1 1 1h6c.55 0 1-.45 1-1v-2.26c1.81-1.27 3-3.36 3-5.74 0-3.86-3.14-7-7-7z"/></svg>
+                        <svg class="callout-icon" width="20" height="20" aria-hidden="true"><use href="#icon-tip"/></svg>
                         <div class="callout-content">
                             <strong>Why bother?</strong> Claude makes lots of changes fast. GitHub lets you track what changed, when, and why. If Claude breaks something, you can see exactly what happened and undo it.
                         </div>
@@ -1877,7 +1884,7 @@
                         <p class="code-note"><code>gh repo create</code> = create a new repository on GitHub from this folder and upload it</p>
 
                         <div class="callout callout-tip">
-                            <svg class="callout-icon" viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M9 21c0 .55.45 1 1 1h4c.55 0 1-.45 1-1v-1H9v1zm3-19C8.14 2 5 5.14 5 9c0 2.38 1.19 4.47 3 5.74V17c0 .55.45 1 1 1h6c.55 0 1-.45 1-1v-2.26c1.81-1.27 3-3.36 3-5.74 0-3.86-3.14-7-7-7z"/></svg>
+                            <svg class="callout-icon" width="20" height="20" aria-hidden="true"><use href="#icon-tip"/></svg>
                             <div class="callout-content">
                                 <code>--private</code> means only you can see it. Change to <code>--public</code> to share.
                             </div>
@@ -1944,7 +1951,7 @@
                         <li><strong>Remind Claude of the guidelines:</strong></li>
                     </ol>
                     <div class="callout callout-tip" style="margin-top: 12px;">
-                        <svg class="callout-icon" viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M9 21c0 .55.45 1 1 1h4c.55 0 1-.45 1-1v-1H9v1zm3-19C8.14 2 5 5.14 5 9c0 2.38 1.19 4.47 3 5.74V17c0 .55.45 1 1 1h6c.55 0 1-.45 1-1v-2.26c1.81-1.27 3-3.36 3-5.74 0-3.86-3.14-7-7-7z"/></svg>
+                        <svg class="callout-icon" width="20" height="20" aria-hidden="true"><use href="#icon-tip"/></svg>
                         <div class="callout-content">
                             <strong>Paste this after your task description:</strong><br>
                             "Don't forget your Claude GUIDELINES: Always follow best practices — never assume, never change scope outside the task at hand. Advise me on tradeoffs — don't just say yes to everything. Read through all the .md files in your .claude/ folder before executing. Keep those docs concise but current — update them if our solution changes warrant it."
@@ -1962,7 +1969,7 @@
                         <li><strong>Exit Claude:</strong> <code>/exit</code></li>
                     </ol>
                     <div class="callout callout-tip" style="margin-top: 12px;">
-                        <svg class="callout-icon" viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M9 21c0 .55.45 1 1 1h4c.55 0 1-.45 1-1v-1H9v1zm3-19C8.14 2 5 5.14 5 9c0 2.38 1.19 4.47 3 5.74V17c0 .55.45 1 1 1h6c.55 0 1-.45 1-1v-2.26c1.81-1.27 3-3.36 3-5.74 0-3.86-3.14-7-7-7z"/></svg>
+                        <svg class="callout-icon" width="20" height="20" aria-hidden="true"><use href="#icon-tip"/></svg>
                         <div class="callout-content">
                             <strong>Quick wrap-up prompt:</strong><br>
                             "Okay, done. We are good. Push these updates to the GitHub repo and add an entry to SESSION_LOG.md."
@@ -2078,7 +2085,7 @@
                 <p class="section-intro">You've been using Claude for a while. These topics take the same tools from Level 1 and show you how to use them with more skill and structure.</p>
 
                 <div class="callout callout-info">
-                    <svg class="callout-icon" viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
+                    <svg class="callout-icon" width="20" height="20" aria-hidden="true"><use href="#icon-info"/></svg>
                     <div class="callout-content">
                         <strong>You should be comfortable with:</strong> Starting Claude sessions, navigating the terminal, working in a project folder with a virtual environment, and pushing code to GitHub. If any of that feels unfamiliar, complete <a href="#phase1" class="inline-link">Level 1</a> first. And if you haven't internalized the <a href="#theory-to-reality" class="inline-link">From Theory to Reality</a> principles, read those now — they're the foundation everything here builds on.
                     </div>
@@ -2123,7 +2130,7 @@
 
                     <p><strong>Level up your prompts:</strong></p>
 
-                    <table class="info-table" style="margin: 16px 0;">
+                    <table class="info-table">
                         <thead>
                             <tr>
                                 <th style="text-align: left;">Instead of this...</th>
@@ -2160,7 +2167,7 @@
                     </ul>
 
                     <div class="callout callout-tip">
-                        <svg class="callout-icon" viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M9 21c0 .55.45 1 1 1h4c.55 0 1-.45 1-1v-1H9v1zm3-19C8.14 2 5 5.14 5 9c0 2.38 1.19 4.47 3 5.74V17c0 .55.45 1 1 1h6c.55 0 1-.45 1-1v-2.26c1.81-1.27 3-3.36 3-5.74 0-3.86-3.14-7-7-7z"/></svg>
+                        <svg class="callout-icon" width="20" height="20" aria-hidden="true"><use href="#icon-tip"/></svg>
                         <div class="callout-content">
                             <strong>The best prompt is a conversation.</strong> Don't try to get everything right in one message. Start with your goal, review the first result, then refine: "That's close, but also include..." or "The format is right but the numbers look wrong — double check the Q2 totals."
                         </div>
@@ -2215,7 +2222,7 @@
                     </div>
 
                     <div class="callout callout-tip">
-                        <svg class="callout-icon" viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M9 21c0 .55.45 1 1 1h4c.55 0 1-.45 1-1v-1H9v1zm3-19C8.14 2 5 5.14 5 9c0 2.38 1.19 4.47 3 5.74V17c0 .55.45 1 1 1h6c.55 0 1-.45 1-1v-2.26c1.81-1.27 3-3.36 3-5.74 0-3.86-3.14-7-7-7z"/></svg>
+                        <svg class="callout-icon" width="20" height="20" aria-hidden="true"><use href="#icon-tip"/></svg>
                         <div class="callout-content">
                             <strong>Ask Claude to set it up for you.</strong> Start a session and say: "Create a .claude folder for this project with a CLAUDE.md, SESSION_LOG.md, AI_CODING_GUIDELINES.md, and CODE_REVIEW_REQUIREMENTS.md. Here's what this project does: [describe it]." Claude will scaffold the entire structure.
                         </div>
@@ -2239,7 +2246,7 @@
                     </ul>
 
                     <p><strong>When to start a fresh session:</strong></p>
-                    <table class="info-table" style="margin: 16px 0;">
+                    <table class="info-table">
                         <thead>
                             <tr>
                                 <th style="text-align: left;">Trigger</th>
@@ -2279,7 +2286,7 @@
                     <p>This is exactly why <a href="#advanced-claude-md" class="inline-link">project context files</a> and the <a href="#workflow" class="inline-link">end-of-session log entry</a> matter. The next session starts with the disciplined version of the rules, not the drifted version of the conversation.</p>
 
                     <div class="callout callout-tip">
-                        <svg class="callout-icon" viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M9 21c0 .55.45 1 1 1h4c.55 0 1-.45 1-1v-1H9v1zm3-19C8.14 2 5 5.14 5 9c0 2.38 1.19 4.47 3 5.74V17c0 .55.45 1 1 1h6c.55 0 1-.45 1-1v-2.26c1.81-1.27 3-3.36 3-5.74 0-3.86-3.14-7-7-7z"/></svg>
+                        <svg class="callout-icon" width="20" height="20" aria-hidden="true"><use href="#icon-tip"/></svg>
                         <div class="callout-content">
                             <strong>Before you close a long session,</strong> ask Claude: "Update SESSION_LOG.md with what we did, key decisions, gotchas, and next steps." That way the next session — fresh and sharp — picks up where this one left off, minus the drift.
                         </div>
@@ -2322,7 +2329,7 @@ with the Q3 file. What's different and how do I fix it?</code></pre>
                     </ul>
 
                     <div class="callout callout-tip">
-                        <svg class="callout-icon" viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M9 21c0 .55.45 1 1 1h4c.55 0 1-.45 1-1v-1H9v1zm3-19C8.14 2 5 5.14 5 9c0 2.38 1.19 4.47 3 5.74V17c0 .55.45 1 1 1h6c.55 0 1-.45 1-1v-2.26c1.81-1.27 3-3.36 3-5.74 0-3.86-3.14-7-7-7z"/></svg>
+                        <svg class="callout-icon" width="20" height="20" aria-hidden="true"><use href="#icon-tip"/></svg>
                         <div class="callout-content">
                             <strong>Prevention tip:</strong> Ask Claude to add error handling when writing scripts: "Add try/except blocks with helpful error messages so I know what went wrong."
                         </div>
@@ -2353,7 +2360,7 @@ with the Q3 file. What's different and how do I fix it?</code></pre>
                     </ol>
 
                     <div class="callout callout-tip">
-                        <svg class="callout-icon" viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M9 21c0 .55.45 1 1 1h4c.55 0 1-.45 1-1v-1H9v1zm3-19C8.14 2 5 5.14 5 9c0 2.38 1.19 4.47 3 5.74V17c0 .55.45 1 1 1h6c.55 0 1-.45 1-1v-2.26c1.81-1.27 3-3.36 3-5.74 0-3.86-3.14-7-7-7z"/></svg>
+                        <svg class="callout-icon" width="20" height="20" aria-hidden="true"><use href="#icon-tip"/></svg>
                         <div class="callout-content">
                             <strong>Pro tip:</strong> You don't usually need to query SQLite directly. Just ask Claude: "Show me all records where status is 'pending'" — it will write and run the query for you.
                         </div>
@@ -2388,7 +2395,7 @@ with the Q3 file. What's different and how do I fix it?</code></pre>
                     </ul>
 
                     <div class="callout callout-warning">
-                        <svg class="callout-icon" viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M1 21h22L12 2 1 21zm12-3h-2v-2h2v2zm0-4h-2v-4h2v4z"/></svg>
+                        <svg class="callout-icon" width="20" height="20" aria-hidden="true"><use href="#icon-warning"/></svg>
                         <div class="callout-content">
                             <strong>Be careful:</strong> When connecting Claude to production databases, always use read-only credentials. One wrong UPDATE statement can ruin your day.
                         </div>
@@ -2435,7 +2442,7 @@ if not api_key:
                     </div>
 
                     <div class="callout callout-tip">
-                        <svg class="callout-icon" viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M9 21c0 .55.45 1 1 1h4c.55 0 1-.45 1-1v-1H9v1zm3-19C8.14 2 5 5.14 5 9c0 2.38 1.19 4.47 3 5.74V17c0 .55.45 1 1 1h6c.55 0 1-.45 1-1v-2.26c1.81-1.27 3-3.36 3-5.74 0-3.86-3.14-7-7-7z"/></svg>
+                        <svg class="callout-icon" width="20" height="20" aria-hidden="true"><use href="#icon-tip"/></svg>
                         <div class="callout-content">
                             <strong>Tell Claude about your .env:</strong> When starting a session, mention "I have API keys in .env" — Claude will use <code>python-dotenv</code> automatically.
                         </div>
@@ -2456,7 +2463,7 @@ if not api_key:
                     </ul>
 
                     <p><strong>Solutions Claude can help with:</strong></p>
-                    <table class="info-table" style="margin: 16px 0;">
+                    <table class="info-table">
                         <tr>
                             <td><strong>Chunked processing</strong></td>
                             <td>Read large files in pieces, process, combine results</td>
@@ -2519,7 +2526,7 @@ with a count of contacts per company.</code></pre>
                     </div>
 
                     <p><strong>Common APIs Claude can connect to:</strong></p>
-                    <table class="info-table" style="margin: 16px 0;">
+                    <table class="info-table">
                         <tr>
                             <td><strong>Airtable</strong></td>
                             <td>Databases, CRM, project tracking</td>
@@ -2547,7 +2554,7 @@ with a count of contacts per company.</code></pre>
                     </table>
 
                     <div class="callout callout-warning">
-                        <svg class="callout-icon" viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M1 21h22L12 2 1 21zm12-3h-2v-2h2v2zm0-4h-2v-4h2v4z"/></svg>
+                        <svg class="callout-icon" width="20" height="20" aria-hidden="true"><use href="#icon-warning"/></svg>
                         <div class="callout-content">
                             <strong>API rate limits are real.</strong> Most services limit how many requests you can make per minute/hour. When working with APIs, ask Claude to add rate limiting and error handling. "If the API returns a rate limit error, wait and retry."
                         </div>
@@ -2562,7 +2569,7 @@ with a count of contacts per company.</code></pre>
                     <h3>Accessing Claude from Anywhere</h3>
                     <p><strong>What it is:</strong> Once you're comfortable with Claude Code on your desktop, the next question is: what if you're away from your desk? Claude has three ways to stay connected to your running session remotely — from your phone, a browser, or a messaging app.</p>
 
-                    <table class="info-table" style="margin: 16px 0;">
+                    <table class="info-table">
                         <thead>
                             <tr>
                                 <th style="text-align: left;">Method</th>
@@ -2607,14 +2614,14 @@ with a count of contacts per company.</code></pre>
                     <p>Discord and iMessage follow the same pattern. iMessage requires no bot setup on macOS — it reads your Messages database directly.</p>
 
                     <div class="callout callout-warning">
-                        <svg class="callout-icon" viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M1 21h22L12 2 1 21zm12-3h-2v-2h2v2zm0-4h-2v-4h2v4z"/></svg>
+                        <svg class="callout-icon" width="20" height="20" aria-hidden="true"><use href="#icon-warning"/></svg>
                         <div class="callout-content">
                             <strong>Your machine must stay on.</strong> All three methods run against your local Claude Code session. If your computer sleeps or the session closes, the connection drops. For always-on access, run Claude in a persistent terminal (e.g., <code>tmux</code> or <code>screen</code>).
                         </div>
                     </div>
 
                     <div class="callout callout-tip">
-                        <svg class="callout-icon" viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M9 21c0 .55.45 1 1 1h4c.55 0 1-.45 1-1v-1H9v1zm3-19C8.14 2 5 5.14 5 9c0 2.38 1.19 4.47 3 5.74V17c0 .55.45 1 1 1h6c.55 0 1-.45 1-1v-2.26c1.81-1.27 3-3.36 3-5.74 0-3.86-3.14-7-7-7z"/></svg>
+                        <svg class="callout-icon" width="20" height="20" aria-hidden="true"><use href="#icon-tip"/></svg>
                         <div class="callout-content">
                             <strong>Start with Remote Control.</strong> It's GA, requires no extra installs, and gives you the fullest experience. Try Channels later when you want a lighter, message-based workflow.
                         </div>
@@ -2642,7 +2649,7 @@ with a count of contacts per company.</code></pre>
                 <p class="section-intro">Move from scripts and analysis to production web applications. These topics introduce new tools, new infrastructure, and new ways of thinking about software.</p>
 
                 <div class="callout callout-info">
-                    <svg class="callout-icon" viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
+                    <svg class="callout-icon" width="20" height="20" aria-hidden="true"><use href="#icon-info"/></svg>
                     <div class="callout-content">
                         <strong>You should be comfortable with:</strong> Everything in Level 2 — especially project configuration (CLAUDE.md), working with APIs, and debugging. You should feel confident navigating the terminal, reading errors, and guiding Claude through multi-step tasks.
                     </div>
@@ -2673,7 +2680,7 @@ with a count of contacts per company.</code></pre>
                     <p><strong>What it is:</strong> A web application runs in a browser instead of the terminal. Instead of a script that processes data and outputs a file, you get a live, interactive interface — forms, tables, charts, navigation — that anyone on your network (or the internet) can use.</p>
 
                     <p><strong>The stack Claude builds with:</strong></p>
-                    <table class="info-table" style="margin: 16px 0;">
+                    <table class="info-table">
                         <tr>
                             <td><strong>Flask</strong></td>
                             <td>Python web framework — handles URLs, forms, and page rendering. Lightweight and beginner-friendly.</td>
@@ -2728,7 +2735,7 @@ routes, services, and templates folders.</code></pre>
                     </div>
 
                     <div class="callout callout-tip">
-                        <svg class="callout-icon" viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M9 21c0 .55.45 1 1 1h4c.55 0 1-.45 1-1v-1H9v1zm3-19C8.14 2 5 5.14 5 9c0 2.38 1.19 4.47 3 5.74V17c0 .55.45 1 1 1h6c.55 0 1-.45 1-1v-2.26c1.81-1.27 3-3.36 3-5.74 0-3.86-3.14-7-7-7z"/></svg>
+                        <svg class="callout-icon" width="20" height="20" aria-hidden="true"><use href="#icon-tip"/></svg>
                         <div class="callout-content">
                             <strong>Start with a PRD.</strong> Before building, write a <a href="#tab-prd" class="inline-link" onclick="document.querySelector('[data-tab=prd]').click(); return false;">Product Requirements Document</a> that describes what your app should do. The clearer your requirements, the better Claude's first attempt will be.
                         </div>
@@ -2777,7 +2784,7 @@ handling and retry logic for cold starts. The database uses the
                     </div>
 
                     <div class="callout callout-warning">
-                        <svg class="callout-icon" viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M1 21h22L12 2 1 21zm12-3h-2v-2h2v2zm0-4h-2v-4h2v4z"/></svg>
+                        <svg class="callout-icon" width="20" height="20" aria-hidden="true"><use href="#icon-warning"/></svg>
                         <div class="callout-content">
                             <strong>Always use parameterized queries.</strong> Never build SQL strings by concatenating user input — this creates SQL injection vulnerabilities. Tell Claude: "Use parameterized queries for all database operations."
                         </div>
@@ -2826,7 +2833,7 @@ Actions so future pushes deploy automatically.</code></pre>
                     </div>
 
                     <div class="callout callout-tip">
-                        <svg class="callout-icon" viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M9 21c0 .55.45 1 1 1h4c.55 0 1-.45 1-1v-1H9v1zm3-19C8.14 2 5 5.14 5 9c0 2.38 1.19 4.47 3 5.74V17c0 .55.45 1 1 1h6c.55 0 1-.45 1-1v-2.26c1.81-1.27 3-3.36 3-5.74 0-3.86-3.14-7-7-7z"/></svg>
+                        <svg class="callout-icon" width="20" height="20" aria-hidden="true"><use href="#icon-tip"/></svg>
                         <div class="callout-content">
                             <strong>Use Python 3.12 on Azure.</strong> Even if you run 3.13+ locally, Azure's ODBC drivers and build system are most reliable with 3.12. Specify the runtime explicitly when creating your app service.
                         </div>
@@ -2849,7 +2856,7 @@ Actions so future pushes deploy automatically.</code></pre>
                     </ol>
 
                     <div class="callout callout-warning">
-                        <svg class="callout-icon" viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M1 21h22L12 2 1 21zm12-3h-2v-2h2v2zm0-4h-2v-4h2v4z"/></svg>
+                        <svg class="callout-icon" width="20" height="20" aria-hidden="true"><use href="#icon-warning"/></svg>
                         <div class="callout-content">
                             <strong>Common gotcha:</strong> If you get a 401 error on the login callback, it's almost always because you forgot to enable ID token issuance on the App Registration. This is the #1 cause of auth setup failures.
                         </div>
@@ -2927,7 +2934,7 @@ from Azure and adding it as a GitHub secret.</code></pre>
                     </div>
 
                     <div class="callout callout-tip">
-                        <svg class="callout-icon" viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M9 21c0 .55.45 1 1 1h4c.55 0 1-.45 1-1v-1H9v1zm3-19C8.14 2 5 5.14 5 9c0 2.38 1.19 4.47 3 5.74V17c0 .55.45 1 1 1h6c.55 0 1-.45 1-1v-2.26c1.81-1.27 3-3.36 3-5.74 0-3.86-3.14-7-7-7z"/></svg>
+                        <svg class="callout-icon" width="20" height="20" aria-hidden="true"><use href="#icon-tip"/></svg>
                         <div class="callout-content">
                             <strong>Use path filters.</strong> Add <code>paths: ['app/**', 'requirements.txt', 'run.py']</code> to your workflow trigger so it only deploys when you change actual app code — not documentation or notes.
                         </div>
@@ -2981,7 +2988,7 @@ Each should fit in ~30 lines.</code></pre>
                         <li><strong>Tiered priority (P0/P1/P2)</strong> — group tests by blast radius. P0 = money/safety-critical, hard-fails the build on any regression. P1/P2 can warn without blocking.</li>
                     </ul>
                     <div class="callout callout-tip">
-                        <svg class="callout-icon" viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M9 21c0 .55.45 1 1 1h4c.55 0 1-.45 1-1v-1H9v1zm3-19C8.14 2 5 5.14 5 9c0 2.38 1.19 4.47 3 5.74V17c0 .55.45 1 1 1h6c.55 0 1-.45 1-1v-2.26c1.81-1.27 3-3.36 3-5.74 0-3.86-3.14-7-7-7z"/></svg>
+                        <svg class="callout-icon" width="20" height="20" aria-hidden="true"><use href="#icon-tip"/></svg>
                         <div class="callout-content">
                             <strong>Data round-trip first.</strong> If you only add one functional test, make it round-trip. Submit the edit form, read the row back, assert every column matches. Catches the most common AI bug: edit handlers that null out fields not shown in the form.
                         </div>
@@ -3106,7 +3113,7 @@ each through the canonical pattern.</code></pre>
                     </div>
 
                     <div class="callout callout-tip">
-                        <svg class="callout-icon" viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M9 21c0 .55.45 1 1 1h4c.55 0 1-.45 1-1v-1H9v1zm3-19C8.14 2 5 5.14 5 9c0 2.38 1.19 4.47 3 5.74V17c0 .55.45 1 1 1h6c.55 0 1-.45 1-1v-2.26c1.81-1.27 3-3.36 3-5.74 0-3.86-3.14-7-7-7z"/></svg>
+                        <svg class="callout-icon" width="20" height="20" aria-hidden="true"><use href="#icon-tip"/></svg>
                         <div class="callout-content">
                             <strong>Pair with the CI step above.</strong> The <code>pytest</code> step in your GitHub Actions workflow runs these guards on every push — any reintroduced violation fails the build and blocks the deploy, without anyone having to remember the rule.
                         </div>
@@ -3191,7 +3198,7 @@ fi</code></pre>
                     </div>
 
                     <div class="callout callout-tip">
-                        <svg class="callout-icon" viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M9 21c0 .55.45 1 1 1h4c.55 0 1-.45 1-1v-1H9v1zm3-19C8.14 2 5 5.14 5 9c0 2.38 1.19 4.47 3 5.74V17c0 .55.45 1 1 1h6c.55 0 1-.45 1-1v-2.26c1.81-1.27 3-3.36 3-5.74 0-3.86-3.14-7-7-7z"/></svg>
+                        <svg class="callout-icon" width="20" height="20" aria-hidden="true"><use href="#icon-tip"/></svg>
                         <div class="callout-content">
                             <strong>Keep hooks in version control.</strong> The <code>.git/hooks/</code> folder isn't tracked. Put the real source under <code>scripts/hooks/</code>, then add a one-line <code>scripts/install_hooks.sh</code> that symlinks them in. A fresh clone runs that once and the protections are restored.
                         </div>
@@ -3229,7 +3236,7 @@ install script:
                     <p><strong>What it is:</strong> The difference between a tool that works and a tool people <em>want</em> to use. Modern web UI frameworks let Claude build professional-looking interfaces without you designing anything — you describe what you want, Claude applies proven patterns.</p>
 
                     <p><strong>The UI toolkit:</strong></p>
-                    <table class="info-table" style="margin: 16px 0;">
+                    <table class="info-table">
                         <tr>
                             <td><strong>Tailwind CSS</strong></td>
                             <td>Utility-first CSS framework. Instead of writing custom styles, you compose classes: <code>bg-blue-500 text-white p-4 rounded</code>. Produces consistent, professional results fast.</td>
@@ -3268,7 +3275,7 @@ base.html with:
                     </div>
 
                     <div class="callout callout-tip">
-                        <svg class="callout-icon" viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M9 21c0 .55.45 1 1 1h4c.55 0 1-.45 1-1v-1H9v1zm3-19C8.14 2 5 5.14 5 9c0 2.38 1.19 4.47 3 5.74V17c0 .55.45 1 1 1h6c.55 0 1-.45 1-1v-2.26c1.81-1.27 3-3.36 3-5.74 0-3.86-3.14-7-7-7z"/></svg>
+                        <svg class="callout-icon" width="20" height="20" aria-hidden="true"><use href="#icon-tip"/></svg>
                         <div class="callout-content">
                             <strong>Show Claude a screenshot.</strong> The fastest way to get the UI you want is to paste a screenshot of a design you like and say "Make it look like this." Claude will match the layout, colors, and component patterns.
                         </div>
@@ -3407,8 +3414,8 @@ base.html with:
                             </div>
                         </div>
 
-                        <div class="callout callout-info" style="margin: 16px 0;">
-                            <svg class="callout-icon" viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
+                        <div class="callout callout-info">
+                            <svg class="callout-icon" width="20" height="20" aria-hidden="true"><use href="#icon-info"/></svg>
                             <div class="callout-content">
                                 <strong>Recommended starting point:</strong> After setting your model and effort level with the <a href="#step-2-2" class="inline-link">Phase 2 commands</a>, add permissions to reduce approval prompts. Copy the example below — it's a complete file you can paste as-is, or merge the <code>permissions</code> block into your existing settings.json alongside any hooks you've already set up.
                             </div>
@@ -3471,7 +3478,7 @@ base.html with:
                         <p>As you build more powerful tools, you may want to connect to external services (Airtable, HubSpot, Google Sheets, etc.). These connections use <strong>API keys</strong>—secret passwords that grant access.</p>
 
                         <div class="callout callout-warning" style="margin: 12px 0;">
-                            <svg class="callout-icon" viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M1 21h22L12 2 1 21zm12-3h-2v-2h2v2zm0-4h-2v-4h2v4z"/></svg>
+                            <svg class="callout-icon" width="20" height="20" aria-hidden="true"><use href="#icon-warning"/></svg>
                             <div class="callout-content">
                                 <strong>Never put API keys directly in your code.</strong> Anyone who sees your code would have your keys. Instead, store them in a <code>.env</code> file.
                             </div>
@@ -3534,8 +3541,8 @@ HUBSPOT_API_KEY=your_key_here</code></pre>
                             </div>
                         </div>
 
-                        <div class="callout callout-info" style="margin: 16px 0;">
-                            <svg class="callout-icon" viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
+                        <div class="callout callout-info">
+                            <svg class="callout-icon" width="20" height="20" aria-hidden="true"><use href="#icon-info"/></svg>
                             <div class="callout-content">
                                 <strong>When to use it:</strong> Ask Claude to "review this project using the code review requirements" whenever you've built something substantial and want to catch bugs before they bite you. It's especially valuable before sharing your work or deploying.
                             </div>
@@ -3573,7 +3580,7 @@ HUBSPOT_API_KEY=your_key_here</code></pre>
                         </div>
 
                         <p style="margin-top: 16px;"><strong>Warning phrases to listen for:</strong></p>
-                        <table class="info-table" style="margin: 16px 0;">
+                        <table class="info-table">
                             <thead>
                                 <tr>
                                     <th style="text-align: left;">When Claude says...</th>
@@ -3623,7 +3630,7 @@ If yes to any: stop, fix the underlying issue, then proceed.</code></pre>
                         </div>
 
                         <div class="callout callout-tip">
-                            <svg class="callout-icon" viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M9 21c0 .55.45 1 1 1h4c.55 0 1-.45 1-1v-1H9v1zm3-19C8.14 2 5 5.14 5 9c0 2.38 1.19 4.47 3 5.74V17c0 .55.45 1 1 1h6c.55 0 1-.45 1-1v-2.26c1.81-1.27 3-3.36 3-5.74 0-3.86-3.14-7-7-7z"/></svg>
+                            <svg class="callout-icon" width="20" height="20" aria-hidden="true"><use href="#icon-tip"/></svg>
                             <div class="callout-content">
                                 <strong>If Claude has slipped 3+ times in one session,</strong> the muscle memory of defending the shortcuts is now loaded. Start a <a href="#advanced-session-hygiene" class="inline-link">fresh session</a> rather than fighting it for another hour.
                             </div>
@@ -3831,8 +3838,8 @@ If yes to any: stop, fix the underlying issue, then proceed.</code></pre>
                         <div class="prd-content">
                             <p><strong>A PRD (Product Requirements Document)</strong> helps you define initial requirements before building. For complex projects, spending 10 minutes on a PRD saves hours of rework.</p>
 
-                            <div class="callout callout-info" style="margin: 16px 0;">
-                                <svg class="callout-icon" viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
+                            <div class="callout callout-info">
+                                <svg class="callout-icon" width="20" height="20" aria-hidden="true"><use href="#icon-info"/></svg>
                                 <div class="callout-content">
                                     <strong>PRD → PROJECT.md</strong><br>
                                     A PRD is great for initial planning, but it gets stale as the project evolves. Once you've captured your requirements, transfer the key points into <code>PROJECT.md</code>—that's the living document you and Claude maintain throughout the project. Your project templates include a <code>PROJECT.md</code> ready for this.
@@ -3868,7 +3875,7 @@ If yes to any: stop, fix the underlying issue, then proceed.</code></pre>
                             </div>
 
                             <div class="callout callout-tip">
-                                <svg class="callout-icon" viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M9 21c0 .55.45 1 1 1h4c.55 0 1-.45 1-1v-1H9v1zm3-19C8.14 2 5 5.14 5 9c0 2.38 1.19 4.47 3 5.74V17c0 .55.45 1 1 1h6c.55 0 1-.45 1-1v-2.26c1.81-1.27 3-3.36 3-5.74 0-3.86-3.14-7-7-7z"/></svg>
+                                <svg class="callout-icon" width="20" height="20" aria-hidden="true"><use href="#icon-tip"/></svg>
                                 <div class="callout-content">
                                     <strong>Let Claude help write it.</strong> Start with: "Help me write a PRD for [your project idea]. Ask me questions to clarify requirements."
                                 </div>
