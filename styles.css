@@ -322,6 +322,12 @@ a:hover {
     margin-bottom: var(--space-sm);
 }
 
+.hero-tagline {
+    font-size: 1.75rem;
+    font-weight: 700;
+    margin-bottom: var(--space-sm);
+}
+
 .hero-subtitle {
     font-size: 1.25rem;
     opacity: 0.9;
@@ -2581,6 +2587,10 @@ body[data-os="windows"] li.os-specific.windows {
 
     .hero h1 {
         font-size: 2rem;
+    }
+
+    .hero-tagline {
+        font-size: 1.35rem;
     }
 
     .hero-subtitle {
