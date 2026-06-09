@@ -732,12 +732,12 @@
                         <div class="code-block">
                             <div class="code-header">
                                 <span class="code-label">Terminal</span>
-                                <button class="copy-btn" data-copy-mac="mkdir -p ~/Documents/projects" data-copy-windows="mkdir %USERPROFILE%\Documents\projects">
+                                <button class="copy-btn" data-copy-mac="mkdir -p ~/Documents/projects" data-copy-windows="mkdir $env:USERPROFILE\Documents\projects">
                                     <span class="copy-text">Copy</span>
                                     <span class="copied-text">Copied!</span>
                                 </button>
                             </div>
-                            <pre><code class="os-text" data-mac="mkdir -p ~/Documents/projects" data-windows="mkdir %USERPROFILE%\Documents\projects">mkdir -p ~/Documents/projects</code></pre>
+                            <pre><code class="os-text" data-mac="mkdir -p ~/Documents/projects" data-windows="mkdir $env:USERPROFILE\Documents\projects">mkdir -p ~/Documents/projects</code></pre>
                         </div>
                         <p class="code-note"><code>mkdir</code> = "make directory" (creates a new folder)</p>
 
@@ -1324,14 +1324,14 @@
                         <div class="code-block">
                             <div class="code-header">
                                 <span class="code-label">Terminal (outside Claude)</span>
-                                <button class="copy-btn" data-copy-mac="cd ~/Documents/projects && mkdir my-first-project && cd my-first-project" data-copy-windows="cd %USERPROFILE%\Documents\projects && mkdir my-first-project && cd my-first-project">
+                                <button class="copy-btn" data-copy-mac="cd ~/Documents/projects && mkdir my-first-project && cd my-first-project" data-copy-windows="cd $env:USERPROFILE\Documents\projects ; mkdir my-first-project ; cd my-first-project">
                                     <span class="copy-text">Copy</span>
                                     <span class="copied-text">Copied!</span>
                                 </button>
                             </div>
-                            <pre><code class="os-text" data-mac="cd ~/Documents/projects && mkdir my-first-project && cd my-first-project" data-windows="cd %USERPROFILE%\Documents\projects && mkdir my-first-project && cd my-first-project">cd ~/Documents/projects && mkdir my-first-project && cd my-first-project</code></pre>
+                            <pre><code class="os-text" data-mac="cd ~/Documents/projects && mkdir my-first-project && cd my-first-project" data-windows="cd $env:USERPROFILE\Documents\projects ; mkdir my-first-project ; cd my-first-project">cd ~/Documents/projects && mkdir my-first-project && cd my-first-project</code></pre>
                         </div>
-                        <p class="code-note"><code>cd</code> = change directory, <code>mkdir</code> = make directory. The <code>&&</code> chains commands together (runs each if the previous succeeds).</p>
+                        <p class="code-note"><code>cd</code> = change directory, <code>mkdir</code> = make directory. The <code>&&</code> (Mac) or <code>;</code> (Windows PowerShell) chains the commands so they run one after another.</p>
 
                         <h4 style="margin: 20px 0 10px 0; color: var(--text-color);">Part B: Working with Claude (inside Claude)</h4>
                         <p>Now start Claude to work on your project:</p>
@@ -1531,12 +1531,12 @@
                         <div class="code-block">
                             <div class="code-header">
                                 <span class="code-label">Terminal (outside Claude)</span>
-                                <button class="copy-btn" data-copy-mac="mkdir -p .claude/rules" data-copy-windows="mkdir .claude && mkdir .claude\rules">
+                                <button class="copy-btn" data-copy-mac="mkdir -p .claude/rules" data-copy-windows="mkdir .claude ; mkdir .claude\rules">
                                     <span class="copy-text">Copy</span>
                                     <span class="copied-text">Copied!</span>
                                 </button>
                             </div>
-                            <pre><code class="os-text" data-mac="mkdir -p .claude/rules" data-windows="mkdir .claude && mkdir .claude\rules">mkdir -p .claude/rules</code></pre>
+                            <pre><code class="os-text" data-mac="mkdir -p .claude/rules" data-windows="mkdir .claude ; mkdir .claude\rules">mkdir -p .claude/rules</code></pre>
                         </div>
                         <p class="code-note">This creates both the <code>.claude</code> folder and the <code>rules</code> subfolder in one command.</p>
 
@@ -1862,12 +1862,12 @@
                         <div class="code-block">
                             <div class="code-header">
                                 <span class="code-label">Terminal (outside Claude)</span>
-                                <button class="copy-btn" data-copy='git init && git add . && git commit -m "Initial project setup"'>
+                                <button class="copy-btn" data-copy-mac='git init && git add . && git commit -m "Initial project setup"' data-copy-windows='git init ; git add . ; git commit -m "Initial project setup"'>
                                     <span class="copy-text">Copy</span>
                                     <span class="copied-text">Copied!</span>
                                 </button>
                             </div>
-                            <pre><code>git init && git add . && git commit -m "Initial project setup"</code></pre>
+                            <pre><code class="os-text" data-mac='git init && git add . && git commit -m "Initial project setup"' data-windows='git init ; git add . ; git commit -m "Initial project setup"'>git init && git add . && git commit -m "Initial project setup"</code></pre>
                         </div>
                         <p class="code-note"><code>git init</code> = start tracking this folder, <code>git add .</code> = stage all files, <code>git commit</code> = save a snapshot with a message</p>
 
@@ -1979,12 +1979,12 @@
                     <div class="code-block">
                         <div class="code-header">
                             <span class="code-label">Terminal (outside Claude)</span>
-                            <button class="copy-btn" data-copy='git add . && git commit -m "Description of changes" && git push'>
+                            <button class="copy-btn" data-copy-mac='git add . && git commit -m "Description of changes" && git push' data-copy-windows='git add . ; git commit -m "Description of changes" ; git push'>
                                 <span class="copy-text">Copy</span>
                                 <span class="copied-text">Copied!</span>
                             </button>
                         </div>
-                        <pre><code>git add . && git commit -m "Description of changes" && git push</code></pre>
+                        <pre><code class="os-text" data-mac='git add . && git commit -m "Description of changes" && git push' data-windows='git add . ; git commit -m "Description of changes" ; git push'>git add . && git commit -m "Description of changes" && git push</code></pre>
                     </div>
                     <p class="code-note"><code>git push</code> = upload your commits to GitHub (your backup)</p>
                 </div>
@@ -1995,7 +1995,7 @@
                     <ol class="workflow-list">
                         <li><strong>Exit Claude if running:</strong> <code>/exit</code></li>
                         <li><strong>Check your location:</strong> <code>pwd</code></li>
-                        <li><strong>Navigate to new project:</strong> <code class="os-text" data-mac="cd ~/Documents/projects/other-project" data-windows="cd %USERPROFILE%\Documents\projects\other-project">cd ~/Documents/projects/other-project</code></li>
+                        <li><strong>Navigate to new project:</strong> <code class="os-text" data-mac="cd ~/Documents/projects/other-project" data-windows="cd $env:USERPROFILE\Documents\projects\other-project">cd ~/Documents/projects/other-project</code></li>
                         <li><strong>Deactivate old venv:</strong> <code>deactivate</code></li>
                         <li><strong>Activate new venv:</strong> <code class="os-text" data-mac="source venv/bin/activate" data-windows="venv\Scripts\activate">source venv/bin/activate</code></li>
                         <li><strong>Start Claude:</strong> <code>claude</code></li>

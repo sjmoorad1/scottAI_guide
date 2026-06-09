@@ -2,6 +2,11 @@
 
 User-facing changes to the Agentic AI Setup Guide. Internal fixes (typos, CSS tweaks) are not logged.
 
+## 2026-06-09
+
+### Fixed
+- [Phase 3] !"Windows commands now work in PowerShell — replaced `&&` (unsupported in the built-in Windows PowerShell) with `;`, and fixed `%USERPROFILE%` to `$env:USERPROFILE`" The guide directs Windows users to PowerShell, but Windows PowerShell 5.1 (shipped with Windows 10/11) does not support `&&`. Fixed the `&&` in the create-project-folder and `mkdir .claude` variants, added proper PowerShell variants to both git command blocks (git init/add/commit and git add/commit/push), corrected `%USERPROFILE%` to `$env:USERPROFILE` in the projects-folder and switch-project commands, and updated the && explanation note. (The `%USERPROFILE%` in the PATH/Environment-Variables GUI step is left as-is — correct for that dialog.)
+
 ## 2026-05-25
 
 ### Added
