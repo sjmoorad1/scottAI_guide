@@ -907,6 +907,24 @@
                                     </div>
                                 </div>
                             </div>
+
+                            <details class="troubleshoot-accordion">
+                                <summary>Already installed Claude with Homebrew?</summary>
+                                <div class="accordion-content">
+                                    <p>Homebrew copies of Claude <strong>cannot auto-update</strong> — Homebrew owns the files, so Claude isn't allowed to replace them. Worse, the standard <code>claude-code</code> cask lags about a week behind, so <code>brew upgrade claude-code</code> will often say "up to date" while you're missing the newest features. Switch to the native installer (which updates itself automatically in the background):</p>
+                                    <div class="code-block">
+                                        <div class="code-header">
+                                            <span class="code-label">Terminal</span>
+                                            <button class="copy-btn" data-copy="brew uninstall --cask claude-code 2>/dev/null; brew uninstall --cask claude-code@latest 2>/dev/null; curl -fsSL https://claude.ai/install.sh | bash">
+                                                <span class="copy-text">Copy</span>
+                                                <span class="copied-text">Copied!</span>
+                                            </button>
+                                        </div>
+                                        <pre><code>brew uninstall --cask claude-code 2>/dev/null; brew uninstall --cask claude-code@latest 2>/dev/null; curl -fsSL https://claude.ai/install.sh | bash</code></pre>
+                                    </div>
+                                    <p style="margin-top: 8px;">This removes whichever Homebrew cask you have, installs the native version, and keeps all your settings and login. Restart your terminal afterward and verify with <code>claude --version</code>. From then on, don't run <code>brew upgrade</code> for Claude — updates happen automatically.</p>
+                                </div>
+                            </details>
                         </div>
 
                         <div class="os-specific windows">
@@ -1020,22 +1038,23 @@
                         </details>
 
                         <h4 style="margin: 24px 0 12px 0;">Set Your Default Model</h4>
-                        <p>Claude offers multiple models. <strong>Sonnet</strong> is fast, cost-effective, and more than capable for most tasks. <strong>Opus</strong> is the most powerful but uses more of your quota. Set Sonnet as your default:</p>
+                        <p>Claude offers multiple models. <strong>Opus</strong> is the most capable and gives the best results for real work. <strong>Sonnet</strong> is faster and uses less of your quota, but you'll notice the difference on harder tasks. We recommend Opus as your default. Setting it happens <em>inside</em> a Claude session: type <code>claude</code> in the terminal to start one, then run:</p>
                         <div class="code-block">
                             <div class="code-header">
-                                <span class="code-label">Terminal</span>
-                                <button class="copy-btn" data-copy="claude config set model sonnet">
+                                <span class="code-label">Inside Claude</span>
+                                <button class="copy-btn" data-copy="/model opus">
                                     <span class="copy-text">Copy</span>
                                     <span class="copied-text">Copied!</span>
                                 </button>
                             </div>
-                            <pre><code>claude config set model sonnet</code></pre>
+                            <pre><code>/model opus</code></pre>
                         </div>
+                        <p>This saves Opus as your default for all future sessions. You can also run <code>/model</code> with nothing after it to open an interactive picker — browse the models with arrow keys and press <kbd>Enter</kbd> to switch and save.</p>
 
                         <div class="callout callout-tip">
                             <svg class="callout-icon" width="20" height="20" aria-hidden="true"><use href="#icon-tip"/></svg>
                             <div class="callout-content">
-                                <strong>When to use Opus:</strong> For complex multi-step tasks, deep code refactoring, or when Sonnet isn't getting it right, switch to Opus for that session: <code>claude --model opus</code>. Using the alias (e.g. <code>sonnet</code>, <code>opus</code>) always resolves to the latest version. <a href="https://docs.anthropic.com/en/docs/about-claude/models" target="_blank" class="inline-link">Learn more about Claude's models →</a>
+                                <strong>When to use Sonnet:</strong> If you're burning through your quota too quickly, switch to Sonnet for routine tasks — quick questions, simple edits, boilerplate code: <code>claude --model sonnet</code> (one session only, doesn't change your default). Using the alias (e.g. <code>sonnet</code>, <code>opus</code>) always resolves to the latest version. <a href="https://docs.anthropic.com/en/docs/about-claude/models" target="_blank" class="inline-link">Learn more about Claude's models →</a>
                             </div>
                         </div>
 
@@ -1067,16 +1086,16 @@
                                 </tr>
                             </tbody>
                         </table>
-                        <p>Set <code>high</code> as your default:</p>
+                        <p>Set <code>high</code> as your default — like <code>/model</code>, this runs inside a Claude session:</p>
                         <div class="code-block">
                             <div class="code-header">
-                                <span class="code-label">Terminal</span>
-                                <button class="copy-btn" data-copy="claude config set effortLevel high">
+                                <span class="code-label">Inside Claude</span>
+                                <button class="copy-btn" data-copy="/effort high">
                                     <span class="copy-text">Copy</span>
                                     <span class="copied-text">Copied!</span>
                                 </button>
                             </div>
-                            <pre><code>claude config set effortLevel high</code></pre>
+                            <pre><code>/effort high</code></pre>
                         </div>
 
                         <div class="callout callout-tip">
@@ -3426,7 +3445,7 @@ base.html with:
                             <div class="code-header">
                                 <span class="code-label">~/.claude/settings.json</span>
                                 <button class="copy-btn" data-copy='{
-  "model": "sonnet",
+  "model": "opus",
   "effortLevel": "high",
   "permissions": {
     "defaultMode": "acceptEdits",
@@ -3452,7 +3471,7 @@ base.html with:
                                 </button>
                             </div>
                             <pre><code>{
-  "model": "sonnet",
+  "model": "opus",
   "effortLevel": "high",
   "permissions": {
     "defaultMode": "acceptEdits",

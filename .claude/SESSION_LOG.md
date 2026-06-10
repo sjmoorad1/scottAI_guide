@@ -23,3 +23,10 @@
 - Replaced all emoji with flat filled SVG icons; fixed CSS conflicts causing double icons/logos
 - Added email capture + Google Sheets logging (success/failed/return visits)
 - Added PRD section to principles, glossary, and new Reference tab
+
+## 2026-06-10: Fixed stale model/effort commands, added Homebrew migration note
+- `claude config set` subcommand removed in CLI v2.1.170 (verified live — gets swallowed as a chat prompt); replaced with in-session `/model sonnet` and `/effort high`, which persist as defaults since v2.1.153
+- Added Mac accordion in Step 2.2: Homebrew casks can't auto-update (and `claude-code` cask lags ~1 week); migration one-liner to native installer
+- Install instructions (native installer + npm fallback) verified still correct; Telegram channel steps verified still correct
+- CHANGELOG.md updated with popup-flagged entries
+- Flipped model recommendation to Opus-default (Scott's preference); Sonnet now positioned as the quota-saver option. Updated Phase 2 section, callout, and Tips settings.json example.

@@ -2,6 +2,17 @@
 
 User-facing changes to the Agentic AI Setup Guide. Internal fixes (typos, CSS tweaks) are not logged.
 
+## 2026-06-10
+
+### Fixed
+- [Phase 2] !"Default model and effort commands updated — `claude config set` no longer exists; use `/model sonnet` and `/effort high` inside a Claude session (they now save as your default)" Replaced `claude config set model sonnet` and `claude config set effortLevel high` (removed subcommand, silently swallowed as a chat prompt in v2.1.170) with in-session `/model` and `/effort` slash commands, which persist as defaults since v2.1.153. Code labels changed from "Terminal" to "Inside Claude" and added a note about the interactive `/model` picker.
+
+### Added
+- [Phase 2] !"New troubleshooting note for Mac: installed Claude with Homebrew? It can't auto-update — here's how to switch to the native installer" Accordion in Step 2.2 (Mac block) explaining Homebrew casks can't self-update and `claude-code` lags ~1 week, with a one-line migration command (uninstall both casks, run native installer) and a warning not to use `brew upgrade` afterward.
+
+### Changed
+- [Phase 2] !"Recommended default model is now Opus — use Sonnet only if you're watching your quota" Flipped the model recommendation from Sonnet-default/Opus-when-needed to Opus-default/Sonnet-for-routine-tasks. Updated the Phase 2 model section, the "When to use" callout (now Sonnet-focused), and both `"model"` values in the Tips tab settings.json example.
+
 ## 2026-06-09
 
 ### Fixed
