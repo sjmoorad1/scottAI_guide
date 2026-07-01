@@ -2,6 +2,14 @@
 
 User-facing changes to the Agentic AI Setup Guide. Internal fixes (typos, CSS tweaks) are not logged.
 
+## 2026-06-30
+
+### Fixed
+- [Phase 2] !"Corrected the Max plan — it's two tiers (5&times; $100 / 20&times; $200), and Claude Code usage isn't unlimited (5-hour rolling window + weekly cap)" Fixed the Max plan card: was "Max Plan ($100/month)" with "Unlimited Claude Code usage" — both inaccurate. Now shows both Max tiers and the real usage limits.
+
+### Added
+- [Phase 2] !"Added the new xhigh effort level" Added an `xhigh` row to the effort-level table (between `high` and `max`) and to the Reference command list; clarified `max` as the hardest one-off tasks.
+
 ## 2026-06-10
 
 ### Fixed
