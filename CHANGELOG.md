@@ -2,6 +2,11 @@
 
 User-facing changes to the Agentic AI Setup Guide. Internal fixes (typos, CSS tweaks) are not logged.
 
+## 2026-07-01
+
+### Added
+- [Overview] !"The 'Where This Goes' showcase now shows real app screenshots instead of placeholders" Replaced the three placeholder tiles (Trading Operations, Production Tracking, Market Analytics) with real screenshots — BHM bid-optimization tool, Katz roast/production dashboard, and ALH hotel market analytics. Sensitive financials masked (fake numbers) and the RevPAR chart blurred; the basis table cropped out of the BHM shot.
+
 ## 2026-06-30
 
 ### Fixed
